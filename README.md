@@ -1,1 +1,1 @@
-# hattrickhub.io
+## hattrick-hub.github.io
