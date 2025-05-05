@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'es' }}" dir="{{ page.dir | default: site.dir | default: 'ltr' }}">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="robots" content="index, follow">
+  {% seo %}
+  <!-- Ajustado el theme-color para coincidir con la paleta del CSS -->
+  <meta name="theme-color" content="#1565c0" id="themeColorMeta">
+  <meta name="color-scheme" content="light dark">
+  <!-- Añadido soporte para favicon -->
+  <link rel="icon" href="{{ '/assets/img/favicon.ico' | relative_url }}" type="image/x-icon">
+  <!-- Carga del CSS optimizado -->
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+
+<body>
+  <!-- Añadido el skip-link para accesibilidad -->
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+  <!-- Inclusión del sprite SVG para íconos -->
+  {% include sprite.svg %}
+  <div class="grid-layout">
+    {% include header.html %}
+    {% include news-bar.html %}
+    {% include sidebar.html %}
+    <!-- Añadido id="main-content" para el skip-link -->
+    <main class="hub-container" role="main" id="main-content">
+      {{ content }}
+    </main>
+    {% include footer.html %}
+  </div>
+  <!-- Botón back-to-top con atributos de accesibilidad -->
+  <button class="back-to-top" aria-label="Volver arriba" title="Volver arriba">
+    <svg class="icon icon-arrow" aria-hidden="true" focusable="false">
+      <use xlink:href="#icon-arrow"></use>
+    </svg>
+  </button>
+  <!-- Script deferido para mejorar el rendimiento -->
+  <script defer src="{{ '/assets/js/script.js' | relative_url }}"></script>
+</body>
+
+</html>

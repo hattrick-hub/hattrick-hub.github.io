@@ -1,0 +1,23 @@
+---
+layout: default
+---
+
+<section class="manual-section" aria-label="Manual de Hattrick">
+  <h2>{{ page.title }}</h2>
+  <div class="manual-grid">
+    {% for manual in site.manual %}
+<article class="card">
+  <details>
+    <summary aria-label="Expandir guía: {{ manual.title | escape }}">
+      {{ manual.title }}
+      {% if manual.difficulty %}
+      <span class="difficulty {{ manual.difficulty | downcase }}">{{ manual.difficulty }}</span>
+      {% endif %}
+    </summary>
+    <p>{{ manual.excerpt }}</p>
+    <a href="{{ manual.url | relative_url }}" class="btn btn-primary" aria-label="Leer más sobre {{ manual.title | escape }}">Leer más</a>
+  </details>
+</article>
+    {% endfor %}
+  </div>
+</section>

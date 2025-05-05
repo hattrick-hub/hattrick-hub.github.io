@@ -1,0 +1,10 @@
+# _data/herramientas.yml
+- category: "Herramientas"
+  list:
+    - name: "Calculadora de entrenamiento"
+      url: "https://hattrick-tools.com/training"
+      description: "Optimiza el entrenamiento de tus jugadores."
+      rating: 4
+      featured: true
+      lastUpdated: "2025-03-15"
+      image: "/assets/img/Herramientas.webp" 

@@ -1,0 +1,9 @@
+# _data/abreviaturas.yml
+- category: "Posiciones"
+  list:
+    - name: "GK"
+      description: "Portero"
+      notas: "Clave para detener ataques rivales y organizar la defensa."
+    - name: "CD"
+      description: "Defensa Central"
+      notas: "Fundamental para bloquear ataques y cortar pases en profundidad."

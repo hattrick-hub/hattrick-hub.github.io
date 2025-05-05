@@ -1,0 +1,39 @@
+---
+layout: default
+title: Página no encontrada
+permalink: /404.html
+description: La página que buscas no existe en Hattrick Hub. Vuelve al inicio o explora nuestras secciones.
+robots: noindex
+---
+
+<section class="error-404" role="alert" aria-label="Error 404: Página no encontrada">
+  <div class="error-container">
+    <h1>404</h1>
+    <div class="error-divider"></div>
+    <h2>¡Fuera de juego!</h2>
+    <p>La página que buscas no existe o fue movida a otra posición.</p>
+
+    <div class="error-options">
+      <a href="{{ '/' | relative_url }}" class="btn btn-primary" aria-label="Volver a la página de inicio"
+        title="Volver a la página de inicio">
+        <svg class="icon icon-sm" aria-hidden="true">
+          <use xlink:href="#icon-home"></use>
+        </svg>
+        Volver al inicio
+      </a>
+    </div>
+
+    <div class="suggested-links">
+      <h3>Enlaces populares</h3>
+      <ul>
+        {% assign menu_ordenado = site.data.menu | sort: "order" %} {% for item
+        in menu_ordenado %} {% if item.visible and item.url != "/" %}
+        <li>
+          <a href="{{ item.url | relative_url }}" title="{{ item.description | escape }}"
+            aria-label="Explorar {{ item.name | escape }}">{{ item.name }}</a>
+        </li>
+        {% endif %} {% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>

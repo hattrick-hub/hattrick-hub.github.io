@@ -1,0 +1,28 @@
+---
+layout: default
+title: Abreviaturas de Hattrick
+permalink: /abreviaturas/
+description: Significado de abreviaturas y términos usados en Hattrick.
+---
+
+<section class="abreviaturas-section" aria-label="Abreviaturas de Hattrick">
+  <h2>Abreviaturas de Hattrick</h2>
+  <div class="abreviaturas-grid">
+    {% for category in site.data.abreviaturas %}
+<article class="card">
+  <details>
+    <summary aria-label="Expandir categoría: {{ category.category | escape }}">{{ category.category }}</summary>
+    {% for abbr in category.list %}
+    <div class="card--abbr">
+      <h4>{{ abbr.name }}</h4>
+      <p>{{ abbr.description }}</p>
+      {% if abbr.notas %}
+      <p class="notes">{{ abbr.notas }}</p>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </details>
+</article>
+    {% endfor %}
+  </div>
+</section>

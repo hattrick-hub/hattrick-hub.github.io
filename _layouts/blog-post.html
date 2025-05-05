@@ -1,0 +1,37 @@
+---
+layout: default
+---
+
+<section class="blog-post-section" aria-label="Artículo del blog">
+  <article class="blog-post-content">
+    {% if page.image %}
+    <img src="{{ page.image | relative_url }}" alt="{{ page.title | escape }}" class="blog-post-image">
+    {% endif %}
+    <h1>{{ page.title }}</h1>
+    <div class="blog-post-meta">
+      <span>Publicado el {{ page.date | date: "%d/%m/%Y" }}</span>
+      {% if page.author %}
+      <span>Por {{ page.author }}</span>
+      {% endif %}
+      {% if page.categories %}
+      <span>Categorías: {{ page.categories | join: ", " }}</span>
+      {% endif %}
+      {% if page.readingTime %}
+      <span>Tiempo de lectura: {{ page.readingTime }}</span>
+      {% endif %}
+    </div>
+    <div class="blog-post-body">
+      {{ content }}
+    </div>
+    {% if page.tags %}
+    <div class="blog-post-tags">
+      <span>Etiquetas:</span>
+      <ul>
+        {% for tag in page.tags %}
+        <li><a href="/tags/{{ tag | slugify }}">{{ tag }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+  </article>
+</section>
