@@ -9,18 +9,16 @@ layout: default
     {% endif %}
     <h1>{{ page.title }}</h1>
     <div class="blog-post-meta">
-      <span>Publicado el {{ page.date | date: "%d/%m/%Y" }}</span>
+      <span>{{ page.date | date: "%d/%m/%Y" }}</span>
+      <span>{{ page.categories | join: ", " }}</span>
+      {% if page.readingTime %}
+      <span>{{ page.readingTime }}</span>
+      {% endif %}
       {% if page.author %}
       <span>Por {{ page.author }}</span>
       {% endif %}
-      {% if page.categories %}
-      <span>Categorías: {{ page.categories | join: ", " }}</span>
-      {% endif %}
-      {% if page.readingTime %}
-      <span>Tiempo de lectura: {{ page.readingTime }}</span>
-      {% endif %}
     </div>
-    <div class="blog-post-body">
+    <div class="content">
       {{ content }}
     </div>
     {% if page.tags %}
@@ -28,10 +26,10 @@ layout: default
       <span>Etiquetas:</span>
       <ul>
         {% for tag in page.tags %}
-        <li><a href="/tags/{{ tag | slugify }}">{{ tag }}</a></li>
+        <li><a href="/blog/tags/{{ tag | slugify }}">{{ tag }}</a></li>
         {% endfor %}
       </ul>
     </div>
     {% endif %}
-  </article>
+  </div>
 </section>

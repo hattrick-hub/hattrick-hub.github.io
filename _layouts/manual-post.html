@@ -1,19 +1,21 @@
 ---
 layout: default
 ---
-<section class="manual-post-section" aria-label="Guía del manual">
-  <article class="manual-post-content">
+
+<section class="manual-post-section" aria-label="Guía del Manual de Hattrick">
+  <div class="manual-post-content">
     {% if page.image %}
-      <img src="{{ page.image | relative_url }}" alt="{{ page.title | escape }}" class="manual-post-image">
+    <img src="{{ page.image | relative_url }}" alt="{{ page.title | escape }}" class="manual-post-image">
     {% endif %}
     <h1>{{ page.title }}</h1>
     <div class="manual-post-meta">
-      <span>Actualizado el {{ page.lastUpdated | default: page.date | date: "%d/%m/%Y" }}</span>
+      <span>{{ page.date | date: "%d/%m/%Y" }}</span>
+      <span>{{ page.categories | join: ", " }}</span>
       {% if page.difficulty %}
-        <span class="difficulty {{ page.difficulty | downcase }}">{{ page.difficulty }}</span>
+      <span class="difficulty {{ page.difficulty | downcase }}">{{ page.difficulty }}</span>
       {% endif %}
-      {% if page.categories %}
-        <span>Categorías: {{ page.categories | join: ", " }}</span>
+      {% if page.lastUpdated %}
+      <span>Actualizado: {{ page.lastUpdated | date: "%d/%m/%Y" }}</span>
       {% endif %}
     </div>
     {% if page.toc %}
@@ -51,18 +53,18 @@ layout: default
         </ul>
       </nav>
     {% endif %}
-    <div class="manual-post-body">
+    <div class="content">
       {{ content }}
     </div>
     {% if page.tags %}
-      <div class="manual-post-tags">
-        <span>Etiquetas:</span>
-        <ul>
-          {% for tag in page.tags %}
-            <li><a href="/tags/{{ tag | slugify }}">{{ tag }}</a></li>
-          {% endfor %}
-        </ul>
-      </div>
+    <div class="manual-post-tags">
+      <span>Etiquetas:</span>
+      <ul>
+        {% for tag in page.tags %}
+        <li><a href="/manual/tags/{{ tag | slugify }}">{{ tag }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
     {% endif %}
-  </article>
+  </div>
 </section>
