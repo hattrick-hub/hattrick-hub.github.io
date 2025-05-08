@@ -1,10 +1,16 @@
-# _data/herramientas.yml
-- category: "Herramientas"
+- category: Análisis
   list:
-    - name: "Calculadora de entrenamiento"
-      url: "https://hattrick-tools.com/training"
-      description: "Optimiza el entrenamiento de tus jugadores."
+    - name: Match Viewer
+      image: /assets/img/post2.webp
+      description: Herramienta para analizar partidos.
       rating: 4
+      lastUpdated: 2025-01-01
+      url: https://example.com
       featured: true
-      lastUpdated: "2025-03-15"
-      image: "/assets/img/Herramientas.webp" 
+- category: Gestión
+  list:
+    - name: Team Planner
+      description: Planifica tu equipo.
+      rating: 3
+      lastUpdated: 2024-12-01
+      url: https://example.com

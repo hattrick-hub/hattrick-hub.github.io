@@ -24,7 +24,7 @@
   description: "Actualizaciones y noticias rápidas sobre Hattrick."
   order: 4
   visible: true
-  image: "/assets/img/noticias-banner.webp"
+  image: "/assets/img/noticias.webp"
 - name: "Abreviaturas"
   url: "/abreviaturas/"
   icon: "abbr"

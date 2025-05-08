@@ -8,6 +8,7 @@ excerpt: "Descubre cómo reducir las lesiones en tu equipo y gestionar la recupe
 toc: true
 lastUpdated: "2025-04-01"
 ---
+
 Las lesiones pueden ser un dolor de cabeza en Hattrick. Aquí te explicamos cómo minimizarlas y acelerar la recuperación de tus jugadores.
 
 ## Prevención de lesiones
@@ -29,12 +30,15 @@ Cuando un jugador se lesiona, sigue estos pasos:
 ### Tiempos de recuperación
 
 | **Gravedad** | **Tiempo de recuperación** |
-|--------------|----------------------------|
+| ------------ | -------------------------- |
 | Leve         | 1-2 semanas                |
 | Moderada     | 3-5 semanas                |
 | Grave        | 6+ semanas                 |
 
-## Consejos avanzados
+### Ejemplo de gestión de lesiones
 
-- **Inversión en staff**: Un equipo médico sólido es clave para equipos en divisiones altas.
-- **Análisis de riesgos**: Usa herramientas de Hattrick para prever lesiones basadas en la edad y el historial de los jugadores.
+Imagina que tu delantero estrella se lesiona con una lesión moderada. Aquí tienes un plan de acción:
+
+- **Consulta el informe médico**: Confirma que la lesión es moderada y que el tiempo de recuperación es de 3-5 semanas.
+- **Ajusta el entrenamiento**: Cambia su rutina a un entrenamiento ligero para evitar complicaciones.
+- **Monitorea su progreso**: Revisa semanalmente el informe médico para asegurarte de que la recuperación va bien.

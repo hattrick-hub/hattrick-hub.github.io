@@ -6,18 +6,19 @@ layout: default
   <h2>{{ page.title }}</h2>
   <div class="noticias-grid">
     {% for noticia in site.noticias %}
-<article class="card card--noticias {% if noticia.featured %}card--featured{% endif %}">
-  {% if noticia.image %}
-  <img src="{{ noticia.image | relative_url }}" alt="{{ noticia.title | escape }}" class="card-image">
-  {% endif %}
-  <h3><a href="{{ noticia.url | relative_url }}">{{ noticia.title }}</a></h3>
-  <div class="meta">
-    <span>{{ noticia.date | date: "%d/%m/%Y" }}</span>
-    <span>{{ noticia.categories | join: ", " }}</span>
-  </div>
-  <p>{{ noticia.excerpt }}</p>
-  <a href="{{ noticia.url | relative_url }}" class="btn btn-primary" aria-label="Leer más sobre {{ noticia.title | escape }}">Leer más</a>
-</article>
+    <article class="card card--noticias {% if noticia.featured %}card--featured{% endif %}">
+      {% if noticia.image %}
+      <img src="{{ noticia.image | relative_url }}" alt="{{ noticia.title | escape }}" class="card-image">
+      {% endif %}
+      <h3><a href="{{ noticia.url | relative_url }}">{{ noticia.title }}</a></h3>
+      <div class="meta">
+        <span>{{ noticia.date | date: "%d/%m/%Y" }}</span>
+        <span>{{ noticia.categories | join: ", " }}</span>
+      </div>
+      <p>{{ noticia.excerpt }}</p>
+      <a href="{{ noticia.url | relative_url }}" class="btn btn-primary"
+        aria-label="Leer más sobre {{ noticia.title | escape }}">Leer más</a>
+    </article>
     {% endfor %}
   </div>
 </section>

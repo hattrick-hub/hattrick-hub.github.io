@@ -26,3 +26,16 @@ La experiencia es una medida del conocimiento táctico y emocional de un jugador
 | ----------------------------- | ------------------------- |
 | Partido juvenil               | 3.5                       |
 | Amistoso juvenil              | 0.35                      |
+
+### Encuentros de Liga
+
+| **Tipo de Encuentro de Liga** | **Puntos de Experiencia** |
+| ----------------------------- | ------------------------- |
+| Liga de 11 jugadores          | 1.0                       |
+| Liga de 7 jugadores           | 0.5                       |
+| Liga de 5 jugadores           | 0.25                      |
+| Liga de 3 jugadores           | 0.125                     |
+| Liga de 1 jugador             | 0.0625                    |
+| Liga de 0 jugadores           | 0.03125                   |
+| Liga de 0.5 jugadores         | 0.015625                  |
+| Liga de 0.25 jugadores        | 0.0078125                 |

@@ -1,9 +1,11 @@
-# _data/abreviaturas.yml
-- category: "Posiciones"
+- category: Términos del juego
   list:
-    - name: "GK"
-      description: "Portero"
-      notas: "Clave para detener ataques rivales y organizar la defensa."
-    - name: "CD"
-      description: "Defensa Central"
-      notas: "Fundamental para bloquear ataques y cortar pases en profundidad."
+    - name: HT
+      description: Hattrick, el juego en línea de gestión futbolística.
+      notas: Término general.
+    - name: TS
+      description: Team Spirit, espíritu de equipo.
+- category: Estadísticas
+  list:
+    - name: TSI
+      description: Total Skill Index, índice de habilidad total.

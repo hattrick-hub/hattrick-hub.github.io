@@ -19,39 +19,37 @@ layout: default
       {% endif %}
     </div>
     {% if page.toc %}
-      <nav class="manual-toc" aria-label="Tabla de contenido">
-        <h2>Tabla de Contenido</h2>
-        <ul>
-          {% assign content_html = content | markdownify %}
-          {% assign headers = content_html | split: '</h2>' %}
-          {% for header in headers %}
-            {% if header contains '<h2' %}
-              {% assign header_parts = header | split: '<h2 id="' %}
-              {% if header_parts.size > 1 %}
-                {% assign id = header_parts[1] | split: '"' | first %}
-                {% assign title = header_parts[1] | split: '>' | last | split: '</h2>' | first | strip_html %}
-                <li><a href="#{{ id }}">{{ title }}</a>
-                  {% assign subheaders = header | split: '</h3>' %}
-                  {% if subheaders.size > 1 %}
-                    <ul>
-                      {% for subheader in subheaders %}
-                        {% if subheader contains '<h3' %}
-                          {% assign subheader_parts = subheader | split: '<h3 id="' %}
-                          {% if subheader_parts.size > 1 %}
-                            {% assign sub_id = subheader_parts[1] | split: '"' | first %}
-                            {% assign sub_title = subheader_parts[1] | split: '>' | last | split: '</h3>' | first | strip_html %}
-                            <li><a href="#{{ sub_id }}">{{ sub_title }}</a></li>
-                          {% endif %}
-                        {% endif %}
-                      {% endfor %}
-                    </ul>
-                  {% endif %}
-                </li>
-              {% endif %}
+    <nav class="manual-toc" aria-label="Tabla de contenido">
+      <h2>Tabla de Contenido</h2>
+      <ul>
+        {% assign content_html = content | markdownify %}
+        {% assign headers = content_html | split: '</h2>' %}
+        {% for header in headers %}
+        {% if header contains '<h2' %} {% assign header_parts=header | split: '<h2 id="' %} {% if header_parts.size> 1
+          %}
+          {% assign id = header_parts[1] | split: '"' | first %}
+          {% assign title = header_parts[1] | split: '>' | last | split: '</h2>' | first | strip_html %}
+          <li><a href="#{{ id }}">{{ title }}</a>
+            {% assign subheaders = header | split: '</h3>' %}
+            {% if subheaders.size > 1 %}
+            <ul>
+              {% for subheader in subheaders %}
+              {% if subheader contains '<h3' %} {% assign subheader_parts=subheader | split: '<h3 id="' %} {% if
+                subheader_parts.size> 1 %}
+                {% assign sub_id = subheader_parts[1] | split: '"' | first %}
+                {% assign sub_title = subheader_parts[1] | split: '>' | last | split: '</h3>' | first | strip_html %}
+                <li><a href="#{{ sub_id }}">{{ sub_title }}</a></li>
+                {% endif %}
+                {% endif %}
+                {% endfor %}
+            </ul>
             {% endif %}
+          </li>
+          {% endif %}
+          {% endif %}
           {% endfor %}
-        </ul>
-      </nav>
+      </ul>
+    </nav>
     {% endif %}
     <div class="content">
       {{ content }}
