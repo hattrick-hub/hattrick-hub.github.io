@@ -59,7 +59,7 @@ layout: default
       <span>Etiquetas:</span>
       <ul>
         {% for tag in page.tags %}
-        <li><a href="/manual/tags/{{ tag | slugify }}">{{ tag }}</a></li>
+        <li class="tag"><a href="/manual/tags/{{ tag | slugify }}">{{ tag }}</a></li>
         {% endfor %}
       </ul>
     </div>

@@ -2,31 +2,20 @@
   <div class="news-container">
     {% assign noticias = site.data.newsbar | sort: 'date' | reverse %}
     {% if noticias and noticias.size > 0 %}
-      {% for noticia in noticias %}
-        <div class="news-item" data-category="{{ noticia.category }}">
-          {% if noticia.url %}
-            <a href="{{ noticia.url | relative_url }}" 
-               {% if noticia.url contains 'http' %}target="_blank" rel="noopener noreferrer external"{% endif %}
-               aria-label="{{ noticia.title_attr | default: noticia.title | escape }}">{{ noticia.title | escape }}</a>
-          {% else %}
-            <p role="alert">{{ noticia.title | escape }}</p>
-          {% endif %}
-        </div>
-      {% endfor %}
-      <!-- Duplicar contenido para desplazamiento continuo -->
-      {% for noticia in noticias %}
-        <div class="news-item" data-category="{{ noticia.category }}">
-          {% if noticia.url %}
-            <a href="{{ noticia.url | relative_url }}" 
-               {% if noticia.url contains 'http' %}target="_blank" rel="noopener noreferrer external"{% endif %}
-               aria-label="{{ noticia.title_attr | default: noticia.title | escape }}">{{ noticia.title | escape }}</a>
-          {% else %}
-            <p role="alert">{{ noticia.title | escape }}</p>
-          {% endif %}
-        </div>
-      {% endfor %}
+    {% for noticia in noticias %}
+    <div class="news-item" data-category="{{ noticia.category }}">
+      {% if noticia.url %}
+      <a href="{{ noticia.url | relative_url }}" {% if noticia.url contains 'http' %}target="_blank"
+        rel="noopener noreferrer external" {% endif %}
+        aria-label="{{ noticia.title_attr | default: noticia.title | escape }}">{{ noticia.title | escape }}</a>
+      {% else %}
+      <p role="alert">{{ noticia.title | escape }}</p>
+      {% endif %}
+    </div>
+    {% endfor %}
     {% else %}
-      <p class="news-empty">No hay noticias disponibles. <a href="{{ '/noticias' | relative_url }}">Ver todas las noticias</a></p>
+    <p class="news-empty">No hay noticias disponibles. <a href="{{ '/noticias' | relative_url }}">Ver todas las
+        noticias</a></p>
     {% endif %}
   </div>
 </div>

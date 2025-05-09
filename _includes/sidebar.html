@@ -2,18 +2,14 @@
   <ul>
     {% assign menu_ordenado = site.data.menu | sort: "order" %}
     {% for item in menu_ordenado %}
-      {% if item.visible %}
-        <li>
-          <a href="{{ item.url | relative_url }}" 
-             title="{{ item.description | escape }}"
-             class="{% if page.url == item.url %}active{% endif %}">
-            <svg class="icon icon-sm" aria-hidden="true">
-              <use xlink:href="#icon-{{ item.icon }}"></use>
-            </svg>
-            {{ item.name | escape }}
-          </a>
-        </li>
-      {% endif %}
+    {% if item.visible %}
+    <li>
+      <a href="{{ item.url | relative_url }}" title="{{ item.description | escape }}"
+        class="{% if page.url == item.url %}active{% endif %}">
+        {{ item.name | escape }}
+      </a>
+    </li>
+    {% endif %}
     {% endfor %}
   </ul>
 </aside>

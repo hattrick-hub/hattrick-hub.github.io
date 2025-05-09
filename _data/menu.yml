@@ -1,33 +1,28 @@
 - name: "Inicio"
   url: "/"
-  icon: "home"
   description: "Página principal de Hattrick Hub."
   order: 1
   visible: true
 - name: "Blog"
   url: "/blog/"
-  icon: "blog"
   description: "Noticias, estrategias y análisis sobre Hattrick."
   order: 2
   visible: true
   image: "/assets/img/blog.webp"
 - name: "Manual"
   url: "/manual/"
-  icon: "manual"
   description: "Guía detallada para jugadores de Hattrick."
   order: 3
   visible: true
   image: "/assets/img/manual.webp"
 - name: "Noticias"
   url: "/noticias/"
-  icon: "news"
   description: "Actualizaciones y noticias rápidas sobre Hattrick."
   order: 4
   visible: true
   image: "/assets/img/noticias.webp"
 - name: "Abreviaturas"
   url: "/abreviaturas/"
-  icon: "abbr"
   description: "Significado de abreviaturas y términos de Hattrick."
   order: 5
   visible: true
