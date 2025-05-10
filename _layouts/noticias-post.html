@@ -5,7 +5,7 @@ layout: default
 <section class="noticias-post-section" aria-label="Noticia de Hattrick">
   <div class="noticias-post-content">
     {% if page.image %}
-    <img src="{{ page.image | relative_url }}" alt="{{ page.title | escape }}" class="noticias-post-image">
+    <img src="{{ page.image | relative_url }}" alt="{{ page.title | escape }}" class="noticias-post-image" />
     {% endif %}
     <h1>{{ page.title }}</h1>
     <div class="noticias-post-meta">
@@ -15,15 +15,15 @@ layout: default
       <span>Por {{ page.author }}</span>
       {% endif %}
     </div>
-    <div class="content">
-      {{ content }}
-    </div>
+    <div class="content">{{ content }}</div>
     {% if page.tags %}
     <div class="noticias-post-tags">
       <span>Etiquetas:</span>
       <ul>
         {% for tag in page.tags %}
-        <li class="tag"><a href="/noticias/tags/{{ tag | slugify }}">{{ tag }}</a></li>
+        <li class="tag">
+          <a href="/noticias/tags/{{ tag | slugify }}">{{ tag }}</a>
+        </li>
         {% endfor %}
       </ul>
     </div>

@@ -1,7 +1,7 @@
 // Constantes configurables
 const CONFIG = {
-  BACK_TO_TOP_THRESHOLD: 300, // Umbral para mostrar el botón
-  NEWS_SCROLL_SPEED: 1.5, // Velocidad de desplazamiento de la news bar
+  BACK_TO_TOP_THRESHOLD: 300,
+  NEWS_SCROLL_SPEED: 1.5,
 };
 
 // Utilidad para debounce
@@ -19,7 +19,10 @@ document.addEventListener("DOMContentLoaded", () => {
   if (backToTop) {
     // Optimizar scroll con debounce
     const toggleBackToTop = debounce(() => {
-      backToTop.classList.toggle("show", window.scrollY > CONFIG.BACK_TO_TOP_THRESHOLD);
+      backToTop.classList.toggle(
+        "show",
+        window.scrollY > CONFIG.BACK_TO_TOP_THRESHOLD
+      );
     }, 100);
 
     window.addEventListener("scroll", toggleBackToTop);

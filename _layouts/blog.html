@@ -8,7 +8,7 @@ layout: default
     {% for post in site.blog %}
     <article class="card {% if post.featured %}card--featured{% endif %}">
       {% if post.image %}
-      <img src="{{ post.image | relative_url }}" alt="{{ post.title | escape }}" class="card-image">
+      <img src="{{ post.image | relative_url }}" alt="{{ post.title | escape }}" class="card-image" />
       {% endif %}
       <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
       <div class="meta">

@@ -8,9 +8,11 @@ layout: default
     {% for noticia in site.noticias %}
     <article class="card card--noticias {% if noticia.featured %}card--featured{% endif %}">
       {% if noticia.image %}
-      <img src="{{ noticia.image | relative_url }}" alt="{{ noticia.title | escape }}" class="card-image">
+      <img src="{{ noticia.image | relative_url }}" alt="{{ noticia.title | escape }}" class="card-image" />
       {% endif %}
-      <h3><a href="{{ noticia.url | relative_url }}">{{ noticia.title }}</a></h3>
+      <h3>
+        <a href="{{ noticia.url | relative_url }}">{{ noticia.title }}</a>
+      </h3>
       <div class="meta">
         <span>{{ noticia.date | date: "%d/%m/%Y" }}</span>
         <span>{{ noticia.categories | join: ", " }}</span>

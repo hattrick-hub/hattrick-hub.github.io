@@ -11,7 +11,9 @@ description: Significado de abreviaturas y términos usados en Hattrick.
     {% for category in site.data.abreviaturas %}
     <article class="card card--abbr">
       <details>
-        <summary aria-label="Expandir categoría: {{ category.category | escape }}">{{ category.category }}</summary>
+        <summary aria-label="Expandir categoría: {{ category.category | escape }}">
+          {{ category.category }}
+        </summary>
         {% for abbr in category.list %}
         <div class="abbr-item">
           <span class="abbr-initial">{{ abbr.name | slice: 0, 2 | upcase }}</span>

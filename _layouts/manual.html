@@ -9,8 +9,7 @@ layout: default
     <article class="card">
       <details>
         <summary aria-label="Expandir guía: {{ manual.title | escape }}">
-          {{ manual.title }}
-          {% if manual.difficulty %}
+          {{ manual.title }} {% if manual.difficulty %}
           <span class="difficulty {{ manual.difficulty | downcase }}">{{ manual.difficulty }}</span>
           {% endif %}
         </summary>
