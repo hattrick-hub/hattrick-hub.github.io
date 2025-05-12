@@ -1,28 +1,34 @@
 ---
-title: "El entrenamiento en Hattrick: Cómo desarrollar una cantera ganadora"
-date: 2025-03-14
+title: "Cómo crear una cantera rentable en Hattrick: De semilla a estrella"
+date: 2025-03-21
 categories: ["Hattrick"]
-tags: ["entrenamiento", "cantera", "desarrollo"]
+tags: ["cantera", "juveniles", "economía"]
 author: "elPatronHT"
-excerpt: "Aprende a gestionar el entrenamiento en Hattrick para mejorar tu equipo y generar ingresos con la venta de jugadores."
-image: "/assets/img/post1.webp"
-readingTime: "5 minutos"
+excerpt: "Estrategias comprobadas para desarrollar y vender jugadores juveniles con máximo beneficio."
+image: "/assets/img/cantera-rentable.webp"
 featured: true
 ---
 
-En este artículo, exploramos cómo optimizar el entrenamiento en Hattrick para desarrollar jugadores jóvenes y venderlos a buen precio...
+Construir una cantera productiva requiere paciencia y planificación. Esta es mi fórmula probada:
 
-## ¿Qué es la experiencia y por qué importa?
+**Fase 1: Reclutamiento (Temporadas 1-2)**
 
-La experiencia es una medida del conocimiento táctico y emocional de un jugador en situaciones de juego. A diferencia de habilidades como el pase o la defensa, influye en aspectos como:
+- Enfócate en jugadores de 17-19 años con:
+  - Habilidad principal prometedora (al menos aceptable)
+  - Habilidades secundarias decentes
+  - Especialidad útil
 
-- **Evitar la desorganización táctica** del equipo.
-- **Participar en eventos especiales** que pueden generar goles o evitarlos.
-- **Mejorar el rendimiento en partidos decisivos**, como finales o promociones.
+**Fase 2: Desarrollo (Temporadas 3-5)**
 
-### Encuentros Juveniles
+- Entrenamiento intensivo en una habilidad
+- Partidos amistosos semanales para experiencia
+- Monitoriza el progreso con herramientas como HT-TMS
 
-| **Tipo de Encuentro Juvenil** | **Puntos de Experiencia** |
-| ----------------------------- | ------------------------- |
-| Partido juvenil               | 3.5                       |
-| Amistoso juvenil              | 0.35                      |
+**Fase 3: Venta (Temporada 6+)**
+
+- El momento óptimo es cuando alcanzan:
+  - 21-23 años
+  - Habilidad principal sólida (≥7)
+  - Buenas habilidades secundarias
+
+Ejemplo real: Vendí un delantero por 2.8M€ después de 5 temporadas de entrenamiento.

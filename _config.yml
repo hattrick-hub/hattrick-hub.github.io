@@ -5,7 +5,7 @@ url: "https://hattrick-hub.github.io"
 baseurl: ""
 author: elPatronHT
 lang: es
-image: /assets/img/hattrick-hub.jpeg
+image: /assets/img/hub.webp
 
 theme: null
 
@@ -24,6 +24,14 @@ plugins:
   - jekyll-seo-tag
   - jekyll-relative-links
   - jekyll-compress
+  # Nota: Considera añadir 'jekyll-assets' o 'jekyll-minifier' para minificar CSS/JS en producción
+
+# Configuración para jekyll-seo-tag (Open Graph y Twitter Cards)
+social:
+  name: Hattrick Hub
+  links:
+    - https://twitter.com/hattrickhub
+    - https://github.com/hattrick-hub
 
 # Exclusiones
 exclude:

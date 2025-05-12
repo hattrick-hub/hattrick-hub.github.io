@@ -10,17 +10,19 @@ description: Significado de abreviaturas y términos usados en Hattrick.
   <div class="abreviaturas-grid">
     {% for category in site.data.abreviaturas %}
     <article class="card card--abbr">
-      <details>
+      <details id="{{ category.category | slugify }}" {% if forloop.first %}open{% endif %}>
         <summary aria-label="Expandir categoría: {{ category.category | escape }}">
           {{ category.category }}
         </summary>
         {% for abbr in category.list %}
-        <div class="abbr-item">
-          <span class="abbr-initial">{{ abbr.name | slice: 0, 2 | upcase }}</span>
-          <p>{{ abbr.description }}</p>
-          {% if abbr.notas %}
-          <p class="notes">{{ abbr.notas }}</p>
-          {% endif %}
+        <div class="abbr-item item-base">
+          <dl>
+            <dt class="abbr-initial">{{ abbr.name | upcase }}</dt>
+            <dd class="description">{{ abbr.description }}</dd>
+            {% if abbr.notas %}
+            <dd class="notes" aria-label="Notas sobre {{ abbr.name | escape }}">{{ abbr.notas }}</dd>
+            {% endif %}
+          </dl>
         </div>
         {% endfor %}
       </details>

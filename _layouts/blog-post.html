@@ -4,20 +4,35 @@ layout: default
 
 <section class="blog-post-section" aria-label="Artículo del blog">
   <article class="blog-post-content">
-    {% if page.image %}
-    <img src="{{ page.image | relative_url }}" alt="{{ page.title | escape }}" class="blog-post-image">
-    {% endif %}
-    <h1>{{ page.title }}</h1>
-    <div class="blog-post-meta">
-      <span>{{ page.date | date: "%d/%m/%Y" }}</span>
-      <span>{{ page.categories | join: ", " }}</span>
-      {% if page.readingTime %}
-      <span>{{ page.readingTime }}</span>
+    <header>
+      {% if page.image %}
+      <img src="{{ page.image | relative_url }}" alt="{{ page.title | escape }}" class="blog-post-image" loading="lazy"
+        onerror="console.warn('Error cargando imagen para {{ page.title | escape }}: {{ page.image | relative_url }}'); this.src='/assets/img/placeholder.webp'; this.alt='Sin imagen'; this.classList.add('image-placeholder', 'loaded'); this.removeAttribute('loading');" />
+      {% else %}
+      <div class="blog-post-image" aria-hidden="true">Sin imagen</div>
       {% endif %}
-      {% if page.author %}
-      <span>Por {{ page.author }}</span>
-      {% endif %}
-    </div>
+      <h1>{{ page.title }}</h1>
+      <div class="blog-post-meta">
+        <span>{{ page.date | date: "%d/%m/%Y" }}</span>
+        <span>
+          {% for category in page.categories %}
+          <a href="/blog/categories/{{ category | slugify }}">{{ category }}</a>{% unless forloop.last %}, {% endunless
+          %}
+          {% endfor %}
+        </span>
+        {% assign words = page.content | number_of_words %}
+        {% assign minutes = words | divided_by: 200 | plus: 1 %}
+        {% if minutes == 1 %}
+        {% assign reading_time = "1 minuto" %}
+        {% else %}
+        {% assign reading_time = minutes | append: " minutos" %}
+        {% endif %}
+        <span>{{ reading_time }}</span>
+        {% if page.author %}
+        <span>Por {{ page.author }}</span>
+        {% endif %}
+      </div>
+    </header>
     <div class="content">
       {{ content }}
     </div>
@@ -31,5 +46,5 @@ layout: default
       </ul>
     </div>
     {% endif %}
-    </div>
+  </article>
 </section>

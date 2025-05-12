@@ -1,7 +1,15 @@
 <footer class="hub-footer" role="contentinfo" aria-label="Pie de página">
   <p>
     © {{ 'now' | date: '%Y' }}
-    <a href="{{ '/' | relative_url }}">{{ site.title }}</a>. Todos los derechos
-    reservados.
+    <a href="{{ '/' | relative_url }}" aria-label="Volver a la página principal de {{ site.title }}">{{ site.title }}</a>.
+    Todos los derechos reservados.
   </p>
+  <nav aria-label="Enlaces del pie de página">
+    <ul>
+      <li><a href="{{ '/acerca/' | relative_url }}">Acerca</a></li>
+      <li><a href="{{ '/contacto/' | relative_url }}">Contacto</a></li>
+      <li><a href="{{ '/noticias/' | relative_url }}">Noticias</a></li>
+    </ul>
+  </nav>
 </footer>
+

@@ -9,3 +9,14 @@
   list:
     - name: TSI
       description: Total Skill Index, índice de habilidad total.
+    - name: TS
+      description: Team Spirit, espíritu de equipo.
+      notas: Término específico.
+- category: Jugadores
+  list:
+    - name: def
+      description: Defensa, posición en el campo.
+    - name: del
+      description: Delantero, posición en el campo.
+    - name: mc
+      description: Mediocampista, posición en el campo.

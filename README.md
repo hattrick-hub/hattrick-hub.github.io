@@ -1,13 +1,52 @@
 # readme.md
 
-<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-  <symbol id="icon-home" viewBox="0 0 576 512" fill="currentColor">
-    <path d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 .7 160.2c0 2.7-.2 5.4-.5 8.1l0 16.2c0 22.1-17.9 40-40 40l-16 0c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1L416 512l-24 0c-22.1 0-40-17.9-40-40l0-24 0-64c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32 14.3-32 32l0 64 0 24c0 22.1-17.9 40-40 40l-24 0-31.9 0c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2l-16 0c-22.1 0-40-17.9-40-40l0-112c0-.9 0-1.9 .1-2.8l0-69.7-32 0c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/>
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;" aria-hidden="true">
+  <!-- Casa (Inicio) -->
+  <symbol id="icon-home" viewBox="0 0 24 24">
+    <path d="M12 3l10 9h-3v9h-14v-9h-3l10-9z"/>
   </symbol>
-  <symbol id="icon-arrow" viewBox="0 0 24 24" fill="currentColor">
+  <!-- Flecha (Back to Top) -->
+  <symbol id="icon-arrow" viewBox="0 0 24 24">
     <path d="M12 2l-10 10h6v8h8v-8h6L12 2z"/>
   </symbol>
-  <symbol id="icon-star" viewBox="0 0 576 512" fill="currentColor">>
-    <path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/>
-  </symbol>  
+  <!-- Estrella (Rating en Herramientas) -->
+  <symbol id="icon-star" viewBox="0 0 24 24">
+    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+  </symbol>
+  <!-- Enlace externo -->
+  <symbol id="icon-external" viewBox="0 0 24 24">
+    <path d="M19 5v10H9v4h10V5h-4V3h6v18h-18V3h6v2H5v14h10V9h4z"/>
+  </symbol>
+  <!-- Menú (Hamburguesa) -->
+  <symbol id="icon-menu" viewBox="0 0 24 24">
+    <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>
+  </symbol>
+  <!-- Blog -->
+  <symbol id="icon-blog" viewBox="0 0 24 24">
+    <path d="M3 3h18v18H3V3zm2 2v14h14V5H5zm2 2h10v2H7V7zm0 4h10v2H7v-2zm0 4h10v2H7v-2z"/>
+  </symbol>
+  <!-- Manual -->
+  <symbol id="icon-manual" viewBox="0 0 24 24">
+    <path d="M6 2v20l6-4 6 4V2H6zm2 2h8v14.763l-4-2.667-4 2.667V4z"/>
+  </symbol>
+  <!-- Noticias -->
+  <symbol id="icon-news" viewBox="0 0 24 24">
+    <path d="M4 4v16h16V4H4zm2 2h12v12H6V6zm2 2v2h8V8H8zm0 4v2h8v-2H8zm0 4v2h6v-2H8z"/>
+  </symbol>
+  <!-- Abreviaturas -->
+  <symbol id="icon-abbr" viewBox="0 0 24 24">
+    <path d="M3 3h18v18H3V3zm2 2v14h14V5H5zm2 2h2v2H7V7zm4 0h2v2h-2V7zm4 0h2v2h-2V7z"/>
+  </symbol>
+  <!-- Herramientas -->
+  <symbol id="icon-tools" viewBox="0 0 24 24">
+    <path d="M15.293 3.293l-2 2L17 9l2-2-3.707-3.707zM10 7l-2 2 6 6 2-2-6-6zm-4 4l-2 2 4 4 2-2-4-4z"/>
+  </symbol>
+  <!-- Acerca -->
+  <symbol id="icon-about" viewBox="0 0 24 24">
+    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.4-3 4h2c0-1.6 3-2 3-4 0-2.21-1.79-4-4-4z"/>
+  </symbol>
+  <!-- Contacto -->
+  <symbol id="icon-contact" viewBox="0 0 24 24">
+    <path d="M20 4H4v16h16V4zm-2 14H6v-2h12v2zm0-4H6v-2h12v2zm0-4H6V8h12v2z"/>
+  </symbol>
 </svg>

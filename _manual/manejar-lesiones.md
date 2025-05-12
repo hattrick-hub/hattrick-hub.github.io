@@ -9,36 +9,46 @@ toc: true
 lastUpdated: "2025-04-01"
 ---
 
-Las lesiones pueden ser un dolor de cabeza en Hattrick. Aquí te explicamos cómo minimizarlas y acelerar la recuperación de tus jugadores.
+## Guía completa de manejo de lesiones
 
-## Prevención de lesiones
+<details>
+<summary>📌 **Tipos de lesiones y su gravedad**</summary>
+</details>
 
-Para minimizar las lesiones, considera lo siguiente:
+## Clasificación de lesiones
 
-- **Fisioterapeutas**: Contrata fisioterapeutas de nivel alto para reducir la probabilidad de lesiones.
-- **Entrenamiento equilibrado**: Evita entrenamientos intensivos que aumenten el riesgo de lesiones.
-- **Rotación de jugadores**: Usa sustituciones estratégicas para evitar el cansancio.
+### Hattrick distingue 4 niveles de lesiones:
 
-## Gestión de lesiones
+| Días de recuperación | Tipo      | Reducción de rendimiento |
+| -------------------- | --------- | ------------------------ |
+| 1-3                  | Leve      | -5%                      |
+| 4-7                  | Moderada  | -15%                     |
+| 8-14                 | Grave     | -30%                     |
+| 15+                  | Muy grave | -50%                     |
 
-Cuando un jugador se lesiona, sigue estos pasos:
+**Ejemplo práctico**: Un jugador con lesión grave (10 días) mostrará:
 
-1. **Evalúa la gravedad**: Consulta el informe médico para conocer el tiempo de recuperación.
-2. **Contrata médicos**: Aumenta el nivel de médicos para acelerar la recuperación.
-3. **Ajusta el entrenamiento**: Reduce la intensidad para los jugadores en recuperación.
+- 30% menos de su habilidad principal
+- 50% más de probabilidad de empeorar la lesión si juega
 
-### Tiempos de recuperación
+<details>
+<summary>⚕️ **Cómo acelerar la recuperación**</summary>
+   </details>
 
-| **Gravedad** | **Tiempo de recuperación** |
-| ------------ | -------------------------- |
-| Leve         | 1-2 semanas                |
-| Moderada     | 3-5 semanas                |
-| Grave        | 6+ semanas                 |
+## Factores que afectan la curación
 
-### Ejemplo de gestión de lesiones
+1. **Nivel del médico del equipo**:
 
-Imagina que tu delantero estrella se lesiona con una lesión moderada. Aquí tienes un plan de acción:
+   - Médico pobre: +0 días de recuperación
+   - Médico excelente: -20% tiempo de curación
 
-- **Consulta el informe médico**: Confirma que la lesión es moderada y que el tiempo de recuperación es de 3-5 semanas.
-- **Ajusta el entrenamiento**: Cambia su rutina a un entrenamiento ligero para evitar complicaciones.
-- **Monitorea su progreso**: Revisa semanalmente el informe médico para asegurarte de que la recuperación va bien.
+2. **Instalaciones médicas**:
+   ```python
+   # Fórmula aproximada de reducción
+   if instalaciones == "Básicas":
+       reducción = 0%
+   elif instalaciones == "Avanzadas":
+       reducción = 15%
+   else: # Estado del arte
+       reducción = 25%
+   ```

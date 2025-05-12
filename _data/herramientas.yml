@@ -1,7 +1,7 @@
 - category: Análisis
   list:
     - name: Match Viewer
-      image: /assets/img/post2.webp
+      image: /assets/img/post1.webp
       description: Herramienta para analizar partidos.
       rating: 4
       lastUpdated: 2025-01-01
@@ -13,4 +13,18 @@
       description: Planifica tu equipo.
       rating: 3
       lastUpdated: 2024-12-01
+      url: https://example.com
+- category: Estadísticas
+  list:
+    - name: Stats Tracker
+      description: Herramienta para rastrear estadísticas.
+      rating: 2
+      lastUpdated: 2023-11-01
+      url: https://example.com
+      featured: true
+    - name: Player Analyzer
+      image: /assets/img/post2.webp
+      description: Analiza el rendimiento de los jugadores.
+      rating: 4
+      lastUpdated: 2023-10-01
       url: https://example.com

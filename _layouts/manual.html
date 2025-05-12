@@ -9,11 +9,35 @@ layout: default
     <article class="card">
       <details>
         <summary aria-label="Expandir guía: {{ manual.title | escape }}">
-          {{ manual.title }} {% if manual.difficulty %}
+          {{ manual.title }}
+          {% if manual.difficulty %}
           <span class="difficulty {{ manual.difficulty | downcase }}">{{ manual.difficulty }}</span>
           {% endif %}
         </summary>
         <p>{{ manual.excerpt }}</p>
+        {% if manual.tags %}
+        <div class="manual-post-tags">
+          <span>Etiquetas:</span>
+          <ul>
+            {% for tag in manual.tags %}
+            <li class="tag"><a href="/manual/tags/{{ tag | slugify }}">{{ tag }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+        <div class="meta">
+          <div>
+            <span>{{ manual.date | date: "%d/%m/%Y" }}</span>
+            {% assign words = manual.content | number_of_words %}
+            {% assign minutes = words | divided_by: 200 | plus: 1 %}
+            {% if minutes == 1 %}
+            {% assign reading_time = "1 minuto" %}
+            {% else %}
+            {% assign reading_time = minutes | append: " minutos" %}
+            {% endif %}
+            <span>{{ reading_time }}</span>
+          </div>
+        </div>
         <a href="{{ manual.url | relative_url }}" class="btn btn-primary"
           aria-label="Leer más sobre {{ manual.title | escape }}">Leer más</a>
       </details>

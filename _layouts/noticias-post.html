@@ -2,28 +2,50 @@
 layout: default
 ---
 
-<section class="noticias-post-section" aria-label="Noticia de Hattrick">
-  <div class="noticias-post-content">
-    {% if page.image %}
-    <img src="{{ page.image | relative_url }}" alt="{{ page.title | escape }}" class="noticias-post-image" />
-    {% endif %}
-    <h1>{{ page.title }}</h1>
-    <div class="noticias-post-meta">
-      <span>{{ page.date | date: "%d/%m/%Y" }}</span>
-      <span>{{ page.categories | join: ", " }}</span>
-      {% if page.author %}
-      <span>Por {{ page.author }}</span>
+<section class="manual-post-section" aria-label="Guía del Manual de Hattrick">
+  <div class="manual-post-content">
+    <header>
+      {% if page.image %}
+      <img src="{{ noticia.image | relative_url }}" alt="{{ noticia.title | escape }}" class="card-image" loading="lazy"
+        onerror="console.warn('Error cargando imagen para {{ noticia.title | escape }}: {{ noticia.image | relative_url }}'); this.src='/assets/img/placeholder.webp'; this.alt='Sin imagen'; this.classList.add('image-placeholder', 'loaded'); this.removeAttribute('loading');" />
+      {% else %}
+      <div class="manual-post-image" aria-hidden="true">Sin imagen</div>
       {% endif %}
+      <h1>{{ page.title }}</h1>
+      <div class="manual-post-meta">
+        <span>{{ page.date | date: "%d/%m/%Y" }}</span>
+        <span>{{ page.categories | join: ", " }}</span>
+        {% if page.difficulty %}
+        <span class="difficulty {{ page.difficulty | downcase }}">{{ page.difficulty }}</span>
+        {% endif %}
+        {% assign words = page.content | number_of_words %}
+        {% assign minutes = words | divided_by: 200 | plus: 1 %}
+        {% if minutes == 1 %}
+        {% assign reading_time = "1 minuto" %}
+        {% else %}
+        {% assign reading_time = minutes | append: " minutos" %}
+        {% endif %}
+        <span>{{ reading_time }}</span>
+        {% if page.lastUpdated %}
+        <span>Actualizado: {{ page.lastUpdated | date: "%d/%m/%Y" }}</span>
+        {% endif %}
+      </div>
+    </header>
+    {% if page.toc %}
+    <nav class="manual-toc" aria-label="Tabla de contenido">
+      <h2>Tabla de Contenido</h2>
+      {{ content | toc_only }}
+    </nav>
+    {% endif %}
+    <div class="content">
+      {{ content }}
     </div>
-    <div class="content">{{ content }}</div>
     {% if page.tags %}
-    <div class="noticias-post-tags">
+    <div class="manual-post-tags">
       <span>Etiquetas:</span>
       <ul>
         {% for tag in page.tags %}
-        <li class="tag">
-          <a href="/noticias/tags/{{ tag | slugify }}">{{ tag }}</a>
-        </li>
+        <li class="tag"><a href="/manual/tags/{{ tag | slugify }}">{{ tag }}</a></li>
         {% endfor %}
       </ul>
     </div>

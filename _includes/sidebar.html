@@ -1,13 +1,18 @@
-<aside class="hub-sidebar" role="complementary" aria-label="Navegación secundaria">
+<nav class="hub-sidebar" role="navigation" aria-label="Navegación secundaria">
   <ul>
-    {% assign menu_ordenado = site.data.menu | sort: "order" %} {% for item in
-    menu_ordenado %} {% if item.visible %}
+    {% assign menu_ordenado = site.data.menu | sort: "order" %}
+    {% for item in menu_ordenado %}
+    {% if item.visible %}
     <li>
       <a href="{{ item.url | relative_url }}" title="{{ item.description | escape }}"
-        class="{% if page.url == item.url %}active{% endif %}">
+         class="{% if page.url == item.url %}active{% endif %}">
+        {% if item.icon %}
+          <svg class="icon icon-sm" aria-hidden="true"><use xlink:href="#{{ item.icon }}"></use></svg>
+        {% endif %}
         {{ item.name | escape }}
       </a>
     </li>
-    {% endif %} {% endfor %}
+    {% endif %}
+    {% endfor %}
   </ul>
-</aside>
+</nav>

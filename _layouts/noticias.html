@@ -8,16 +8,41 @@ layout: default
     {% for noticia in site.noticias %}
     <article class="card card--noticias {% if noticia.featured %}card--featured{% endif %}">
       {% if noticia.image %}
-      <img src="{{ noticia.image | relative_url }}" alt="{{ noticia.title | escape }}" class="card-image" />
+      <img src="{{ noticia.image | relative_url }}" alt="{{ noticia.title | escape }}" class="card-image" loading="lazy"
+        onerror="console.warn('Error cargando imagen para {{ noticia.title | escape }}: {{ noticia.image | relative_url }}'); this.src='/assets/img/placeholder.webp'; this.alt='Sin imagen'; this.classList.add('image-placeholder', 'loaded'); this.removeAttribute('loading');" />
+      {% else %}
+      <div class="card-image" aria-hidden="true">Sin imagen</div>
       {% endif %}
       <h3>
         <a href="{{ noticia.url | relative_url }}">{{ noticia.title }}</a>
       </h3>
       <div class="meta">
-        <span>{{ noticia.date | date: "%d/%m/%Y" }}</span>
-        <span>{{ noticia.categories | join: ", " }}</span>
+        <div>
+          <span>{{ noticia.date | date: "%d/%m/%Y" }}</span>
+          <span>{{ noticia.categories | join: ", " }}</span>
+          {% assign words = noticia.content | number_of_words %}
+          {% assign minutes = words | divided_by: 200 | plus: 1 %}
+          {% if minutes == 1 %}
+          {% assign reading_time = "1 minuto" %}
+          {% else %}
+          {% assign reading_time = minutes | append: " minutos" %}
+          {% endif %}
+          <span>{{ reading_time }}</span>
+        </div>
       </div>
       <p>{{ noticia.excerpt }}</p>
+      {% if noticia.tags %}
+      <div class="noticias-post-tags">
+        <span>Etiquetas:</span>
+        <ul>
+          {% for tag in noticia.tags %}
+          <li class="tag">
+            <a href="/noticias/tags/{{ tag | slugify }}">{{ tag }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
       <a href="{{ noticia.url | relative_url }}" class="btn btn-primary"
         aria-label="Leer más sobre {{ noticia.title | escape }}">Leer más</a>
     </article>

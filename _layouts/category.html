@@ -2,14 +2,21 @@
 layout: default
 ---
 
-<section class="blog-section" aria-label="Blog de Hattrick">
-  <h2>{{ page.title }}</h2>
-  <div class="blog-grid">
-    {% for post in site.blog %}
+<section class="category-section" aria-label="Posts en la categoría {{ page.category }}">
+  <h2>Posts en la categoría: {{ page.category }}</h2>
+  <div class="category-grid">
+    {% if page.collection == 'noticias' %}
+    {% assign posts = site.noticias %}
+    {% elsif page.collection == 'manual' %}
+    {% assign posts = site.manual %}
+    {% else %}
+    {% assign posts = site.blog %}
+    {% endif %}
+    {% for post in posts %}
+    {% if post.categories contains page.category %}
     <article class="card {% if post.featured %}card--featured{% endif %}">
       {% if post.image %}
-      <img src="{{ post.image | relative_url }}" alt="{{ post.title | escape }}" class="card-image" loading="lazy"
-        onerror="console.warn('Error cargando imagen para {{ post.title | escape }}: {{ post.image | relative_url }}'); this.src='/assets/img/placeholder.webp'; this.alt='Sin imagen'; this.classList.add('image-placeholder', 'loaded'); this.removeAttribute('loading');" />
+      <img src="{{ post.image | relative_url }}" alt="{{ post.title | escape }}" class="card-image" loading="lazy" />
       {% else %}
       <div class="card-image" aria-hidden="true">Sin imagen</div>
       {% endif %}
@@ -18,7 +25,6 @@ layout: default
         <div>
           <span>{{ post.date | date: "%d/%m/%Y" }}</span>
           <span>{{ post.categories | join: ", " }}</span>
-          <!-- Cálculo dinámico de readingTime -->
           {% assign words = post.content | number_of_words %}
           {% assign minutes = words | divided_by: 200 | plus: 1 %}
           {% if minutes == 1 %}
@@ -30,19 +36,10 @@ layout: default
         </div>
       </div>
       <p>{{ post.excerpt }}</p>
-      {% if post.tags %}
-      <div class="blog-post-tags">
-        <span>Etiquetas:</span>
-        <ul>
-          {% for tag in post.tags %}
-          <li class="tag"><a href="/blog/tags/{{ tag | slugify }}">{{ tag }}</a></li>
-          {% endfor %}
-        </ul>
-      </div>
-      {% endif %}
       <a href="{{ post.url | relative_url }}" class="btn btn-primary"
         aria-label="Leer más sobre {{ post.title | escape }}">Leer más</a>
     </article>
+    {% endif %}
     {% endfor %}
   </div>
 </section>

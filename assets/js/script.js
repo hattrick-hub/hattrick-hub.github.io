@@ -1,7 +1,6 @@
 // Constantes configurables
 const CONFIG = {
   BACK_TO_TOP_THRESHOLD: 300,
-  NEWS_SCROLL_SPEED: 1.5,
 };
 
 // Utilidad para debounce
@@ -17,16 +16,13 @@ document.addEventListener("DOMContentLoaded", () => {
   // Botón "Volver Arriba"
   const backToTop = document.querySelector(".back-to-top");
   if (backToTop) {
-    // Optimizar scroll con debounce
     const toggleBackToTop = debounce(() => {
       backToTop.classList.toggle(
         "show",
         window.scrollY > CONFIG.BACK_TO_TOP_THRESHOLD
       );
     }, 100);
-
     window.addEventListener("scroll", toggleBackToTop);
-
     backToTop.addEventListener("click", () => {
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
@@ -35,49 +31,86 @@ document.addEventListener("DOMContentLoaded", () => {
   // Animación de la News Bar
   const newsContainer = document.querySelector(".news-container");
   if (newsContainer) {
-    let scrollAmount = 0;
-    let scrollSpeed = CONFIG.NEWS_SCROLL_SPEED;
-    let isPaused = false;
-
-    // Comprobar visibilidad para pausar la animación
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        isPaused = !entry.isIntersecting;
-      },
-      { threshold: 0.1 }
-    );
-    observer.observe(newsContainer);
-
-    const scrollNews = () => {
-      if (!isPaused) {
-        scrollAmount += scrollSpeed;
-        if (scrollAmount >= newsContainer.scrollWidth / 2) {
-          scrollAmount = 0;
-        }
-        newsContainer.style.transform = `translateX(-${scrollAmount}px)`;
-      }
-      requestAnimationFrame(scrollNews);
-    };
-
-    scrollNews();
-
-    newsContainer.addEventListener("mouseenter", () => {
-      isPaused = true;
-    });
-
-    newsContainer.addEventListener("mouseleave", () => {
-      isPaused = false;
-    });
+    // Deshabilitar animación si el usuario prefiere motion reducida
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      // Comprobar visibilidad para pausar
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          newsContainer.style.animationPlayState = entry.isIntersecting
+            ? "running"
+            : "paused";
+        },
+        { threshold: 0 }
+      );
+      observer.observe(newsContainer);
+    } else {
+      newsContainer.style.animation = "none"; // Deshabilitar animación
+    }
   }
 
   // Enlace activo del menú
-  const currentPath = window.location.pathname.split("?")[0].replace(/\/$/, "");
-  document.querySelectorAll(".hub-sidebar a").forEach((link) => {
-    const linkPath = new URL(link.href, window.location.origin).pathname
-      .split("?")[0]
-      .replace(/\/$/, "");
-    if (linkPath === currentPath) {
-      link.classList.add("active");
-    }
+  document.querySelectorAll(".hub-sidebar a.active").forEach((link) => {
+    link.setAttribute("aria-current", "page");
+  });
+
+  // Menú hamburguesa
+  const menuToggle = document.querySelector(".menu-toggle");
+  const sidebar = document.querySelector(".hub-sidebar");
+  if (menuToggle && sidebar) {
+    menuToggle.addEventListener("click", () => {
+      sidebar.classList.toggle("show");
+      const isExpanded = sidebar.classList.contains("show");
+      menuToggle.setAttribute("aria-expanded", isExpanded);
+    });
+  }
+
+  // Lazy loading de imágenes
+  const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+  const observer = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          if (!img.src) {
+            img.src = img.dataset.src || img.getAttribute("src");
+          }
+          img.addEventListener(
+            "load",
+            () => {
+              img.classList.add("loaded");
+            },
+            { once: true }
+          );
+          img.addEventListener(
+            "error",
+            () => {
+              console.warn(`Error cargando imagen: ${img.src}`);
+              img.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect width="24" height="24" fill="#e2e8f0"/></svg>';
+              img.alt = "Sin imagen";
+              img.classList.add("image-placeholder", "loaded");
+              img.removeAttribute("loading");
+            },
+            { once: true }
+          );
+          observer.unobserve(img);
+        }
+      });
+    },
+    { rootMargin: "100px" }
+  );
+  lazyImages.forEach((img) => observer.observe(img));
+
+  // Imágenes dentro de <details>
+  document.querySelectorAll("details").forEach((details) => {
+    details.addEventListener("toggle", () => {
+      if (details.open) {
+        const imagesInside = details.querySelectorAll('img[loading="lazy"]');
+        imagesInside.forEach((img) => {
+          if (!img.classList.contains("loaded")) {
+            observer.observe(img);
+          }
+        });
+      }
+    });
   });
 });

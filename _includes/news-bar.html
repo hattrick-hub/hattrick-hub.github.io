@@ -1,39 +1,26 @@
-<div class="news-bar" role="region" aria-label="Noticias y entradas recientes">
+<div class="news-bar" role="region" aria-label="Noticias y entradas recientes" aria-live="polite">
   <div class="news-container">
-    {% assign all_items = "" | split: "" %}
-    <!-- Añadir noticias -->
-    {% if site.data.news %}
-    {% for news in site.data.news %}
-    {% assign all_items = all_items | push: news %}
-    {% endfor %}
-    {% endif %}
-    <!-- Añadir posts -->
-    {% if site.posts %}
-    {% for post in site.posts %}
-    {% assign all_items = all_items | push: post %}
-    {% endfor %}
-    {% endif %}
-    <!-- Ordenar por fecha y limitar a 4 elementos -->
-    {% assign sorted_items = all_items | sort: 'date' | reverse | slice: 0, 4 %}
-    {% if sorted_items.size > 0 %}
-    {% for item in sorted_items %}
-    <span class="news-item">
+    {% comment %} Combinamos posts de blog y noticias, ordenados por fecha {% endcomment %}
+    {% assign all_posts = site.blog | concat: site.noticias | sort: "date" | reverse %}
+    {% if all_posts.size > 0 %}
+    {% for post in all_posts limit: 4 %}
+    <div class="news-item">
       <span class="news-label tag">
-        {% if item.category %}Noticia{% else %}Blog{% endif %}
+        {% if post.collection == "noticias" %}Noticia{% else %}Blog{% endif %}
       </span>
-      <a href="{% if item.url %}{{ item.url | relative_url }}{% else %}{{ item.permalink | default: '/blog/' | relative_url }}{% endif %}"
-        title="{{ item.title_attr | default: item.title | escape }}">
-        {{ item.title | escape }}
+      <a href="{{ post.url | relative_url }}" class="news-link" title="{{ post.title | escape }}"
+         aria-label="Leer más sobre {{ post.title | escape }}">
+        {{ post.title | truncate: 50 | escape }}
       </a>
-      <span class="news-date">{{ item.date | date: "%d %b %Y" }}</span>
-    </span>
+      <span class="news-date">{{ post.date | date: "%d %b %Y" }}</span>
+    </div>
     {% endfor %}
     {% else %}
-    <span class="news-empty">
+    <div class="news-empty">
       No hay noticias ni entradas recientes.
       <a href="{{ '/noticias/' | relative_url }}">Ver todas las noticias</a> o
       <a href="{{ '/blog/' | relative_url }}">explorar el blog</a>.
-    </span>
+    </div>
     {% endif %}
   </div>
 </div>
