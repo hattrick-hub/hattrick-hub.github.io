@@ -8,8 +8,9 @@ layout: default
     <div class="manual-grid">
       {% for manual in site.manual %}
       <article class="card">
-        <details>
-          <summary aria-label="Expandir guía: {{ manual.title | escape }}" aria-expanded="false">
+        <details {% if forloop.first %}open{% endif %}>
+          <summary aria-label="Expandir guía: {{ manual.title | escape }}"
+            aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}">
             {{ manual.title }} {% if manual.difficulty %}
             <span class="difficulty {{ manual.difficulty | downcase }}">{{ manual.difficulty }}</span>
             {% endif %}
@@ -38,9 +39,13 @@ layout: default
           <div class="meta">
             <div>
               <span>{{ manual.date | date: "%d/%m/%Y" }}</span>
-              {% assign words = manual.content | number_of_words %} {% assign minutes = words | divided_by: 200 | plus:
-              1 %} {% if minutes == 1 %} {% assign reading_time = "1 minuto" %} {% else %} {% assign reading_time =
-              minutes | append: " minutos" %} {% endif %}
+              {% assign words = manual.content | number_of_words %}
+              {% assign minutes = words | divided_by: 200 | plus: 1 %}
+              {% if minutes == 1 %}
+              {% assign reading_time = "1 minuto" %}
+              {% else %}
+              {% assign reading_time = minutes | append: " minutos" %}
+              {% endif %}
               <span>{{ reading_time }}</span>
             </div>
           </div>
