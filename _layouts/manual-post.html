@@ -1,0 +1,47 @@
+---
+layout: default
+---
+
+<section class="manual-post-section" aria-label="Guía del Manual de Hattrick">
+  <article class="manual-post-content" role="article">
+    {% if page.image %}
+    <picture>
+      <source srcset="{{ page.image | relative_url }}" type="image/webp" />
+      <img src="{{ page.image | replace: '.webp', '.jpg' | relative_url }}" alt="{{ page.title | escape }}"
+        class="manual-post-image" loading="lazy" width="800" height="533" />
+    </picture>
+    {% else %}
+    <img src="{{ '/assets/img/placeholder.webp' | relative_url }}" alt="Sin imagen" class="manual-post-image"
+      aria-hidden="true" loading="lazy" width="800" height="533" />
+    {% endif %}
+    <h1>{{ page.title }}</h1>
+    <div class="manual-post-meta">
+      <span>{{ page.date | date: "%d/%m/%Y" }}</span>
+      <span>
+        {% for category in page.categories %}
+        <a href="/manual/categories/{{ category | slugify }}">{{ category }}</a>{% unless forloop.last %}, {% endunless
+        %} {% endfor %}
+      </span>
+      {% if page.difficulty %}
+      <span class="difficulty {{ page.difficulty | downcase }}">{{ page.difficulty }}</span>
+      {% endif %} {% assign words = page.content | number_of_words %} {% assign minutes = words | divided_by: 200 |
+      plus: 1 %} {% if minutes == 1 %} {% assign reading_time = "1 minuto" %} {% else %} {% assign reading_time =
+      minutes | append: " minutos" %} {% endif %}
+      <span>{{ reading_time }}</span>
+      {% if page.lastUpdated %}
+      <span>Actualizado: {{ page.lastUpdated | date: "%d/%m/%Y" }}</span>
+      {% endif %}
+    </div>
+    <div class="content">{{ content }}</div>
+    {% if page.tags %}
+    <div class="manual-post-tags">
+      <span>Etiquetas:</span>
+      <ul>
+        {% for tag in page.tags %}
+        <li class="tag"><a href="/manual/tags/{{ tag | slugify }}">{{ tag }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+  </article>
+</section>

@@ -1,0 +1,77 @@
+# Configuración general
+title: "Hattrick Hub"
+description: "El centro de acceso a todas las herramientas y recursos de Hattrick."
+url: "https://hattrick-hub.github.io"
+baseurl: ""
+author: elPatronHT
+lang: es
+image: /assets/img/hub.png
+
+theme: null
+
+# Procesamiento de Markdown
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: true
+  toc_levels: 2..3
+  auto_ids: true
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-relative-links
+
+# Exclusiones
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - .git/
+  - .github/
+  - .gitignore
+  - vendor/
+  - _site/
+  - .DS_Store
+  - src/
+
+# Colecciones
+collections:
+  blog:
+    output: true
+    permalink: /blog/:year/:month/:day/:title/
+  manual:
+    output: true
+    permalink: /manual/:path/
+  noticias:
+    output: true
+    permalink: /noticias/:title/
+  pages:
+    output: true
+    permalink: /:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: blog
+    values:
+      layout: blog-post
+  - scope:
+      path: ""
+      type: manual
+    values:
+      layout: manual-post
+  - scope:
+      path: ""
+      type: noticias
+    values:
+      layout: noticias-post
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: default

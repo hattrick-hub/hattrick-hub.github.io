@@ -1,0 +1,40 @@
+---
+layout: default
+title: Abreviaturas de Hattrick
+permalink: /abreviaturas/
+description: Significado de abreviaturas y términos usados en Hattrick.
+---
+
+<section class="abreviaturas-section" aria-label="Abreviaturas de Hattrick">
+  <div class="abreviaturas-content">
+    <picture>
+      <source srcset="{{ '/assets/img/abreviaturas.webp' | relative_url }}" type="image/webp" />
+      <img src="{{ '/assets/img/abreviaturas.jpg' | relative_url }}" alt="Abreviaturas de Hattrick"
+        class="abreviaturas-image" loading="lazy" width="600" height="400" />
+    </picture>
+    <h1>Abreviaturas de Hattrick</h1>
+    <div class="abreviaturas-grid">
+      {% for category in site.data.abreviaturas %}
+      <article class="card card--abbr">
+        <details id="{{ category.category | slugify }}" {% if forloop.first %}open{% endif %}>
+          <summary aria-label="Expandir categoría: {{ category.category | escape }}"
+            aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}">
+            {{ category.category }}
+          </summary>
+          {% for abbr in category.list %}
+          <div class="abbr-item">
+            <dl>
+              <dt class="abbr-initial">{{ abbr.name | upcase }}</dt>
+              <dd class="description">{{ abbr.description }}</dd>
+              {% if abbr.notas %}
+              <dd class="notes" aria-label="Notas sobre {{ abbr.name | escape }}">{{ abbr.notas }}</dd>
+              {% endif %}
+            </dl>
+          </div>
+          {% endfor %}
+        </details>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

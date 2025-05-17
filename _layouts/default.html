@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="{{ page.lang | default: site.lang | default: 'es' }}"
+  dir="{{ page.dir | default: site.dir | default: 'ltr' }}">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="robots" content="index, follow" />
+  {% seo %}
+  <meta name="theme-color" content="{{ site.data.theme.color | default: '#2c6b74' }}" id="themeColorMeta" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="{{ '/assets/img/favicon.ico' | relative_url }}" type="image/x-icon" />
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" />
+</head>
+
+<body style="scroll-padding-top: var(--header-offset)">
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+  <div class="grid-layout">
+    {% include header.html %} {% include news-bar.html %} {% include sidebar.html %}
+    <main class="hub-container" role="main" id="main-content">{{ content }}</main>
+    {% include footer.html %}
+  </div>
+  <button class="back-to-top" aria-label="Volver arriba" title="Volver arriba">
+    <svg class="icon icon-arrow" aria-hidden="true" focusable="false">
+      <use xlink:href="#icon-arrow"></use>
+    </svg>
+  </button>
+  <div style="display: none" aria-hidden="true">{% include sprite.svg %}</div>
+  <script defer src="{{ '/assets/js/script.js' | relative_url }}"></script>
+</body>
+
+</html>

@@ -1,0 +1,148 @@
+- category: Análisis
+  list:
+    - name: DHTH
+      image: /assets/img/herramientas.webp
+      description: Simulador de partidos basado en calificaciones de equipos y configuraciones tácticas.
+      rating: 4
+      lastUpdated: 2025-05-15
+      url: https://www.dhth.net/
+      featured: true
+    - name: HT-ML Predictor
+      image: /assets/img/herramientas.webp
+      description: Calcula probabilidades de victoria en partidos jugados usando machine learning con datos de 3.5M de partidos.
+      rating: 4
+      lastUpdated: 2025-05-15
+      url: https://ht-ml-predictor.herokuapp.com/
+    - name: TS Organizer
+      image: /assets/img/herramientas.webp
+      description: Herramienta para gestionar el espíritu de equipo según la planificación de partidos.
+      rating: 4
+      lastUpdated: 2025-05-15
+      url: http://ht.alergromania.ro/tools/team-spirit-organizer/index.php#send
+      featured: true
+
+- category: Gestión
+  list:
+    - name: Hattrick Portal
+      image: /assets/img/herramientas.webp
+      description: Plataforma con estadísticas, noticias, foros, calculadoras, simuladores y guías para Hattrick.
+      rating: 4
+      lastUpdated: 2025-05-15
+      url: https://www.hattrickportal.pro/
+      featured: true
+    - name: Tomattrick
+      image: /assets/img/herramientas.webp
+      description: Asistente online para gestionar tu equipo desde cualquier lugar.
+      rating: 4
+      lastUpdated: 2025-05-15
+      url: https://www.tomattrick.org/
+    - name: Hattrick Driver
+      image: /assets/img/herramientas.webp
+      description: Programa para gestionar todos los aspectos de tu equipo desde tu ordenador.
+      rating: 4
+      lastUpdated: 2025-05-15
+      url: http://meinkurs-deinkurs.de/
+      featured: true
+    - name: Mercattrick
+      image: /assets/img/herramientas.webp
+      description: Mejora la exposición de jugadores en venta y notifica sobre transferencias interesantes.
+      rating: 4
+      lastUpdated: 2025-05-15
+      url: https://mercattrick.com/
+    - name: National Team Players for Sale
+      image: /assets/img/herramientas.webp
+      description: Selección de jugadores de selecciones nacionales disponibles en el mercado.
+      rating: 4
+      lastUpdated: 2025-05-15
+      url: https://www.toxttrick.com/
+      featured: true
+
+- category: Estadísticas
+  list:
+    - name: Hattid
+      image: /assets/img/herramientas.webp
+      description: Proporciona estadísticas detalladas sobre jugadores, partidos, equipos y sueldos.
+      rating: 4
+      lastUpdated: 2025-05-15
+      url: https://hattid.com/about
+      featured: true
+    - name: Calculadora de TSI
+      image: /assets/img/herramientas.webp
+      description: Calcula el TSI de jugadores según edad, lesiones y habilidades.
+      rating: 4
+      lastUpdated: 2025-05-15
+      url: https://hattrick.chechesa.com/es
+      featured: true
+    - name: Calculadora de Potencial HTMS28
+      image: /assets/img/herramientas.webp
+      description: Evalúa el potencial de entrenamiento de jugadores según habilidades y edad.
+      rating: 4
+      lastUpdated: 2025-05-15
+      url: https://www.fantamondi.it/HTMS/index.php?page=htmspoints&lang=en
+
+- category: Juveniles
+  list:
+    - name: Hattrick Youthclub
+      image: /assets/img/herramientas.webp
+      description: Gestiona tu equipo juvenil con herramientas para reclutamiento, entrenamiento y seguimiento.
+      rating: 4
+      lastUpdated: 2025-05-15
+      url: https://www.hattrick-youthclub.org/
+      featured: true
+    - name: Rate My Academy
+      image: /assets/img/herramientas.webp
+      description: Mapea el potencial de jugadores juveniles asignando puntajes numéricos.
+      rating: 4
+      lastUpdated: 2025-05-15
+      url: https://www.rate-my.academy/
+    - name: Youthteam
+      image: /assets/img/herramientas.webp
+      description: Gerente online para equipos juveniles, con seguimiento de entrenamientos y jugadores.
+      rating: 4
+      lastUpdated: 2025-05-15
+      url: https://youthteam.moshu.ro/
+      featured: true
+
+- category: Aplicaciones
+  list:
+    - name: Guía Ocerin
+      image: /assets/img/herramientas.webp
+      description:
+        Aplicación móvil con gestión de equipo, clasificaciones, jugadores, entrenamientos, transferencias y
+        calculadoras avanzadas.
+      rating: 4
+      lastUpdated: 2025-05-15
+      url: https://play.google.com/store/apps/details?id=com.guiaocerin
+      featured: true
+    - name: Hattrick App
+      image: /assets/img/herramientas.webp
+      description: Aplicación oficial de Hattrick para gestionar tu equipo desde el móvil.
+      rating: 4
+      lastUpdated: 2025-05-15
+      url: https://play.google.com/store/apps/details?id=org.hattrick.hattrick
+    - name: Foxtrick
+      image: /assets/img/herramientas.webp
+      description: Extensión de navegador que añade gráficos, alertas, atajos y personalización a Hattrick.
+      rating: 4
+      lastUpdated: 2025-05-15
+      url: https://www.foxtrick.org/download/beta
+      featured: true
+
+- category: Infraestructura
+  list:
+    - name: Calculadora de Estadio
+      image: /assets/img/herramientas.webp
+      description: Estima la capacidad óptima y costos del estadio según socios y su ánimo.
+      rating: 4
+      lastUpdated: 2025-05-15
+      url: https://nrgjack.altervista.org/eco.php
+
+- category: Comunidad
+  list:
+    - name: Canales de Hattrick
+      image: /assets/img/herramientas.webp
+      description: Grupo de canales para conectar con la comunidad de Hattrick.
+      rating: 4
+      lastUpdated: 2025-05-15
+      url: https://bit.ly/460s7W5
+      featured: true
