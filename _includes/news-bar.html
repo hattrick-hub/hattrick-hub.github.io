@@ -1,9 +1,4 @@
-<div class="news-bar" role="region" aria-label="Noticias y entradas recientes" aria-live="polite">
-  <button class="news-pause" aria-label="Pausar animación de noticias">
-    <svg class="icon icon-sm" aria-hidden="true">
-      <use xlink:href="#icon-pause"></use>
-    </svg>
-  </button>
+<div class="news-bar" role="region" aria-label="Noticias y entradas recientes" aria-live="polite">
   <div class="news-wrapper">
     <div class="news-container">
       {% assign all_posts = site.blog | concat: site.noticias | sort: "date" | reverse %} {% if all_posts.size > 0 %} {%
