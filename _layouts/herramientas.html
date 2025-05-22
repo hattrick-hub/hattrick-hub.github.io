@@ -4,56 +4,69 @@ title: Herramientas de Hattrick
 permalink: /herramientas/
 description: Colección de herramientas para optimizar tu experiencia en Hattrick.
 ---
-
-<section class="herramientas-section" aria-label="Herramientas de Hattrick">
-  <h1>Herramientas de Hattrick</h1>
-  <div class="herramientas-grid">
-    {% for category in site.data.herramientas %}
-    <article class="card card--tool">
-      <details id="{{ category.category | slugify }}" {% if forloop.first %}open{% endif %}>
-        <summary aria-label="Expandir categoría: {{ category.category | escape }}"
-          aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}">
-          {{ category.category }}
-        </summary>
-        {% for tool in category.list %}
-        <div class="tool-item {% if tool.featured %}component--featured{% endif %}">
-          {% if tool.image %}
-          <picture>
-            <source srcset="{{ tool.image | relative_url }}" type="image/webp" />
-            <img src="{{ tool.image | replace: '.webp', '.jpg' | relative_url }}" alt="{{ tool.name | escape }}"
-              class="card-image" loading="lazy" width="600" height="400" />
-          </picture>
-          {% else %}
-          <img src="{{ '/assets/img/placeholder.webp' | relative_url }}" alt="Sin imagen" class="card-image"
-            aria-hidden="true" loading="lazy" width="600" height="400" />
-          {% endif %}
-          <h4>{{ tool.name }}</h4>
-          <p>{{ tool.description }}</p>
-          <div class="rating" aria-label="Calificación: {{ tool.rating }} de 5 estrellas">
-            <span class="rating-icons">
-              {% for i in (1..tool.rating) %}
-              <svg class="icon icon-sm" aria-hidden="true">
-                <use xlink:href="#icon-star"></use>
-              </svg>
-              {% endfor %} {% assign empty_stars = 5 | minus: tool.rating %} {% for i in (1..empty_stars) %}
-              <svg class="icon icon-sm empty" aria-hidden="true">
-                <use xlink:href="#icon-star"></use>
-              </svg>
-              {% endfor %}
-            </span>
-          </div>
-          <p class="last-updated">Última actualización: {{ tool.lastUpdated | date: "%d %b %Y" }}</p>
-          <a href="{{ tool.url }}" class="btn btn-primary" rel="noopener noreferrer"
-            aria-label="Visitar {{ tool.name | escape }}">
-            <svg class="icon icon-sm" aria-hidden="true">
-              <use xlink:href="#icon-external"></use>
-            </svg>
-            Visitar
-          </a>
+<section class="hero-section" aria-label="Herramientas de Hattrick">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <div class="container">
+            <div class="box">
+                <h1 class="title">Herramientas de Hattrick</h1>
+                <p class="subtitle">Colección de herramientas para optimizar tu experiencia en Hattrick</p>
+            </div>
         </div>
-        {% endfor %}
-      </details>
-    </article>
-    {% endfor %}
-  </div>
+    </div>
+</section>
+<section class="section herramientas-section">
+    <div class="container">
+        <div class="box">
+            <div class="herramientas-grid">
+                {% for category in site.data.herramientas %}
+                <article class="card card--tool">
+                    <details id="{{ category.category | slugify }}" {% if forloop.first %}open{% endif %}>
+                        <summary aria-label="Expandir categoría: {{ category.category | escape }}" aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}">
+                            {{ category.category }}
+                        </summary>
+                        {% for tool in category.list %}
+                        <div class="tool-item card--tool {% if tool.featured %}component--featured{% endif %}">
+                            {% if tool.image %}
+                            <picture>
+                                <source srcset="{{ tool.image | relative_url }}" type="image/webp" />
+                                <img src="{{ tool.image | replace: '.webp', '.jpg' | relative_url }}" alt="{{ tool.name | escape }}" class="card-image" loading="lazy" width="600" height="400" />
+                            </picture>
+                            {% else %}
+                            <img src="{{ '/assets/img/placeholder.webp' | relative_url }}" alt="Sin imagen" class="card-image" aria-hidden="true" loading="lazy" width="600" height="400" />
+                            {% endif %}
+                            <h4>{{ tool.name }}</h4>
+                            <p>{{ tool.description }}</p>
+                            <div class="rating" aria-label="Calificación: {{ tool.rating }} de 5 estrellas">
+                                <span class="rating-icons">
+                                    {% for i in (1..tool.rating) %}
+                                    <svg class="icon icon-sm" aria-hidden="true">
+                                        <use xlink:href="#icon-star"></use>
+                                    </svg>
+                                    {% endfor %}
+                                    {% assign empty_stars = 5 | minus: tool.rating %}
+                                    {% for i in (1..empty_stars) %}
+                                    <svg class="icon icon-sm empty" aria-hidden="true">
+                                        <use xlink:href="#icon-star"></use>
+                                    </svg>
+                                    {% endfor %}
+                                </span>
+                            </div>
+                            <p class="last-updated">
+                                Última actualización: {{ tool.lastUpdated | date: "%d %b %Y" }}
+                            </p>
+                            <a href="{{ tool.url }}" class="btn btn-primary" rel="noopener noreferrer" aria-label="Visitar {{ tool.name | escape }}">
+                                <svg class="icon icon-sm" aria-hidden="true">
+                                    <use xlink:href="#icon-external"></use>
+                                </svg>
+                                Visitar
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </details>
+                </article>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 </section>

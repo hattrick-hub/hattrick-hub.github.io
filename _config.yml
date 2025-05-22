@@ -3,19 +3,18 @@ title: "Hattrick Hub"
 description: "El centro de acceso a todas las herramientas y recursos de Hattrick."
 url: "https://hattrick-hub.github.io"
 baseurl: ""
-author: elPatronHT
 lang: es
 image: /assets/img/hub.png
-
+permalink: /:title/
 theme: null
+author: elPatronHT
+color: "#1d4ed8"
 
 # Procesamiento de Markdown
 markdown: kramdown
 kramdown:
   input: GFM
   hard_wrap: true
-  toc_levels: 2..3
-  auto_ids: true
 
 # Plugins
 plugins:
@@ -23,6 +22,11 @@ plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
   - jekyll-relative-links
+
+# Configuración de enlaces relativos
+relative_links:
+  enabled: true
+  collections: true
 
 # Exclusiones
 exclude:
@@ -37,6 +41,8 @@ exclude:
   - _site/
   - .DS_Store
   - src/
+  - package.json
+  - yarn.lock
 
 # Colecciones
 collections:
@@ -45,7 +51,7 @@ collections:
     permalink: /blog/:year/:month/:day/:title/
   manual:
     output: true
-    permalink: /manual/:path/
+    permalink: /manual/:title/
   noticias:
     output: true
     permalink: /noticias/:title/
@@ -57,19 +63,26 @@ collections:
 defaults:
   - scope:
       path: ""
+    values:
+      author: elPatronHT
+  - scope:
+      path: ""
       type: blog
     values:
       layout: blog-post
+      image: /assets/img/placeholder.png
   - scope:
       path: ""
       type: manual
     values:
       layout: manual-post
+      image: /assets/img/placeholder.png
   - scope:
       path: ""
       type: noticias
     values:
       layout: noticias-post
+      image: /assets/img/placeholder.png
   - scope:
       path: ""
       type: pages

@@ -4,20 +4,18 @@ title: Hattrick Hub
 permalink: /
 description: Bienvenido a Hattrick Hub, tu centro definitivo para herramientas, noticias, guías y comunidad de Hattrick.
 ---
-<section class="hero-section" aria-label="Bienvenido a Hattrick Hub">
-  <div class="hero-overlay">
-    <picture>
-      <source srcset="{{ '/assets/img/hub.webp' | relative_url }}" type="image/webp" />
-      <img src="{{ '/assets/img/placeholder.png' | relative_url }}" alt="Fondo de Hattrick Hub" class="hero-image"
-        loading="lazy" width="1200" height="675" />
-    </picture>
-  </div>
-  <div class="hero-content">
-    <h1>{{ site.title }}</h1>
-    <p>Tu destino para dominar Hattrick con herramientas, guías, noticias y una comunidad vibrante. ¡Explora ahora!</p>
-    <div class="hero-buttons">
-      <a href="/blog/" class="btn btn-primary">Explorar Blog</a>
-      <a href="/noticias/" class="btn btn-secondary">Ver Noticias</a>
+<section class="hero-section is-large" aria-label="Bienvenido a Hattrick Hub">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <div class="container is-narrow">
+            <div class="title-subtitle-container">
+                <h1 class="title">{{ site.title }}</h1>
+                <p class="subtitle">{{ site.description }}</p>
+            </div>
+            <div class="hero-buttons">
+                <a href="/blog/" class="btn btn-primary">Explorar Blog</a>
+                <a href="/noticias/" class="btn btn-secondary">Ver Noticias</a>
+            </div>
+        </div>
     </div>
-  </div>
 </section>

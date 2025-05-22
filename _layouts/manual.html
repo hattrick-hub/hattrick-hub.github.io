@@ -1,59 +1,75 @@
 ---
 layout: default
+title: Manual de Hattrick
+permalink: /manual/
+description: Guías detalladas para dominar Hattrick, desde fundamentos hasta estrategias avanzadas.
 ---
-
-<section class="manual-section" aria-label="Manual de Hattrick">
-  <div class="manual-content">
-    <h1>{{ page.title }}</h1>
-    <div class="manual-grid">
-      {% for manual in site.manual %}
-      <article class="card">
-        <details {% if forloop.first %}open{% endif %}>
-          <summary aria-label="Expandir guía: {{ manual.title | escape }}"
-            aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}">
-            {{ manual.title }} {% if manual.difficulty %}
-            <span class="difficulty {{ manual.difficulty | downcase }}">{{ manual.difficulty }}</span>
-            {% endif %}
-          </summary>
-          {% if manual.image %}
-          <picture>
-            <source srcset="{{ manual.image | relative_url }}" type="image/webp" />
-            <img src="{{ manual.image | replace: '.webp', '.jpg' | relative_url }}" alt="{{ manual.title | escape }}"
-              class="manual-card-image" loading="lazy" width="600" height="400" />
-          </picture>
-          {% else %}
-          <img src="{{ '/assets/images/placeholder.webp' | relative_url }}" alt="Sin imagen" class="manual-card-image"
-            aria-hidden="true" loading="lazy" width="600" height="400" />
-          {% endif %}
-          <p>{{ manual.excerpt | default: manual.content | strip_html | truncatewords: 30 }}</p>
-          {% if manual.tags %}
-          <div class="manual-post-tags">
-            <span>Etiquetas:</span>
-            <ul>
-              {% for tag in manual.tags %}
-              <li class="tag"><a href="/manual/tags/{{ tag | slugify }}">{{ tag }}</a></li>
-              {% endfor %}
-            </ul>
-          </div>
-          {% endif %}
-          <div class="meta">
-            <div>
-              <span>{{ manual.date | date: "%d/%m/%Y" }}</span>
-              {% assign words = manual.content | number_of_words %}
-              {% assign minutes = words | divided_by: 200 | plus: 1 %}
-              {% if minutes == 1 %}
-              {% assign reading_time = "1 minuto" %}
-              {% else %}
-              {% assign reading_time = minutes | append: " minutos" %}
-              {% endif %}
-              <span>{{ reading_time }}</span>
+<section class="hero-section" aria-label="Manual de Hattrick">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <div class="container">
+            <div class="box">
+                <h1 class="title">Manual de Hattrick</h1>
+                <p class="subtitle">Guías detalladas para dominar Hattrick, desde fundamentos hasta estrategias
+                    avanzadas</p>
             </div>
-          </div>
-          <a href="{{ manual.url | relative_url }}" class="btn btn-primary"
-            aria-label="Leer más sobre {{ manual.title | escape }}">Leer más</a>
-        </details>
-      </article>
-      {% endfor %}
+        </div>
     </div>
-  </div>
+</section>
+<section class="section manual-section">
+    <div class="container">
+        <div class="box">
+            <div class="manual-grid">
+                {% for manual in site.manual %}
+                <article class="card card--manual">
+                    <details {% if forloop.first %}open{% endif %}>
+                        <summary aria-label="Expandir guía: {{ manual.title | escape }}" aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}">
+                            {{ manual.title }}
+                            {% if manual.difficulty %}
+                            <span class="difficulty {{ manual.difficulty | downcase }}" aria-label="Dificultad: {{ manual.difficulty }}">{{ manual.difficulty }}</span>
+                            {% endif %}
+                        </summary>
+                        {% if manual.image %}
+                        <picture>
+                            <source srcset="{{ manual.image | relative_url }}" type="image/webp" />
+                            <img src="{{ manual.image | replace: '.webp', '.jpg' | relative_url }}" alt="{{ manual.title | escape }}" class="manual-card-image" loading="lazy" width="600" height="400" />
+                        </picture>
+                        {% else %}
+                        <img src="{{ '/assets/images/placeholder.webp' | relative_url }}" alt="Sin imagen" class="manual-card-image" aria-hidden="true" loading="lazy" width="600" height="400" />
+                        {% endif %}
+                        <p>
+                            {{ manual.excerpt | default: manual.content | strip_html | truncatewords: 30 }}
+                        </p>
+                        {% if manual.tags %}
+                        <div class="manual-post-tags">
+                            <span>Etiquetas:</span>
+                            <ul>
+                                {% for tag in manual.tags %}
+                                <li class="tag">
+                                    <a href="/manual/tags/{{ tag | slugify }}">{{ tag }}</a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endif %}
+                        <div class="meta">
+                            <div>
+                                <span>{{ manual.date | date: "%d/%m/%Y" }}</span>
+                                {% assign words = manual.content | number_of_words %}
+                                {% assign minutes = words | divided_by: 200 | plus: 1 %}
+                                {% if minutes == 1 %}
+                                {% assign reading_time = "1 minuto" %}
+                                {% else %}
+                                {% assign reading_time = minutes | append: " minutos" %}
+                                {% endif %}
+                                <span>{{ reading_time }}</span>
+                            </div>
+                        </div>
+                        <a href="{{ manual.url | relative_url }}" class="btn btn-primary" aria-label="Leer más sobre {{ manual.title | escape }}">Leer más</a>
+                    </details>
+                </article>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 </section>

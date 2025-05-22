@@ -1,17 +1,21 @@
 <nav class="hub-sidebar" role="navigation" aria-label="Navegación secundaria">
-  <ul>
-    {% assign menu_ordenado = site.data.menu | sort: "order" %} {% for item in menu_ordenado %} {% if item.visible %}
-    <li>
-      <a href="{{ item.url | relative_url }}" title="{{ item.description | escape }}"
-        class="{% if page.url == item.url %}active{% endif %}" {% if page.url="item.url" %}aria-current="page" {% endif
-        %}>
-        {% if item.icon %}
-        <svg class="icon icon-sm" aria-hidden="true">
-          <use xlink:href="#{{ item.icon }}"></use>
-        </svg>
-        {% endif %} {{ item.name | escape }}
-      </a>
-    </li>
-    {% endif %} {% endfor %}
-  </ul>
+    <div class="container">
+        <ul>
+            {% assign menu_ordenado = site.data.menu | sort: "order" %}
+            {% for item in menu_ordenado %}
+            {% if item.visible %}
+            <li>
+                <a href="{{ item.url | relative_url }}" title="{{ item.description | escape }}" class="{% if page.url == item.url %}active{% endif %}" {% if page.url==item.url %}aria-current="page" {% endif %}>
+                    {% if item.icon %}
+                    <svg class="icon icon-small" aria-hidden="true">
+                        <use xlink:href="#{{ item.icon }}"></use>
+                    </svg>
+                    {% endif %}
+                    {{ item.name | escape }}
+                </a>
+            </li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
 </nav>

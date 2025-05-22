@@ -1,22 +1,25 @@
 <footer class="hub-footer" role="contentinfo" aria-label="Pie de página">
-  <p>
-    © {{ 'now' | date: '%Y' }}
-    <a href="{{ '/' | relative_url }}" aria-label="Volver a la página principal de {{ site.title }}">{{ site.title
-      }}</a>. Todos los derechos reservados.
-  </p>
-  <nav role="navigation" aria-label="Enlaces del pie de página">
-    <ul>
-      <li><a href="{{ '/about/' | relative_url }}">Acerca</a></li>
-      <li><a href="{{ '/contact/' | relative_url }}">Contacto</a></li>
-      <li>
-        <a href="https://www.hattrick.org/?inviteRef=U8EHM5" target="_blank" rel="noopener nofollow"
-          aria-label="Sitio oficial de Hattrick (abre en nueva pestaña)">
-          <svg class="icon icon-sm" aria-hidden="true">
-            <use xlink:href="#icon-external"></use>
-          </svg>
-          Hattrick
-        </a>
-      </li>
-    </ul>
-  </nav>
+    <div class="container">
+        <div class="footer-content">
+            <p>
+                © {{ 'now' | date: '%Y' }}
+                <a href="{{ '/' | relative_url }}" aria-label="Volver a la página principal de {{ site.title }}">{{
+                    site.title }}</a>. Todos los derechos reservados.
+            </p>
+            <nav role="navigation" aria-label="Enlaces del pie de página">
+                <ul>
+                    <li><a href="{{ '/about/' | relative_url }}">Acerca</a></li>
+                    <li><a href="{{ '/contact/' | relative_url }}">Contacto</a></li>
+                    <li>
+                        <a href="https://www.hattrick.org/?inviteRef=U8EHM5" target="_blank" rel="noopener nofollow" aria-label="Sitio oficial de Hattrick (abre en nueva pestaña)">
+                            <svg class="icon is-small" aria-hidden="true">
+                                <use xlink:href="#icon-external"></use>
+                            </svg>
+                            Hattrick
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
 </footer>

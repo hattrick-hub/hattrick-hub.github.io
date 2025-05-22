@@ -1,32 +1,64 @@
-<!doctype html>
-<html lang="{{ page.lang | default: site.lang | default: 'es' }}"
-  dir="{{ page.dir | default: site.dir | default: 'ltr' }}">
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'es' }}" dir="{{ page.dir | default: site.dir | default: 'ltr' }}" aria-label="Hattrick Hub" aria-current="page">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <meta name="robots" content="index, follow" />
-  {% seo %}
-  <meta name="theme-color" content="{{ site.data.theme.color | default: '#2c6b74' }}" id="themeColorMeta" />
-  <meta name="color-scheme" content="light dark" />
-  <link rel="icon" href="{{ '/assets/img/favicon.ico' | relative_url }}" type="image/x-icon" />
-  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="robots" content="index, follow">
+    {% seo %}
+    <meta name="theme-color" content="{{ site.color | default: '#1d4ed8' }}">
+    <meta name="color-scheme" content="light dark">
+    <meta property="og:image" content="{{ site.image | absolute_url }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preload" href="{{ '/assets/img/favicon.ico' | relative_url }}" as="image" type="image/x-icon">
+    <link rel="icon" href="{{ '/assets/img/favicon.ico' | relative_url }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
 </head>
 
-<body style="scroll-padding-top: var(--header-offset)">
-  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
-  <div class="grid-layout">
-    {% include header.html %} {% include news-bar.html %} {% include sidebar.html %}
-    <main class="hub-container" role="main" id="main-content">{{ content }}</main>
-    {% include footer.html %}
-  </div>
-  <button class="back-to-top" aria-label="Volver arriba" title="Volver arriba">
-    <svg class="icon icon-arrow" aria-hidden="true" focusable="false">
-      <use xlink:href="#icon-arrow"></use>
-    </svg>
-  </button>
-  <div style="display: none" aria-hidden="true">{% include sprite.svg %}</div>
-  <script defer src="{{ '/assets/js/script.js' | relative_url }}"></script>
+<body>
+    <a href="#main-content" class="skip-link">
+        <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-skip"></use>
+        </svg>
+        Saltar al contenido principal
+    </a>
+    <div class="grid-layout">
+        {% include header.html %}
+        {% include news-bar.html %}
+        {% include sidebar.html %}
+        <main class="container is-content" role="main" id="main-content">
+            <section class="section">
+                {{ content }}
+            </section>
+        </main>
+        {% include footer.html %}
+        <div style="display: none" aria-hidden="true">
+            {% include sprite.html %}
+        </div>
+    </div>
+    <button class="back-to-top" aria-label="Volver arriba" title="Volver arriba">
+        <svg class="icon icon-arrow" aria-hidden="true" focusable="false">
+            <use xlink:href="#icon-arrow"></use>
+        </svg>
+        <span class="visually-hidden">Volver arriba</span>
+    </button>
+    <noscript>
+        <style>
+            .back-to-top {
+                display: none;
+            }
+
+            .news-bar .news-container {
+                animation: none;
+                white-space: normal;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+        </style>
+    </noscript>
+    {% include js-config.html %}
+    <script defer src="{{ '/assets/js/script.js' | relative_url }}"></script>
 </body>
 
 </html>
