@@ -1,0 +1,41 @@
+<footer class="footer" role="contentinfo" aria-label="Pie de página">
+    <div class="section-1">
+        <div class="footer-content">
+            <div class="footer-copyright text-center">
+                © {{ 'now' | date: '%Y' }}
+                <a href="{{ '/' | relative_url }}" aria-label="Volver a la página principal de {{ site.title | escape }}">
+                    {{ site.title | escape }}: Todo Hattrick en un solo lugar
+                </a>
+                <p>Todos los derechos reservados.</p>
+            </div>
+            <nav role="navigation" aria-label="Enlaces del pie de página">
+                <ul class="footer-links">
+                    <li>
+                        <a href="{{ '/acerca-de/' | relative_url }}" aria-label="Acerca de Hattrick Hub">
+                            <svg class="icon is-small" aria-hidden="true">
+                                <use xlink:href="#about"></use>
+                            </svg>
+                            <span>Acerca de</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ '/contacto/' | relative_url }}" aria-label="Contacto con Hattrick Hub">
+                            <svg class="icon is-small" aria-hidden="true">
+                                <use xlink:href="#contact"></use>
+                            </svg>
+                            <span>Contacto</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.hattrick.org/?inviteRef=U8EHM5" target="_blank" rel="noopener nofollow" aria-label="Sitio oficial de Hattrick (abre en nueva pestaña)">
+                            <svg class="icon is-small" aria-hidden="true">
+                                <use xlink:href="#external"></use>
+                            </svg>
+                            <span>Ir a Hattrick</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</footer>

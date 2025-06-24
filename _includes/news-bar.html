@@ -1,0 +1,43 @@
+{% unless page.hide_news_bar %}
+<section class="news-bar" role="complementary" aria-label="Herramientas destacadas">
+    <div class="carousel" role="region" aria-label="Carrusel de herramientas">
+        <div class="carousel-inner">
+            {% assign featured_tools = site.herramientas | where: "featured", true %}
+            {% for tool in featured_tools %}
+            <div class="carousel-item{% if forloop.first %} active{% endif %}" data-slide="{{ forloop.index0 }}">
+                <h3>{{ tool.title }}</h3>
+                <p>{{ tool.excerpt | strip_html | truncatewords: 20 }}</p>
+                <a href="{{ tool.url | relative_url }}" class="button is-primary">Explorar</a>
+            </div>
+            {% endfor %}
+        </div>
+        {% if featured_tools.size > 1 %}
+        <button class="carousel-control prev" aria-label="Herramienta anterior">
+            <svg class="icon is-small" aria-hidden="true">
+                <use xlink:href="#chevron-left"></use>
+            </svg>
+            <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control next" aria-label="Siguiente herramienta">
+            <svg class="icon is-small" aria-hidden="true">
+                <use xlink:href="#chevron-right"></use>
+            </svg>
+            <span class="visually-hidden">Siguiente</span>
+        </button>
+        <button class="carousel-pause" aria-label="Pausar el carrusel">
+            <svg class="icon is-small" aria-hidden="true">
+                <use xlink:href="#pause"></use>
+            </svg>
+            <span class="visually-hidden">Pausar</span>
+        </button>
+        <div class="carousel-indicators">
+            {% for tool in featured_tools %}
+            <button class="indicator{% if forloop.first %} active{% endif %}"
+                aria-current="{% if forloop.first %}true{% else %}false{% endif %}"
+                aria-label="Ir al slide {{ forloop.index }}"></button>
+            </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</section>
+{% endunless %}

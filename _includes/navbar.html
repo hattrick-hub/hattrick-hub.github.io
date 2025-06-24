@@ -1,0 +1,37 @@
+<nav class="navbar" role="navigation" aria-label="Navegación principal">
+    <div class="section-1">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="{{ '/' | relative_url }}"
+                aria-label="Volver a la página principal de {{ site.title | escape }}">
+                <svg class="icon is-small" aria-hidden="true" focusable="false">
+                    <use xlink:href="#home"></use>
+                </svg>
+                <span>{{ site.title | escape }}</span>
+            </a>
+            <button class="navbar-burger" aria-label="Menú" aria-expanded="false" data-target="navbarMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </button>
+        </div>
+        <div id="navbarMenu" class="navbar-menu" aria-label="Menú de navegación">
+            <div class="navbar-end">
+                {% assign menu_ordenado = site.data.menu | sort: "order" %}
+                {% for item in menu_ordenado %}
+                {% if item.visible %}
+                <a class="navbar-item {% if page.url == item.url %}is-active{% endif %}"
+                    href="{{ item.url | relative_url }}" title="{{ item.description | escape }}" {% if
+                    page.url==item.url %}aria-current="page" {% endif %}>
+                    {% if item.icon %}
+                    <svg class="icon is-small" aria-hidden="true" focusable="false">
+                        <use xlink:href="#{{ item.icon }}"></use>
+                    </svg>
+                    {% endif %}
+                    <span>{{ item.name | escape }}</span>
+                </a>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</nav>

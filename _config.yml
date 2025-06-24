@@ -1,0 +1,114 @@
+# Configuración general del sitio
+title: "Hattrick Hub"
+description: "El centro de acceso a todas las herramientas y recursos de Hattrick."
+url: "https://hattrick-hub.github.io"
+baseurl: ""
+lang: es
+image: /assets/img/placeholder.webp
+permalink: /:title/
+author: elPatronHT
+author_team_url: "https://hattrick.org/goto.ashx?path=/Club/?TeamID=538167"
+color: "#4B8A61"
+theme: null
+cache: true
+
+# Procesamiento de Markdown
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-relative-links
+  - jekyll-redirect-from
+
+# Enlaces relativos
+relative_links:
+  enabled: true
+  collections: true
+
+# Exclusiones
+exclude:
+  - .DS_Store
+  - .git/
+  - .github/
+  - .gitignore
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - _site/
+  - node_modules/
+  - package.json
+  - src/
+  - vendor/
+  - yarn.lock
+  - scripts/
+  - assets/img/raw/
+
+# Colecciones
+collections:
+  blog:
+    output: true
+    permalink: /blog/:year/:month/:day/:title/
+  manual:
+    output: true
+    permalink: /manual/:title/
+  noticias:
+    output: true
+    permalink: /noticias/:title/
+  herramientas:
+    output: true
+    permalink: /herramientas/:title/
+  pages:
+    output: true
+    permalink: /:name/
+
+# Valores por defecto
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+      author: elPatronHT
+      lang: es
+  - scope:
+      path: ""
+      type: blog
+    values:
+      layout: blog-post
+      image: /assets/img/placeholder.webp
+      lang: es
+  - scope:
+      path: ""
+      type: manual
+    values:
+      layout: manual-post
+      image: /assets/img/placeholder.webp
+      lang: es
+  - scope:
+      path: ""
+      type: noticias
+    values:
+      layout: noticias-post
+      image: /assets/img/placeholder.webp
+      lang: es
+  - scope:
+      path: ""
+      type: herramientas
+    values:
+      layout: herramientas-post
+      image: /assets/img/placeholder.webp
+      lang: es
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: default
+      lang: es
+
+future: true

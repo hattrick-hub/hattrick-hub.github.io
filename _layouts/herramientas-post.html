@@ -1,0 +1,51 @@
+---
+layout: default
+---
+
+<section class="section section-2" role="region" aria-label="Detalles de la herramienta">
+    <div class="container">
+        <article class="card-post" role="article" aria-labelledby="tool-title">
+            <h1 class="title is-1" id="tool-title">{{ page.title }}</h1>
+            {% if page.rating %}
+            <span class="rating" aria-label="Calificación: {{ page.rating }} de 5">
+                {% for i in (1..page.rating) %}
+                <svg class="icon is-small" aria-hidden="true">
+                    <use xlink:href="#star"></use>
+                </svg>
+                {% endfor %}
+                {% for i in (page.rating..4) %}
+                <svg class="icon is-small empty" aria-hidden="true">
+                    <use xlink:href="#star"></use>
+                </svg>
+                {% endfor %}
+            </span>
+            {% endif %}
+            {% if page.hero_image %}
+            <div class="card-image">
+                <img src="{{ page.hero_image | relative_url }}" alt="{{ page.hero_alt | default: page.title | escape }}"
+                    loading="lazy" width="600" height="400">
+            </div>
+            {% endif %}
+            <div class="meta">
+                <span>Publicado: {{ page.date | date: "%d/%m/%Y" }}</span>
+                <span>Autor: {{ page.author | default: site.author }}</span>
+                {% assign minutes = content | number_of_words | divided_by: 200 | plus: 1 %}
+                <span>Tiempo de lectura: {{ minutes }} minuto{% if minutes != 1 %}s{% endif %}</span>
+            </div>
+            <div class="content">
+                {{ content }}
+            </div>
+            {% if page.tags %}
+            <div class="tags">
+                {% for tag in page.tags %}
+                <span class="tag">{{ tag }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+            {% if page.external_url %}
+            <a href="{{ page.external_url }}" target="_blank" rel="noopener noreferrer" class="button is-secondary"
+                aria-label="Visitar {{ page.title | escape }}">Visitar Sitio</a>
+            {% endif %}
+        </article>
+    </div>
+</section>

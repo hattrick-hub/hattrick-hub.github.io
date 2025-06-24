@@ -1,0 +1,38 @@
+{% comment %}
+Template para la sección hero.
+Parámetros:
+- title: Título (default: page.title)
+- subtitle: Subtítulo (default: page.description)
+- image: URL de la imagen (default: page.hero_image o /assets/img/placeholder.webp)
+- alt: Texto alternativo (default: page.hero_alt o "Imagen de {{ page.title }}")
+- buttons: HTML de los botones (default: vacío, debe ser HTML seguro)
+- aria_label: Etiqueta ARIA (default: "{{ page.title }}")
+- role: Rol ARIA (default: "banner")
+{% endcomment %}
+
+<section class="hero" role="{{ include.role | default: 'banner' }}"
+    aria-label="{{ include.aria_label | default: page.title | escape }}">
+    <div class="section section-2">
+        {% if include.image or page.hero_image %}
+        <img src="{{ include.image | default: page.hero_image | default: '/assets/img/placeholder.webp' | relative_url }}"
+            alt="{{ include.alt | default: page.hero_alt | default: 'Imagen de ' | append: page.title | escape }}"
+            class="hero-img" loading="lazy">
+        {% else %}
+        <span class="image-fallback" aria-hidden="true">
+            <svg class="icon is-medium" aria-hidden="true">
+                <use xlink:href="#image"></use>
+            </svg>
+            Imagen no disponible
+        </span>
+        {% endif %}
+        <div class="text-center">
+            <h2 class="title is-1">{{ include.title | default: page.title | escape }}</h2>
+            <p class="subtitle">{{ include.subtitle | default: page.description | escape }}</p>
+            {% if include.buttons %}
+            <div class="buttons">
+                {{ include.buttons }}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</section>

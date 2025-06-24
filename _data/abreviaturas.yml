@@ -1,0 +1,328 @@
+- category: Tácticas y Estrategias
+  list:
+    - name: AIM
+      description: Táctica de Ataque en el Medio.
+      tags: [tactica, ataque]
+    - name: AO
+      description: Estrategia Todo Ofensivo.
+      tags: [estrategia, ofensivo]
+    - name: AOA
+      description: Estrategia de Ataque Total.
+      tags: [estrategia, ataque]
+    - name: AOW
+      description: Táctica de Ataque por las Bandas.
+      tags: [tactica, bandas]
+    - name: CA
+      description: Táctica de Contraataques.
+      tags: [tactica, defensa]
+    - name: CAEX
+      description: Estrategia de Contraataques Extremos (rara).
+      tags: [estrategia, defensa]
+    - name: LS
+      description: Táctica de Tiros Largos.
+      tags: [tactica, ataque]
+    - name: PC
+      description: Táctica de Jugar con Creatividad.
+      tags: [tactica, creatividad]
+    - name: PR
+      description: Táctica de Presión.
+      tags: [tactica, presion]
+    - name: SOAP
+      description: Estrategia Enviar Órdenes y Rezar.
+      tags: [estrategia, humor]
+
+- category: Posiciones
+  list:
+    - name: CD
+      description: Posición de Defensa Central.
+      tags: [posicion, defensa]
+    - name: CDo
+      description: Posición de Defensa Central Ofensivo.
+      tags: [posicion, defensa]
+    - name: dF
+      description: Posición de Delantero Defensivo Técnico.
+      tags: [posicion, delantero]
+    - name: Ftw
+      description: Posición de Delantero Hacia la Banda.
+      tags: [posicion, delantero]
+    - name: FW
+      description: Posición de Delantero.
+      tags: [posicion, delantero]
+    - name: IM
+      description: Posición de Mediocampista Interior.
+      tags: [posicion, mediocampo]
+    - name: IMd
+      description: Posición de Mediocampista Defensivo.
+      tags: [posicion, mediocampo]
+    - name: IMo
+      description: Posición de Mediocampista Ofensivo.
+      tags: [posicion, mediocampo]
+    - name: IMtw
+      description: Posición de Mediocampista Interior hacia la Banda.
+      tags: [posicion, mediocampo]
+    - name: PDIM
+      description: Mediocampista Interior Defensivo Poderoso.
+      tags: [posicion, mediocampo]
+    - name: PNF
+      description: Posición de Delantero Normal Potente.
+      tags: [posicion, delantero]
+    - name: TdF
+      description: Posición de Delantero Defensivo Técnico.
+      tags: [posicion, delantero]
+    - name: WG
+      description: Posición de Extremo.
+      tags: [posicion, bandas]
+    - name: WB
+      description: Posición de Lateral.
+      tags: [posicion, defensa]
+    - name: WBd
+      description: Posición de Lateral Defensivo.
+      tags: [posicion, defensa]
+    - name: WBo
+      description: Posición de Lateral Ofensivo.
+      tags: [posicion, defensa]
+    - name: Wo
+      description: Posición de Extremo Ofensivo.
+      tags: [posicion, bandas]
+    - name: Wtm
+      description: Posición de Extremo hacia el Medio.
+      tags: [posicion, bandas]
+
+- category: Habilidades y Entrenamiento
+  list:
+    - name: DE
+      description: Rol de Defensa con habilidad o entrenamiento en Defensa.
+      tags: [habilidad, defensa]
+    - name: GK
+      description: Rol de Portero o habilidad de Entrenamiento en Portería.
+      tags: [habilidad, portero]
+    - name: CR
+      description: Entrenamiento de Centros (Extremo).
+      tags: [entrenamiento, bandas]
+    - name: PM
+      description: Habilidad o entrenamiento en Creación de Juego.
+      tags: [habilidad, mediocampo]
+    - name: PS
+      description: Habilidad o entrenamiento en Pase.
+      tags: [habilidad, mediocampo]
+    - name: SC
+      description: Habilidad o entrenamiento en Anotación.
+      tags: [habilidad, delantero]
+    - name: SP
+      description: Evento, habilidad o entrenamiento de Piezas de Juego.
+      tags: [habilidad, especial]
+    - name: WN
+      description: Habilidad de Banda.
+      tags: [habilidad, bandas]
+    - name: LD
+      description: Habilidad de Liderazgo.
+      tags: [habilidad, especial]
+    - name: TI
+      description: Intensidad de Entrenamiento.
+      tags: [entrenamiento, intensidad]
+
+- category: Especialidades
+  list:
+    - name: H
+      description: Especialidad Cabeza.
+      tags: [especialidad, fisico]
+    - name: P
+      description: Especialidad Potente.
+      tags: [especialidad, fisico]
+    - name: Q
+      description: Especialidad Rápido.
+      tags: [especialidad, fisico]
+    - name: R
+      description: Especialidad Resistente.
+      tags: [especialidad, fisico]
+    - name: S
+      description: Especialidad de Soporte.
+      tags: [especialidad, mental]
+    - name: T
+      description: Especialidad Técnico.
+      tags: [especialidad, tecnica]
+    - name: U
+      description: Especialidad Inpredecible.
+      tags: [especialidad, mental]
+
+- category: Estados de Ánimo
+  list:
+    - name: DitS
+      description: Estado de Ánimo Bailando en las Calles.
+      tags: [moral, alto]
+    - name: HoL
+      description: Estado de Ánimo Alto en la Vida.
+      tags: [moral, alto]
+    - name: POE
+      description: Espíritu de Paraíso en la Tierra.
+      tags: [moral, alto]
+    - name: WOC
+      description: Espíritu de Caminando en las Nubes.
+      tags: [moral, alto]
+    - name: TS
+      description: Espíritu de Equipo.
+      tags: [moral, equipo]
+
+- category: Órdenes y Jugabilidad
+  list:
+    - name: PIC
+      description: Orden Jugar Relajado.
+      tags: [orden, partido]
+    - name: PIN
+      description: Orden Jugar Normal.
+      tags: [orden, partido]
+    - name: MOTS
+      description: Orden del Partido de la Temporada.
+      tags: [orden, especial]
+    - name: WO
+      description: Darse por Vencido.
+      tags: [orden, rendicion]
+    - name: SE
+      description: Evento Especial.
+      tags: [evento, especial]
+
+- category: Niveles y Mediciones
+  list:
+    - name: Et
+      description: Nivel de habilidad Extraterrestre.
+      tags: [nivel, habilidad]
+    - name: WC
+      description: Nivel de habilidad de Clase Mundial o Copa Mundial.
+      tags: [nivel, habilidad]
+    - name: EXP
+      description: Experiencia.
+      tags: [medicion, jugador]
+    - name: TSI
+      description: Índice Total de Habilidades.
+      tags: [medicion, jugador]
+    - name: TA
+      description: Característica de Análisis de Equipo.
+      tags: [medicion, equipo]
+
+- category: Transferencias
+  list:
+    - name: TC
+      description: Comparar Transferencias.
+      tags: [transferencia, herramienta]
+    - name: TL
+      description: Transferido.
+      tags: [transferencia, estado]
+    - name: TPA
+      description: Ajuste de Precio de Transferencia.
+      tags: [transferencia, precio]
+    - name: TPE
+      description: Evaluación de Precio de Transferencia.
+      tags: [transferencia, precio]
+
+- category: Selecciones y Juveniles
+  list:
+    - name: NT
+      description: Selección Nacional.
+      tags: [seleccion, nacional]
+    - name: NC
+      description: Entrenador de Selección Nacional.
+      tags: [seleccion, entrenador]
+    - name: U21
+      description: Selección Nacional U21.
+      tags: [seleccion, juvenil]
+    - name: YA
+      description: Academia Juvenil.
+      tags: [juvenil, academia]
+    - name: YP
+      description: Selección Juvenil.
+      tags: [juvenil, seleccion]
+    - name: YS
+      description: Equipo Juvenil.
+      tags: [juvenil, equipo]
+
+- category: Organizaciones y Funcionarios
+  list:
+    - name: AHP
+      description: Prensa Asociada de Hattrick.
+      tags: [organizacion, prensa]
+    - name: CH
+      description: Club Hattrick.
+      tags: [organizacion, club]
+    - name: CHPP
+      description: Proveedor Certificado de Productos Hattrick.
+      tags: [organizacion, desarrollo]
+    - name: FED
+      description: Federación.
+      tags: [organizacion, federacion]
+    - name: FFHF
+      description: Federación de Foros de Fútbol Hattrick.
+      tags: [organizacion, foro]
+    - name: GM
+      description: Funcionario GameMaster.
+      tags: [funcionario, administrador]
+    - name: GAO
+      description: Organización de Agentes Globales.
+      tags: [organizacion, agentes]
+    - name: HFA
+      description: Asociación de Fútbol Hattrick.
+      tags: [organizacion, futbol]
+    - name: LA
+      description: Funcionario Administrador de Lenguaje.
+      tags: [funcionario, idioma]
+    - name: MOD
+      description: Funcionario Moderador.
+      tags: [funcionario, moderador]
+
+- category: Herramientas y Aplicaciones
+  list:
+    - name: HG
+      description: Logro o equipo.
+      tags: [herramienta, logro]
+    - name: HPE
+      description: Editor de Prensa de Hattrick.
+      tags: [herramienta, prensa]
+    - name: HTR
+      description: Clasificaciones HTR.
+      tags: [herramienta, ranking]
+    - name: HTRF
+      description: Factor Aleatorio de Hattrick.
+      tags: [herramienta, aleatorio]
+    - name: HM
+      description: Hattrick Máster.
+      tags: [herramienta, gestion]
+    - name: HO
+      description: Hattrick Organizer.
+      tags: [herramienta, organizador]
+    - name: MLC
+      description: Desafío de Licencia de Manager.
+      tags: [herramienta, desafio]
+
+- category: General y Comunicación
+  list:
+    - name: BOT
+      description: Equipo de computadora (controlado por el juego).
+      tags: [general, automatico]
+    - name: GB
+      description: Libro de Visitas.
+      tags: [comunicacion, visitantes]
+    - name: HT
+      description: Juego de Hattrick.
+      notes: Usado frecuentemente en foros.
+      tags: [general, juego]
+      featured: true
+    - name: HTs
+      description: Miembro del Equipo Hattrick.
+      tags: [general, staff]
+    - name: HT-ML
+      description: Lenguaje de Marcado de Hattrick.
+      tags: [comunicacion, formato]
+    - name: HT-N
+      description: HT-News.
+      tags: [comunicacion, noticias]
+    - name: HTF
+      description: Hattrick Para Siempre.
+      tags: [general, lema]
+    - name: PA
+      description: Anuncio de Prensa.
+      tags: [comunicacion, prensa]
+    - name: RL
+      description: Vida Real o En la Vida Real.
+      tags: [general, realidad]
+    - name: RTFM
+      description: Lee el Maldito Manual.
+      tags: [general, humor]

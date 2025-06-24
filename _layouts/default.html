@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'es' }}"
+    dir="{{ page.dir | default: site.dir | default: 'ltr' }}" class="no-js">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ page.description | default: site.description | escape }}">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="{{ site.color | default: '#4B8A61' }}">
+    <meta name="color-scheme" content="light dark">
+    <meta property OkayClass="og:image" content="{{ site.image | absolute_url }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="{{ '/assets/img/favicon.ico' | relative_url }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
+</head>
+
+<body>
+    <div class="grid-layout" aria-label="Estructura principal del sitio">
+        <a href="#main-content" class="skip-link" tabindex="0">
+            <svg class="icon is-medium" aria-hidden="true" focusable="false">
+                <use xlink:href="#skip"></use>
+            </svg> Saltar al contenido principal
+        </a>
+        {% include navbar.html %}
+        <main class="main-content section-1" role="main" id="main-content">
+            {{ content }}
+        </main>
+        {% unless page.hide_news_bar %}
+        {% include news-bar.html %}
+        {% endunless %}
+        {% include footer.html %}
+    </div>
+    {% include sprite.html %}
+    <button class="back-to-top" aria-label="Volver arriba" title="Volver arriba">
+        <svg class="icon is-small" aria-hidden="true" focusable="false">
+            <use xlink:href="#back-to-top"></use>
+        </svg>
+    </button>
+    {% include js-config.html %}
+    <script defer src="{{ '/assets/js/script.js' | relative_url }}"></script>
+</body>
+
+</html>
