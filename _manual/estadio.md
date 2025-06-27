@@ -1,5 +1,5 @@
 ---
-title: "Manual Completo del Estadio en Hattrick: Maximiza tus Ingresos"
+title: "Manual Completo del Estadio en Hattrick"
 date: 2025-06-21
 lastUpdated: 2025-06-21
 author: "Equipo Hattrick"

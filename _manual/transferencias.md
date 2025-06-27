@@ -12,8 +12,6 @@ featured: false
 difficulty: intermedio
 ---
 
-# Manual Completo del Sistema de Transferencias en Hattrick
-
 El mercado de transferencias es el corazón económico de Hattrick. Aquí es donde construyes tu equipo, generas ingresos y tomas las decisiones más estratégicas para el futuro de tu club. Dominar este sistema es esencial para competir al más alto nivel.
 
 ## Introducción al Sistema de Transferencias

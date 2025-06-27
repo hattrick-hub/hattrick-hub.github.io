@@ -12,7 +12,6 @@ featured: false
 difficulty: intermedio
 ---
 
-
 El entrenamiento es uno de los pilares fundamentales para el éxito a largo plazo en Hattrick. Cada semana tienes la oportunidad de moldear y desarrollar las habilidades de tus jugadores, pero para hacerlo de manera efectiva necesitas entender todos los factores que influyen en este proceso.
 
 ## ¿Cómo Funciona el Sistema de Entrenamiento?
@@ -45,34 +44,37 @@ Además de la edad y nivel de habilidad, hay cuatro factores principales que det
 La intensidad se configura con un valor entre **0 y 100**, y tiene efectos directos en tu equipo:
 
 ### Beneficios de Alta Intensidad
+
 - Mejor forma general del equipo
 - Mayores efectos del entrenamiento
 - Desarrollo más rápido de habilidades
 
 ### Riesgos de Alta Intensidad
+
 - **Mayor riesgo de lesiones**
 - Posible desgaste de los jugadores
 
 ### Estrategia de Intensidad Variable
+
 Reducir significativamente la intensidad puede proporcionar un **aumento único del espíritu del equipo**. Sin embargo, cuando vuelvas a aumentar la intensidad, el espíritu bajará nuevamente.
 
 > **Consejo**: Para cambios de intensidad, recuerda que el valor debe ser seleccionado en la última actualización antes de la actualización del entrenamiento.
 
 ## Los 11 Tipos de Entrenamiento Disponibles
 
-| Tipo de Entrenamiento | Habilidad Mejorada | Beneficiarios Principales |
-|----------------------|-------------------|---------------------------|
-| **Balón parado** | Balón parado | Todos los jugadores (25% extra al cobrador y portero) |
-| **Defensa** | Defensa | Defensores (efecto menor en todos) |
-| **Anotación** | Anotación | Delanteros (efecto menor en todos) |
-| **Lateral** | Lateral | Laterales (defensores laterales) |
-| **Anotación y balón parado** | Anotación + Balón parado | Efectos combinados pero menores |
-| **Pases** | Pases | Mediocampistas, laterales y delanteros |
-| **Jugadas** | Jugadas | Mediocampistas (laterales con efecto reducido) |
-| **Portería** | Portería | Porteros exclusivamente |
-| **Pases (def. y medio)** | Pases | Defensores, mediocampistas y laterales |
-| **Defensa (def. y medio)** | Defensa | Porteros, defensores, mediocampistas y laterales |
-| **Lateral (lat. y delant.)** | Lateral | Delanteros y laterales |
+| Tipo de Entrenamiento        | Habilidad Mejorada       | Beneficiarios Principales                             |
+| ---------------------------- | ------------------------ | ----------------------------------------------------- |
+| **Balón parado**             | Balón parado             | Todos los jugadores (25% extra al cobrador y portero) |
+| **Defensa**                  | Defensa                  | Defensores (efecto menor en todos)                    |
+| **Anotación**                | Anotación                | Delanteros (efecto menor en todos)                    |
+| **Lateral**                  | Lateral                  | Laterales (defensores laterales)                      |
+| **Anotación y balón parado** | Anotación + Balón parado | Efectos combinados pero menores                       |
+| **Pases**                    | Pases                    | Mediocampistas, laterales y delanteros                |
+| **Jugadas**                  | Jugadas                  | Mediocampistas (laterales con efecto reducido)        |
+| **Portería**                 | Portería                 | Porteros exclusivamente                               |
+| **Pases (def. y medio)**     | Pases                    | Defensores, mediocampistas y laterales                |
+| **Defensa (def. y medio)**   | Defensa                  | Porteros, defensores, mediocampistas y laterales      |
+| **Lateral (lat. y delant.)** | Lateral                  | Delanteros y laterales                                |
 
 ## El Cuerpo Técnico: Tu Inversión Más Importante
 
@@ -124,30 +126,36 @@ Si un jugador juega en diferentes posiciones durante la semana, **se elegirá au
 Supongamos que entrenas **"Lateral"** esta semana:
 
 ### Caso 1: Luis Martínez
+
 - Jugó 90 minutos como lateral el domingo
 - Se perdió el partido del miércoles
 - **Resultado**: 90 minutos de entrenamiento Lateral completo
 
 ### Caso 2: Carlos Hernández
+
 - Jugó 90 minutos como lateral el domingo
 - Jugó 90 minutos como delantero el miércoles
 - **Resultado**: 90 minutos de entrenamiento Lateral completo
 
 ### Caso 3: Ángel Rodríguez
+
 - Jugó 50 minutos como lateral el domingo
 - Jugó 90 minutos como defensor lateral el miércoles
 - **Resultado**: 50 minutos de Lateral completo + 40 minutos con efecto reducido
 
 ### Caso 4: David López
+
 - Jugó 40 minutos como lateral el domingo
 - Jugó 90 minutos como delantero el miércoles
 - **Resultado**: 40 minutos de Lateral completo + 50 minutos de entrenamiento residual por "ósmosis"
 
 ### Caso 5: Miguel Barquera
+
 - Jugó 90 minutos como defensor lateral domingo y miércoles
 - **Resultado**: Solo 90 minutos con efecto reducido de Lateral
 
 ### Caso 6: Victor Hernández
+
 - No jugó ningún partido
 - **Resultado**: Sin mejora de habilidades
 
@@ -160,16 +168,19 @@ Esta es una consideración crucial para la planificación a largo plazo de tu eq
 ## Estrategias Recomendadas
 
 ### Para Equipos Nuevos
+
 - Prioriza la **compra de un buen entrenador**
 - Enfócate en **jugadores jóvenes** (17-21 años)
 - Mantén **intensidad moderada** (70-85) para equilibrar desarrollo y lesiones
 
 ### Para Equipos Establecidos
+
 - Especializa el entrenamiento según tu **táctica principal**
 - Considera **entrenamientos combinados** para mayor versatilidad
 - Ajusta la intensidad según el **calendario de partidos importantes**
 
 ### Gestión de Condición
+
 - Encuentra el **punto óptimo** para tu plantilla y ambiciones
 - Jugadores veteranos necesitan **mayor porcentaje de condición**
 - Monitorea el impacto en la **forma del equipo**
@@ -182,4 +193,4 @@ Recuerda que cada decisión de entrenamiento es una inversión en el futuro de t
 
 ---
 
-*¿Tienes dudas específicas sobre algún aspecto del entrenamiento? La comunidad de Hattrick en los foros siempre está dispuesta a ayudar con consejos y estrategias probadas.*
+_¿Tienes dudas específicas sobre algún aspecto del entrenamiento? La comunidad de Hattrick en los foros siempre está dispuesta a ayudar con consejos y estrategias probadas._

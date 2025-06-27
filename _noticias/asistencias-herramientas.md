@@ -12,8 +12,6 @@ featured: true
 source: "https://www.hattrick.org"
 ---
 
-# Hattrick presenta su mayor actualización de 2025 con sistema de asistencias y herramientas avanzadas
-
 La actualización de febrero de Hattrick marca un hito en la evolución del legendario simulador de fútbol online. Con **cinco mejoras importantes** que transforman tanto la experiencia de nuevos usuarios como la estrategia de managers veteranos, esta versión promete revolucionar la forma de jugar y entender el juego.
 
 ## Cuadro de Ayuda Rápida: Acceso inmediato al conocimiento
@@ -42,8 +40,9 @@ Durante años, **los goleadores se han llevado toda la gloria en Hattrick**. La 
 ### Evolución del sistema existente
 
 **Antes**: Las asistencias solo se registraban en eventos especiales limitados:
+
 - Tiros de esquina
-- Pases largos de jugadores impredecibles  
+- Pases largos de jugadores impredecibles
 - Ciertas acciones de extremos o jugadores rápidos
 
 **Ahora**: El sistema se expande para registrar asistencias en **múltiples eventos de gol adicionales**, creando un panorama más completo del rendimiento individual.
@@ -53,22 +52,26 @@ Durante años, **los goleadores se han llevado toda la gloria en Hattrick**. La 
 El motor de juego determina al jugador asistente basándose en **tres factores clave**:
 
 #### 1. Posición en el campo
+
 - **Alta probabilidad**: Extremos y mediocampistas centrales
 - **Probabilidad media**: Laterales y defensores centrales
 - **Baja probabilidad**: Delanteros
 - **Probabilidad mínima**: Porteros (¡sí, también pueden asistir!)
 
 #### 2. Habilidades determinantes
+
 - **Factor principal**: Habilidad de pase
 - **Factor secundario**: Habilidad de extremo (para extremos y laterales)
 
 #### 3. Impacto de la formación
+
 - **Formaciones con tres mediocampistas centrales**: Mayor probabilidad de asistencias desde el centro
 - **Formaciones con un solo mediocampista**: Probabilidades más distribuidas
 
 ### Excepciones lógicas
 
 El sistema mantiene el realismo al **excluir eventos** que naturalmente no incluyen asistencias:
+
 - Tiros libres directos
 - Penales
 - Jugadas individuales
@@ -80,13 +83,16 @@ El sistema mantiene el realismo al **excluir eventos** que naturalmente no inclu
 Los managers ahora pueden **asignar órdenes individuales a los sustitutos** en la banca, revolucionando la gestión de lesiones durante los partidos.
 
 ### Comportamientos disponibles por posición
+
 - **Ofensivo/Defensivo/Normal**
 - **Hacia el lateral/Hacia el medio**
 
 ### Ejemplo práctico estratégico
-*Tienes un extremo normal titular, pero su sustituto tiene alta habilidad de jugadas. Ahora puedes configurar que el suplente juegue "hacia el medio" si debe ingresar por lesión, aprovechando mejor sus características.*
+
+_Tienes un extremo normal titular, pero su sustituto tiene alta habilidad de jugadas. Ahora puedes configurar que el suplente juegue "hacia el medio" si debe ingresar por lesión, aprovechando mejor sus características._
 
 ### Limitaciones importantes
+
 - **Solo aplica**: Reemplazos automáticos por lesión
 - **No afecta**: Sustituciones tácticas planificadas (siguen las órdenes generales)
 
@@ -101,10 +107,12 @@ La actualización incluye **nuevas "Condiciones Avanzadas"** en la pestaña de �
 Una de las **características más antiguas de Hattrick** ha sido completamente renovada. El **Jugador del Partido** ya no se determina únicamente por calificaciones numéricas.
 
 ### Nuevo sistema de evaluación
+
 - **Antes**: Solo calificaciones
 - **Ahora**: Calificaciones + eventos durante el partido
 
 ### Cambio en la narrativa
+
 Los reportes de partidos **ya no mencionarán al peor jugador** de cada equipo, creando una atmósfera más positiva y enfocada en destacar las buenas actuaciones.
 
 ## Notas de Calendario: Organización personalizada para Supporters
@@ -114,6 +122,7 @@ Los reportes de partidos **ya no mencionarán al peor jugador** de cada equipo, 
 Los **Supporters Gold y superior** ahora pueden agregar **notas personalizadas** a su calendario semanal, mejorando significativamente la gestión de equipos.
 
 ### Opciones de implementación
+
 - **Directamente en el calendario**: Añadir notas sobre la marcha
 - **Desde recordatorios**: Seleccionar "Mostrar en el Calendario" al crear recordatorios
 

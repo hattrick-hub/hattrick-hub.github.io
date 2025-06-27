@@ -12,8 +12,6 @@ featured: true
 source: "https://www.hattrick.org"
 ---
 
-# Hattrick presenta nueva página de registro y revoluciona el mercado de transferencias
-
 La actualización de marzo de Hattrick marca un hito importante en la **modernización y accesibilidad** del popular simulador de fútbol online. Con mejoras enfocadas en facilitar la entrada de nuevos managers y optimizar una de las mecánicas más utilizadas del juego, esta versión demuestra el compromiso continuo del equipo de desarrollo con la evolución del título.
 
 ## Simplificando el camino para nuevos managers
@@ -49,11 +47,14 @@ El resultado fue contundente: **más de 5,000 votos** respaldaron el paquete de 
 Los Supporters ahora tienen acceso a **estadísticas detalladas relacionadas con los fichajes**, incluyendo:
 
 #### Popularidad de jugadores
+
 - **Cantidad de veces que un jugador ha sido marcado como favorito**
 - Indicador del interés de la comunidad en jugadores específicos
 
 #### Historial detallado de transferencias
+
 Para jugadores propios, los managers pueden consultar:
+
 - **Historial completo de publicaciones** en el mercado mientras estuvieron en el equipo
 - **Fecha de cada publicación**
 - **Precio de venta establecido**
@@ -67,9 +68,11 @@ Para jugadores propios, los managers pueden consultar:
 En una decisión que demuestra el espíritu inclusivo de Hattrick, **los nuevos filtros de búsqueda avanzada se han liberado para todos los managers**, no solo para Supporters:
 
 #### Filtro por continente
+
 Permite buscar jugadores específicamente por región geográfica, facilitando estrategias basadas en procedencia o simplemente preferencias personales.
 
 #### Filtro por rango salarial
+
 Herramienta fundamental para managers que buscan optimizar su presupuesto, permitiendo búsquedas dentro de rangos salariales específicos.
 
 Los desarrolladores consideraron estas funcionalidades tan valiosas que decidieron **mantener la filosofía de que todos los filtros de 'búsqueda avanzada' son gratuitos** para toda la comunidad.
@@ -77,18 +80,21 @@ Los desarrolladores consideraron estas funcionalidades tan valiosas que decidier
 ## Impacto en la experiencia de juego
 
 ### Para nuevos managers
+
 - **Proceso de registro más intuitivo** y menos intimidante
 - **Primera impresión mejorada** con contenido multimedia
 - **Menor presión de decisión** durante el registro inicial
 - **Integración más natural** al ecosistema del juego
 
 ### Para managers veteranos
+
 - **Herramientas avanzadas de análisis** de mercado
 - **Mejor comprensión del valor** de sus jugadores
 - **Búsquedas más eficientes** en el mercado
 - **Datos históricos** para tomar mejores decisiones
 
 ### Para la comunidad en general
+
 - **Mercado más transparente** con estadísticas visibles
 - **Filtros mejorados** disponibles para todos
 - **Proceso democrático** que da voz a los usuarios premium

@@ -1,5 +1,5 @@
 ---
-title: "Guía Completa para Principiantes en Hattrick: Todo lo que Necesitas Saber"
+title: "Guía Completa para Principiantes en Hattrick"
 date: 2025-06-17
 lastUpdated: 2025-06-17
 author: "Hattrick Colombia"

@@ -9,32 +9,26 @@
                 <p>Todos los derechos reservados.</p>
             </div>
             <nav role="navigation" aria-label="Enlaces del pie de página">
-                <ul class="footer-links">
-                    <li>
-                        <a href="{{ '/acerca-de/' | relative_url }}" aria-label="Acerca de Hattrick Hub">
-                            <svg class="icon is-small" aria-hidden="true">
-                                <use xlink:href="#about"></use>
-                            </svg>
-                            <span>Acerca de</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ '/contacto/' | relative_url }}" aria-label="Contacto con Hattrick Hub">
-                            <svg class="icon is-small" aria-hidden="true">
-                                <use xlink:href="#contact"></use>
-                            </svg>
-                            <span>Contacto</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.hattrick.org/?inviteRef=U8EHM5" target="_blank" rel="noopener nofollow" aria-label="Sitio oficial de Hattrick (abre en nueva pestaña)">
-                            <svg class="icon is-small" aria-hidden="true">
-                                <use xlink:href="#external"></use>
-                            </svg>
-                            <span>Ir a Hattrick</span>
-                        </a>
-                    </li>
-                </ul>
+                <div class="buttons">
+                    <a href="{{ '/acerca-de/' | relative_url }}" class="button is-outlined" aria-label="Acerca de Hattrick Hub">
+                        <svg class="icon is-small" aria-hidden="true">
+                            <use xlink:href="#about"></use>
+                        </svg>
+                        <span>Acerca de</span>
+                    </a>
+                    <a href="{{ '/contacto/' | relative_url }}" class="button is-outlined" aria-label="Contacto con Hattrick Hub">
+                        <svg class="icon is-small" aria-hidden="true">
+                            <use xlink:href="#contact"></use>
+                        </svg>
+                        <span>Contacto</span>
+                    </a>
+                    <a href="https://www.hattrick.org/?inviteRef=U8EHM5" target="_blank" rel="noopener nofollow" class="button is-outlined" aria-label="Sitio oficial de Hattrick (abre en nueva pestaña)">
+                        <svg class="icon is-small" aria-hidden="true">
+                            <use xlink:href="#external"></use>
+                        </svg>
+                        <span>Ir a Hattrick</span>
+                    </a>
+                </div>
             </nav>
         </div>
     </div>

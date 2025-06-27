@@ -1,5 +1,5 @@
 ---
-title: "Manual Completo: Atributos de los Jugadores en Hattrick"
+title: "Manual de atributos de los Jugadores en Hattrick"
 date: 2025-06-20
 lastUpdated: 2025-06-20
 author: "Experto Hattrick"

@@ -306,21 +306,22 @@ abbr[title] {
     cursor: not-allowed;
 }
 .button.is-primary {
-    background: var(--color-primary-light);
-    border-color: var(--color-primary);
+    background: var(--color-primary);
+    /* Cambiado para más contraste */
+    border-color: var(--color-primary-dark);
 }
 .button.is-primary:hover, .button.is-primary:focus-visible {
-    background: var(--color-primary);
-    border-color: var(--color-primary-dark);
+    background: var(--color-primary-dark);
+    border-color: var(--color-primary);
     box-shadow: var(--shadow-hover);
 }
 .button.is-secondary {
-    background: var(--color-secondary-light);
-    border-color: var(--color-secondary);
-}
-.button.is-secondary:hover, .button.is-secondary:focus-visible {
     background: var(--color-secondary);
     border-color: var(--color-secondary-dark);
+}
+.button.is-secondary:hover, .button.is-secondary:focus-visible {
+    background: var(--color-secondary-dark);
+    border-color: var(--color-secondary);
     outline: var(--outline-width) solid var(--color-primary);
     box-shadow: var(--shadow-hover);
 }
@@ -556,11 +557,6 @@ abbr[title] {
     align-items: center;
     justify-content: center;
 }
-.hero .buttons {
-    margin-top: var(--spacing-4);
-    justify-content: center;
-    gap: var(--gap-sm);
-}
 details {
     background: var(--color-content-bg);
     padding: var(--spacing-2);
@@ -618,11 +614,6 @@ summary:hover, summary:focus-visible {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-1);
-}
-.carousel-item h3 {
-    font-size: var(--font-size-h4);
-    margin: 0;
-    color: var(--color-text);
 }
 .carousel-item .button {
     font-size: var(--font-size-sm);
@@ -702,16 +693,6 @@ summary:hover, summary:focus-visible {
     max-width: var(--container-max-width);
     width: 100%;
 }
-.footer-content a {
-    color: var(--color-primary-dark);
-    font-weight: var(--font-weight-bold);
-    text-decoration: none;
-}
-.footer-content a:hover, .footer-content a:focus-visible {
-    color: var(--color-text-invert);
-    text-decoration: underline;
-    outline: var(--outline-width) solid var(--color-secondary);
-}
 .footer nav ul {
     display: flex;
     flex-wrap: wrap;
@@ -730,45 +711,10 @@ summary:hover, summary:focus-visible {
     text-decoration: none;
     transition: var(--transition-standard);
 }
-.footer nav a:hover, .footer nav a:focus-visible, .footer nav a[aria-current="page"] {
+.footer nav a:hover, .footer nav a:focus-visible {
     background: var(--color-primary);
     outline: var(--outline-width) solid var(--color-secondary);
     box-shadow: var(--shadow-hover);
-}
-.footer-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--spacing-2);
-    list-style: none;
-    padding: 0;
-}
-.footer-links a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: var(--spacing-1);
-    background: var(--color-primary-dark);
-    color: var(--color-text-invert);
-    border-radius: 50%;
-    transition: var(--transition-transform), var(--transition-standard);
-}
-.footer-links a:hover, .footer-links a:focus-visible {
-    background: var(--color-primary);
-    color: var(--color-text-invert);
-    transform: scale(1.1);
-    outline: var(--outline-width) solid var(--color-secondary);
-}
-.footer-links .icon {
-    fill: currentColor;
-    stroke: none;
-}
-.footer-links span {
-    clip-path: inset(50%);
-    height: 1px;
-    width: 1px;
-    overflow: hidden;
-    white-space: nowrap;
-    position: absolute;
 }
 .footer-copyright {
     color: var(--color-text-secondary);
@@ -840,10 +786,6 @@ summary:hover, summary:focus-visible {
     transform: translateY(-0.5rem);
     box-shadow: var(--shadow-hover);
 }
-.card-base h3 {
-    font-size: var(--font-size-h3);
-    margin-bottom: var(--spacing-2);
-}
 .card-base .notes {
     font-size: var(--font-size-sm);
     color: var(--color-text-secondary);
@@ -857,10 +799,6 @@ summary:hover, summary:focus-visible {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-4);
-}
-.card-post h1 {
-    font-size: var(--font-size-h1);
-    margin-bottom: var(--spacing-4);
 }
 .card-post img {
     border-radius: var(--border-radius);
@@ -902,6 +840,7 @@ summary:hover, summary:focus-visible {
 .rating .icon {
     stroke-width: none;
     fill: var(--color-primary);
+    color: var(--color-primary);
 }
 .rating .icon.empty {
     fill: var(--color-text-secondary);
@@ -1137,6 +1076,14 @@ summary:hover, summary:focus-visible {
     position: absolute;
     white-space: nowrap;
 }
+.list-item-icon {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-sm);
+}
+.list-item-icon > .icon {
+    flex-shrink: 0;
+}
 /*** 10. Fallback para Usar sin JavaScript ***/
 .no-js .navbar-menu {
     display: flex;
@@ -1222,7 +1169,6 @@ summary:hover, summary:focus-visible {
     .navbar-item,
     .carousel-control,
     .carousel-pause,
-    .footer-links a,
     .skip-link {
         animation: none;
         transition: none;
@@ -1255,9 +1201,6 @@ summary:hover, summary:focus-visible {
     }
     .hero .buttons {
         justify-content: flex-start;
-    }
-    .footer-links a {
-        padding: var(--spacing-1);
     }
 }
 @media (min-width: 768px) {

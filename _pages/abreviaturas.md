@@ -12,7 +12,7 @@ hero_alt: Lista de abreviaturas de Hattrick
 <section class="section section-1" role="region" aria-label="Lista de Abreviaturas">
     <div class="container">
         {% for category in site.data.abreviaturas %}
-        <h1 class="title is-2" id="{{ category.category | slugify }}">{{ category.category }}</h1>
+        <h1 class="title is-1" id="{{ category.category | slugify }}">{{ category.category }}</h1>
         <div class="grid-base grid-fluid" role="grid">
             {% for item in category.list %}
             <article class="card-base{% if item.featured %} featured{% endif %}" role="gridcell"

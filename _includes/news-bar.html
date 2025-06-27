@@ -34,9 +34,10 @@
             {% for tool in featured_tools %}
             <button class="indicator{% if forloop.first %} active{% endif %}"
                 aria-current="{% if forloop.first %}true{% else %}false{% endif %}"
-                aria-label="Ir al slide {{ forloop.index }}"></button>
-            </div>
+                aria-label="Ir al slide {{ forloop.index }}">
+            </button>
             {% endfor %}
+        </div>
         {% endif %}
     </div>
 </section>

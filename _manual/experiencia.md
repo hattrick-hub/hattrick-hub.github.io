@@ -1,5 +1,5 @@
 ---
-title: "Alineación y Experiencia: Dominando la Táctica en Hattrick"
+title: "Alineación y Experiencia en Hattrick"
 date: 2025-06-21
 lastUpdated: 2025-06-21
 author: "Equipo Hattrick"

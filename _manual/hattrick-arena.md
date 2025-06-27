@@ -1,5 +1,5 @@
 ---
-title: "Guía Completa de Hattrick Arena - Competiciones Alternativas"
+title: "Guía Completa de Hattrick Arena en Hattrick"
 date: 2025-06-21
 lastUpdated: 2025-06-21
 author: "Equipo Hattrick"

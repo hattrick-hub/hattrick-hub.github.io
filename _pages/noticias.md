@@ -12,7 +12,7 @@ aria_label: Últimas Noticias de Hattrick
 
 <section class="section section-1" role="region" aria-label="Lista de noticias de Hattrick">
     <div class="container">
-        <h1 class="title is-2">Lista de Ultimas Noticias</h1>
+        <h1 class="title is-1">Lista de Ultimas Noticias</h1>
         <div class="grid-base grid-fixed" role="grid">
             {% for noticia in site.noticias %}
             <article class="card-base{% if noticia.featured %} featured{% endif %}" role="gridcell"
@@ -20,10 +20,10 @@ aria_label: Últimas Noticias de Hattrick
                 <div class="card-image">
                     {% if noticia.hero_image %}
                     <img src="{{ noticia.hero_image | relative_url }}"
-                        alt="{{ noticia.hero_alt | default: noticia.title | escape }}" class="card-post"
+                        alt="{{ noticia.hero_alt | default: noticia.title | escape }}" 
                         loading="lazy" width="600" height="400">
                     {% else %}
-                    <img src="/assets/img/placeholder.webp" alt="Sin imagen" class="card-post" aria-hidden="true"
+                    <img src="/assets/img/placeholder.webp" alt="Sin imagen"  aria-hidden="true"
                         loading="lazy" width="600" height="400">
                     {% endif %}
                 </div>

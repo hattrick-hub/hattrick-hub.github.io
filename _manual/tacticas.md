@@ -12,8 +12,6 @@ featured: false
 difficulty: intermedio
 ---
 
-# Manual Completo de Tácticas en Hattrick
-
 Las tácticas son el arma secreta que puede inclinar la balanza a tu favor en los momentos decisivos. Para cada partido, puedes instruir a tu equipo para que emplee una táctica específica, cada una con sus propias ventajas y desventajas estratégicas.
 
 ## Fundamentos del Sistema Táctico
@@ -42,15 +40,16 @@ Tienes **6 tácticas activas** más la opción **"Normal"** (sin táctica espec�
 
 ### Ventajas y Desventajas
 
-| ✅ **Ventajas** | ❌ **Desventajas** |
-|----------------|-------------------|
+| ✅ **Ventajas**                                                       | ❌ **Desventajas**                                 |
+| --------------------------------------------------------------------- | -------------------------------------------------- |
 | Reduce significativamente las ocasiones de gol **para ambos equipos** | Merma la **condición** de tus jugadores más rápido |
-| Excelente contra equipos superiores | Menos oportunidades de anotar |
-| Efectiva contra tiros largos | Requiere buena condición física |
+| Excelente contra equipos superiores                                   | Menos oportunidades de anotar                      |
+| Efectiva contra tiros largos                                          | Requiere buena condición física                    |
 
 ### Habilidades Clave
 
 **Fórmula del Nivel de Presionar:**
+
 - **Defensa total** de todos los jugadores
 - **Condición total** de todos los jugadores
 - **Bonificación especial**: Jugadores con especialidad "Potente" duplican su contribución defensiva
@@ -74,15 +73,16 @@ Tienes **6 tácticas activas** más la opción **"Normal"** (sin táctica espec�
 
 ### Ventajas y Desventajas
 
-| ✅ **Ventajas** | ❌ **Desventajas** |
-|----------------|-------------------|
+| ✅ **Ventajas**                                         | ❌ **Desventajas**                           |
+| ------------------------------------------------------- | -------------------------------------------- |
 | **Ataques adicionales** cuando tu defensa para al rival | Pierdes **7% de calificación** en mediocampo |
-| Efectiva contra ataques poco efectivos | Dependes de fallar los ataques rivales |
-| Aprovecha defensas sólidas | Menos control del juego |
+| Efectiva contra ataques poco efectivos                  | Dependes de fallar los ataques rivales       |
+| Aprovecha defensas sólidas                              | Menos control del juego                      |
 
 ### Habilidades Clave
 
 **Fórmula del Nivel de Contraataques:**
+
 - **Pases de defensores** (doble importancia)
 - **Defensa de defensores** (importancia simple)
 - **Bonificación**: Laterales rápidos, mediocampistas y delanteros
@@ -106,15 +106,16 @@ Tienes **6 tácticas activas** más la opción **"Normal"** (sin táctica espec�
 
 ### Ventajas y Desventajas
 
-| ✅ **Ventajas** | ❌ **Desventajas** |
-|----------------|-------------------|
+| ✅ **Ventajas**                                               | ❌ **Desventajas**                           |
+| ------------------------------------------------------------- | -------------------------------------------- |
 | **15% a 30%** de ataques laterales se convierten en centrales | **Defensa lateral** disminuye en ambos lados |
-| Aprovecha mediocampos fuertes | Vulnerable a ataques por las bandas |
-| Concentra el juego en tu fortaleza | Cada conversión reduce la siguiente |
+| Aprovecha mediocampos fuertes                                 | Vulnerable a ataques por las bandas          |
+| Concentra el juego en tu fortaleza                            | Cada conversión reduce la siguiente          |
 
 ### Habilidades Clave
 
 **Fórmula del Nivel de APC:**
+
 - **Pases totales** de todos los jugadores de campo
 - Mayor nivel de pases = mayor efectividad de conversión
 
@@ -134,15 +135,16 @@ Tienes **6 tácticas activas** más la opción **"Normal"** (sin táctica espec�
 
 ### Ventajas y Desventajas
 
-| ✅ **Ventajas** | ❌ **Desventajas** |
-|----------------|-------------------|
-| **20% a 40%** de ataques centrales se convierten en laterales | **Defensa central** disminuye |
-| Porcentaje mayor que APC (menos ataques centrales naturales) | Vulnerable a ataques por el centro |
-| Aprovecha laterales fuertes | Cada conversión reduce la siguiente |
+| ✅ **Ventajas**                                               | ❌ **Desventajas**                  |
+| ------------------------------------------------------------- | ----------------------------------- |
+| **20% a 40%** de ataques centrales se convierten en laterales | **Defensa central** disminuye       |
+| Porcentaje mayor que APC (menos ataques centrales naturales)  | Vulnerable a ataques por el centro  |
+| Aprovecha laterales fuertes                                   | Cada conversión reduce la siguiente |
 
 ### Habilidades Clave
 
 **Fórmula del Nivel de APB:**
+
 - **Pases totales** de todos los jugadores de campo
 - Misma base que APC pero con diferentes objetivos
 
@@ -162,15 +164,16 @@ Tienes **6 tácticas activas** más la opción **"Normal"** (sin táctica espec�
 
 ### Ventajas y Desventajas
 
-| ✅ **Ventajas** | ❌ **Desventajas** |
-|----------------|-------------------|
-| **Aumenta eventos especiales** para ambos equipos | **Defensa general** empeora |
+| ✅ **Ventajas**                                                 | ❌ **Desventajas**                         |
+| --------------------------------------------------------------- | ------------------------------------------ |
+| **Aumenta eventos especiales** para ambos equipos               | **Defensa general** empeora                |
 | **Probabilidad ligeramente mayor** de obtener eventos positivos | También aumenta eventos especiales rivales |
-| Maximiza especialidades de jugadores | Puede ser impredecible |
+| Maximiza especialidades de jugadores                            | Puede ser impredecible                     |
 
 ### Habilidades Clave
 
 **Fórmula del Nivel de JC:**
+
 - **Pases** (más importante)
 - **Experiencia** (importante)
 - **Bonificación especial**: Jugadores "Impredecibles" **duplican** su contribución
@@ -193,15 +196,16 @@ Tienes **6 tácticas activas** más la opción **"Normal"** (sin táctica espec�
 
 ### Ventajas y Desventajas
 
-| ✅ **Ventajas** | ❌ **Desventajas** |
-|----------------|-------------------|
-| **30% de ataques** se convierten en tiros largos | **Ataques elaborados** empeoran |
-| Duelos directos portero vs tirador | **Mediocampo** disminuye ligeramente |
-| Efectiva con buenos anotadores | Vulnerable al "Presionar" |
+| ✅ **Ventajas**                                  | ❌ **Desventajas**                   |
+| ------------------------------------------------ | ------------------------------------ |
+| **30% de ataques** se convierten en tiros largos | **Ataques elaborados** empeoran      |
+| Duelos directos portero vs tirador               | **Mediocampo** disminuye ligeramente |
+| Efectiva con buenos anotadores                   | Vulnerable al "Presionar"            |
 
 ### Habilidades Clave
 
 **Fórmula del Nivel de TL:**
+
 - **Anotación** (triple importancia)
 - **Balón parado** (importancia simple)
 - Se cuentan **todos los jugadores excepto el portero**
@@ -218,10 +222,12 @@ Tienes **6 tácticas activas** más la opción **"Normal"** (sin táctica espec�
 #### Habilidades del Duelo
 
 **Para el tirador:**
+
 - **Anotación + Balón parado** del tirador seleccionado
 - "Es mejor tener un poco de ambas que mucho de una sola"
 
 **Para el portero:**
+
 - **Portería + Balón parado** del guardameta
 - Mismo principio de equilibrio entre habilidades
 
@@ -237,25 +243,25 @@ Tienes **6 tácticas activas** más la opción **"Normal"** (sin táctica espec�
 
 ### Según Fortalezas del Equipo
 
-| **Tipo de Equipo** | **Tácticas Recomendadas** | **Justificación** |
-|-------------------|--------------------------|------------------|
-| **Defensa sólida + Ataque fuerte** | Contraataques | Aprovecha la solidez defensiva |
-| **Mediocampo dominante** | APC | Canaliza el juego por tu fortaleza |
-| **Laterales excepcionales** | APB | Maximiza ataques por las bandas |
-| **Buenos tiradores** | Tiros Largos | Simplifica las ocasiones de gol |
-| **Muchas especialidades** | Jugar Creativamente | Multiplica eventos especiales |
-| **Equipo inferior** | Presionar | Reduce ocasiones para ambos |
+| **Tipo de Equipo**                 | **Tácticas Recomendadas** | **Justificación**                  |
+| ---------------------------------- | ------------------------- | ---------------------------------- |
+| **Defensa sólida + Ataque fuerte** | Contraataques             | Aprovecha la solidez defensiva     |
+| **Mediocampo dominante**           | APC                       | Canaliza el juego por tu fortaleza |
+| **Laterales excepcionales**        | APB                       | Maximiza ataques por las bandas    |
+| **Buenos tiradores**               | Tiros Largos              | Simplifica las ocasiones de gol    |
+| **Muchas especialidades**          | Jugar Creativamente       | Multiplica eventos especiales      |
+| **Equipo inferior**                | Presionar                 | Reduce ocasiones para ambos        |
 
 ### Según Rival
 
-| **Rival Tiene...** | **Usa...** | **Porque...** |
-|-------------------|------------|---------------|
-| **Ataque superior** | Presionar | Reduces sus ocasiones |
-| **Mediocampo débil** | Contraataques | Aprovechas sus errores |
-| **Defensa central fuerte** | APB | Evitas su fortaleza |
-| **Defensa lateral sólida** | APC | Atacas por el centro |
-| **Pocos eventos especiales** | JC | Increases variabilidad |
-| **Juega Tiros Largos** | Presionar | Evitas sus disparos |
+| **Rival Tiene...**           | **Usa...**    | **Porque...**          |
+| ---------------------------- | ------------- | ---------------------- |
+| **Ataque superior**          | Presionar     | Reduces sus ocasiones  |
+| **Mediocampo débil**         | Contraataques | Aprovechas sus errores |
+| **Defensa central fuerte**   | APB           | Evitas su fortaleza    |
+| **Defensa lateral sólida**   | APC           | Atacas por el centro   |
+| **Pocos eventos especiales** | JC            | Increases variabilidad |
+| **Juega Tiros Largos**       | Presionar     | Evitas sus disparos    |
 
 ---
 
@@ -299,4 +305,4 @@ Recuerda: **una táctica bien ejecutada con jugadores preparados supera siempre 
 
 ---
 
-*¿Listo para llevar tu juego táctico al siguiente nivel? Experimenta con diferentes combinaciones y descubre cuál es el estilo que mejor se adapta a tu filosofía de juego.*
+_¿Listo para llevar tu juego táctico al siguiente nivel? Experimenta con diferentes combinaciones y descubre cuál es el estilo que mejor se adapta a tu filosofía de juego._

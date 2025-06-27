@@ -12,8 +12,6 @@ featured: true
 source: "https://www.hattrick.org"
 ---
 
-# Hattrick revoluciona el juego con nuevas estadísticas de asistencias y eventos dinámicos
-
 La actualización de mayo de Hattrick marca un punto de inflexión importante en la evolución del popular simulador de fútbol online. Esta versión no solo **reconoce oficialmente las asistencias como estadística fundamental**, sino que también introduce mejoras significativas en la narrativa de los partidos y ajustes estratégicos que cambiarán la forma de jugar.
 
 ## Las asistencias por fin tienen su lugar
@@ -53,10 +51,13 @@ Aunque menos visible para los usuarios actuales, la actualización incluye un **
 Los desarrolladores han realizado **ajustes significativos en el funcionamiento de la subestimación**, respondiendo a efectos secundarios no deseados de actualizaciones anteriores.
 
 #### El problema identificado
+
 Cuando se actualizó la **Confianza del Equipo** a principios de año, los equipos de alto rendimiento pudieron mantener niveles de confianza más altos con mayor facilidad. Esto causó un incremento no deseado en la subestimación de rivales clasificados más abajo.
 
 #### La solución implementada
+
 Para contrarrestar este efecto, se han realizado dos ajustes clave:
+
 - **Reducción del riesgo de subestimación**
 - **Menor impacto en las valoraciones del mediocampo**
 
@@ -65,8 +66,9 @@ Para contrarrestar este efecto, se han realizado dos ajustes clave:
 Los desarrolladores han aprovechado para recordar una mecánica fundamental pero poco conocida: **la actitud del equipo influye decisivamente en la subestimación**.
 
 #### Opciones estratégicas:
+
 - **"Jugar Relajados"**: Aumenta significativamente el riesgo de subestimación
-- **"Normal"**: Riesgo estándar de subestimación  
+- **"Normal"**: Riesgo estándar de subestimación
 - **"Partido de la Temporada"**: Elimina completamente el riesgo de subestimación
 
 Esta mecánica, aunque no ha cambiado, cobra nueva relevancia tras los ajustes realizados y ofrece a los managers una herramienta estratégica clara para controlar este aspecto del juego.
@@ -74,6 +76,7 @@ Esta mecánica, aunque no ha cambiado, cobra nueva relevancia tras los ajustes r
 ## Cambios adicionales implementados
 
 La actualización también incluye **cambios previamente anunciados** para:
+
 - **Patrocinadores**: Mejoras en el sistema de patrocinio
 - **Reservas de la junta**: Ajustes en la gestión financiera
 

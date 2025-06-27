@@ -12,7 +12,7 @@ aria_label: Herramientas de Hattrick
 
 <section class="section section-1" role="region" aria-label="Lista de herramientas de Hattrick">
     <div class="container">
-        <h2 class="title is-2">Lista de Herramientas</h2>
+        <h1 class="title is-1">Lista de Herramientas</h1>
         <p class="subtitle">Recursos para mejorar tu experiencia en Hattrick.</p>
         <p>Total Herramientas destcadas: {{ site.herramientas | size }} encontradas</p>
         <div class="grid-base grid-fixed" role="grid">
@@ -22,7 +22,7 @@ aria_label: Herramientas de Hattrick
                 <div class="card-image">
                     {% if tool.hero_image %}
                     <img src="{{ tool.hero_image | relative_url }}"
-                        alt="{{ tool.hero_alt | default: tool.title | escape }}" class="card-post" loading="lazy"
+                        alt="{{ tool.hero_alt | default: tool.title | escape }}" loading="lazy"
                         width="600" height="400">
                     {% else %}
                     <img src="/assets/img/placeholder.webp" alt="Sin imagen" class="card-post" aria-hidden="true"
@@ -37,17 +37,17 @@ aria_label: Herramientas de Hattrick
                     <span>Tiempo de lectura: {{ minutes }} minuto{% if minutes != 1 %}s{% endif %}</span>
                     {% if tool.rating %}
                     <span class="rating" aria-label="Calificación: {{ tool.rating }} de 5">
-                        {% for i in (1..tool.rating) %}
-                        <svg class="icon is-small" aria-hidden="true">
-                            <use xlink:href="#star"></use>
-                        </svg>
-                        {% endfor %}
-                        {% for i in (tool.rating..4) %}
-                        <svg class="icon is-small empty" aria-hidden="true">
-                            <use xlink:href="#star"></use>
-                        </svg>
-                        {% endfor %}
-                    </span>
+{% for i in (1..5) %}
+    {% if i <= tool.rating %}
+        <svg class="icon is-small" aria-hidden="true">
+            <use xlink:href="#star"></use>
+        </svg>
+    {% else %}
+        <svg class="icon is-small empty" aria-hidden="true">
+            <use xlink:href="#star"></use>
+        </svg>
+    {% endif %}
+{% endfor %}                    </span>
                     {% endif %}
                 </div>
                 <p>{{ tool.excerpt | strip_html | truncatewords: 30 }}</p>

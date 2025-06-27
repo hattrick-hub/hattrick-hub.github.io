@@ -12,8 +12,6 @@ featured: true
 difficulty: avanzado
 ---
 
-## Introducción a las Selecciones Nacionales
-
 En Hattrick, al igual que en el mundo real, hay selecciones nacionales que compiten entre sí. ¡Pero en Hattrick al seleccionador nacional de tu país lo eliges tú! Cada país de Hattrick tiene su selección nacional, así como una selección Sub21 con jugadores de hasta 21 años. Esto significa que cada país tiene dos seleccionadores, ambos elegidos por su comunidad.
 
 ## Competiciones de Selecciones Nacionales

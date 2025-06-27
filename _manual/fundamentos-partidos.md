@@ -1,5 +1,5 @@
 ---
-title: "Manual Básico: Fundamentos del Partido en Hattrick"
+title: "Fundamentos del Partido en Hattrick"
 date: 2025-06-20
 lastUpdated: 2025-06-20
 author: "Experto Hattrick"
@@ -10,7 +10,7 @@ tags:
 hero_image: "/assets/img/hattrick-partido-fundamentos.webp"
 hero_alt: "Campo de fútbol mostrando las diferentes zonas de juego y ataques en Hattrick"
 featured: false
-difficulty: intermedio
+difficulty: Principiante
 ---
 
 Encontrar la **alineación perfecta** es uno de los mayores desafíos en Hattrick. Este manual te guiará a través de los fundamentos esenciales de cómo funcionan los partidos, desde la simulación básica hasta las calificaciones finales, proporcionándote las herramientas necesarias para dominar el campo de juego.

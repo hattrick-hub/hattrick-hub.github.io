@@ -1,5 +1,5 @@
 ---
-title: Hattrick Portal - Herramienta Avanzada de Análisis para Selecciones Nacionales
+title: Hattrick Portal
 date: 2025-06-23
 lastUpdated: 2025-06-23
 author: "Redacción"
@@ -88,10 +88,10 @@ El acceso a datos históricos facilita la planificación a largo plazo y el desa
 
 Para aprovechar al máximo Hattrick Portal, los usuarios deben:
 
-1. **Iniciar sesión** utilizando la autorización CHPP de Hattrick
-2. Configurar sus preferencias de tracking según sus necesidades
-3. Establecer alertas personalizadas para jugadores de interés
-4. Utilizar las herramientas de análisis para optimizar sus selecciones
+- **Iniciar sesión** utilizando la autorización CHPP de Hattrick
+- Configurar sus preferencias de tracking según sus necesidades
+- Establecer alertas personalizadas para jugadores de interés
+- Utilizar las herramientas de análisis para optimizar sus selecciones
 
 La plataforma opera mediante **donaciones voluntarias** de la comunidad, lo que garantiza su independencia y enfoque en las necesidades reales de los usuarios.
 

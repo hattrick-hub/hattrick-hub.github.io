@@ -9,15 +9,15 @@ hide_news_bar: true
 ---
 
 {% include hero.html
-   image=page.hero_image
-   alt=page.hero_alt
-   aria_label="Página de Contacto de Hattrick Hub"
-   buttons='
-       <a href="mailto:tutorhattrick@hotmail.com" class="button is-primary" aria-label="Enviar un correo a Hattrick Hub">
-           <svg class="icon is-small" aria-hidden="true">
-               <use xlink:href="#email"></use>
-           </svg> Envíanos un correo
-       </a>'
+    image=page.hero_image
+    alt=page.hero_alt
+    aria_label="Página de Contacto de Hattrick Hub"
+    buttons='
+        <a href="mailto:tutorhattrick@hotmail.com" class="button is-primary" aria-label="Enviar un correo a Hattrick Hub">
+            <svg class="icon is-small" aria-hidden="true">
+                <use xlink:href="#email"></use>
+            </svg> Envíanos un correo
+        </a>'
 %}
 
 <section class="section section-1" role="region" aria-label="Contacto y Preguntas Frecuentes">
@@ -44,7 +44,7 @@ hide_news_bar: true
 
         <h2>Contáctanos</h2>
         <p>En Hattrick Hub, valoramos tus ideas y sugerencias. Conéctate con nosotros a través de:</p>
-        <ul class="flex" style="gap: var(--gap-md)" role="list" aria-label="Opciones de contacto">
+        <ul class="flex" role="list" aria-label="Opciones de contacto">
             <li>
                 <a href="mailto:tutorhattrick@hotmail.com" aria-label="Enviar correo a Hattrick Hub" class="button is-outlined">
                     <svg class="icon is-medium" aria-hidden="true">
@@ -68,5 +68,4 @@ hide_news_bar: true
             </li>
         </ul>
     </div>
-
 </section>

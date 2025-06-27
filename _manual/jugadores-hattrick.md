@@ -1,5 +1,5 @@
 ---
-title: "Habilidades de Jugadores en Hattrick: Guía Completa para Managers"
+title: "Habilidades de Jugadores en Hattrick"
 date: 2025-06-17
 lastUpdated: 2025-06-17
 author: "Hattrick Colombia"

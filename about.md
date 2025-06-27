@@ -9,15 +9,15 @@ hide_news_bar: true
 ---
 
 {% include hero.html
-   image=page.hero_image
-   alt=page.hero_alt
-   aria_label="Página Sobre Hattrick Hub"
-   buttons='
-       <a href="mailto:tutorhattrick@hotmail.com" class="button is-primary" aria-label="Enviar un correo a Hattrick Hub">
-           <svg class="icon is-small" aria-hidden="true">
-               <use xlink:href="#email"></use>
-           </svg> Envíanos un correo
-       </a>'
+    image=page.hero_image
+    alt=page.hero_alt
+    aria_label="Página Sobre Hattrick Hub"
+    buttons='
+        <a href="mailto:tutorhattrick@hotmail.com" class="button is-primary" aria-label="Enviar un correo a Hattrick Hub">
+            <svg class="icon is-small" aria-hidden="true">
+                <use xlink:href="#email"></use>
+            </svg> Envíanos un correo
+        </a>'
 %}
 
 <section class="section section-1" role="region" aria-label="Sobre Hattrick Hub">
@@ -28,7 +28,7 @@ hide_news_bar: true
 
             <h2>¿Por qué existimos?</h2>
             <p>Hattrick es un juego apasionante pero complejo. En Hattrick Hub, nos esforzamos por:</p>
-            <ul style="gap: var(--gap-md)" class="flex">
+            <ul class="flex">
                 <li>Ofrecer contenido claro y útil para jugadores de todos los niveles.</li>
                 <li>Fomentar una comunidad activa y colaborativa.</li>
                 <li>Mantenerte al día con las últimas noticias del juego.</li>
@@ -49,12 +49,12 @@ hide_news_bar: true
             </p>
 
             <div class="buttons text-center">
-                <a href="/herramientas/" class="button is-primary" aria-label="Explorar herramientas de Hattrick Hub">
+                <a href="/herramientas/" class="button is-outlined" aria-label="Explorar herramientas de Hattrick Hub">
                     <svg class="icon is-small" aria-hidden="true">
                         <use xlink:href="#tools"></use>
                     </svg> Explora nuestras herramientas
                 </a>
-                <a href="/noticias/" class="button is-secondary" aria-label="Leer las últimas noticias de Hattrick Hub">
+                <a href="/noticias/" class="button is-outlined" aria-label="Leer las últimas noticias de Hattrick Hub">
                     <svg class="icon is-small" aria-hidden="true">
                         <use xlink:href="#book"></use>
                     </svg> Lee las últimas noticias
@@ -62,5 +62,4 @@ hide_news_bar: true
             </div>
         </div>
     </div>
-
 </section>

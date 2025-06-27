@@ -1,5 +1,5 @@
 ---
-title: "Guía Completa del Entrenador en Hattrick: Maximiza el Potencial de tu Equipo"
+title: "Guía Completa del Entrenador en Hattrick"
 date: 2025-06-20
 lastUpdated: 2025-06-20
 author: "Experto Hattrick"
