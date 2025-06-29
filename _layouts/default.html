@@ -5,9 +5,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="{{ page.description | default: site.description | escape }}">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="{{ site.color | default: '#4B8A61' }}">
+    {% seo %}
+    <meta name="description" content="{{ page.description | default: site.description | escape }}">
     <meta name="color-scheme" content="light dark">
     <meta property="og:image" content="{{ site.image | absolute_url }}">
     <meta name="twitter:card" content="summary_large_image">

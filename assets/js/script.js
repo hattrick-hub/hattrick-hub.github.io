@@ -43,8 +43,14 @@ document.addEventListener("DOMContentLoaded", () => {
         burger.classList.remove("is-active");
         burger.setAttribute("aria-expanded", "false");
         menu.setAttribute("tabindex", "-1");
-        burger.focus();
-      });
+    const mainHeading = document.querySelector("#main-content h1");
+    if (mainHeading) {
+        mainHeading.setAttribute('tabindex', -1); 
+        mainHeading.focus(); 
+    } else {
+        burger.focus(); 
+    }      
+  });
     });
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape" && menu.classList.contains("is-active")) {

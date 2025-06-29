@@ -111,7 +111,7 @@
     .footer nav a, .carousel-item .button, .hero .button.is-primary {
         color: var(--color-text-invert);
     }
-    .navbar-item:hover, .navbar-item.is-active {
+    .navbar-item:hover, .navbar-item:focus-visible, .navbar-item.is-active {
         color: var(--color-text-invert);
     }
     .carousel-control, .carousel-pause {
@@ -132,6 +132,9 @@ body, h1, h2, h3, h4, p, ul, ol, dl, blockquote, pre {
 :focus-visible {
     outline: var(--outline-width) solid var(--color-primary);
     outline-offset: var(--outline-offset);
+}
+html, body {
+    overflow-x: hidden;
 }
 html {
     font-size: 100%;
@@ -440,10 +443,14 @@ abbr[title] {
     padding: 0 var(--spacing-2);
     text-align: center;
 }
-.navbar-item:hover, .navbar-item.is-active {
+.navbar-item:hover, .navbar-item:focus-visible, .navbar-item.is-active {
     background: var(--navbar-hover-bg);
     color: var(--color-text-invert);
-    outline: var(--outline-width) solid var(--color-secondary);
+    outline: none; 
+}
+.navbar-item:focus-visible {
+    box-shadow: 0 0 0 var(--outline-width) var(--color-secondary);
+    z-index: 1; 
 }
 .navbar-item .icon {
     margin-right: var(--spacing-1);
@@ -689,7 +696,7 @@ summary:hover, summary:focus-visible {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: var(--spacing-4);
+    gap: var(--spacing-6);
     max-width: var(--container-max-width);
     width: 100%;
 }
