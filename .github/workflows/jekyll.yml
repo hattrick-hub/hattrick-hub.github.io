@@ -1,8 +1,9 @@
-name: Deploy Jekyll to GitHub Pages
+# .github/workflows/jekyll.yml
+name: Build and Deploy Jekyll
 
 on:
   push:
-    branches: ["main"]
+    branches: [main, master]
   workflow_dispatch:
 
 permissions:
@@ -24,7 +25,7 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.3'
+          ruby-version: "3.3"
           bundler-cache: true
 
       - name: Build Jekyll
