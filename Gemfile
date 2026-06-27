@@ -10,7 +10,6 @@ group :jekyll_plugins do
   gem "jekyll-seo-tag"
   gem "jekyll-relative-links"
   gem "jekyll-redirect-from"
-  gem "jekyll-search"
   gem "tzinfo", ">= 1", "< 3"
   gem "tzinfo-data"
 end
