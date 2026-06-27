@@ -1,39 +1,116 @@
-title: El Rincón de Hattrick
-description: "Estrategias y consejos para mejorar tus juveniles y gestionar tu selección nacional en Hattrick."
-author: elPatronHT
-
-url: "https://rinconhattrick.github.io"
+# CONFIGURACIÓN GENERAL
+title: "Hattrick Hub"
+description: "El centro de acceso a todas las herramientas y recursos de Hattrick."
+url: "https://hattrick-hub.github.io"
 baseurl: ""
+lang: es
+timezone: Europe/Madrid
+image: /assets/img/placeholder.webp
+permalink: /:title/
+author: elPatronHT
+author_team_url: "https://hattrick.org/goto.ashx?path=/Club/?TeamID=538167"
+color: "#4B8A61"
 
-theme: null
+# Jekyll 4: builds incrementales más rápidos
+incremental: true
+dir: ltr
 
+# MARKDOWN
 markdown: kramdown
 kramdown:
   input: GFM
-  hard_wrap: true
+  hard_wrap: false
+  syntax_highlighter: rouge
 
-permalink: "/:categories/:title/"
-
+# PLUGINS
 plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
-  - jekyll-search
+  - jekyll-relative-links
+  - jekyll-redirect-from
 
+# ENLACES RELATIVOS
+relative_links:
+  enabled: true
+  collections: true
+
+# EXCLUSIONES
 exclude:
-  - README.md
+  - .DS_Store
+  - .git/
+  - .gitignore
   - Gemfile
   - Gemfile.lock
-  - .git/
-  - .github/
-  - .gitignore
-  - vendor/
+  - README.md
   - _site/
+  - node_modules/
+  - package.json
+  - src/
+  - vendor/
+  - yarn.lock
+  - scripts/
+  - assets/img/raw/
 
+# COLECCIONES
+collections:
+  blog:
+    output: true
+    permalink: /blog/:year/:month/:day/:title/
+  manual:
+    output: true
+    permalink: /manual/:title/
+  noticias:
+    output: true
+    permalink: /noticias/:title/
+  herramientas:
+    output: true
+    permalink: /herramientas/:title/
+  pages:
+    output: true
+    permalink: /:name/
+
+# VALORES POR DEFECTO
 defaults:
   - scope:
       path: ""
-      type: "posts"
     values:
-      lang: "es"
-      layout: "post"
+      layout: default
+      author: elPatronHT
+      lang: es
+  - scope:
+      path: ""
+      type: blog
+    values:
+      layout: blog-post
+      image: /assets/img/placeholder.webp
+      lang: es
+  - scope:
+      path: ""
+      type: manual
+    values:
+      layout: manual-post
+      image: /assets/img/placeholder.webp
+      lang: es
+  - scope:
+      path: ""
+      type: noticias
+    values:
+      layout: noticias-post
+      image: /assets/img/placeholder.webp
+      lang: es
+  - scope:
+      path: ""
+      type: herramientas
+    values:
+      layout: herramientas-post
+      image: /assets/img/placeholder.webp
+      lang: es
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: default
+      lang: es
+
+future: true
