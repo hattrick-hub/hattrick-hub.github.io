@@ -10,6 +10,7 @@ aria_label: Blog de Hattrick
 
 {% include hero.html image=page.hero_image alt=page.hero_alt aria_label=page.aria_label %}
 
+<hr class="section-divider">
 <section class="section" role="region" aria-label="Lista de artículos del blog">
     <div class="container">
         <h1 class="title is-1">Lista de Artículos del Blog</h1>
@@ -32,6 +33,7 @@ aria_label: Blog de Hattrick
                 </h3>
                 <div class="meta">
                     <span>Publicado: {{ post.date | date: "%d/%m/%Y" }}</span>
+                    <span aria-hidden="true">·</span>
                     {% assign minutes = post.content | number_of_words | divided_by: 200 | plus: 1 %}
                     <span>Tiempo de lectura: {{ minutes }} minuto{% if minutes != 1 %}s{% endif %}</span>
                 </div>

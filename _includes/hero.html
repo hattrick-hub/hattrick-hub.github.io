@@ -1,8 +1,10 @@
-{% comment %} Template para la sección hero. Parámetros: - title: Título (default: page.title) - subtitle: Subtítulo
-(default: page.description) - image: URL de la imagen (default: page.hero_image o /assets/img/placeholder.webp) - alt:
-Texto alternativo (default: page.hero_alt o "Imagen de {{ page.title }}") - buttons: HTML de los botones (default:
-vacío, debe ser HTML seguro) - aria_label: Etiqueta ARIA (default: "{{ page.title }}") - role: Rol ARIA (default:
-"banner") {% endcomment %}
+{% comment %} Template para la sección hero. Parámetros: - title: Título
+(default: page.title) - subtitle: Subtítulo (default: page.description) - image:
+URL de la imagen (default: page.hero_image o /assets/img/placeholder.webp) -
+alt:Texto alternativo (default: page.hero_alt o "Imagen de {{ page.title }}") -
+buttons: HTML de los botones (default: vacío, debe ser HTML seguro) -
+aria_label: Etiqueta ARIA (default: "{{ page.title }}") - role: Rol ARIA
+(default: "banner") {% endcomment %}
 
 <section class="hero" role="{{ include.role | default: 'banner' }}"
     aria-label="{{ include.aria_label | default: page.title | escape }}">
@@ -20,8 +22,12 @@ vacío, debe ser HTML seguro) - aria_label: Etiqueta ARIA (default: "{{ page.tit
         </div>
         {% endif %}
         <div class="text-center">
-            <h2 class="title is-1">{{ include.title | default: page.title | escape }}</h2>
-            <p class="subtitle">{{ include.subtitle | default: page.description | escape }}</p>
+            <h2 class="title is-1">
+                {{ include.title | default: page.title | escape }}
+            </h2>
+            <p class="subtitle">
+                {{ include.subtitle | default: page.description | escape }}
+            </p>
             {% if include.buttons %}
             <div class="buttons">{{ include.buttons }}</div>
             {% endif %}

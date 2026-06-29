@@ -10,6 +10,7 @@ aria_label: Manual de Hattrick
 
 {% include hero.html image=page.hero_image alt=page.hero_alt aria_label=page.aria_label %}
 
+<hr class="section-divider">
 <section class="section" role="region" aria-label="Lista de guías del manual">
     <div class="container">
         <h1 class="title is-1">Lista de Manuales y Guías</h1>
@@ -46,6 +47,7 @@ aria_label: Manual de Hattrick
                     {% endif %}
                     <div class="meta">
                         <span>Publicado: {{ manual.date | date: "%d/%m/%Y" }}</span>
+                        <span aria-hidden="true">·</span>
                         {% assign minutes = manual.content | number_of_words | divided_by: 200 | plus: 1 %}
                         <span>Tiempo de lectura: {{ minutes }} minuto{% if minutes != 1 %}s{% endif %}</span>
                     </div>

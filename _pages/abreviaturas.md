@@ -9,6 +9,7 @@ hero_alt: Lista de abreviaturas de Hattrick
 
 {% include hero.html image=page.hero_image alt=page.hero_alt aria_label="Abreviaturas de Hattrick" %}
 
+<hr class="section-divider">
 <section class="section" role="region" aria-label="Lista de Abreviaturas">
     <div class="container">
         {% for category in site.data.abreviaturas %}

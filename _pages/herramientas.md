@@ -10,6 +10,7 @@ aria_label: Herramientas de Hattrick
 
 {% include hero.html image=page.hero_image alt=page.hero_alt aria_label=page.aria_label %}
 
+<hr class="section-divider">
 <section class="section" role="region" aria-label="Lista de herramientas de Hattrick">
     <div class="container">
         <h1 class="title is-1">Lista de Herramientas</h1>
@@ -34,6 +35,7 @@ aria_label: Herramientas de Hattrick
                 </h3>
                 <div class="meta">
                     <span>Publicado: {{ tool.date | date: "%d/%m/%Y" }}</span>
+                    <span aria-hidden="true">·</span>
                     {% assign minutes = tool.content | number_of_words | divided_by: 200 | plus: 1 %}
                     <span>Tiempo de lectura: {{ minutes }} minuto{% if minutes != 1 %}s{% endif %}</span>
                     {% if tool.rating %}
