@@ -5,8 +5,7 @@ lastUpdated: 2025-06-20
 author: "Experto Hattrick"
 excerpt: "Domina los fundamentos de los partidos en Hattrick: ataques, defensas, mediocampo y calificaciones para crear la alineación perfecta."
 description: "Guía completa sobre cómo funcionan los partidos en Hattrick: simulación, ataques básicos, calificaciones y factores clave para el éxito."
-tags:
-  [hattrick, partidos, alineación, mediocampo, ataques, defensa, calificaciones]
+tags: [hattrick, partidos, alineación, mediocampo, ataques, defensa, calificaciones]
 hero_image: "/assets/img/hattrick-partido-fundamentos.webp"
 hero_alt: "Campo de fútbol mostrando las diferentes zonas de juego y ataques en Hattrick"
 featured: false

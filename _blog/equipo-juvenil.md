@@ -220,7 +220,3 @@ Una academia juvenil bien gestionada no solo te proporcionará jugadores de cali
 Recuerda que el éxito en las academias juveniles se mide en temporadas, no en semanas. Mantén la constancia en tu estrategia, ajusta según los resultados, y verás cómo tu inversión inicial se convierte en un activo valioso para tu club.
 
 ¿Estás listo para construir la cantera del futuro? ¡Tu academia juvenil te está esperando!
-
----
-
-_¿Te ha resultado útil esta guía? Comparte tus experiencias y resultados en los comentarios. ¡Juntos podemos hacer crecer la comunidad de Hattrick!_

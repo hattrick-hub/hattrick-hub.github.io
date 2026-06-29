@@ -87,10 +87,10 @@ Puedes programar **cambios estratégicos** basados en:
 
 - **Intervención**: Personal del club designa equipo automáticamente
 - **Penalizaciones temporales**:
-  - Menor espíritu de equipo
-  - Reducción de forma
-  - Pérdida de confianza
-  - Menor experiencia de formación
+    - Menor espíritu de equipo
+    - Reducción de forma
+    - Pérdida de confianza
+    - Menor experiencia de formación
 - **Entrenamiento**: Se mantiene normal
 
 #### Insuficientes Jugadores en Plantilla

@@ -9,11 +9,10 @@ layout: default
             {% if page.difficulty %}
             <span class="difficulty {{ page.difficulty | downcase }}" aria-label="Dificultad: {{ page.difficulty }}">{{
                 page.difficulty }}</span>
-            {% endif %}
-            {% if page.hero_image %}
+            {% endif %} {% if page.hero_image %}
             <div class="card-image">
                 <img src="{{ page.hero_image | relative_url }}" alt="{{ page.hero_alt | default: page.title | escape }}"
-                    loading="lazy" width="600" height="400">
+                    loading="lazy" width="600" height="400" />
             </div>
             {% endif %}
             <div class="meta">
@@ -22,9 +21,7 @@ layout: default
                 {% assign minutes = content | number_of_words | divided_by: 200 | plus: 1 %}
                 <span>Tiempo de lectura: {{ minutes }} minuto{% if minutes != 1 %}s{% endif %}</span>
             </div>
-            <div class="content">
-                {{ content }}
-            </div>
+            <div class="content">{{ content }}</div>
             {% if page.tags %}
             <div class="tags">
                 {% for tag in page.tags %}

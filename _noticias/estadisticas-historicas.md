@@ -29,10 +29,10 @@ La renovación más destacada de esta Semana del Supporter es el **centro de est
 Lo que más emociona a la comunidad es la llegada de las **estadísticas agregadas de jugadores de todos los tiempos**, incluyendo:
 
 - **Goles históricos** de cada jugador
-- **Asistencias** completas 
+- **Asistencias** completas
 - **Registro de tarjetas** (amarillas y rojas)
 - **Historial de capitanes**
-- **Datos de lesiones** 
+- **Datos de lesiones**
 
 Los desarrolladores admiten que han intentado implementar estas funcionalidades en múltiples ocasiones, pero problemas de rendimiento los obligaron a eliminarlas. Esta vez, confían en que la nueva infraestructura permitirá mantener estas estadísticas de forma permanente.
 
@@ -51,20 +51,25 @@ Esta estrategia permite a los usuarios no-Supporters explorar las nuevas funcion
 La celebración no se limita solo a los datos. Los Supporters también reciben:
 
 ### Editor de escudos renovado
+
 Una versión completamente actualizada que incluye:
+
 - Nuevas formas para los escudos
 - Cintas y pancartas decorativas
 - Mayor variedad de elementos de personalización
 
 ### Nuevas categorías de jugadores
+
 Las páginas de jugadores ahora incluyen clasificaciones adicionales:
+
 - **Aprendiz 1**
-- **Aprendiz 2** 
+- **Aprendiz 2**
 - **Entrenador Potencial**
 
 ### Aplicaciones móviles mejoradas
 
 Las apps para iOS y Android han recibido una actualización significativa en su **Visor en vivo**, que ahora incluye:
+
 - Comentarista integrado con narración línea por línea
 - Experiencia similar a la versión web
 - Seguimiento mejorado de partidos en tiempo real

@@ -176,7 +176,3 @@ Un sistema de entrenamiento eficiente es la diferencia entre un equipo mediocre 
 Recuerda que cada juvenil es una inversión. Con paciencia, planificación y las estrategias correctas, puedes transformar promesas en estrellas que no solo eleven el nivel de tu equipo, sino que también generen los recursos necesarios para seguir creciendo.
 
 ¿Estás listo para revolucionar tu cantera? El futuro de tu equipo está en tus manos.
-
----
-
-_¿Te ha resultado útil esta guía? Comparte tus experiencias y resultados en los comentarios. ¡Juntos construimos la comunidad Hattrick más fuerte!_

@@ -8,7 +8,7 @@ layout: default
             {% if page.hero_image %}
             <div class="card-image">
                 <img src="{{ page.hero_image | relative_url }}" alt="{{ page.hero_alt | default: page.title | escape }}"
-                    loading="lazy" width="600" height="400">
+                    loading="lazy" width="600" height="400" />
             </div>
             {% endif %}
             <h1 class="title is-1" id="noticia-title">{{ page.title }}</h1>
@@ -18,13 +18,11 @@ layout: default
                 {% assign minutes = content | number_of_words | divided_by: 200 | plus: 1 %}
                 <span>Tiempo de lectura: {{ minutes }} minuto{% if minutes != 1 %}s{% endif %}</span>
                 {% if page.source %}
-                <span>Fuente: <a href="{{ page.source }}" target="_blank"
-                        rel="noopener noreferrer">Hattrick.org</a></span>
+                <span>Fuente:
+                    <a href="{{ page.source }}" target="_blank" rel="noopener noreferrer">Hattrick.org</a></span>
                 {% endif %}
             </div>
-            <div class="content">
-                {{ content }}
-            </div>
+            <div class="content">{{ content }}</div>
             {% if page.tags %}
             <div class="tags">
                 {% for tag in page.tags %}

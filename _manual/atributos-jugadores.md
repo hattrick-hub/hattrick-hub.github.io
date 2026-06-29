@@ -5,8 +5,7 @@ lastUpdated: 2025-06-20
 author: "Experto Hattrick"
 excerpt: "Guía completa sobre edad, personalidad, experiencia, lealtad y todos los atributos que definen a tus jugadores en Hattrick."
 description: "Domina todos los aspectos de los jugadores en Hattrick: edad, experiencia, lealtad, forma, especialidades y más. Guía definitiva para managers."
-tags:
-  [hattrick, jugadores, atributos, experiencia, lealtad, forma, especialidades]
+tags: [hattrick, jugadores, atributos, experiencia, lealtad, forma, especialidades]
 hero_image: "/assets/img/hattrick-jugadores-atributos.webp"
 hero_alt: "Jugadores de Hattrick mostrando sus diferentes atributos y características"
 featured: false

@@ -266,7 +266,3 @@ Los managers exitosos no solo ven los colores; los **leen como un libro abierto*
 Dominar este sistema no es solo una habilidad técnica: es desarrollar intuición para el talento, ojo para las oportunidades y sabiduría para las inversiones.
 
 ¿Estás listo para convertirte en un experto detective de colores juveniles? Tu próximo crack está esperando ser descubierto entre esas barras de colores.
-
----
-
-_¿Has descubierto algún patrón interesante en los colores de tus juveniles? Comparte tus hallazgos y ayudemos a toda la comunidad a mejorar su lectura del talento juvenil._

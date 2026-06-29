@@ -5,8 +5,7 @@ lastUpdated: 2025-06-21
 author: "Equipo Hattrick"
 excerpt: "Guía completa para gestionar, expandir y optimizar tu estadio en Hattrick. Aprende a maximizar ingresos y crear la experiencia perfecta para tus aficionados."
 description: "Domina la gestión del estadio en Hattrick: tipos de asientos, costos, ingresos, factores de asistencia y estrategias de construcción para el éxito financiero."
-tags:
-  [hattrick, estadio, ingresos, construcción, aficionados, finanzas, gestión]
+tags: [hattrick, estadio, ingresos, construcción, aficionados, finanzas, gestión]
 hero_image: "/assets/img/estadio-hattrick.webp"
 hero_alt: "Vista aérea de un estadio de fútbol moderno con diferentes tipos de tribunas y aficionados"
 featured: false

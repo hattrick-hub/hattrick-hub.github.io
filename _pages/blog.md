@@ -8,27 +8,28 @@ hero_alt: Banner del Blog de Hattrick
 aria_label: Blog de Hattrick
 ---
 
-{% include hero.html image=page.hero_image alt=page.hero_alt aria_label=page.aria_label loading="lazy" %}
+{% include hero.html image=page.hero_image alt=page.hero_alt aria_label=page.aria_label %}
 
-<section class="section section-1" role="region" aria-label="Lista de artículos del blog">
+<section class="section" role="region" aria-label="Lista de artículos del blog">
     <div class="container">
         <h1 class="title is-1">Lista de Artículos del Blog</h1>
-        <div class="grid-base grid-fixed" role="grid">
+        <div class="grid-base grid-fixed">
             {% for post in site.blog %}
             <article class="card-base{% if post.featured %} featured{% endif %}" role="gridcell"
                 aria-labelledby="post-{{ post.title | slugify }}">
                 <div class="card-image">
                     {% if post.hero_image %}
                     <img src="{{ post.hero_image | relative_url }}"
-                        alt="{{ post.hero_alt | default: post.title | escape }}" loading="lazy"
-                        width="600" height="400">
+                        alt="{{ post.hero_alt | default: post.title | escape }}" loading="lazy" width="600"
+                        height="400" />
                     {% else %}
                     <img src="/assets/img/placeholder.webp" alt="Sin imagen" class="card-post" aria-hidden="true"
-                        loading="lazy" width="600" height="400">
+                        loading="lazy" width="600" height="400" />
                     {% endif %}
                 </div>
-                <h3 class="title is-3" id="post-{{ post.title | slugify }}"><a href="{{ post.url | relative_url }}">{{
-                        post.title }}</a></h3>
+                <h3 class="title is-3" id="post-{{ post.title | slugify }}">
+                    <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                </h3>
                 <div class="meta">
                     <span>Publicado: {{ post.date | date: "%d/%m/%Y" }}</span>
                     {% assign minutes = post.content | number_of_words | divided_by: 200 | plus: 1 %}
@@ -42,8 +43,10 @@ aria_label: Blog de Hattrick
                     {% endfor %}
                 </div>
                 {% endif %}
-                <a href="{{ post.url | relative_url }}" class="button is-primary"
-                    aria-label="Leer más sobre {{ post.title | escape }}">Leer más</a>
+                <div class="buttons text-center">
+                    <a href="{{ post.url | relative_url }}" class="button is-primary"
+                        aria-label="Leer más sobre {{ post.title | escape }}">Leer más</a>
+                </div>
             </article>
             {% endfor %}
         </div>
