@@ -5,16 +5,17 @@ layout: default
 <section class="section section-2" role="region" aria-label="Contenido de la guía">
     <div class="container">
         <article class="card-post" role="article" aria-labelledby="manual-title">
-            <h1 class="title is-1" id="manual-title">{{ page.title }}</h1>
-            {% if page.difficulty %}
-            <span class="difficulty {{ page.difficulty | downcase }}" aria-label="Dificultad: {{ page.difficulty }}">{{
-                page.difficulty }}</span>
-            {% endif %} {% if page.hero_image %}
+            {% if page.hero_image %}
             <div class="card-image">
                 <img src="{{ page.hero_image | relative_url }}" alt="{{ page.hero_alt | default: page.title | escape }}"
                     loading="lazy" width="600" height="400" />
             </div>
             {% endif %}
+            <h1 class="title is-1" id="manual-title">{{ page.title }}</h1>
+            {% if page.difficulty %}
+            <span class="difficulty {{ page.difficulty | downcase }}" aria-label="Dificultad: {{ page.difficulty }}">{{
+                page.difficulty }}</span>
+            {% endif %} 
             <div class="meta">
                 <span>Publicado: {{ page.date | date: "%d/%m/%Y" }}</span>
                 <span>Autor: {{ page.author | default: site.author }}</span>

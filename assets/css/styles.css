@@ -833,9 +833,15 @@
         }
 
         /* Botón al final */
+        & .buttons {
+            inline-size: 100%;
+        }
+
+        /* Botón al final */
         & .button {
             align-self: flex-start;
             margin-block-start: auto;
+            inline-size: 100%;
         }
     }
 
@@ -916,8 +922,8 @@
     .tags {
         display: flex;
         flex-wrap: wrap;
-        gap: var(--spacing-1);
-        margin-block: var(--spacing-2);
+        gap: var(--spacing-2);
+        margin-block: var(--spacing-3);
     }
 
     .tag {

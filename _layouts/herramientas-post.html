@@ -5,6 +5,12 @@ layout: default
 <section class="section section-2" role="region" aria-label="Detalles de la herramienta">
     <div class="container">
         <article class="card-post" role="article" aria-labelledby="tool-title">
+            {% if page.hero_image %}
+            <div class="card-image">
+                <img src="{{ page.hero_image | relative_url }}" alt="{{ page.hero_alt | default: page.title | escape }}"
+                    loading="lazy" width="600" height="400" />
+            </div>
+            {% endif %}
             <h1 class="title is-1" id="tool-title">{{ page.title }}</h1>
             {% if page.rating %}
             <span class="rating" aria-label="Calificación: {{ page.rating }} de 5">
@@ -18,12 +24,7 @@ layout: default
                 </svg>
                 {% endfor %}
             </span>
-            {% endif %} {% if page.hero_image %}
-            <div class="card-image">
-                <img src="{{ page.hero_image | relative_url }}" alt="{{ page.hero_alt | default: page.title | escape }}"
-                    loading="lazy" width="600" height="400" />
-            </div>
-            {% endif %}
+            {% endif %} 
             <div class="meta">
                 <span>Publicado: {{ page.date | date: "%d/%m/%Y" }}</span>
                 <span>Autor: {{ page.author | default: site.author }}</span>
