@@ -4,23 +4,25 @@ description: "El centro de acceso a todas las herramientas y recursos de Hattric
 url: "https://hattrick-hub.github.io"
 baseurl: ""
 lang: es
-timezone: Europe/Madrid
+timezone: America/Bogota
 image: /assets/img/placeholder.webp
 permalink: /:title/
 author: elPatronHT
 author_team_url: "https://hattrick.org/goto.ashx?path=/Club/?TeamID=538167"
 color: "#4B8A61"
 
-# Jekyll 4: builds incrementales más rápidos
-incremental: true
-dir: ltr
-
 # MARKDOWN
-markdown: kramdown
 kramdown:
   input: GFM
   hard_wrap: false
   syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: "highlight"
+    span:
+      line_numbers: false
+    block:
+      line_numbers: true
+      start_line: 1
 
 # PLUGINS
 plugins:
@@ -34,6 +36,13 @@ plugins:
 relative_links:
   enabled: true
   collections: true
+
+# FEED 
+feed:
+  posts_limit: 20
+  excerpt_only: true
+
+strict_front_matter: true
 
 # EXCLUSIONES
 exclude:
@@ -51,6 +60,7 @@ exclude:
   - yarn.lock
   - scripts/
   - assets/img/raw/
+  - .jekyll-cache/
 
 # COLECCIONES
 collections:
@@ -78,39 +88,31 @@ defaults:
       layout: default
       author: elPatronHT
       lang: es
+      image: /assets/img/placeholder.webp
+      twitter:
+        card: summary_large_image
   - scope:
       path: ""
       type: blog
     values:
       layout: blog-post
-      image: /assets/img/placeholder.webp
-      lang: es
   - scope:
       path: ""
       type: manual
     values:
       layout: manual-post
-      image: /assets/img/placeholder.webp
-      lang: es
   - scope:
       path: ""
       type: noticias
     values:
       layout: noticias-post
-      image: /assets/img/placeholder.webp
-      lang: es
   - scope:
       path: ""
       type: herramientas
     values:
       layout: herramientas-post
-      image: /assets/img/placeholder.webp
-      lang: es
   - scope:
       path: ""
       type: pages
     values:
       layout: default
-      lang: es
-
-future: true
