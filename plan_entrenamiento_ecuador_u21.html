@@ -1,0 +1,1044 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plan de Entrenamiento — Selección Ecuador U21</title>
+    <style>
+      /* ===== VARIABLES ===== */
+      :root {
+        --bg: #0f172a;
+        --card: #1e293b;
+        --card-border: #334155;
+        --text: #f1f5f9;
+        --muted: #94a3b8;
+        --accent: #38bdf8;
+        --accent2: #fbbf24;
+        --success: #4ade80;
+        --danger: #f87171;
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        --toggle-bg: #334155;
+        --toggle-icon: #fbbf24;
+      }
+
+      [data-theme="light"] {
+        --bg: #f8fafc;
+        --card: #ffffff;
+        --card-border: #e2e8f0;
+        --text: #1e293b;
+        --muted: #64748b;
+        --accent: #0284c7;
+        --accent2: #d97706;
+        --success: #16a34a;
+        --danger: #dc2626;
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        --toggle-bg: #e2e8f0;
+        --toggle-icon: #d97706;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family:
+          "Segoe UI",
+          system-ui,
+          -apple-system,
+          sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+        padding: 2rem 1rem;
+        transition:
+          background 0.3s,
+          color 0.3s;
+      }
+      .container {
+        max-width: 960px;
+        margin: 0 auto;
+      }
+
+      /* ===== TOGGLE MODO CLARO/OSCURO ===== */
+      .theme-toggle {
+        position: fixed;
+        top: 1.2rem;
+        right: 1.2rem;
+        z-index: 1000;
+        background: var(--toggle-bg);
+        border: 2px solid var(--card-border);
+        border-radius: 50px;
+        width: 52px;
+        height: 52px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 1.4rem;
+        transition: all 0.3s;
+        box-shadow: var(--shadow);
+      }
+      .theme-toggle:hover {
+        transform: scale(1.1);
+      }
+      .theme-toggle:active {
+        transform: scale(0.95);
+      }
+
+      /* ===== HEADER ===== */
+      header {
+        text-align: center;
+        margin-bottom: 3rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid var(--card-border);
+      }
+      header h1 {
+        font-size: clamp(1.5rem, 4vw, 2.2rem);
+        background: linear-gradient(90deg, var(--accent), var(--accent2));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 0.5rem;
+      }
+      header p {
+        color: var(--muted);
+        font-size: 1.05rem;
+      }
+
+      /* ===== REQUISITOS ===== */
+      .requirements {
+        background: var(--card);
+        border: 1px solid var(--card-border);
+        border-radius: 16px;
+        padding: 1.5rem 2rem;
+        margin-bottom: 3rem;
+        box-shadow: var(--shadow);
+        transition:
+          background 0.3s,
+          border-color 0.3s;
+      }
+      .requirements h2 {
+        color: var(--accent2);
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .req-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1rem;
+      }
+      .req-item {
+        background: var(--bg);
+        border-radius: 10px;
+        padding: 1rem;
+        border-left: 4px solid var(--accent);
+        transition: background 0.3s;
+      }
+      .req-item strong {
+        color: var(--accent);
+        display: block;
+        margin-bottom: 0.2rem;
+      }
+      .req-item span {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      /* ===== TARJETAS DE POSICIÓN ===== */
+      .position-card {
+        background: var(--card);
+        border: 1px solid var(--card-border);
+        border-radius: 20px;
+        padding: 2rem;
+        margin-bottom: 2.5rem;
+        box-shadow: var(--shadow);
+        transition:
+          transform 0.2s,
+          background 0.3s,
+          border-color 0.3s;
+      }
+      .position-card:hover {
+        transform: translateY(-3px);
+      }
+
+      .pos-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--card-border);
+      }
+      .pos-icon {
+        width: 52px;
+        height: 52px;
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.6rem;
+        flex-shrink: 0;
+      }
+      .pos-title h2 {
+        font-size: 1.4rem;
+        color: var(--text);
+      }
+      .pos-goals {
+        color: var(--muted);
+        font-size: 0.9rem;
+        margin-top: 0.2rem;
+      }
+      .pos-goals span {
+        color: var(--accent2);
+        font-weight: 600;
+      }
+
+      /* Colores por posición */
+      .gk .pos-icon {
+        background: #fcd34d20;
+        color: #fcd34d;
+      }
+      .cb .pos-icon {
+        background: #f8717120;
+        color: #f87171;
+      }
+      .wb .pos-icon {
+        background: #fb923c20;
+        color: #fb923c;
+      }
+      .mf .pos-icon {
+        background: #38bdf820;
+        color: #38bdf8;
+      }
+      .wm .pos-icon {
+        background: #a78bfa20;
+        color: #a78bfa;
+      }
+      .wi .pos-icon {
+        background: #34d39920;
+        color: #34d399;
+      }
+      .fw .pos-icon {
+        background: #f472b620;
+        color: #f472b6;
+      }
+
+      /* ===== TABLA DE FASES ===== */
+      .phase-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        margin-top: 1rem;
+        font-size: 0.95rem;
+      }
+      .phase-table th {
+        background: var(--bg);
+        color: var(--accent);
+        text-align: left;
+        padding: 0.85rem 1rem;
+        font-weight: 600;
+        border-bottom: 2px solid var(--card-border);
+        transition: background 0.3s;
+      }
+      .phase-table td {
+        padding: 0.85rem 1rem;
+        border-bottom: 1px solid #33415540;
+        vertical-align: top;
+      }
+      [data-theme="light"] .phase-table td {
+        border-bottom: 1px solid #e2e8f080;
+      }
+      .phase-table tr:hover td {
+        background: var(--bg);
+      }
+
+      .phase-badge {
+        display: inline-block;
+        padding: 0.25rem 0.7rem;
+        border-radius: 20px;
+        font-size: 0.7rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        white-space: nowrap;
+      }
+      .badge-p1 {
+        background: #f8717130;
+        color: #f87171;
+      }
+      .badge-p2 {
+        background: #fbbf2430;
+        color: #fbbf24;
+      }
+      .badge-p3 {
+        background: #4ade8030;
+        color: #4ade80;
+      }
+      [data-theme="light"] .badge-p1 {
+        background: #fee2e2;
+        color: #dc2626;
+      }
+      [data-theme="light"] .badge-p2 {
+        background: #fef3c7;
+        color: #d97706;
+      }
+      [data-theme="light"] .badge-p3 {
+        background: #dcfce7;
+        color: #16a34a;
+      }
+
+      /* Viñetas dentro de la tabla */
+      .phase-table ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .phase-table ul li {
+        position: relative;
+        padding-left: 1.1rem;
+        margin-bottom: 0.4rem;
+        line-height: 1.5;
+      }
+      .phase-table ul li:last-child {
+        margin-bottom: 0;
+      }
+      .phase-table ul li::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        color: var(--accent2);
+        font-weight: bold;
+      }
+
+      .note-box {
+        background: var(--bg);
+        border-left: 4px solid var(--accent2);
+        padding: 1.2rem 1.5rem;
+        border-radius: 0 12px 12px 0;
+        margin-top: 1.5rem;
+        font-size: 0.9rem;
+        color: var(--muted);
+        transition: background 0.3s;
+      }
+      .note-box strong {
+        color: var(--accent2);
+      }
+
+      /* ===== RESUMEN ===== */
+      .summary-section {
+        margin-top: 4rem;
+        padding-top: 2rem;
+        border-top: 2px solid var(--card-border);
+      }
+      .summary-section h2 {
+        text-align: center;
+        font-size: 1.6rem;
+        margin-bottom: 1.5rem;
+        color: var(--accent);
+      }
+      .summary-table {
+        width: 100%;
+        border-collapse: collapse;
+        background: var(--card);
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        font-size: 0.95rem;
+        transition: background 0.3s;
+      }
+      .summary-table th {
+        background: var(--bg);
+        color: var(--accent2);
+        padding: 1rem;
+        text-align: left;
+        transition: background 0.3s;
+      }
+      .summary-table td {
+        padding: 1rem;
+        border-bottom: 1px solid #33415540;
+      }
+      [data-theme="light"] .summary-table td {
+        border-bottom: 1px solid #e2e8f080;
+      }
+      .summary-table tr:last-child td {
+        border-bottom: none;
+      }
+      .summary-table tr:hover td {
+        background: var(--bg);
+      }
+      .tag {
+        display: inline-block;
+        padding: 0.15rem 0.6rem;
+        border-radius: 6px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        margin-right: 0.3rem;
+        margin-bottom: 0.2rem;
+      }
+      .tag-main {
+        background: #38bdf830;
+        color: #38bdf8;
+      }
+      .tag-sec {
+        background: #94a3b830;
+        color: #94a3b8;
+      }
+      [data-theme="light"] .tag-main {
+        background: #e0f2fe;
+        color: #0284c7;
+      }
+      [data-theme="light"] .tag-sec {
+        background: #f1f5f9;
+        color: #64748b;
+      }
+
+      /* ===== NOTAS FINALES ===== */
+      .notes-footer {
+        margin-top: 3rem;
+        background: var(--card);
+        border-radius: 16px;
+        padding: 2rem;
+        box-shadow: var(--shadow);
+        transition:
+          background 0.3s,
+          border-color 0.3s;
+      }
+      .notes-footer h2 {
+        color: var(--accent);
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+      }
+      .notes-footer ul {
+        list-style: none;
+      }
+      .notes-footer li {
+        position: relative;
+        padding-left: 1.5rem;
+        margin-bottom: 1rem;
+        color: var(--muted);
+      }
+      .notes-footer li::before {
+        content: "▸";
+        position: absolute;
+        left: 0;
+        color: var(--accent2);
+        font-weight: bold;
+      }
+      .notes-footer strong {
+        color: var(--text);
+      }
+
+      /* ===== MEDIA QUERIES PARA MÓVIL ===== */
+      @media (max-width: 640px) {
+        body {
+          padding: 1rem 0.75rem;
+        }
+        .theme-toggle {
+          width: 44px;
+          height: 44px;
+          font-size: 1.2rem;
+          top: 0.8rem;
+          right: 0.8rem;
+        }
+
+        .pos-header {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.75rem;
+        }
+        .pos-icon {
+          width: 44px;
+          height: 44px;
+          font-size: 1.3rem;
+        }
+        .pos-title h2 {
+          font-size: 1.2rem;
+        }
+        .position-card {
+          padding: 1.25rem;
+          border-radius: 16px;
+        }
+
+        /* Tabla como tarjetas apiladas en móvil */
+        .phase-table,
+        .phase-table thead,
+        .phase-table tbody,
+        .phase-table th,
+        .phase-table td,
+        .phase-table tr {
+          display: block;
+          width: 100%;
+        }
+        .phase-table thead {
+          display: none;
+        }
+        .phase-table tr {
+          margin-bottom: 1rem;
+          background: var(--bg);
+          border-radius: 12px;
+          padding: 1rem;
+          border: 1px solid var(--card-border);
+        }
+        .phase-table td {
+          border: none;
+          padding: 0.5rem 0;
+          position: relative;
+        }
+        .phase-table td:first-child {
+          padding-bottom: 0.75rem;
+          margin-bottom: 0.5rem;
+          border-bottom: 1px solid var(--card-border);
+        }
+        .phase-table td:nth-child(2) {
+          font-size: 0.85rem;
+          color: var(--muted);
+          margin-bottom: 0.5rem;
+        }
+        .phase-table td:nth-child(2)::before {
+          content: "Configuración: ";
+          font-weight: 600;
+          color: var(--text);
+        }
+        .phase-table td:nth-child(3) {
+          font-size: 0.95rem;
+        }
+        .phase-table td:nth-child(3)::before {
+          content: "Acción: ";
+          font-weight: 600;
+          color: var(--text);
+          display: block;
+          margin-bottom: 0.3rem;
+        }
+
+        .summary-table {
+          font-size: 0.85rem;
+        }
+        .summary-table th,
+        .summary-table td {
+          padding: 0.75rem 0.5rem;
+        }
+        .tag {
+          font-size: 0.75rem;
+          padding: 0.1rem 0.4rem;
+        }
+
+        .requirements {
+          padding: 1.25rem;
+        }
+        .req-grid {
+          grid-template-columns: 1fr;
+        }
+        .notes-footer {
+          padding: 1.25rem;
+        }
+      }
+
+      @media (max-width: 400px) {
+        header h1 {
+          font-size: 1.35rem;
+        }
+        .pos-goals {
+          font-size: 0.8rem;
+        }
+        .phase-table td:nth-child(3)::before {
+          content: "";
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- BOTÓN TOGGLE -->
+      <button class="theme-toggle" id="themeToggle" title="Cambiar modo claro/oscuro">
+        <span id="toggleIcon">☀️</span>
+      </button>
+
+      <header>
+        <h1>⚽ Plan de Entrenamiento — Selección Ecuador U21</h1>
+        <p>
+          Este plan está diseñado para optimizar el rendimiento de los preseleccionados de la U21 de Ecuador. Hemos estructurado los objetivos en fases sencillas para que coordinar
+          los cambios sea lo más cómodo posible tanto para tu club como para la selección.
+        </p>
+      </header>
+
+      <div class="requirements">
+        <h2>🔧 Requisitos Recomendados</h2>
+        <div class="req-grid">
+          <div class="req-item">
+            <strong>Entrenador</strong>
+            <span>Bueno (nivel 7) o Excelente (nivel 8)</span>
+          </div>
+          <div class="req-item">
+            <strong>Asistentes</strong>
+            <span>Nivel 10 (ideal y perfecto)</span>
+          </div>
+          <div class="req-item">
+            <strong>Médico</strong>
+            <span>Nivel 5 (prevención de lesiones)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1. PORTERO -->
+      <div class="position-card gk">
+        <div class="pos-header">
+          <div class="pos-icon">🧤</div>
+          <div class="pos-title">
+            <h2>1. Portero</h2>
+            <div class="pos-goals">Meta: <span>Portería 16</span> · <span>Balón Parado 16</span> · <span>Defensa 6</span></div>
+          </div>
+        </div>
+        <table class="phase-table">
+          <thead>
+            <tr>
+              <th>Fase</th>
+              <th>Resistencia / Intensidad</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="phase-badge badge-p1">Fase 1</span></td>
+              <td>Resistencia <strong>10%</strong> · Intensidad <strong>100%</strong></td>
+              <td>Entrenar <strong>Portería</strong> hasta nivel <strong>14</strong></td>
+            </tr>
+            <tr>
+              <td><span class="phase-badge badge-p2">Fase 2</span></td>
+              <td>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></td>
+              <td>
+                <ul>
+                  <li>Cambiar a <strong>Balón Parado</strong> hasta nivel <strong>16</strong></li>
+                  <li>Cambiar a <strong>Defensa</strong> hasta nivel <strong>6</strong></li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="phase-badge badge-p3">Fase 3</span></td>
+              <td>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></td>
+              <td>Regresar a <strong>Portería</strong> para pulir hasta nivel <strong>16</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 2. DEFENSA CENTRAL -->
+      <div class="position-card cb">
+        <div class="pos-header">
+          <div class="pos-icon">🛡️</div>
+          <div class="pos-title">
+            <h2>2. Defensa Central</h2>
+            <div class="pos-goals">Meta: <span>Defensa 15</span> · <span>Jugadas 8</span> · <span>Pases 6</span></div>
+          </div>
+        </div>
+        <table class="phase-table">
+          <thead>
+            <tr>
+              <th>Fase</th>
+              <th>Resistencia / Intensidad</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="phase-badge badge-p1">Fase 1</span></td>
+              <td>Resistencia <strong>10%</strong> · Intensidad <strong>100%</strong></td>
+              <td>Entrenar <strong>Defensa</strong> hasta nivel <strong>13</strong></td>
+            </tr>
+            <tr>
+              <td><span class="phase-badge badge-p2">Fase 2</span></td>
+              <td><strong>100%</strong> · Resistencia <strong>13%</strong></td>
+              <td>
+                <ul>
+                  <li>Cambiar a <strong>Jugadas</strong> hasta nivel <strong>8</strong></li>
+                  <li>Cambiar a <strong>Pases</strong> hasta nivel <strong>6</strong></li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="phase-badge badge-p3">Fase 3</span></td>
+              <td><strong>100%</strong> · Resistencia <strong>13%</strong></td>
+              <td>Regresar a <strong>Defensa</strong> para pulir hasta nivel <strong>15</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 3. DEFENSA LATERAL -->
+      <div class="position-card wb">
+        <div class="pos-header">
+          <div class="pos-icon">🛡️</div>
+          <div class="pos-title">
+            <h2>3. Defensa Lateral</h2>
+            <div class="pos-goals">Meta: <span>Defensa 14</span> · <span>Lateral 10</span> · <span>Pases 8</span></div>
+          </div>
+        </div>
+        <table class="phase-table">
+          <thead>
+            <tr>
+              <th>Fase</th>
+              <th>Resistencia / Intensidad</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="phase-badge badge-p1">Fase 1</span></td>
+              <td>Resistencia <strong>10%</strong> · Intensidad <strong>100%</strong></td>
+              <td>Entrenar <strong>Defensa</strong> hasta nivel <strong>12</strong></td>
+            </tr>
+            <tr>
+              <td><span class="phase-badge badge-p2">Fase 2</span></td>
+              <td>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></td>
+              <td>
+                <ul>
+                  <li>Cambiar a <strong>Lateral</strong> hasta nivel <strong>10</strong></li>
+                  <li>Cambiar a <strong>Pases</strong> hasta nivel <strong>8</strong></li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="phase-badge badge-p3">Fase 3</span></td>
+              <td>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></td>
+              <td>Regresar a <strong>Defensa</strong> para pulir hasta nivel <strong>14</strong></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="note-box"><strong>Nota:</strong> Mínimo nivel 6 en Pases si el plan lo exige. El orden de las secundarias en Fase 2 es flexible.</div>
+      </div>
+
+      <!-- 4. MEDIOCENTRO -->
+      <div class="position-card mf">
+        <div class="pos-header">
+          <div class="pos-icon">⚙️</div>
+          <div class="pos-title">
+            <h2>4. Mediocentro</h2>
+            <div class="pos-goals">Meta: <span>Jugadas 15</span> · <span>Defensa 6</span> · <span>Pases 6</span> · <span>Anotación 6</span></div>
+          </div>
+        </div>
+        <table class="phase-table">
+          <thead>
+            <tr>
+              <th>Fase</th>
+              <th>Resistencia / Intensidad</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="phase-badge badge-p1">Fase 1</span></td>
+              <td>Resistencia <strong>10%</strong> · Intensidad <strong>100%</strong></td>
+              <td>Entrenar <strong>Jugadas</strong> hasta nivel <strong>13</strong></td>
+            </tr>
+            <tr>
+              <td><span class="phase-badge badge-p2">Fase 2</span></td>
+              <td>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></td>
+              <td>
+                <ul>
+                  <li>Cambiar a <strong>Pases</strong> hasta nivel <strong>6</strong></li>
+                  <li>Cambiar a <strong>Defensa</strong> hasta nivel <strong>6</strong></li>
+                  <li>Cambiar a <strong>Anotación</strong> hasta nivel <strong>6</strong></li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="phase-badge badge-p3">Fase 3</span></td>
+              <td>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></td>
+              <td>Regresar a <strong>Jugadas</strong> para pulir hasta nivel <strong>15</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 5. MEDIOCENTRO HACIA LATERAL -->
+      <div class="position-card wm">
+        <div class="pos-header">
+          <div class="pos-icon">⚙️</div>
+          <div class="pos-title">
+            <h2>5. Mediocentro Hacia Lateral</h2>
+            <div class="pos-goals">Meta: <span>Jugadas 14</span> · <span>Lateral 8</span> · <span>Defensa 6</span> · <span>Pases 6</span></div>
+          </div>
+        </div>
+        <table class="phase-table">
+          <thead>
+            <tr>
+              <th>Fase</th>
+              <th>Resistencia / Intensidad</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="phase-badge badge-p1">Fase 1</span></td>
+              <td>Resistencia <strong>10%</strong> · Intensidad <strong>100%</strong></td>
+              <td>Entrenar <strong>Jugadas</strong> hasta nivel <strong>12</strong></td>
+            </tr>
+            <tr>
+              <td><span class="phase-badge badge-p2">Fase 2</span></td>
+              <td>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></td>
+              <td>
+                <ul>
+                  <li>Cambiar a <strong>Lateral</strong> hasta nivel <strong>8</strong></li>
+                  <li>Cambiar a <strong>Pases</strong> hasta nivel <strong>6</strong></li>
+                  <li>Cambiar a <strong>Defensa</strong> hasta nivel <strong>6</strong></li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="phase-badge badge-p3">Fase 3</span></td>
+              <td>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></td>
+              <td>Regresar a <strong>Jugadas</strong> para pulir hasta nivel <strong>14</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 6. EXTREMO HACIA MEDIO -->
+      <div class="position-card wi">
+        <div class="pos-header">
+          <div class="pos-icon">🏃</div>
+          <div class="pos-title">
+            <h2>6. Extremo Hacia Medio</h2>
+            <div class="pos-goals">Meta: <span>Lateral 13</span> · <span>Jugadas 12</span> · <span>Pases 8</span> · <span>Defensa 6</span></div>
+          </div>
+        </div>
+        <table class="phase-table">
+          <thead>
+            <tr>
+              <th>Fase</th>
+              <th>Resistencia / Intensidad</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="phase-badge badge-p1">Fase 1</span></td>
+              <td>Resistencia <strong>10%</strong> · Intensidad <strong>100%</strong></td>
+              <td>Entrenar <strong>Lateral</strong> hasta nivel <strong>11</strong></td>
+            </tr>
+            <tr>
+              <td><span class="phase-badge badge-p2">Fase 2</span></td>
+              <td>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></td>
+              <td>
+                <ul>
+                  <li>Cambiar a <strong>Jugadas</strong> hasta nivel <strong>12</strong></li>
+                  <li>Cambiar a <strong>Pases</strong> hasta nivel <strong>8</strong></li>
+                  <li>Cambiar a <strong>Defensa</strong> hasta nivel <strong>6</strong></li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="phase-badge badge-p3">Fase 3</span></td>
+              <td>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></td>
+              <td>Regresar a <strong>Lateral</strong> para pulir hasta nivel <strong>13</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 7. EXTREMO -->
+      <div class="position-card wi">
+        <div class="pos-header">
+          <div class="pos-icon">🏃</div>
+          <div class="pos-title">
+            <h2>7. Extremo</h2>
+            <div class="pos-goals">Meta: <span>Lateral 15</span> · <span>Jugadas 11</span> · <span>Defensa 6</span> · <span>Pases 6</span></div>
+          </div>
+        </div>
+        <table class="phase-table">
+          <thead>
+            <tr>
+              <th>Fase</th>
+              <th>Resistencia / Intensidad</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="phase-badge badge-p1">Fase 1</span></td>
+              <td>Resistencia <strong>10%</strong> · Intensidad <strong>100%</strong></td>
+              <td>Entrenar <strong>Lateral</strong> hasta nivel <strong>13</strong></td>
+            </tr>
+            <tr>
+              <td><span class="phase-badge badge-p2">Fase 2</span></td>
+              <td>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></td>
+              <td>
+                <ul>
+                  <li>Cambiar a <strong>Jugadas</strong> hasta nivel <strong>11</strong></li>
+                  <li>Cambiar a <strong>Pases</strong> hasta nivel <strong>6</strong></li>
+                  <li>Cambiar a <strong>Defensa</strong> hasta nivel <strong>6</strong></li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="phase-badge badge-p3">Fase 3</span></td>
+              <td>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></td>
+              <td>Regresar a <strong>Lateral</strong> para pulir hasta nivel <strong>15</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 8. DELANTERO -->
+      <div class="position-card fw">
+        <div class="pos-header">
+          <div class="pos-icon">⚽</div>
+          <div class="pos-title">
+            <h2>8. Delantero</h2>
+            <div class="pos-goals">Meta: <span>Anotación 15</span> · <span>Pases 8</span> · <span>Jugadas 6</span> · <span>Lateral 6</span></div>
+          </div>
+        </div>
+        <table class="phase-table">
+          <thead>
+            <tr>
+              <th>Fase</th>
+              <th>Resistencia / Intensidad</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="phase-badge badge-p1">Fase 1</span></td>
+              <td>Resistencia <strong>10%</strong> · Intensidad <strong>100%</strong></td>
+              <td>Entrenar <strong>Anotación</strong> hasta nivel <strong>12 o 13</strong></td>
+            </tr>
+            <tr>
+              <td><span class="phase-badge badge-p2">Fase 2</span></td>
+              <td>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></td>
+              <td>
+                <ul>
+                  <li>Cambiar a <strong>Pases</strong> hasta nivel <strong>8</strong></li>
+                  <li>Cambiar a <strong>Jugadas</strong> hasta nivel <strong>6</strong></li>
+                  <li>Cambiar a <strong>Lateral</strong> hasta nivel <strong>6</strong></li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="phase-badge badge-p3">Fase 3</span></td>
+              <td>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></td>
+              <td>Regresar a <strong>Anotación</strong> para pulir hasta nivel <strong>15</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- RESUMEN AL FINAL -->
+      <div class="summary-section">
+        <h2>📋 Resumen de Metas por Posición</h2>
+        <table class="summary-table">
+          <thead>
+            <tr>
+              <th>Posición</th>
+              <th>Principal</th>
+              <th>Secundarias</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>🧤 Portero</td>
+              <td><span class="tag tag-main">Portería 16</span></td>
+              <td><span class="tag tag-sec">Balón Parado 16</span> <span class="tag tag-sec">Defensa 6</span></td>
+            </tr>
+            <tr>
+              <td>🛡️ Defensa Central</td>
+              <td><span class="tag tag-main">Defensa 15</span></td>
+              <td><span class="tag tag-sec">Jugadas 8</span> <span class="tag tag-sec">Pases 6</span></td>
+            </tr>
+            <tr>
+              <td>🛡️ Defensa Lateral</td>
+              <td><span class="tag tag-main">Defensa 14</span></td>
+              <td><span class="tag tag-sec">Lateral 10</span> <span class="tag tag-sec">Pases 8</span></td>
+            </tr>
+            <tr>
+              <td>⚙️ Mediocentro</td>
+              <td><span class="tag tag-main">Jugadas 15</span></td>
+              <td><span class="tag tag-sec">Defensa 6</span> <span class="tag tag-sec">Pases 6</span> <span class="tag tag-sec">Anotación 6</span></td>
+            </tr>
+            <tr>
+              <td>⚙️ Mediocentro → Lateral</td>
+              <td><span class="tag tag-main">Jugadas 14</span></td>
+              <td><span class="tag tag-sec">Lateral 8</span> <span class="tag tag-sec">Defensa 6</span> <span class="tag tag-sec">Pases 6</span></td>
+            </tr>
+            <tr>
+              <td>🏃 Extremo → Medio</td>
+              <td><span class="tag tag-main">Lateral 13</span></td>
+              <td><span class="tag tag-sec">Jugadas 12</span> <span class="tag tag-sec">Pases 8</span> <span class="tag tag-sec">Defensa 6</span></td>
+            </tr>
+            <tr>
+              <td>🏃 Extremo</td>
+              <td><span class="tag tag-main">Lateral 15</span></td>
+              <td><span class="tag tag-sec">Jugadas 11</span> <span class="tag tag-sec">Defensa 6</span> <span class="tag tag-sec">Pases 6</span></td>
+            </tr>
+            <tr>
+              <td>⚽ Delantero</td>
+              <td><span class="tag tag-main">Anotación 15</span></td>
+              <td><span class="tag tag-sec">Pases 8</span> <span class="tag tag-sec">Jugadas 6</span> <span class="tag tag-sec">Lateral 6</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- NOTAS FINALES -->
+      <div class="notes-footer">
+        <h2>📝 Notas Importantes</h2>
+        <ul>
+          <li>
+            <strong>Flexibilidad en la Fase 2:</strong> El orden de las habilidades secundarias no es estricto. Puedes entrenarlas en el orden que mejor se adapte al calendario o a
+            las necesidades de tu propio equipo. Lo importante es completar los niveles sugeridos antes de pasar a la Fase 3.
+          </li>
+          <li>
+            <strong>¿Qué pasa si los niveles ya son diferentes?</strong> Si al revisar el Hattrick Portal notas que a tu jugador solo le falta 1 nivel (o un subnivel) para alcanzar
+            la meta de alguna habilidad, ¡excelente! Se completará muy rápido. Si ya sobrepasó el nivel sugerido, puedes saltarte esa parte directamente.
+          </li>
+          <li>
+            <strong>Abierto a sugerencias:</strong> Este plan está diseñado para optimizar al jugador de cara a la selección. Si tienes dudas, comentarios o te gustaría adaptar el
+            entrenamiento a otro estilo que te beneficie más en tu club, escríbeme con total confianza. Podemos revisarlo y organizarlo juntos para que ambos salgamos ganando.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <script>
+      // Toggle tema claro/oscuro con preferencia del sistema
+      const toggle = document.getElementById("themeToggle");
+      const icon = document.getElementById("toggleIcon");
+      const html = document.documentElement;
+
+      // Detectar preferencia del sistema
+      const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+      // Cargar preferencia: localStorage primero, si no existe -> sistema
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme) {
+        html.setAttribute("data-theme", savedTheme);
+        icon.textContent = savedTheme === "dark" ? "☀️" : "🌙";
+      } else {
+        // Usar preferencia del sistema
+        const systemTheme = systemPrefersDark ? "dark" : "light";
+        html.setAttribute("data-theme", systemTheme);
+        icon.textContent = systemTheme === "dark" ? "☀️" : "🌙";
+      }
+
+      // Escuchar cambios en la preferencia del sistema en tiempo real
+      window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
+        // Solo cambiar automáticamente si el usuario NO ha guardado manualmente una preferencia
+        if (!localStorage.getItem("theme")) {
+          const newTheme = e.matches ? "dark" : "light";
+          html.setAttribute("data-theme", newTheme);
+          icon.textContent = newTheme === "dark" ? "☀️" : "🌙";
+        }
+      });
+
+      toggle.addEventListener("click", () => {
+        const current = html.getAttribute("data-theme");
+        const next = current === "dark" ? "light" : "dark";
+        html.setAttribute("data-theme", next);
+        localStorage.setItem("theme", next);
+        icon.textContent = next === "dark" ? "☀️" : "🌙";
+      });
+    </script>
+  </body>
+</html>
