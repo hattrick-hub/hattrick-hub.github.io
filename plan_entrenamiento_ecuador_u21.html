@@ -1,9 +1,23 @@
+---
+layout: nulo
+title: "Plan de Entrenamiento Ecuador U21"
+permalink: /plan-entrenamiento/
+description: "Plan de entrenamiento para la seleccion Ecuador U21 en Hattrick"
+---
+
 <!doctype html>
-<html lang="es">
+<html lang="{{ page.lang | default: site.lang | default: 'es' }}">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Plan de Entrenamiento — Selección Ecuador U21</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#4B8A61" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#2d5a3d" media="(prefers-color-scheme: dark)" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="{{ '/assets/img/favicon.ico' | relative_url }}" sizes="any" />
+    <link rel="icon" href="{{ '/assets/img/favicon.svg' | relative_url }}" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="{{ '/assets/img/apple-touch-icon.png' | relative_url }}" />
+    {% seo %}
     <style>
       /* ===== VARIABLES ===== */
       :root {
@@ -1000,7 +1014,6 @@
         </ul>
       </div>
     </div>
-
     <script>
       // Toggle tema claro/oscuro con preferencia del sistema
       const toggle = document.getElementById("themeToggle");
