@@ -1,8 +1,8 @@
 ---
-layout: nulo
+layout: null
 title: "Plan de Entrenamiento Ecuador U21"
 permalink: /plan-entrenamiento/
-description: "Plan de entrenamiento para la seleccion Ecuador U21 en Hattrick"
+description: "Plan de entrenamiento para la Selección Ecuador U21 en Hattrick"
 ---
 
 <!doctype html>
@@ -1020,24 +1020,19 @@ description: "Plan de entrenamiento para la seleccion Ecuador U21 en Hattrick"
       const icon = document.getElementById("toggleIcon");
       const html = document.documentElement;
 
-      // Detectar preferencia del sistema
       const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-      // Cargar preferencia: localStorage primero, si no existe -> sistema
       const savedTheme = localStorage.getItem("theme");
       if (savedTheme) {
         html.setAttribute("data-theme", savedTheme);
         icon.textContent = savedTheme === "dark" ? "☀️" : "🌙";
       } else {
-        // Usar preferencia del sistema
         const systemTheme = systemPrefersDark ? "dark" : "light";
         html.setAttribute("data-theme", systemTheme);
         icon.textContent = systemTheme === "dark" ? "☀️" : "🌙";
       }
 
-      // Escuchar cambios en la preferencia del sistema en tiempo real
       window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
-        // Solo cambiar automáticamente si el usuario NO ha guardado manualmente una preferencia
         if (!localStorage.getItem("theme")) {
           const newTheme = e.matches ? "dark" : "light";
           html.setAttribute("data-theme", newTheme);
