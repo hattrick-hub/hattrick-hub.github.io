@@ -19,7 +19,7 @@ description: "Plan de entrenamiento para la Selección Ecuador U21 en Hattrick"
     <link rel="apple-touch-icon" href="{{ '/assets/img/apple-touch-icon.png' | relative_url }}" />
     {% seo %}
     <style>
-      @layer reset, theme, layout, components, utilities, overrides;
+      @layer reset, theme, layout, components, overrides;
 
       @layer reset {
         *,
@@ -33,29 +33,25 @@ description: "Plan de entrenamiento para la Selección Ecuador U21 en Hattrick"
 
       @layer theme {
         :root {
+          /* Primaria (verde) */
           --color-primary-hue: 150;
           --color-primary: hsl(var(--color-primary-hue) 40% 35%);
           --color-primary-dark: hsl(var(--color-primary-hue) 40% 25%);
           --color-primary-light: hsl(var(--color-primary-hue) 40% 55%);
+          /* Secundaria (naranja/dorado) */
           --color-secondary-hue: 20;
           --color-secondary: hsl(var(--color-secondary-hue) 65% 40%);
           --color-secondary-dark: hsl(var(--color-secondary-hue) 65% 30%);
           --color-secondary-light: hsl(var(--color-secondary-hue) 65% 60%);
+          /* Neutros */
           --color-accent: #5c4030;
           --color-text: #1a1f24;
           --color-text-secondary: #364049;
-          --color-text-invert: #ffffff;
           --color-background: #f9f6f2;
           --color-content-bg: #ffffff;
-          --color-code-bg: #e8e4dd;
           --color-border: #c7c2ba;
-          --color-border-subtle: #dbe0e6;
           --color-background-muted: #eceef3;
-          --surface-1: var(--color-content-bg);
-          --surface-2: var(--color-background-muted);
-          --surface-3: var(--navbar-bg);
-          --surface-text: var(--color-text);
-          --surface-text-muted: var(--color-text-secondary);
+          /* Sombras */
           --shadow-color: oklch(0% 0 0 / 10%);
           --shadow-standard: 0 0.125rem 0.25rem var(--shadow-color);
           --shadow-hover: 0 0.25rem 0.5rem oklch(0% 0 0 / 15%);
@@ -63,14 +59,16 @@ description: "Plan de entrenamiento para la Selección Ecuador U21 en Hattrick"
           --shadow-card: 0 0.25rem 1rem oklch(0% 0 0 / 8%);
           --shadow-card-hover: 0 0.5rem 1.5rem oklch(0% 0 0 / 15%);
           --shadow-box: 0 0.25rem 0.75rem oklch(0% 0 0 / 6%);
+          /* Radios */
           --border-radius: 0.5rem;
           --border-radius-small: 0.25rem;
           --border-radius-full: 9999px;
           --border-thin: 0.0625rem;
           --border-medium: 0.125rem;
+          /* Focus */
           --outline-width: 0.1875rem;
           --outline-offset: 0.125rem;
-          --spacing-0: 0;
+          /* Espaciado */
           --spacing-1: 0.25rem;
           --spacing-2: 0.5rem;
           --spacing-3: 0.75rem;
@@ -79,8 +77,7 @@ description: "Plan de entrenamiento para la Selección Ecuador U21 en Hattrick"
           --spacing-6: 2rem;
           --spacing-7: 3rem;
           --spacing-8: 4rem;
-          --gap-sm: var(--spacing-1);
-          --gap-md: var(--spacing-2);
+          /* Tipografía */
           --font-family-base: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
           --font-size-base: clamp(0.875rem, 2vw, 1rem);
           --font-size-sm: clamp(0.8rem, 1.6vw, 0.9375rem);
@@ -91,25 +88,16 @@ description: "Plan de entrenamiento para la Selección Ecuador U21 en Hattrick"
           --font-size-h4: clamp(1rem, 2.5vw, 1.125rem);
           --line-height-base: 1.6;
           --line-height-heading: 1.2;
-          --font-weight-normal: 400;
           --font-weight-bold: 700;
-          --container-max-width: 75rem;
-          --container-medium: 50rem;
-          --navbar-height: var(--spacing-7);
-          --navbar-bg: color-mix(in srgb, var(--color-background), var(--color-primary) 5%);
-          --navbar-hover-bg: var(--color-primary-light);
+          /* Transiciones */
           --transition-duration: 0.2s;
           --transition-easing: ease;
           --transition-standard:
             background var(--transition-duration) var(--transition-easing), color var(--transition-duration) var(--transition-easing),
             border-color var(--transition-duration) var(--transition-easing);
-          --transition-opacity: opacity var(--transition-duration) var(--transition-easing);
           --transition-transform: transform var(--transition-duration) var(--transition-easing);
           --transition-shadow: box-shadow var(--transition-duration) var(--transition-easing);
-          --bp-sm: 30rem;
-          --bp-md: 36rem;
-          --bp-lg: 48rem;
-          --bp-xl: 62rem;
+          /* Variables de página */
           --page-bg: var(--color-background);
           --page-card: var(--color-content-bg);
           --page-card-border: var(--color-border);
@@ -120,8 +108,6 @@ description: "Plan de entrenamiento para la Selección Ecuador U21 en Hattrick"
           --page-success: var(--color-primary);
           --page-danger: #dc2626;
           --page-shadow: var(--shadow-card);
-          --page-toggle-bg: var(--color-background-muted);
-          --page-toggle-icon: var(--color-secondary);
         }
 
         @media (prefers-color-scheme: dark) {
@@ -135,12 +121,9 @@ description: "Plan de entrenamiento para la Selección Ecuador U21 en Hattrick"
             --color-accent: #8a5f44;
             --color-text: #ecebe9;
             --color-text-secondary: #c0c0c0;
-            --color-text-invert: #151515;
             --color-background: #151515;
             --color-content-bg: #222222;
-            --color-code-bg: #333333;
             --color-border: #454545;
-            --color-border-subtle: #2b3647;
             --color-background-muted: #2b3647;
             --shadow-color: oklch(0% 0 0 / 20%);
             --shadow-standard: 0 0.125rem 0.25rem oklch(0% 0 0 / 20%);
@@ -149,12 +132,6 @@ description: "Plan de entrenamiento para la Selección Ecuador U21 en Hattrick"
             --shadow-card: 0 0.25rem 1rem oklch(0% 0 0 / 15%);
             --shadow-card-hover: 0 0.5rem 1.5rem oklch(0% 0 0 / 20%);
             --shadow-box: 0 0.25rem 0.75rem oklch(0% 0 0 / 12%);
-            --navbar-hover-bg: hsl(var(--color-primary-hue) 40% 60%);
-            --surface-1: #222222;
-            --surface-2: #2b3647;
-            --surface-3: #1a1a1a;
-            --surface-text: #ecebe9;
-            --surface-text-muted: #c0c0c0;
             --page-bg: var(--color-background);
             --page-card: var(--color-content-bg);
             --page-card-border: var(--color-border);
@@ -165,53 +142,7 @@ description: "Plan de entrenamiento para la Selección Ecuador U21 en Hattrick"
             --page-success: var(--color-primary);
             --page-danger: #f87171;
             --page-shadow: var(--shadow-card);
-            --page-toggle-bg: var(--color-background-muted);
-            --page-toggle-icon: var(--color-secondary);
           }
-        }
-
-        [data-theme="dark"] {
-          --color-primary: hsl(var(--color-primary-hue) 40% 45%);
-          --color-primary-dark: hsl(var(--color-primary-hue) 40% 35%);
-          --color-primary-light: hsl(var(--color-primary-hue) 40% 60%);
-          --color-secondary: hsl(var(--color-secondary-hue) 65% 50%);
-          --color-secondary-dark: hsl(var(--color-secondary-hue) 65% 40%);
-          --color-secondary-light: hsl(var(--color-secondary-hue) 65% 70%);
-          --color-accent: #8a5f44;
-          --color-text: #ecebe9;
-          --color-text-secondary: #c0c0c0;
-          --color-text-invert: #151515;
-          --color-background: #151515;
-          --color-content-bg: #222222;
-          --color-code-bg: #333333;
-          --color-border: #454545;
-          --color-border-subtle: #2b3647;
-          --color-background-muted: #2b3647;
-          --shadow-color: oklch(0% 0 0 / 20%);
-          --shadow-standard: 0 0.125rem 0.25rem oklch(0% 0 0 / 20%);
-          --shadow-hover: 0 0.25rem 0.5rem oklch(0% 0 0 / 30%);
-          --shadow-sm: 0 0.0625rem 0.125rem oklch(0% 0 0 / 20%);
-          --shadow-card: 0 0.25rem 1rem oklch(0% 0 0 / 15%);
-          --shadow-card-hover: 0 0.5rem 1.5rem oklch(0% 0 0 / 20%);
-          --shadow-box: 0 0.25rem 0.75rem oklch(0% 0 0 / 12%);
-          --navbar-hover-bg: hsl(var(--color-primary-hue) 40% 60%);
-          --surface-1: #222222;
-          --surface-2: #2b3647;
-          --surface-3: #1a1a1a;
-          --surface-text: #ecebe9;
-          --surface-text-muted: #c0c0c0;
-          --page-bg: var(--color-background);
-          --page-card: var(--color-content-bg);
-          --page-card-border: var(--color-border);
-          --page-text: var(--color-text);
-          --page-muted: var(--color-text-secondary);
-          --page-accent: var(--color-primary);
-          --page-accent2: var(--color-secondary);
-          --page-success: var(--color-primary);
-          --page-danger: #f87171;
-          --page-shadow: var(--shadow-card);
-          --page-toggle-bg: var(--color-background-muted);
-          --page-toggle-icon: var(--color-secondary);
         }
       }
 
@@ -234,36 +165,6 @@ description: "Plan de entrenamiento para la Selección Ecuador U21 en Hattrick"
       }
 
       @layer components {
-        .theme-toggle {
-          position: fixed;
-          inset-block-start: var(--spacing-4);
-          inset-inline-end: var(--spacing-4);
-          z-index: 1000;
-          background: var(--page-toggle-bg);
-          border: var(--border-medium) solid var(--page-card-border);
-          border-radius: var(--border-radius-full);
-          inline-size: 3.25rem;
-          block-size: 3.25rem;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          cursor: pointer;
-          font-size: 1.4rem;
-          transition: var(--transition-transform), var(--transition-shadow);
-          box-shadow: var(--shadow-box);
-
-          &:hover {
-            transform: scale(1.1);
-          }
-          &:active {
-            transform: scale(0.95);
-          }
-          &:focus-visible {
-            outline: var(--outline-width) solid var(--page-accent);
-            outline-offset: var(--outline-offset);
-          }
-        }
-
         header {
           text-align: center;
           margin-block-end: var(--spacing-7);
@@ -610,11 +511,10 @@ description: "Plan de entrenamiento para la Selección Ecuador U21 en Hattrick"
           }
         }
 
-        /* Términos Hattrick bilingües */
         .ht-term {
           font-size: var(--font-size-xs);
           color: var(--page-muted);
-          font-weight: var(--font-weight-normal);
+          font-weight: 400;
           white-space: nowrap;
         }
 
@@ -635,7 +535,7 @@ description: "Plan de entrenamiento para la Selección Ecuador U21 en Hattrick"
 
           dl {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: var(--spacing-2) var(--spacing-4);
           }
 
@@ -657,32 +557,10 @@ description: "Plan de entrenamiento para la Selección Ecuador U21 en Hattrick"
         }
       }
 
-      @layer utilities {
-        .sr-only {
-          position: absolute;
-          width: 1px;
-          height: 1px;
-          padding: 0;
-          margin: -1px;
-          overflow: hidden;
-          clip: rect(0, 0, 0, 0);
-          white-space: nowrap;
-          border-width: 0;
-        }
-      }
-
       @layer overrides {
         @media (max-width: 40rem) {
           body {
             padding: var(--spacing-4) var(--spacing-3);
-          }
-
-          .theme-toggle {
-            inline-size: 2.75rem;
-            block-size: 2.75rem;
-            font-size: 1.2rem;
-            inset-block-start: var(--spacing-3);
-            inset-inline-end: var(--spacing-3);
           }
 
           .pos-header {
@@ -790,11 +668,12 @@ description: "Plan de entrenamiento para la Selección Ecuador U21 en Hattrick"
           }
 
           .glossary dl {
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-2) var(--spacing-3);
           }
         }
 
-        @media (max-width: 25rem) {
+        @media (max-width: 20rem) {
           header h1 {
             font-size: var(--font-size-h3);
           }
@@ -806,6 +685,10 @@ description: "Plan de entrenamiento para la Selección Ecuador U21 en Hattrick"
           .phase-table td:nth-child(3)::before {
             content: "";
             display: none;
+          }
+
+          .glossary dl {
+            grid-template-columns: 1fr;
           }
         }
 
@@ -823,12 +706,7 @@ description: "Plan de entrenamiento para la Selección Ecuador U21 en Hattrick"
     <base target="_blank" />
   </head>
   <body>
-    <a href="#main-content" class="sr-only">Saltar al contenido principal</a>
     <div class="container" id="main-content">
-      <button class="theme-toggle" id="themeToggle" title="Cambiar modo claro/oscuro" aria-label="Cambiar entre modo claro y oscuro">
-        <span id="toggleIcon" aria-hidden="true">☀️</span>
-      </button>
-
       <header>
         <h1>⚽ Plan de Entrenamiento — Selección Ecuador U21</h1>
         <p>
@@ -1422,11 +1300,11 @@ description: "Plan de entrenamiento para la Selección Ecuador U21 en Hattrick"
         <ul>
           <li>
             <strong>Flexibilidad en la Fase 2:</strong> El orden de las habilidades secundarias no es estricto. Puedes entrenarlas en el orden que mejor se adapte al calendario o a
-            las necesidades de tu propio equipo. Lo importante es completar los niveles sugeridos antes de pasar a la Fase 3.
+            las necesidades de tu equipo. Lo importante es completar los niveles sugeridos antes de pasar a la Fase 3.
           </li>
           <li>
             <strong>¿Qué pasa si los niveles ya son diferentes?</strong> Si al revisar el Hattrick Portal notas que a tu jugador solo le falta 1 nivel (o un subnivel) para alcanzar
-            la meta de alguna habilidad, ¡excelente! Se completará muy rápido. Si ya sobrepasó el nivel sugerido, puedes saltarte esa parte directamente.
+            la meta de alguna habilidad, eso se completará muy rápido. Si ya sobrepasó el nivel sugerido, puedes saltarte esa parte directamente.
           </li>
           <li>
             <strong>Abierto a sugerencias:</strong> Este plan está diseñado para optimizar al jugador para jugar con la selección. Si tienes dudas, comentarios o te gustaría
@@ -1436,38 +1314,5 @@ description: "Plan de entrenamiento para la Selección Ecuador U21 en Hattrick"
         </ul>
       </div>
     </div>
-    <script type="module">
-      const toggle = document.getElementById("themeToggle");
-      const icon = document.getElementById("toggleIcon");
-      const html = document.documentElement;
-
-      const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-      const savedTheme = localStorage.getItem("theme");
-      if (savedTheme) {
-        html.setAttribute("data-theme", savedTheme);
-        icon.textContent = savedTheme === "dark" ? "☀️" : "🌙";
-      } else {
-        const systemTheme = systemPrefersDark ? "dark" : "light";
-        html.setAttribute("data-theme", systemTheme);
-        icon.textContent = systemTheme === "dark" ? "☀️" : "🌙";
-      }
-
-      window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
-        if (!localStorage.getItem("theme")) {
-          const newTheme = e.matches ? "dark" : "light";
-          html.setAttribute("data-theme", newTheme);
-          icon.textContent = newTheme === "dark" ? "☀️" : "🌙";
-        }
-      });
-
-      toggle.addEventListener("click", () => {
-        const current = html.getAttribute("data-theme");
-        const next = current === "dark" ? "light" : "dark";
-        html.setAttribute("data-theme", next);
-        localStorage.setItem("theme", next);
-        icon.textContent = next === "dark" ? "☀️" : "🌙";
-      });
-    </script>
   </body>
 </html>
