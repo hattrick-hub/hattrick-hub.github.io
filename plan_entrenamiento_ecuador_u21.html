@@ -19,565 +19,843 @@ description: "Plan de entrenamiento para la Selección Ecuador U21 en Hattrick"
     <link rel="apple-touch-icon" href="{{ '/assets/img/apple-touch-icon.png' | relative_url }}" />
     {% seo %}
     <style>
-      /* ===== VARIABLES ===== */
-      :root {
-        --bg: #0f172a;
-        --card: #1e293b;
-        --card-border: #334155;
-        --text: #f1f5f9;
-        --muted: #94a3b8;
-        --accent: #38bdf8;
-        --accent2: #fbbf24;
-        --success: #4ade80;
-        --danger: #f87171;
-        --shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-        --toggle-bg: #334155;
-        --toggle-icon: #fbbf24;
+      @layer reset, theme, layout, components, utilities, overrides;
+
+      @layer reset {
+        *,
+        *::before,
+        *::after {
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+        }
       }
 
-      [data-theme="light"] {
-        --bg: #f8fafc;
-        --card: #ffffff;
-        --card-border: #e2e8f0;
-        --text: #1e293b;
-        --muted: #64748b;
-        --accent: #0284c7;
-        --accent2: #d97706;
-        --success: #16a34a;
-        --danger: #dc2626;
-        --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-        --toggle-bg: #e2e8f0;
-        --toggle-icon: #d97706;
+      @layer theme {
+        :root {
+          --color-primary-hue: 150;
+          --color-primary: hsl(var(--color-primary-hue) 40% 35%);
+          --color-primary-dark: hsl(var(--color-primary-hue) 40% 25%);
+          --color-primary-light: hsl(var(--color-primary-hue) 40% 55%);
+          --color-secondary-hue: 20;
+          --color-secondary: hsl(var(--color-secondary-hue) 65% 40%);
+          --color-secondary-dark: hsl(var(--color-secondary-hue) 65% 30%);
+          --color-secondary-light: hsl(var(--color-secondary-hue) 65% 60%);
+          --color-accent: #5c4030;
+          --color-text: #1a1f24;
+          --color-text-secondary: #364049;
+          --color-text-invert: #ffffff;
+          --color-background: #f9f6f2;
+          --color-content-bg: #ffffff;
+          --color-code-bg: #e8e4dd;
+          --color-border: #c7c2ba;
+          --color-border-subtle: #dbe0e6;
+          --color-background-muted: #eceef3;
+          --surface-1: var(--color-content-bg);
+          --surface-2: var(--color-background-muted);
+          --surface-3: var(--navbar-bg);
+          --surface-text: var(--color-text);
+          --surface-text-muted: var(--color-text-secondary);
+          --shadow-color: oklch(0% 0 0 / 10%);
+          --shadow-standard: 0 0.125rem 0.25rem var(--shadow-color);
+          --shadow-hover: 0 0.25rem 0.5rem oklch(0% 0 0 / 15%);
+          --shadow-sm: 0 0.0625rem 0.125rem var(--shadow-color);
+          --shadow-card: 0 0.25rem 1rem oklch(0% 0 0 / 8%);
+          --shadow-card-hover: 0 0.5rem 1.5rem oklch(0% 0 0 / 15%);
+          --shadow-box: 0 0.25rem 0.75rem oklch(0% 0 0 / 6%);
+          --border-radius: 0.5rem;
+          --border-radius-small: 0.25rem;
+          --border-radius-full: 9999px;
+          --border-thin: 0.0625rem;
+          --border-medium: 0.125rem;
+          --outline-width: 0.1875rem;
+          --outline-offset: 0.125rem;
+          --spacing-0: 0;
+          --spacing-1: 0.25rem;
+          --spacing-2: 0.5rem;
+          --spacing-3: 0.75rem;
+          --spacing-4: 1rem;
+          --spacing-5: 1.5rem;
+          --spacing-6: 2rem;
+          --spacing-7: 3rem;
+          --spacing-8: 4rem;
+          --gap-sm: var(--spacing-1);
+          --gap-md: var(--spacing-2);
+          --font-family-base: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+          --font-size-base: clamp(0.875rem, 2vw, 1rem);
+          --font-size-sm: clamp(0.8rem, 1.6vw, 0.9375rem);
+          --font-size-xs: 0.75rem;
+          --font-size-h1: clamp(2rem, 5vw, 2.5rem);
+          --font-size-h2: clamp(1.5rem, 4vw, 2rem);
+          --font-size-h3: clamp(1.25rem, 3vw, 1.5rem);
+          --font-size-h4: clamp(1rem, 2.5vw, 1.125rem);
+          --line-height-base: 1.6;
+          --line-height-heading: 1.2;
+          --font-weight-normal: 400;
+          --font-weight-bold: 700;
+          --container-max-width: 75rem;
+          --container-medium: 50rem;
+          --navbar-height: var(--spacing-7);
+          --navbar-bg: color-mix(in srgb, var(--color-background), var(--color-primary) 5%);
+          --navbar-hover-bg: var(--color-primary-light);
+          --transition-duration: 0.2s;
+          --transition-easing: ease;
+          --transition-standard:
+            background var(--transition-duration) var(--transition-easing), color var(--transition-duration) var(--transition-easing),
+            border-color var(--transition-duration) var(--transition-easing);
+          --transition-opacity: opacity var(--transition-duration) var(--transition-easing);
+          --transition-transform: transform var(--transition-duration) var(--transition-easing);
+          --transition-shadow: box-shadow var(--transition-duration) var(--transition-easing);
+          --bp-sm: 30rem;
+          --bp-md: 36rem;
+          --bp-lg: 48rem;
+          --bp-xl: 62rem;
+          --page-bg: var(--color-background);
+          --page-card: var(--color-content-bg);
+          --page-card-border: var(--color-border);
+          --page-text: var(--color-text);
+          --page-muted: var(--color-text-secondary);
+          --page-accent: var(--color-primary);
+          --page-accent2: var(--color-secondary);
+          --page-success: var(--color-primary);
+          --page-danger: #dc2626;
+          --page-shadow: var(--shadow-card);
+          --page-toggle-bg: var(--color-background-muted);
+          --page-toggle-icon: var(--color-secondary);
+        }
+
+        @media (prefers-color-scheme: dark) {
+          :root {
+            --color-primary: hsl(var(--color-primary-hue) 40% 45%);
+            --color-primary-dark: hsl(var(--color-primary-hue) 40% 35%);
+            --color-primary-light: hsl(var(--color-primary-hue) 40% 60%);
+            --color-secondary: hsl(var(--color-secondary-hue) 65% 50%);
+            --color-secondary-dark: hsl(var(--color-secondary-hue) 65% 40%);
+            --color-secondary-light: hsl(var(--color-secondary-hue) 65% 70%);
+            --color-accent: #8a5f44;
+            --color-text: #ecebe9;
+            --color-text-secondary: #c0c0c0;
+            --color-text-invert: #151515;
+            --color-background: #151515;
+            --color-content-bg: #222222;
+            --color-code-bg: #333333;
+            --color-border: #454545;
+            --color-border-subtle: #2b3647;
+            --color-background-muted: #2b3647;
+            --shadow-color: oklch(0% 0 0 / 20%);
+            --shadow-standard: 0 0.125rem 0.25rem oklch(0% 0 0 / 20%);
+            --shadow-hover: 0 0.25rem 0.5rem oklch(0% 0 0 / 30%);
+            --shadow-sm: 0 0.0625rem 0.125rem oklch(0% 0 0 / 20%);
+            --shadow-card: 0 0.25rem 1rem oklch(0% 0 0 / 15%);
+            --shadow-card-hover: 0 0.5rem 1.5rem oklch(0% 0 0 / 20%);
+            --shadow-box: 0 0.25rem 0.75rem oklch(0% 0 0 / 12%);
+            --navbar-hover-bg: hsl(var(--color-primary-hue) 40% 60%);
+            --surface-1: #222222;
+            --surface-2: #2b3647;
+            --surface-3: #1a1a1a;
+            --surface-text: #ecebe9;
+            --surface-text-muted: #c0c0c0;
+            --page-bg: var(--color-background);
+            --page-card: var(--color-content-bg);
+            --page-card-border: var(--color-border);
+            --page-text: var(--color-text);
+            --page-muted: var(--color-text-secondary);
+            --page-accent: var(--color-primary);
+            --page-accent2: var(--color-secondary);
+            --page-success: var(--color-primary);
+            --page-danger: #f87171;
+            --page-shadow: var(--shadow-card);
+            --page-toggle-bg: var(--color-background-muted);
+            --page-toggle-icon: var(--color-secondary);
+          }
+        }
+
+        [data-theme="dark"] {
+          --color-primary: hsl(var(--color-primary-hue) 40% 45%);
+          --color-primary-dark: hsl(var(--color-primary-hue) 40% 35%);
+          --color-primary-light: hsl(var(--color-primary-hue) 40% 60%);
+          --color-secondary: hsl(var(--color-secondary-hue) 65% 50%);
+          --color-secondary-dark: hsl(var(--color-secondary-hue) 65% 40%);
+          --color-secondary-light: hsl(var(--color-secondary-hue) 65% 70%);
+          --color-accent: #8a5f44;
+          --color-text: #ecebe9;
+          --color-text-secondary: #c0c0c0;
+          --color-text-invert: #151515;
+          --color-background: #151515;
+          --color-content-bg: #222222;
+          --color-code-bg: #333333;
+          --color-border: #454545;
+          --color-border-subtle: #2b3647;
+          --color-background-muted: #2b3647;
+          --shadow-color: oklch(0% 0 0 / 20%);
+          --shadow-standard: 0 0.125rem 0.25rem oklch(0% 0 0 / 20%);
+          --shadow-hover: 0 0.25rem 0.5rem oklch(0% 0 0 / 30%);
+          --shadow-sm: 0 0.0625rem 0.125rem oklch(0% 0 0 / 20%);
+          --shadow-card: 0 0.25rem 1rem oklch(0% 0 0 / 15%);
+          --shadow-card-hover: 0 0.5rem 1.5rem oklch(0% 0 0 / 20%);
+          --shadow-box: 0 0.25rem 0.75rem oklch(0% 0 0 / 12%);
+          --navbar-hover-bg: hsl(var(--color-primary-hue) 40% 60%);
+          --surface-1: #222222;
+          --surface-2: #2b3647;
+          --surface-3: #1a1a1a;
+          --surface-text: #ecebe9;
+          --surface-text-muted: #c0c0c0;
+          --page-bg: var(--color-background);
+          --page-card: var(--color-content-bg);
+          --page-card-border: var(--color-border);
+          --page-text: var(--color-text);
+          --page-muted: var(--color-text-secondary);
+          --page-accent: var(--color-primary);
+          --page-accent2: var(--color-secondary);
+          --page-success: var(--color-primary);
+          --page-danger: #f87171;
+          --page-shadow: var(--shadow-card);
+          --page-toggle-bg: var(--color-background-muted);
+          --page-toggle-icon: var(--color-secondary);
+        }
       }
 
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-      body {
-        font-family:
-          "Segoe UI",
-          system-ui,
-          -apple-system,
-          sans-serif;
-        background: var(--bg);
-        color: var(--text);
-        line-height: 1.6;
-        padding: 2rem 1rem;
-        transition:
-          background 0.3s,
-          color 0.3s;
-      }
-      .container {
-        max-width: 960px;
-        margin: 0 auto;
-      }
-
-      /* ===== TOGGLE MODO CLARO/OSCURO ===== */
-      .theme-toggle {
-        position: fixed;
-        top: 1.2rem;
-        right: 1.2rem;
-        z-index: 1000;
-        background: var(--toggle-bg);
-        border: 2px solid var(--card-border);
-        border-radius: 50px;
-        width: 52px;
-        height: 52px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        font-size: 1.4rem;
-        transition: all 0.3s;
-        box-shadow: var(--shadow);
-      }
-      .theme-toggle:hover {
-        transform: scale(1.1);
-      }
-      .theme-toggle:active {
-        transform: scale(0.95);
-      }
-
-      /* ===== HEADER ===== */
-      header {
-        text-align: center;
-        margin-bottom: 3rem;
-        padding-bottom: 2rem;
-        border-bottom: 1px solid var(--card-border);
-      }
-      header h1 {
-        font-size: clamp(1.5rem, 4vw, 2.2rem);
-        background: linear-gradient(90deg, var(--accent), var(--accent2));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        margin-bottom: 0.5rem;
-      }
-      header p {
-        color: var(--muted);
-        font-size: 1.05rem;
-      }
-
-      /* ===== REQUISITOS ===== */
-      .requirements {
-        background: var(--card);
-        border: 1px solid var(--card-border);
-        border-radius: 16px;
-        padding: 1.5rem 2rem;
-        margin-bottom: 3rem;
-        box-shadow: var(--shadow);
-        transition:
-          background 0.3s,
-          border-color 0.3s;
-      }
-      .requirements h2 {
-        color: var(--accent2);
-        font-size: 1.1rem;
-        margin-bottom: 1rem;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-      }
-      .req-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 1rem;
-      }
-      .req-item {
-        background: var(--bg);
-        border-radius: 10px;
-        padding: 1rem;
-        border-left: 4px solid var(--accent);
-        transition: background 0.3s;
-      }
-      .req-item strong {
-        color: var(--accent);
-        display: block;
-        margin-bottom: 0.2rem;
-      }
-      .req-item span {
-        color: var(--muted);
-        font-size: 0.9rem;
-      }
-
-      /* ===== TARJETAS DE POSICIÓN ===== */
-      .position-card {
-        background: var(--card);
-        border: 1px solid var(--card-border);
-        border-radius: 20px;
-        padding: 2rem;
-        margin-bottom: 2.5rem;
-        box-shadow: var(--shadow);
-        transition:
-          transform 0.2s,
-          background 0.3s,
-          border-color 0.3s;
-      }
-      .position-card:hover {
-        transform: translateY(-3px);
-      }
-
-      .pos-header {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        margin-bottom: 1.5rem;
-        padding-bottom: 1rem;
-        border-bottom: 1px solid var(--card-border);
-      }
-      .pos-icon {
-        width: 52px;
-        height: 52px;
-        border-radius: 14px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.6rem;
-        flex-shrink: 0;
-      }
-      .pos-title h2 {
-        font-size: 1.4rem;
-        color: var(--text);
-      }
-      .pos-goals {
-        color: var(--muted);
-        font-size: 0.9rem;
-        margin-top: 0.2rem;
-      }
-      .pos-goals span {
-        color: var(--accent2);
-        font-weight: 600;
-      }
-
-      /* Colores por posición */
-      .gk .pos-icon {
-        background: #fcd34d20;
-        color: #fcd34d;
-      }
-      .cb .pos-icon {
-        background: #f8717120;
-        color: #f87171;
-      }
-      .wb .pos-icon {
-        background: #fb923c20;
-        color: #fb923c;
-      }
-      .mf .pos-icon {
-        background: #38bdf820;
-        color: #38bdf8;
-      }
-      .wm .pos-icon {
-        background: #a78bfa20;
-        color: #a78bfa;
-      }
-      .wi .pos-icon {
-        background: #34d39920;
-        color: #34d399;
-      }
-      .fw .pos-icon {
-        background: #f472b620;
-        color: #f472b6;
-      }
-
-      /* ===== TABLA DE FASES ===== */
-      .phase-table {
-        width: 100%;
-        border-collapse: separate;
-        border-spacing: 0;
-        margin-top: 1rem;
-        font-size: 0.95rem;
-      }
-      .phase-table th {
-        background: var(--bg);
-        color: var(--accent);
-        text-align: left;
-        padding: 0.85rem 1rem;
-        font-weight: 600;
-        border-bottom: 2px solid var(--card-border);
-        transition: background 0.3s;
-      }
-      .phase-table td {
-        padding: 0.85rem 1rem;
-        border-bottom: 1px solid #33415540;
-        vertical-align: top;
-      }
-      [data-theme="light"] .phase-table td {
-        border-bottom: 1px solid #e2e8f080;
-      }
-      .phase-table tr:hover td {
-        background: var(--bg);
-      }
-
-      .phase-badge {
-        display: inline-block;
-        padding: 0.25rem 0.7rem;
-        border-radius: 20px;
-        font-size: 0.7rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        white-space: nowrap;
-      }
-      .badge-p1 {
-        background: #f8717130;
-        color: #f87171;
-      }
-      .badge-p2 {
-        background: #fbbf2430;
-        color: #fbbf24;
-      }
-      .badge-p3 {
-        background: #4ade8030;
-        color: #4ade80;
-      }
-      [data-theme="light"] .badge-p1 {
-        background: #fee2e2;
-        color: #dc2626;
-      }
-      [data-theme="light"] .badge-p2 {
-        background: #fef3c7;
-        color: #d97706;
-      }
-      [data-theme="light"] .badge-p3 {
-        background: #dcfce7;
-        color: #16a34a;
-      }
-
-      /* Viñetas dentro de la tabla */
-      .phase-table ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
-      .phase-table ul li {
-        position: relative;
-        padding-left: 1.1rem;
-        margin-bottom: 0.4rem;
-        line-height: 1.5;
-      }
-      .phase-table ul li:last-child {
-        margin-bottom: 0;
-      }
-      .phase-table ul li::before {
-        content: "•";
-        position: absolute;
-        left: 0;
-        color: var(--accent2);
-        font-weight: bold;
-      }
-
-      .note-box {
-        background: var(--bg);
-        border-left: 4px solid var(--accent2);
-        padding: 1.2rem 1.5rem;
-        border-radius: 0 12px 12px 0;
-        margin-top: 1.5rem;
-        font-size: 0.9rem;
-        color: var(--muted);
-        transition: background 0.3s;
-      }
-      .note-box strong {
-        color: var(--accent2);
-      }
-
-      /* ===== RESUMEN ===== */
-      .summary-section {
-        margin-top: 4rem;
-        padding-top: 2rem;
-        border-top: 2px solid var(--card-border);
-      }
-      .summary-section h2 {
-        text-align: center;
-        font-size: 1.6rem;
-        margin-bottom: 1.5rem;
-        color: var(--accent);
-      }
-      .summary-table {
-        width: 100%;
-        border-collapse: collapse;
-        background: var(--card);
-        border-radius: 16px;
-        overflow: hidden;
-        box-shadow: var(--shadow);
-        font-size: 0.95rem;
-        transition: background 0.3s;
-      }
-      .summary-table th {
-        background: var(--bg);
-        color: var(--accent2);
-        padding: 1rem;
-        text-align: left;
-        transition: background 0.3s;
-      }
-      .summary-table td {
-        padding: 1rem;
-        border-bottom: 1px solid #33415540;
-      }
-      [data-theme="light"] .summary-table td {
-        border-bottom: 1px solid #e2e8f080;
-      }
-      .summary-table tr:last-child td {
-        border-bottom: none;
-      }
-      .summary-table tr:hover td {
-        background: var(--bg);
-      }
-      .tag {
-        display: inline-block;
-        padding: 0.15rem 0.6rem;
-        border-radius: 6px;
-        font-size: 0.8rem;
-        font-weight: 600;
-        margin-right: 0.3rem;
-        margin-bottom: 0.2rem;
-      }
-      .tag-main {
-        background: #38bdf830;
-        color: #38bdf8;
-      }
-      .tag-sec {
-        background: #94a3b830;
-        color: #94a3b8;
-      }
-      [data-theme="light"] .tag-main {
-        background: #e0f2fe;
-        color: #0284c7;
-      }
-      [data-theme="light"] .tag-sec {
-        background: #f1f5f9;
-        color: #64748b;
-      }
-
-      /* ===== NOTAS FINALES ===== */
-      .notes-footer {
-        margin-top: 3rem;
-        background: var(--card);
-        border-radius: 16px;
-        padding: 2rem;
-        box-shadow: var(--shadow);
-        transition:
-          background 0.3s,
-          border-color 0.3s;
-      }
-      .notes-footer h2 {
-        color: var(--accent);
-        margin-bottom: 1rem;
-        font-size: 1.3rem;
-      }
-      .notes-footer ul {
-        list-style: none;
-      }
-      .notes-footer li {
-        position: relative;
-        padding-left: 1.5rem;
-        margin-bottom: 1rem;
-        color: var(--muted);
-      }
-      .notes-footer li::before {
-        content: "▸";
-        position: absolute;
-        left: 0;
-        color: var(--accent2);
-        font-weight: bold;
-      }
-      .notes-footer strong {
-        color: var(--text);
-      }
-
-      /* ===== MEDIA QUERIES PARA MÓVIL ===== */
-      @media (max-width: 640px) {
+      @layer layout {
         body {
-          padding: 1rem 0.75rem;
+          font-family: var(--font-family-base);
+          background: var(--page-bg);
+          color: var(--page-text);
+          line-height: var(--line-height-base);
+          padding: var(--spacing-6) var(--spacing-4);
+          transition: var(--transition-standard);
+          min-block-size: 100vh;
         }
+
+        .container {
+          max-inline-size: min(60rem, 100% - 2rem);
+          margin-inline: auto;
+          container-type: inline-size;
+        }
+      }
+
+      @layer components {
         .theme-toggle {
-          width: 44px;
-          height: 44px;
-          font-size: 1.2rem;
-          top: 0.8rem;
-          right: 0.8rem;
+          position: fixed;
+          inset-block-start: var(--spacing-4);
+          inset-inline-end: var(--spacing-4);
+          z-index: 1000;
+          background: var(--page-toggle-bg);
+          border: var(--border-medium) solid var(--page-card-border);
+          border-radius: var(--border-radius-full);
+          inline-size: 3.25rem;
+          block-size: 3.25rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          font-size: 1.4rem;
+          transition: var(--transition-transform), var(--transition-shadow);
+          box-shadow: var(--shadow-box);
+
+          &:hover {
+            transform: scale(1.1);
+          }
+          &:active {
+            transform: scale(0.95);
+          }
+          &:focus-visible {
+            outline: var(--outline-width) solid var(--page-accent);
+            outline-offset: var(--outline-offset);
+          }
         }
 
-        .pos-header {
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 0.75rem;
-        }
-        .pos-icon {
-          width: 44px;
-          height: 44px;
-          font-size: 1.3rem;
-        }
-        .pos-title h2 {
-          font-size: 1.2rem;
-        }
-        .position-card {
-          padding: 1.25rem;
-          border-radius: 16px;
-        }
+        header {
+          text-align: center;
+          margin-block-end: var(--spacing-7);
+          padding-block-end: var(--spacing-6);
+          border-block-end: var(--border-thin) solid var(--page-card-border);
 
-        /* Tabla como tarjetas apiladas en móvil */
-        .phase-table,
-        .phase-table thead,
-        .phase-table tbody,
-        .phase-table th,
-        .phase-table td,
-        .phase-table tr {
-          display: block;
-          width: 100%;
-        }
-        .phase-table thead {
-          display: none;
-        }
-        .phase-table tr {
-          margin-bottom: 1rem;
-          background: var(--bg);
-          border-radius: 12px;
-          padding: 1rem;
-          border: 1px solid var(--card-border);
-        }
-        .phase-table td {
-          border: none;
-          padding: 0.5rem 0;
-          position: relative;
-        }
-        .phase-table td:first-child {
-          padding-bottom: 0.75rem;
-          margin-bottom: 0.5rem;
-          border-bottom: 1px solid var(--card-border);
-        }
-        .phase-table td:nth-child(2) {
-          font-size: 0.85rem;
-          color: var(--muted);
-          margin-bottom: 0.5rem;
-        }
-        .phase-table td:nth-child(2)::before {
-          content: "Configuración: ";
-          font-weight: 600;
-          color: var(--text);
-        }
-        .phase-table td:nth-child(3) {
-          font-size: 0.95rem;
-        }
-        .phase-table td:nth-child(3)::before {
-          content: "Acción: ";
-          font-weight: 600;
-          color: var(--text);
-          display: block;
-          margin-bottom: 0.3rem;
-        }
+          h1 {
+            font-size: var(--font-size-h2);
+            background: linear-gradient(90deg, var(--page-accent), var(--page-accent2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-block-end: var(--spacing-2);
+            line-height: var(--line-height-heading);
+          }
 
-        .summary-table {
-          font-size: 0.85rem;
-        }
-        .summary-table th,
-        .summary-table td {
-          padding: 0.75rem 0.5rem;
-        }
-        .tag {
-          font-size: 0.75rem;
-          padding: 0.1rem 0.4rem;
+          p {
+            color: var(--page-muted);
+            font-size: 1.05rem;
+            max-inline-size: 50ch;
+            margin-inline: auto;
+          }
         }
 
         .requirements {
-          padding: 1.25rem;
+          background: var(--page-card);
+          border: var(--border-thin) solid var(--page-card-border);
+          border-radius: var(--border-radius);
+          padding: var(--spacing-5) var(--spacing-6);
+          margin-block-end: var(--spacing-7);
+          box-shadow: var(--page-shadow);
+          transition: var(--transition-standard);
+
+          h2 {
+            color: var(--page-accent2);
+            font-size: var(--font-size-h4);
+            margin-block-end: var(--spacing-4);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-2);
+          }
         }
+
         .req-grid {
-          grid-template-columns: 1fr;
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+          gap: var(--spacing-4);
         }
+
+        .req-item {
+          background: var(--page-bg);
+          border-radius: var(--border-radius);
+          padding: var(--spacing-4);
+          border-inline-start: 4px solid var(--page-accent);
+          transition: var(--transition-standard);
+
+          strong {
+            color: var(--page-accent);
+            display: block;
+            margin-block-end: var(--spacing-1);
+          }
+
+          span {
+            color: var(--page-muted);
+            font-size: var(--font-size-sm);
+          }
+        }
+
+        .position-card {
+          background: var(--page-card);
+          border: var(--border-thin) solid var(--page-card-border);
+          border-radius: var(--border-radius);
+          padding: var(--spacing-6);
+          margin-block-end: var(--spacing-6);
+          box-shadow: var(--page-shadow);
+          transition: var(--transition-transform), var(--transition-standard);
+
+          &:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-card-hover);
+          }
+        }
+
+        .pos-header {
+          display: flex;
+          align-items: center;
+          gap: var(--spacing-4);
+          margin-block-end: var(--spacing-4);
+          padding-block-end: var(--spacing-4);
+          border-block-end: var(--border-thin) solid var(--page-card-border);
+        }
+
+        .pos-icon {
+          inline-size: 3.25rem;
+          block-size: 3.25rem;
+          border-radius: var(--border-radius);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.6rem;
+          flex-shrink: 0;
+        }
+
+        .pos-title {
+          h2 {
+            font-size: var(--font-size-h3);
+            color: var(--page-text);
+            line-height: var(--line-height-heading);
+          }
+        }
+
+        .pos-goals {
+          color: var(--page-muted);
+          font-size: var(--font-size-sm);
+          margin-block-start: var(--spacing-1);
+
+          span {
+            color: var(--page-accent2);
+            font-weight: 600;
+          }
+        }
+
+        .gk .pos-icon {
+          background: color-mix(in srgb, var(--color-secondary) 15%, transparent);
+          color: var(--color-secondary);
+        }
+        .cb .pos-icon {
+          background: color-mix(in srgb, var(--page-danger) 15%, transparent);
+          color: var(--page-danger);
+        }
+        .wb .pos-icon {
+          background: color-mix(in srgb, var(--color-secondary) 20%, transparent);
+          color: var(--color-secondary-dark);
+        }
+        .mf .pos-icon {
+          background: color-mix(in srgb, var(--page-accent) 15%, transparent);
+          color: var(--page-accent);
+        }
+        .wm .pos-icon {
+          background: color-mix(in srgb, #a78bfa 15%, transparent);
+          color: #a78bfa;
+        }
+        .wi .pos-icon {
+          background: color-mix(in srgb, var(--page-success) 15%, transparent);
+          color: var(--page-success);
+        }
+        .fw .pos-icon {
+          background: color-mix(in srgb, #f472b6 15%, transparent);
+          color: #f472b6;
+        }
+
+        .phase-table {
+          width: 100%;
+          border-collapse: separate;
+          border-spacing: 0;
+          margin-block-start: var(--spacing-4);
+          font-size: var(--font-size-base);
+
+          th {
+            background: var(--page-bg);
+            color: var(--page-accent);
+            text-align: start;
+            padding: var(--spacing-3) var(--spacing-4);
+            font-weight: var(--font-weight-bold);
+            border-block-end: 2px solid var(--page-card-border);
+            transition: var(--transition-standard);
+          }
+
+          td {
+            padding: var(--spacing-3) var(--spacing-4);
+            border-block-end: var(--border-thin) solid var(--page-card-border);
+            vertical-align: top;
+          }
+
+          tr:hover td {
+            background: var(--page-bg);
+          }
+        }
+
+        .phase-badge {
+          display: inline-block;
+          padding: var(--spacing-1) var(--spacing-3);
+          border-radius: var(--border-radius-full);
+          font-size: 0.7rem;
+          font-weight: var(--font-weight-bold);
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          white-space: nowrap;
+        }
+
+        .badge-p1 {
+          background: color-mix(in srgb, var(--page-danger) 15%, transparent);
+          color: var(--page-danger);
+        }
+        .badge-p2 {
+          background: color-mix(in srgb, var(--page-accent2) 15%, transparent);
+          color: var(--page-accent2);
+        }
+        .badge-p3 {
+          background: color-mix(in srgb, var(--page-success) 15%, transparent);
+          color: var(--page-success);
+        }
+
+        .phase-table ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+
+          li {
+            position: relative;
+            padding-inline-start: var(--spacing-4);
+            margin-block-end: var(--spacing-2);
+            line-height: 1.5;
+
+            &:last-child {
+              margin-block-end: 0;
+            }
+
+            &::before {
+              content: "•";
+              position: absolute;
+              inset-inline-start: 0;
+              color: var(--page-accent2);
+              font-weight: bold;
+            }
+          }
+        }
+
+        .note-box {
+          background: var(--page-bg);
+          border-inline-start: 4px solid var(--page-accent2);
+          padding: var(--spacing-4) var(--spacing-5);
+          border-radius: 0 var(--border-radius) var(--border-radius) 0;
+          margin-block-start: var(--spacing-4);
+          font-size: var(--font-size-sm);
+          color: var(--page-muted);
+          transition: var(--transition-standard);
+
+          strong {
+            color: var(--page-accent2);
+          }
+        }
+
+        .summary-section {
+          margin-block-start: var(--spacing-8);
+          padding-block-start: var(--spacing-6);
+          border-block-start: 2px solid var(--page-card-border);
+
+          h2 {
+            text-align: center;
+            font-size: var(--font-size-h2);
+            margin-block-end: var(--spacing-5);
+            color: var(--page-accent);
+            line-height: var(--line-height-heading);
+          }
+        }
+
+        .summary-table {
+          width: 100%;
+          border-collapse: collapse;
+          background: var(--page-card);
+          border-radius: var(--border-radius);
+          overflow: hidden;
+          box-shadow: var(--page-shadow);
+          font-size: var(--font-size-base);
+          transition: var(--transition-standard);
+
+          th {
+            background: var(--page-bg);
+            color: var(--page-accent2);
+            padding: var(--spacing-4);
+            text-align: start;
+            transition: var(--transition-standard);
+          }
+
+          td {
+            padding: var(--spacing-4);
+            border-block-end: var(--border-thin) solid var(--page-card-border);
+          }
+
+          tr:last-child td {
+            border-block-end: none;
+          }
+
+          tr:hover td {
+            background: var(--page-bg);
+          }
+        }
+
+        .tag {
+          display: inline-block;
+          padding: var(--spacing-1) var(--spacing-3);
+          border-radius: var(--border-radius-small);
+          font-size: var(--font-size-sm);
+          font-weight: var(--font-weight-bold);
+          margin-inline-end: var(--spacing-1);
+          margin-block-end: var(--spacing-1);
+        }
+
+        .tag-main {
+          background: color-mix(in srgb, var(--page-accent) 12%, transparent);
+          color: var(--page-accent);
+        }
+        .tag-sec {
+          background: color-mix(in srgb, var(--page-muted) 12%, transparent);
+          color: var(--page-muted);
+        }
+
         .notes-footer {
-          padding: 1.25rem;
+          margin-block-start: var(--spacing-7);
+          background: var(--page-card);
+          border-radius: var(--border-radius);
+          padding: var(--spacing-6);
+          box-shadow: var(--page-shadow);
+          transition: var(--transition-standard);
+
+          h2 {
+            color: var(--page-accent);
+            margin-block-end: var(--spacing-4);
+            font-size: var(--font-size-h3);
+            line-height: var(--line-height-heading);
+          }
+
+          ul {
+            list-style: none;
+          }
+
+          li {
+            position: relative;
+            padding-inline-start: var(--spacing-5);
+            margin-block-end: var(--spacing-4);
+            color: var(--page-muted);
+
+            &::before {
+              content: "▸";
+              position: absolute;
+              inset-inline-start: 0;
+              color: var(--page-accent2);
+              font-weight: bold;
+            }
+          }
+
+          strong {
+            color: var(--page-text);
+          }
+        }
+
+        /* Términos Hattrick bilingües */
+        .ht-term {
+          font-size: var(--font-size-xs);
+          color: var(--page-muted);
+          font-weight: var(--font-weight-normal);
+          white-space: nowrap;
+        }
+
+        .glossary {
+          background: var(--page-bg);
+          border: var(--border-thin) solid var(--page-card-border);
+          border-radius: var(--border-radius);
+          padding: var(--spacing-4) var(--spacing-5);
+          margin-block-end: var(--spacing-6);
+          font-size: var(--font-size-sm);
+          color: var(--page-muted);
+
+          h3 {
+            font-size: var(--font-size-h4);
+            color: var(--page-accent);
+            margin-block-end: var(--spacing-3);
+          }
+
+          dl {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+            gap: var(--spacing-2) var(--spacing-4);
+          }
+
+          dt {
+            font-weight: var(--font-weight-bold);
+            color: var(--page-text);
+            display: inline;
+          }
+
+          dd {
+            display: inline;
+            margin-inline-start: var(--spacing-1);
+          }
+
+          dd::after {
+            content: "";
+            display: block;
+          }
         }
       }
 
-      @media (max-width: 400px) {
-        header h1 {
-          font-size: 1.35rem;
+      @layer utilities {
+        .sr-only {
+          position: absolute;
+          width: 1px;
+          height: 1px;
+          padding: 0;
+          margin: -1px;
+          overflow: hidden;
+          clip: rect(0, 0, 0, 0);
+          white-space: nowrap;
+          border-width: 0;
         }
-        .pos-goals {
-          font-size: 0.8rem;
+      }
+
+      @layer overrides {
+        @media (max-width: 40rem) {
+          body {
+            padding: var(--spacing-4) var(--spacing-3);
+          }
+
+          .theme-toggle {
+            inline-size: 2.75rem;
+            block-size: 2.75rem;
+            font-size: 1.2rem;
+            inset-block-start: var(--spacing-3);
+            inset-inline-end: var(--spacing-3);
+          }
+
+          .pos-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: var(--spacing-3);
+          }
+
+          .pos-icon {
+            inline-size: 2.75rem;
+            block-size: 2.75rem;
+            font-size: 1.3rem;
+          }
+
+          .pos-title h2 {
+            font-size: var(--font-size-h4);
+          }
+
+          .position-card {
+            padding: var(--spacing-4);
+          }
+
+          .phase-table,
+          .phase-table thead,
+          .phase-table tbody,
+          .phase-table th,
+          .phase-table td,
+          .phase-table tr {
+            display: block;
+            width: 100%;
+          }
+
+          .phase-table thead {
+            display: none;
+          }
+
+          .phase-table tr {
+            margin-block-end: var(--spacing-4);
+            background: var(--page-bg);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-4);
+            border: var(--border-thin) solid var(--page-card-border);
+          }
+
+          .phase-table td {
+            border: none;
+            padding: var(--spacing-2) 0;
+            position: relative;
+
+            &:first-child {
+              padding-block-end: var(--spacing-3);
+              margin-block-end: var(--spacing-2);
+              border-block-end: var(--border-thin) solid var(--page-card-border);
+            }
+
+            &:nth-child(2) {
+              font-size: var(--font-size-sm);
+              color: var(--page-muted);
+              margin-block-end: var(--spacing-2);
+
+              &::before {
+                content: "Configuración: ";
+                font-weight: var(--font-weight-bold);
+                color: var(--page-text);
+              }
+            }
+
+            &:nth-child(3) {
+              font-size: var(--font-size-base);
+
+              &::before {
+                content: "Acción: ";
+                font-weight: var(--font-weight-bold);
+                color: var(--page-text);
+                display: block;
+                margin-block-end: var(--spacing-1);
+              }
+            }
+          }
+
+          .summary-table {
+            font-size: var(--font-size-sm);
+
+            th,
+            td {
+              padding: var(--spacing-3) var(--spacing-2);
+            }
+          }
+
+          .tag {
+            font-size: var(--font-size-sm);
+            padding: var(--spacing-1) var(--spacing-2);
+          }
+
+          .requirements {
+            padding: var(--spacing-4);
+          }
+
+          .req-grid {
+            grid-template-columns: 1fr;
+          }
+
+          .notes-footer {
+            padding: var(--spacing-4);
+          }
+
+          .glossary dl {
+            grid-template-columns: 1fr;
+          }
         }
-        .phase-table td:nth-child(3)::before {
-          content: "";
-          display: none;
+
+        @media (max-width: 25rem) {
+          header h1 {
+            font-size: var(--font-size-h3);
+          }
+
+          .pos-goals {
+            font-size: var(--font-size-sm);
+          }
+
+          .phase-table td:nth-child(3)::before {
+            content: "";
+            display: none;
+          }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          *,
+          *::before,
+          *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+          }
         }
       }
     </style>
+    <base target="_blank" />
   </head>
   <body>
-    <div class="container">
-      <!-- BOTÓN TOGGLE -->
-      <button class="theme-toggle" id="themeToggle" title="Cambiar modo claro/oscuro">
-        <span id="toggleIcon">☀️</span>
+    <a href="#main-content" class="sr-only">Saltar al contenido principal</a>
+    <div class="container" id="main-content">
+      <button class="theme-toggle" id="themeToggle" title="Cambiar modo claro/oscuro" aria-label="Cambiar entre modo claro y oscuro">
+        <span id="toggleIcon" aria-hidden="true">☀️</span>
       </button>
 
       <header>
         <h1>⚽ Plan de Entrenamiento — Selección Ecuador U21</h1>
         <p>
-          Este plan está diseñado para optimizar el rendimiento de los preseleccionados de la U21 de Ecuador. Hemos estructurado los objetivos en fases sencillas para que coordinar
+          Este plan está diseñado para optimizar el rendimiento de los jugadores convocados a la selección. Hemos estructurado los objetivos en fases sencillas para que coordinar
           los cambios sea lo más cómodo posible tanto para tu club como para la selección.
         </p>
       </header>
+
+      <div class="glossary">
+        <h3>🌐 Glosario Hattrick</h3>
+        <dl>
+          <dt>Portería</dt>
+          <dd>Keeper</dd>
+          <dt>Defensa</dt>
+          <dd>Defending</dd>
+          <dt>Jugadas</dt>
+          <dd>Playmaking</dd>
+          <dt>Lateral</dt>
+          <dd>Winger</dd>
+          <dt>Pases</dt>
+          <dd>Passing</dd>
+          <dt>Anotación</dt>
+          <dd>Scoring</dd>
+          <dt>Balón parado</dt>
+          <dd>Set Pieces</dd>
+        </dl>
+      </div>
 
       <div class="requirements">
         <h2>🔧 Requisitos Recomendados</h2>
@@ -600,10 +878,13 @@ description: "Plan de entrenamiento para la Selección Ecuador U21 en Hattrick"
       <!-- 1. PORTERO -->
       <div class="position-card gk">
         <div class="pos-header">
-          <div class="pos-icon">🧤</div>
+          <div class="pos-icon" aria-hidden="true">🧤</div>
           <div class="pos-title">
             <h2>1. Portero</h2>
-            <div class="pos-goals">Meta: <span>Portería 16</span> · <span>Balón Parado 16</span> · <span>Defensa 6</span></div>
+            <div class="pos-goals">
+              Meta: <span>Portería 16 <span class="ht-term">(Keeper)</span></span> · <span>Balón Parado 16 <span class="ht-term">(Set Pieces)</span></span> ·
+              <span>Defensa 6 <span class="ht-term">(Defending)</span></span>
+            </div>
           </div>
         </div>
         <table class="phase-table">
@@ -618,22 +899,30 @@ description: "Plan de entrenamiento para la Selección Ecuador U21 en Hattrick"
             <tr>
               <td><span class="phase-badge badge-p1">Fase 1</span></td>
               <td>Resistencia <strong>10%</strong> · Intensidad <strong>100%</strong></td>
-              <td>Entrenar <strong>Portería</strong> hasta nivel <strong>14</strong></td>
+              <td>
+                Entrenar <strong>Portería <span class="ht-term">(Keeper)</span></strong> hasta nivel <strong>14</strong>
+              </td>
             </tr>
             <tr>
               <td><span class="phase-badge badge-p2">Fase 2</span></td>
               <td>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></td>
               <td>
                 <ul>
-                  <li>Cambiar a <strong>Balón Parado</strong> hasta nivel <strong>16</strong></li>
-                  <li>Cambiar a <strong>Defensa</strong> hasta nivel <strong>6</strong></li>
+                  <li>
+                    Cambiar a <strong>Balón Parado <span class="ht-term">(Set Pieces)</span></strong> hasta nivel <strong>16</strong>
+                  </li>
+                  <li>
+                    Cambiar a <strong>Defensa <span class="ht-term">(Defending)</span></strong> hasta nivel <strong>6</strong>
+                  </li>
                 </ul>
               </td>
             </tr>
             <tr>
               <td><span class="phase-badge badge-p3">Fase 3</span></td>
               <td>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></td>
-              <td>Regresar a <strong>Portería</strong> para pulir hasta nivel <strong>16</strong></td>
+              <td>
+                Regresar a <strong>Portería <span class="ht-term">(Keeper)</span></strong> para pulir hasta nivel <strong>16</strong>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -642,10 +931,13 @@ description: "Plan de entrenamiento para la Selección Ecuador U21 en Hattrick"
       <!-- 2. DEFENSA CENTRAL -->
       <div class="position-card cb">
         <div class="pos-header">
-          <div class="pos-icon">🛡️</div>
+          <div class="pos-icon" aria-hidden="true">🛡️</div>
           <div class="pos-title">
             <h2>2. Defensa Central</h2>
-            <div class="pos-goals">Meta: <span>Defensa 15</span> · <span>Jugadas 8</span> · <span>Pases 6</span></div>
+            <div class="pos-goals">
+              Meta: <span>Defensa 15 <span class="ht-term">(Defending)</span></span> · <span>Jugadas 8 <span class="ht-term">(Playmaking)</span></span> ·
+              <span>Pases 6 <span class="ht-term">(Passing)</span></span>
+            </div>
           </div>
         </div>
         <table class="phase-table">
@@ -660,22 +952,30 @@ description: "Plan de entrenamiento para la Selección Ecuador U21 en Hattrick"
             <tr>
               <td><span class="phase-badge badge-p1">Fase 1</span></td>
               <td>Resistencia <strong>10%</strong> · Intensidad <strong>100%</strong></td>
-              <td>Entrenar <strong>Defensa</strong> hasta nivel <strong>13</strong></td>
+              <td>
+                Entrenar <strong>Defensa <span class="ht-term">(Defending)</span></strong> hasta nivel <strong>13</strong>
+              </td>
             </tr>
             <tr>
               <td><span class="phase-badge badge-p2">Fase 2</span></td>
               <td><strong>100%</strong> · Resistencia <strong>13%</strong></td>
               <td>
                 <ul>
-                  <li>Cambiar a <strong>Jugadas</strong> hasta nivel <strong>8</strong></li>
-                  <li>Cambiar a <strong>Pases</strong> hasta nivel <strong>6</strong></li>
+                  <li>
+                    Cambiar a <strong>Jugadas <span class="ht-term">(Playmaking)</span></strong> hasta nivel <strong>8</strong>
+                  </li>
+                  <li>
+                    Cambiar a <strong>Pases <span class="ht-term">(Passing)</span></strong> hasta nivel <strong>6</strong>
+                  </li>
                 </ul>
               </td>
             </tr>
             <tr>
               <td><span class="phase-badge badge-p3">Fase 3</span></td>
               <td><strong>100%</strong> · Resistencia <strong>13%</strong></td>
-              <td>Regresar a <strong>Defensa</strong> para pulir hasta nivel <strong>15</strong></td>
+              <td>
+                Regresar a <strong>Defensa <span class="ht-term">(Defending)</span></strong> para pulir hasta nivel <strong>15</strong>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -684,10 +984,13 @@ description: "Plan de entrenamiento para la Selección Ecuador U21 en Hattrick"
       <!-- 3. DEFENSA LATERAL -->
       <div class="position-card wb">
         <div class="pos-header">
-          <div class="pos-icon">🛡️</div>
+          <div class="pos-icon" aria-hidden="true">🛡️</div>
           <div class="pos-title">
             <h2>3. Defensa Lateral</h2>
-            <div class="pos-goals">Meta: <span>Defensa 14</span> · <span>Lateral 10</span> · <span>Pases 8</span></div>
+            <div class="pos-goals">
+              Meta: <span>Defensa 14 <span class="ht-term">(Defending)</span></span> · <span>Lateral 10 <span class="ht-term">(Winger)</span></span> ·
+              <span>Pases 8 <span class="ht-term">(Passing)</span></span>
+            </div>
           </div>
         </div>
         <table class="phase-table">
@@ -702,35 +1005,49 @@ description: "Plan de entrenamiento para la Selección Ecuador U21 en Hattrick"
             <tr>
               <td><span class="phase-badge badge-p1">Fase 1</span></td>
               <td>Resistencia <strong>10%</strong> · Intensidad <strong>100%</strong></td>
-              <td>Entrenar <strong>Defensa</strong> hasta nivel <strong>12</strong></td>
+              <td>
+                Entrenar <strong>Defensa <span class="ht-term">(Defending)</span></strong> hasta nivel <strong>12</strong>
+              </td>
             </tr>
             <tr>
               <td><span class="phase-badge badge-p2">Fase 2</span></td>
               <td>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></td>
               <td>
                 <ul>
-                  <li>Cambiar a <strong>Lateral</strong> hasta nivel <strong>10</strong></li>
-                  <li>Cambiar a <strong>Pases</strong> hasta nivel <strong>8</strong></li>
+                  <li>
+                    Cambiar a <strong>Lateral <span class="ht-term">(Winger)</span></strong> hasta nivel <strong>10</strong>
+                  </li>
+                  <li>
+                    Cambiar a <strong>Pases <span class="ht-term">(Passing)</span></strong> hasta nivel <strong>8</strong>
+                  </li>
                 </ul>
               </td>
             </tr>
             <tr>
               <td><span class="phase-badge badge-p3">Fase 3</span></td>
               <td>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></td>
-              <td>Regresar a <strong>Defensa</strong> para pulir hasta nivel <strong>14</strong></td>
+              <td>
+                Regresar a <strong>Defensa <span class="ht-term">(Defending)</span></strong> para pulir hasta nivel <strong>14</strong>
+              </td>
             </tr>
           </tbody>
         </table>
-        <div class="note-box"><strong>Nota:</strong> Mínimo nivel 6 en Pases si el plan lo exige. El orden de las secundarias en Fase 2 es flexible.</div>
+        <div class="note-box">
+          <strong>Nota:</strong> Mínimo nivel 6 en Pases <span class="ht-term">(Passing)</span> si el plan lo exige. El orden de las secundarias en Fase 2 es flexible.
+        </div>
       </div>
 
       <!-- 4. MEDIOCENTRO -->
       <div class="position-card mf">
         <div class="pos-header">
-          <div class="pos-icon">⚙️</div>
+          <div class="pos-icon" aria-hidden="true">⚙️</div>
           <div class="pos-title">
             <h2>4. Mediocentro</h2>
-            <div class="pos-goals">Meta: <span>Jugadas 15</span> · <span>Defensa 6</span> · <span>Pases 6</span> · <span>Anotación 6</span></div>
+            <div class="pos-goals">
+              Meta: <span>Jugadas 15 <span class="ht-term">(Playmaking)</span></span> · <span>Defensa 6 <span class="ht-term">(Defending)</span></span> ·
+              <span>Pases 6 <span class="ht-term">(Passing)</span></span> ·
+              <span>Anotación 6 <span class="ht-term">(Scoring)</span></span>
+            </div>
           </div>
         </div>
         <table class="phase-table">
@@ -745,23 +1062,33 @@ description: "Plan de entrenamiento para la Selección Ecuador U21 en Hattrick"
             <tr>
               <td><span class="phase-badge badge-p1">Fase 1</span></td>
               <td>Resistencia <strong>10%</strong> · Intensidad <strong>100%</strong></td>
-              <td>Entrenar <strong>Jugadas</strong> hasta nivel <strong>13</strong></td>
+              <td>
+                Entrenar <strong>Jugadas <span class="ht-term">(Playmaking)</span></strong> hasta nivel <strong>13</strong>
+              </td>
             </tr>
             <tr>
               <td><span class="phase-badge badge-p2">Fase 2</span></td>
               <td>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></td>
               <td>
                 <ul>
-                  <li>Cambiar a <strong>Pases</strong> hasta nivel <strong>6</strong></li>
-                  <li>Cambiar a <strong>Defensa</strong> hasta nivel <strong>6</strong></li>
-                  <li>Cambiar a <strong>Anotación</strong> hasta nivel <strong>6</strong></li>
+                  <li>
+                    Cambiar a <strong>Pases <span class="ht-term">(Passing)</span></strong> hasta nivel <strong>6</strong>
+                  </li>
+                  <li>
+                    Cambiar a <strong>Defensa <span class="ht-term">(Defending)</span></strong> hasta nivel <strong>6</strong>
+                  </li>
+                  <li>
+                    Cambiar a <strong>Anotación <span class="ht-term">(Scoring)</span></strong> hasta nivel <strong>6</strong>
+                  </li>
                 </ul>
               </td>
             </tr>
             <tr>
               <td><span class="phase-badge badge-p3">Fase 3</span></td>
               <td>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></td>
-              <td>Regresar a <strong>Jugadas</strong> para pulir hasta nivel <strong>15</strong></td>
+              <td>
+                Regresar a <strong>Jugadas <span class="ht-term">(Playmaking)</span></strong> para pulir hasta nivel <strong>15</strong>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -770,10 +1097,14 @@ description: "Plan de entrenamiento para la Selección Ecuador U21 en Hattrick"
       <!-- 5. MEDIOCENTRO HACIA LATERAL -->
       <div class="position-card wm">
         <div class="pos-header">
-          <div class="pos-icon">⚙️</div>
+          <div class="pos-icon" aria-hidden="true">⚙️</div>
           <div class="pos-title">
             <h2>5. Mediocentro Hacia Lateral</h2>
-            <div class="pos-goals">Meta: <span>Jugadas 14</span> · <span>Lateral 8</span> · <span>Defensa 6</span> · <span>Pases 6</span></div>
+            <div class="pos-goals">
+              Meta: <span>Jugadas 14 <span class="ht-term">(Playmaking)</span></span> · <span>Lateral 8 <span class="ht-term">(Winger)</span></span> ·
+              <span>Defensa 6 <span class="ht-term">(Defending)</span></span> ·
+              <span>Pases 6 <span class="ht-term">(Passing)</span></span>
+            </div>
           </div>
         </div>
         <table class="phase-table">
@@ -788,23 +1119,33 @@ description: "Plan de entrenamiento para la Selección Ecuador U21 en Hattrick"
             <tr>
               <td><span class="phase-badge badge-p1">Fase 1</span></td>
               <td>Resistencia <strong>10%</strong> · Intensidad <strong>100%</strong></td>
-              <td>Entrenar <strong>Jugadas</strong> hasta nivel <strong>12</strong></td>
+              <td>
+                Entrenar <strong>Jugadas <span class="ht-term">(Playmaking)</span></strong> hasta nivel <strong>12</strong>
+              </td>
             </tr>
             <tr>
               <td><span class="phase-badge badge-p2">Fase 2</span></td>
               <td>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></td>
               <td>
                 <ul>
-                  <li>Cambiar a <strong>Lateral</strong> hasta nivel <strong>8</strong></li>
-                  <li>Cambiar a <strong>Pases</strong> hasta nivel <strong>6</strong></li>
-                  <li>Cambiar a <strong>Defensa</strong> hasta nivel <strong>6</strong></li>
+                  <li>
+                    Cambiar a <strong>Lateral <span class="ht-term">(Winger)</span></strong> hasta nivel <strong>8</strong>
+                  </li>
+                  <li>
+                    Cambiar a <strong>Pases <span class="ht-term">(Passing)</span></strong> hasta nivel <strong>6</strong>
+                  </li>
+                  <li>
+                    Cambiar a <strong>Defensa <span class="ht-term">(Defending)</span></strong> hasta nivel <strong>6</strong>
+                  </li>
                 </ul>
               </td>
             </tr>
             <tr>
               <td><span class="phase-badge badge-p3">Fase 3</span></td>
               <td>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></td>
-              <td>Regresar a <strong>Jugadas</strong> para pulir hasta nivel <strong>14</strong></td>
+              <td>
+                Regresar a <strong>Jugadas <span class="ht-term">(Playmaking)</span></strong> para pulir hasta nivel <strong>14</strong>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -813,10 +1154,14 @@ description: "Plan de entrenamiento para la Selección Ecuador U21 en Hattrick"
       <!-- 6. EXTREMO HACIA MEDIO -->
       <div class="position-card wi">
         <div class="pos-header">
-          <div class="pos-icon">🏃</div>
+          <div class="pos-icon" aria-hidden="true">🏃</div>
           <div class="pos-title">
             <h2>6. Extremo Hacia Medio</h2>
-            <div class="pos-goals">Meta: <span>Lateral 13</span> · <span>Jugadas 12</span> · <span>Pases 8</span> · <span>Defensa 6</span></div>
+            <div class="pos-goals">
+              Meta: <span>Lateral 13 <span class="ht-term">(Winger)</span></span> · <span>Jugadas 12 <span class="ht-term">(Playmaking)</span></span> ·
+              <span>Pases 8 <span class="ht-term">(Passing)</span></span> ·
+              <span>Defensa 6 <span class="ht-term">(Defending)</span></span>
+            </div>
           </div>
         </div>
         <table class="phase-table">
@@ -831,23 +1176,33 @@ description: "Plan de entrenamiento para la Selección Ecuador U21 en Hattrick"
             <tr>
               <td><span class="phase-badge badge-p1">Fase 1</span></td>
               <td>Resistencia <strong>10%</strong> · Intensidad <strong>100%</strong></td>
-              <td>Entrenar <strong>Lateral</strong> hasta nivel <strong>11</strong></td>
+              <td>
+                Entrenar <strong>Lateral <span class="ht-term">(Winger)</span></strong> hasta nivel <strong>11</strong>
+              </td>
             </tr>
             <tr>
               <td><span class="phase-badge badge-p2">Fase 2</span></td>
               <td>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></td>
               <td>
                 <ul>
-                  <li>Cambiar a <strong>Jugadas</strong> hasta nivel <strong>12</strong></li>
-                  <li>Cambiar a <strong>Pases</strong> hasta nivel <strong>8</strong></li>
-                  <li>Cambiar a <strong>Defensa</strong> hasta nivel <strong>6</strong></li>
+                  <li>
+                    Cambiar a <strong>Jugadas <span class="ht-term">(Playmaking)</span></strong> hasta nivel <strong>12</strong>
+                  </li>
+                  <li>
+                    Cambiar a <strong>Pases <span class="ht-term">(Passing)</span></strong> hasta nivel <strong>8</strong>
+                  </li>
+                  <li>
+                    Cambiar a <strong>Defensa <span class="ht-term">(Defending)</span></strong> hasta nivel <strong>6</strong>
+                  </li>
                 </ul>
               </td>
             </tr>
             <tr>
               <td><span class="phase-badge badge-p3">Fase 3</span></td>
               <td>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></td>
-              <td>Regresar a <strong>Lateral</strong> para pulir hasta nivel <strong>13</strong></td>
+              <td>
+                Regresar a <strong>Lateral <span class="ht-term">(Winger)</span></strong> para pulir hasta nivel <strong>13</strong>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -856,10 +1211,14 @@ description: "Plan de entrenamiento para la Selección Ecuador U21 en Hattrick"
       <!-- 7. EXTREMO -->
       <div class="position-card wi">
         <div class="pos-header">
-          <div class="pos-icon">🏃</div>
+          <div class="pos-icon" aria-hidden="true">🏃</div>
           <div class="pos-title">
             <h2>7. Extremo</h2>
-            <div class="pos-goals">Meta: <span>Lateral 15</span> · <span>Jugadas 11</span> · <span>Defensa 6</span> · <span>Pases 6</span></div>
+            <div class="pos-goals">
+              Meta: <span>Lateral 15 <span class="ht-term">(Winger)</span></span> · <span>Jugadas 11 <span class="ht-term">(Playmaking)</span></span> ·
+              <span>Defensa 6 <span class="ht-term">(Defending)</span></span> ·
+              <span>Pases 6 <span class="ht-term">(Passing)</span></span>
+            </div>
           </div>
         </div>
         <table class="phase-table">
@@ -874,23 +1233,33 @@ description: "Plan de entrenamiento para la Selección Ecuador U21 en Hattrick"
             <tr>
               <td><span class="phase-badge badge-p1">Fase 1</span></td>
               <td>Resistencia <strong>10%</strong> · Intensidad <strong>100%</strong></td>
-              <td>Entrenar <strong>Lateral</strong> hasta nivel <strong>13</strong></td>
+              <td>
+                Entrenar <strong>Lateral <span class="ht-term">(Winger)</span></strong> hasta nivel <strong>13</strong>
+              </td>
             </tr>
             <tr>
               <td><span class="phase-badge badge-p2">Fase 2</span></td>
               <td>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></td>
               <td>
                 <ul>
-                  <li>Cambiar a <strong>Jugadas</strong> hasta nivel <strong>11</strong></li>
-                  <li>Cambiar a <strong>Pases</strong> hasta nivel <strong>6</strong></li>
-                  <li>Cambiar a <strong>Defensa</strong> hasta nivel <strong>6</strong></li>
+                  <li>
+                    Cambiar a <strong>Jugadas <span class="ht-term">(Playmaking)</span></strong> hasta nivel <strong>11</strong>
+                  </li>
+                  <li>
+                    Cambiar a <strong>Pases <span class="ht-term">(Passing)</span></strong> hasta nivel <strong>6</strong>
+                  </li>
+                  <li>
+                    Cambiar a <strong>Defensa <span class="ht-term">(Defending)</span></strong> hasta nivel <strong>6</strong>
+                  </li>
                 </ul>
               </td>
             </tr>
             <tr>
               <td><span class="phase-badge badge-p3">Fase 3</span></td>
               <td>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></td>
-              <td>Regresar a <strong>Lateral</strong> para pulir hasta nivel <strong>15</strong></td>
+              <td>
+                Regresar a <strong>Lateral <span class="ht-term">(Winger)</span></strong> para pulir hasta nivel <strong>15</strong>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -899,10 +1268,14 @@ description: "Plan de entrenamiento para la Selección Ecuador U21 en Hattrick"
       <!-- 8. DELANTERO -->
       <div class="position-card fw">
         <div class="pos-header">
-          <div class="pos-icon">⚽</div>
+          <div class="pos-icon" aria-hidden="true">⚽</div>
           <div class="pos-title">
             <h2>8. Delantero</h2>
-            <div class="pos-goals">Meta: <span>Anotación 15</span> · <span>Pases 8</span> · <span>Jugadas 6</span> · <span>Lateral 6</span></div>
+            <div class="pos-goals">
+              Meta: <span>Anotación 15 <span class="ht-term">(Scoring)</span></span> · <span>Pases 8 <span class="ht-term">(Passing)</span></span> ·
+              <span>Jugadas 6 <span class="ht-term">(Playmaking)</span></span> ·
+              <span>Lateral 6 <span class="ht-term">(Winger)</span></span>
+            </div>
           </div>
         </div>
         <table class="phase-table">
@@ -917,29 +1290,39 @@ description: "Plan de entrenamiento para la Selección Ecuador U21 en Hattrick"
             <tr>
               <td><span class="phase-badge badge-p1">Fase 1</span></td>
               <td>Resistencia <strong>10%</strong> · Intensidad <strong>100%</strong></td>
-              <td>Entrenar <strong>Anotación</strong> hasta nivel <strong>12 o 13</strong></td>
+              <td>
+                Entrenar <strong>Anotación <span class="ht-term">(Scoring)</span></strong> hasta nivel <strong>12 o 13</strong>
+              </td>
             </tr>
             <tr>
               <td><span class="phase-badge badge-p2">Fase 2</span></td>
               <td>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></td>
               <td>
                 <ul>
-                  <li>Cambiar a <strong>Pases</strong> hasta nivel <strong>8</strong></li>
-                  <li>Cambiar a <strong>Jugadas</strong> hasta nivel <strong>6</strong></li>
-                  <li>Cambiar a <strong>Lateral</strong> hasta nivel <strong>6</strong></li>
+                  <li>
+                    Cambiar a <strong>Pases <span class="ht-term">(Passing)</span></strong> hasta nivel <strong>8</strong>
+                  </li>
+                  <li>
+                    Cambiar a <strong>Jugadas <span class="ht-term">(Playmaking)</span></strong> hasta nivel <strong>6</strong>
+                  </li>
+                  <li>
+                    Cambiar a <strong>Lateral <span class="ht-term">(Winger)</span></strong> hasta nivel <strong>6</strong>
+                  </li>
                 </ul>
               </td>
             </tr>
             <tr>
               <td><span class="phase-badge badge-p3">Fase 3</span></td>
               <td>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></td>
-              <td>Regresar a <strong>Anotación</strong> para pulir hasta nivel <strong>15</strong></td>
+              <td>
+                Regresar a <strong>Anotación <span class="ht-term">(Scoring)</span></strong> para pulir hasta nivel <strong>15</strong>
+              </td>
             </tr>
           </tbody>
         </table>
       </div>
 
-      <!-- RESUMEN AL FINAL -->
+      <!-- RESUMEN -->
       <div class="summary-section">
         <h2>📋 Resumen de Metas por Posición</h2>
         <table class="summary-table">
@@ -953,43 +1336,81 @@ description: "Plan de entrenamiento para la Selección Ecuador U21 en Hattrick"
           <tbody>
             <tr>
               <td>🧤 Portero</td>
-              <td><span class="tag tag-main">Portería 16</span></td>
-              <td><span class="tag tag-sec">Balón Parado 16</span> <span class="tag tag-sec">Defensa 6</span></td>
+              <td>
+                <span class="tag tag-main">Portería 16 <span class="ht-term">(Keeper)</span></span>
+              </td>
+              <td>
+                <span class="tag tag-sec">Balón Parado 16 <span class="ht-term">(Set Pieces)</span></span>
+                <span class="tag tag-sec">Defensa 6 <span class="ht-term">(Defending)</span></span>
+              </td>
             </tr>
             <tr>
               <td>🛡️ Defensa Central</td>
-              <td><span class="tag tag-main">Defensa 15</span></td>
-              <td><span class="tag tag-sec">Jugadas 8</span> <span class="tag tag-sec">Pases 6</span></td>
+              <td>
+                <span class="tag tag-main">Defensa 15 <span class="ht-term">(Defending)</span></span>
+              </td>
+              <td>
+                <span class="tag tag-sec">Jugadas 8 <span class="ht-term">(Playmaking)</span></span> <span class="tag tag-sec">Pases 6 <span class="ht-term">(Passing)</span></span>
+              </td>
             </tr>
             <tr>
               <td>🛡️ Defensa Lateral</td>
-              <td><span class="tag tag-main">Defensa 14</span></td>
-              <td><span class="tag tag-sec">Lateral 10</span> <span class="tag tag-sec">Pases 8</span></td>
+              <td>
+                <span class="tag tag-main">Defensa 14 <span class="ht-term">(Defending)</span></span>
+              </td>
+              <td>
+                <span class="tag tag-sec">Lateral 10 <span class="ht-term">(Winger)</span></span> <span class="tag tag-sec">Pases 8 <span class="ht-term">(Passing)</span></span>
+              </td>
             </tr>
             <tr>
               <td>⚙️ Mediocentro</td>
-              <td><span class="tag tag-main">Jugadas 15</span></td>
-              <td><span class="tag tag-sec">Defensa 6</span> <span class="tag tag-sec">Pases 6</span> <span class="tag tag-sec">Anotación 6</span></td>
+              <td>
+                <span class="tag tag-main">Jugadas 15 <span class="ht-term">(Playmaking)</span></span>
+              </td>
+              <td>
+                <span class="tag tag-sec">Defensa 6 <span class="ht-term">(Defending)</span></span> <span class="tag tag-sec">Pases 6 <span class="ht-term">(Passing)</span></span>
+                <span class="tag tag-sec">Anotación 6 <span class="ht-term">(Scoring)</span></span>
+              </td>
             </tr>
             <tr>
               <td>⚙️ Mediocentro → Lateral</td>
-              <td><span class="tag tag-main">Jugadas 14</span></td>
-              <td><span class="tag tag-sec">Lateral 8</span> <span class="tag tag-sec">Defensa 6</span> <span class="tag tag-sec">Pases 6</span></td>
+              <td>
+                <span class="tag tag-main">Jugadas 14 <span class="ht-term">(Playmaking)</span></span>
+              </td>
+              <td>
+                <span class="tag tag-sec">Lateral 8 <span class="ht-term">(Winger)</span></span> <span class="tag tag-sec">Defensa 6 <span class="ht-term">(Defending)</span></span>
+                <span class="tag tag-sec">Pases 6 <span class="ht-term">(Passing)</span></span>
+              </td>
             </tr>
             <tr>
               <td>🏃 Extremo → Medio</td>
-              <td><span class="tag tag-main">Lateral 13</span></td>
-              <td><span class="tag tag-sec">Jugadas 12</span> <span class="tag tag-sec">Pases 8</span> <span class="tag tag-sec">Defensa 6</span></td>
+              <td>
+                <span class="tag tag-main">Lateral 13 <span class="ht-term">(Winger)</span></span>
+              </td>
+              <td>
+                <span class="tag tag-sec">Jugadas 12 <span class="ht-term">(Playmaking)</span></span>
+                <span class="tag tag-sec">Pases 8 <span class="ht-term">(Passing)</span></span> <span class="tag tag-sec">Defensa 6 <span class="ht-term">(Defending)</span></span>
+              </td>
             </tr>
             <tr>
               <td>🏃 Extremo</td>
-              <td><span class="tag tag-main">Lateral 15</span></td>
-              <td><span class="tag tag-sec">Jugadas 11</span> <span class="tag tag-sec">Defensa 6</span> <span class="tag tag-sec">Pases 6</span></td>
+              <td>
+                <span class="tag tag-main">Lateral 15 <span class="ht-term">(Winger)</span></span>
+              </td>
+              <td>
+                <span class="tag tag-sec">Jugadas 11 <span class="ht-term">(Playmaking)</span></span>
+                <span class="tag tag-sec">Defensa 6 <span class="ht-term">(Defending)</span></span> <span class="tag tag-sec">Pases 6 <span class="ht-term">(Passing)</span></span>
+              </td>
             </tr>
             <tr>
               <td>⚽ Delantero</td>
-              <td><span class="tag tag-main">Anotación 15</span></td>
-              <td><span class="tag tag-sec">Pases 8</span> <span class="tag tag-sec">Jugadas 6</span> <span class="tag tag-sec">Lateral 6</span></td>
+              <td>
+                <span class="tag tag-main">Anotación 15 <span class="ht-term">(Scoring)</span></span>
+              </td>
+              <td>
+                <span class="tag tag-sec">Pases 8 <span class="ht-term">(Passing)</span></span> <span class="tag tag-sec">Jugadas 6 <span class="ht-term">(Playmaking)</span></span>
+                <span class="tag tag-sec">Lateral 6 <span class="ht-term">(Winger)</span></span>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -1008,14 +1429,14 @@ description: "Plan de entrenamiento para la Selección Ecuador U21 en Hattrick"
             la meta de alguna habilidad, ¡excelente! Se completará muy rápido. Si ya sobrepasó el nivel sugerido, puedes saltarte esa parte directamente.
           </li>
           <li>
-            <strong>Abierto a sugerencias:</strong> Este plan está diseñado para optimizar al jugador de cara a la selección. Si tienes dudas, comentarios o te gustaría adaptar el
-            entrenamiento a otro estilo que te beneficie más en tu club, escríbeme con total confianza. Podemos revisarlo y organizarlo juntos para que ambos salgamos ganando.
+            <strong>Abierto a sugerencias:</strong> Este plan está diseñado para optimizar al jugador para jugar con la selección. Si tienes dudas, comentarios o te gustaría
+            adaptar el entrenamiento a otro estilo que te beneficie más en tu club, escríbeme con total confianza. Podemos revisarlo y organizarlo juntos para que ambos nos
+            beneficiemos.
           </li>
         </ul>
       </div>
     </div>
-    <script>
-      // Toggle tema claro/oscuro con preferencia del sistema
+    <script type="module">
       const toggle = document.getElementById("themeToggle");
       const icon = document.getElementById("toggleIcon");
       const html = document.documentElement;
