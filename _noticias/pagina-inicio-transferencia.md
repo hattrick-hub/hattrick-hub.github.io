@@ -2,7 +2,7 @@
 title: "Hattrick presenta nueva página de registro y revoluciona el mercado de transferencias"
 date: 2025-03-15
 lastUpdated: 2025-03-15
-author: "Redacción Hattrick"
+author: "elPatronHT"
 excerpt: "Marzo trae mejoras significativas: registro simplificado para nuevos usuarios y funciones avanzadas en el mercado de fichajes."
 description: "Hattrick lanza actualización de marzo con nuevo proceso de registro, estadísticas de transferencias y filtros avanzados para mejorar la experiencia."
 tags: [Hattrick, registro, mercado, transferencias, actualización, marzo]

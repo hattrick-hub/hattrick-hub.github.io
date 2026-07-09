@@ -2,7 +2,7 @@
 title: Hattrick Portal
 date: 2025-06-23
 lastUpdated: 2025-06-23
-author: "Redacción"
+author: "elPatronHT"
 excerpt: "Plataforma completa para análisis y seguimiento de selecciones nacionales en Hattrick con base de datos global de scouting."
 description: "Descubre Hattrick Portal: herramienta definitiva para análisis de selecciones nacionales y sub-20, con tracker global y estadísticas detalladas."
 tags: [hattrick, futbol-online, selecciones-nacionales, scouting, estadisticas]

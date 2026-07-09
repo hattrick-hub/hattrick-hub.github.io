@@ -3,13 +3,19 @@
         placeholderImage: "{{ '/assets/img/placeholder.webp' | relative_url | escape }}",
         baseUrl: "{{ site.url | absolute_url | escape }}",
     };
-    document
-        .querySelectorAll('.content a[href^="http"]:not([href^="{{ site.url | absolute_url }}"])')
-        .forEach((link) => {
-            link.setAttribute("target", "_blank");
-            link.setAttribute("rel", "noopener noreferrer");
-        });
-    document.querySelectorAll(".content img:not([loading]):not(summary img)").forEach((img) => {
-        img.setAttribute("loading", "lazy");
+
+    // Solo links dentro del contenido markdown
+    document.querySelectorAll('.content a[href^="http"]').forEach((link) => {
+        const baseUrl = window.HattrickHub.baseUrl.replace(/\/$/, '');
+        const href = link.getAttribute('href') || '';
+        if (!href.startsWith(baseUrl)) {
+            link.setAttribute('target', '_blank');
+            link.setAttribute('rel', 'noopener noreferrer');
+        }
+    });
+
+    // Solo imágenes dentro del contenido markdown
+    document.querySelectorAll('.content img:not([loading]):not(summary img)').forEach((img) => {
+        img.setAttribute('loading', 'lazy');
     });
 </script>

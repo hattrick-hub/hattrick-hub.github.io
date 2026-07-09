@@ -8,23 +8,30 @@ hero_alt: "Banner de la página principal de Hattrick Hub"
 hide_news_bar: true
 ---
 
-{% include hero.html image=page.hero_image alt=page.hero_alt aria_label="Página Principal de Hattrick Hub" buttons='
-<a href="/herramientas/" class="button is-primary" aria-label="Explorar herramientas de Hattrick Hub">
-    <svg class="icon is-small" aria-hidden="true">
-        <use href="#tools"></use>
-    </svg>
-    Explorar herramientas
-</a>
-<a href="/blog/" class="button is-secondary" aria-label="Leer el blog de Hattrick Hub">
-    <svg class="icon is-small" aria-hidden="true">
-        <use href="#blog"></use>
-    </svg>
-    Leer el blog </a>' %}
+{% include hero.html 
+    image=page.hero_image 
+    alt=page.hero_alt
+    aria_label="Hattrick Hub"
+    buttons='
+    <a href="/herramientas/" class="button is-primary">
+        <svg class="icon is-small" aria-hidden="true" width="16" height="16">
+            <use href="#tools"></use>
+        </svg>
+        Explorar herramientas
+    </a>
+    <a href="/blog/" class="button is-secondary">
+        <svg class="icon is-small" aria-hidden="true" width="16" height="16">
+            <use href="#blog"></use>
+        </svg>
+        Leer el blog
+    </a>
+' %}
 
-<section class="section" aria-label="Características de Hattrick Hub">
+<section class="section" aria-labelledby="features-heading">
+    
     <div class="container text-center">
         <div class="content">
-            <h1>Todo lo que necesitas para dominar Hattrick</h1>
+            <h1 id="features-heading">Todo lo que necesitas para dominar Hattrick</h1>
             <p>
                 Hattrick Hub es el lugar ideal para jugadores de Hattrick que buscan mejorar su estrategia y experiencia
                 de juego. Descubre:
@@ -32,61 +39,105 @@ hide_news_bar: true
         </div>
     </div>
 
-    <!-- GRID DE TARJETAS CLICKABLES -->
-    <div class="feature-grid" role="list" aria-label="Características principales de Hattrick Hub">
-        <a href="/manual/" class="feature-card" role="listitem">
-            <div class="feature-icon">
-                <svg class="icon is-medium" aria-hidden="true">
-                    <use href="#guide"></use>
-                </svg>
-            </div>
-            <h3 class="feature-title">Guías detalladas</h3>
-            <p class="feature-text">Mejora tu juego con nuestro manual completo de estrategias y tácticas.</p>
-            <span class="feature-link">Ver manual →</span>
-        </a>
+    <ul class="feature-grid" aria-label="Características principales de Hattrick Hub">
+        <li>
+            <article class="feature-card">
+                <div class="feature-icon">
+                    <svg class="icon is-medium" aria-hidden="true" width="24" height="24">
+                        <use href="#guide"></use>
+                    </svg>
+                </div>
+                <h3 class="feature-title">
+                    <a href="/manual/">Guías detalladas</a>
+                </h3>
+                <p class="feature-text">Mejora tu juego con nuestro manual completo de estrategias y tácticas.</p>
+                <a href="/manual/" class="feature-link">
+                    Ver manual
+                    <svg class="icon is-small" aria-hidden="true" width="16" height="16">
+                        <use href="#arrow-right"></use>
+                    </svg>
+                </a>
+            </article>
+        </li>
 
-        <a href="/noticias/" class="feature-card" role="listitem">
-            <div class="feature-icon">
-                <svg class="icon is-medium" aria-hidden="true">
-                    <use href="#news"></use>
-                </svg>
-            </div>
-            <h3 class="feature-title">Noticias actualizadas</h3>
-            <p class="feature-text">Mantente informado con nuestras noticias sobre el mundo de Hattrick.</p>
-            <span class="feature-link">Ver noticias →</span>
-        </a>
+        <li>
+            <article class="feature-card">
+                <div class="feature-icon">
+                    <svg class="icon is-medium" aria-hidden="true" width="24" height="24">
+                        <use href="#news"></use>
+                    </svg>
+                </div>
+                <h3 class="feature-title">
+                    <a href="/noticias/">Noticias actualizadas</a>
+                </h3>
+                <p class="feature-text">Mantente informado con nuestras noticias sobre el mundo de Hattrick.</p>
+                <a href="/noticias/" class="feature-link">
+                    Ver noticias
+                    <svg class="icon is-small" aria-hidden="true" width="16" height="16">
+                        <use href="#arrow-right"></use>
+                    </svg>
+                </a>
+            </article>
+        </li>
 
-        <a href="/blog/" class="feature-card" role="listitem">
-            <div class="feature-icon">
-                <svg class="icon is-medium" aria-hidden="true">
-                    <use href="#blog"></use>
-                </svg>
-            </div>
-            <h3 class="feature-title">Análisis tácticos</h3>
-            <p class="feature-text">Aprende estrategias avanzadas en nuestro blog de análisis.</p>
-            <span class="feature-link">Ver blog →</span>
-        </a>
+        <li>
+            <article class="feature-card">
+                <div class="feature-icon">
+                    <svg class="icon is-medium" aria-hidden="true" width="24" height="24">
+                        <use href="#blog"></use>
+                    </svg>
+                </div>
+                <h3 class="feature-title">
+                    <a href="/blog/">Análisis tácticos</a>
+                </h3>
+                <p class="feature-text">Aprende estrategias avanzadas en nuestro blog de análisis.</p>
+                <a href="/blog/" class="feature-link">
+                    Ver blog
+                    <svg class="icon is-small" aria-hidden="true" width="16" height="16">
+                        <use href="#arrow-right"></use>
+                    </svg>
+                </a>
+            </article>
+        </li>
 
-        <a href="/herramientas/" class="feature-card" role="listitem">
-            <div class="feature-icon">
-                <svg class="icon is-medium" aria-hidden="true">
-                    <use href="#tools"></use>
-                </svg>
-            </div>
-            <h3 class="feature-title">Herramientas útiles</h3>
-            <p class="feature-text">Optimiza tu equipo con nuestras herramientas especializadas.</p>
-            <span class="feature-link">Ver herramientas →</span>
-        </a>
+        <li>
+            <article class="feature-card">
+                <div class="feature-icon">
+                    <svg class="icon is-medium" aria-hidden="true" width="24" height="24">
+                        <use href="#tools"></use>
+                    </svg>
+                </div>
+                <h3 class="feature-title">
+                    <a href="/herramientas/">Herramientas útiles</a>
+                </h3>
+                <p class="feature-text">Optimiza tu equipo con nuestras herramientas especializadas.</p>
+                <a href="/herramientas/" class="feature-link">
+                    Ver herramientas
+                    <svg class="icon is-small" aria-hidden="true" width="16" height="16">
+                        <use href="#arrow-right"></use>
+                    </svg>
+                </a>
+            </article>
+        </li>
 
-        <a href="/abreviaturas/" class="feature-card" role="listitem">
-            <div class="feature-icon">
-                <svg class="icon is-medium" aria-hidden="true">
-                    <use href="#abbr"></use>
-                </svg>
-            </div>
-            <h3 class="feature-title">Glosario de términos</h3>
-            <p class="feature-text">Entiende Hattrick con nuestras abreviaturas y definiciones.</p>
-            <span class="feature-link">Ver abreviaturas →</span>
-        </a>
-    </div>
+        <li>
+            <article class="feature-card">
+                <div class="feature-icon">
+                    <svg class="icon is-medium" aria-hidden="true" width="24" height="24">
+                        <use href="#abbr"></use>
+                    </svg>
+                </div>
+                <h3 class="feature-title">
+                    <a href="/abreviaturas/">Glosario de términos</a>
+                </h3>
+                <p class="feature-text">Entiende Hattrick con nuestras abreviaturas y definiciones.</p>
+                <a href="/abreviaturas/" class="feature-link">
+                    Ver abreviaturas
+                    <svg class="icon is-small" aria-hidden="true" width="16" height="16">
+                        <use href="#arrow-right"></use>
+                    </svg>
+                </a>
+            </article>
+        </li>
+    </ul>
 </section>

@@ -2,1317 +2,1483 @@
 layout: null
 title: "Plan de Entrenamiento Ecuador U21"
 permalink: /plan-entrenamiento/
-description: "Plan de entrenamiento para la Selección Ecuador U21 en Hattrick"
+description: "Este plan está diseñado para optimizar el rendimiento de los jugadores convocados a la selección. Hemos estructurado los objetivos en fases sencillas para que coordinar los cambios sea lo más cómodo posible tanto para tu club como para la selección."
 ---
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: 'es' }}">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#4B8A61" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#2d5a3d" media="(prefers-color-scheme: dark)" />
-    <meta name="color-scheme" content="light dark" />
-    <link rel="icon" href="{{ '/assets/img/favicon.ico' | relative_url }}" sizes="any" />
-    <link rel="icon" href="{{ '/assets/img/favicon.svg' | relative_url }}" type="image/svg+xml" />
-    <link rel="apple-touch-icon" href="{{ '/assets/img/apple-touch-icon.png' | relative_url }}" />
-    {% seo %}
-    <style>
-      @layer reset, theme, layout, components, overrides;
+    <head>
+        <meta charset="utf-8" />
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="index, follow">
+        <meta name="theme-color" content="#4B8A61" media="(prefers-color-scheme: light)">
+        <meta name="theme-color" content="#2d5a3d" media="(prefers-color-scheme: dark)">
+        <meta name="color-scheme" content="light dark">
+        <link rel="icon" href="{{ '/assets/img/favicon.ico' | relative_url }}" sizes="any" />
+        <link rel="icon" href="{{ '/assets/img/favicon.svg' | relative_url }}" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="{{ '/assets/img/apple-touch-icon.png' | relative_url }}" />
+        {% seo %}
+        <style>
+            @layer reset, theme, layout, components, accessibility;
 
-      @layer reset {
-        *,
-        *::before,
-        *::after {
-          box-sizing: border-box;
-          margin: 0;
-          padding: 0;
-        }
-      }
-
-      @layer theme {
-        :root {
-          /* Primaria (verde) */
-          --color-primary-hue: 150;
-          --color-primary: hsl(var(--color-primary-hue) 40% 35%);
-          --color-primary-dark: hsl(var(--color-primary-hue) 40% 25%);
-          --color-primary-light: hsl(var(--color-primary-hue) 40% 55%);
-          /* Secundaria (naranja/dorado) */
-          --color-secondary-hue: 20;
-          --color-secondary: hsl(var(--color-secondary-hue) 65% 40%);
-          --color-secondary-dark: hsl(var(--color-secondary-hue) 65% 30%);
-          --color-secondary-light: hsl(var(--color-secondary-hue) 65% 60%);
-          /* Neutros */
-          --color-accent: #5c4030;
-          --color-text: #1a1f24;
-          --color-text-secondary: #364049;
-          --color-background: #f9f6f2;
-          --color-content-bg: #ffffff;
-          --color-border: #c7c2ba;
-          --color-background-muted: #eceef3;
-          /* Sombras */
-          --shadow-color: oklch(0% 0 0 / 10%);
-          --shadow-standard: 0 0.125rem 0.25rem var(--shadow-color);
-          --shadow-hover: 0 0.25rem 0.5rem oklch(0% 0 0 / 15%);
-          --shadow-sm: 0 0.0625rem 0.125rem var(--shadow-color);
-          --shadow-card: 0 0.25rem 1rem oklch(0% 0 0 / 8%);
-          --shadow-card-hover: 0 0.5rem 1.5rem oklch(0% 0 0 / 15%);
-          --shadow-box: 0 0.25rem 0.75rem oklch(0% 0 0 / 6%);
-          /* Radios */
-          --border-radius: 0.5rem;
-          --border-radius-small: 0.25rem;
-          --border-radius-full: 9999px;
-          --border-thin: 0.0625rem;
-          --border-medium: 0.125rem;
-          /* Focus */
-          --outline-width: 0.1875rem;
-          --outline-offset: 0.125rem;
-          /* Espaciado */
-          --spacing-1: 0.25rem;
-          --spacing-2: 0.5rem;
-          --spacing-3: 0.75rem;
-          --spacing-4: 1rem;
-          --spacing-5: 1.5rem;
-          --spacing-6: 2rem;
-          --spacing-7: 3rem;
-          --spacing-8: 4rem;
-          /* Tipografía */
-          --font-family-base: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-          --font-size-base: clamp(0.875rem, 2vw, 1rem);
-          --font-size-sm: clamp(0.8rem, 1.6vw, 0.9375rem);
-          --font-size-xs: 0.75rem;
-          --font-size-h1: clamp(2rem, 5vw, 2.5rem);
-          --font-size-h2: clamp(1.5rem, 4vw, 2rem);
-          --font-size-h3: clamp(1.25rem, 3vw, 1.5rem);
-          --font-size-h4: clamp(1rem, 2.5vw, 1.125rem);
-          --line-height-base: 1.6;
-          --line-height-heading: 1.2;
-          --font-weight-bold: 700;
-          /* Transiciones */
-          --transition-duration: 0.2s;
-          --transition-easing: ease;
-          --transition-standard:
-            background var(--transition-duration) var(--transition-easing), color var(--transition-duration) var(--transition-easing),
-            border-color var(--transition-duration) var(--transition-easing);
-          --transition-transform: transform var(--transition-duration) var(--transition-easing);
-          --transition-shadow: box-shadow var(--transition-duration) var(--transition-easing);
-          /* Variables de página */
-          --page-bg: var(--color-background);
-          --page-card: var(--color-content-bg);
-          --page-card-border: var(--color-border);
-          --page-text: var(--color-text);
-          --page-muted: var(--color-text-secondary);
-          --page-accent: var(--color-primary);
-          --page-accent2: var(--color-secondary);
-          --page-success: var(--color-primary);
-          --page-danger: #dc2626;
-          --page-shadow: var(--shadow-card);
-        }
-
-        @media (prefers-color-scheme: dark) {
-          :root {
-            --color-primary: hsl(var(--color-primary-hue) 40% 45%);
-            --color-primary-dark: hsl(var(--color-primary-hue) 40% 35%);
-            --color-primary-light: hsl(var(--color-primary-hue) 40% 60%);
-            --color-secondary: hsl(var(--color-secondary-hue) 65% 50%);
-            --color-secondary-dark: hsl(var(--color-secondary-hue) 65% 40%);
-            --color-secondary-light: hsl(var(--color-secondary-hue) 65% 70%);
-            --color-accent: #8a5f44;
-            --color-text: #ecebe9;
-            --color-text-secondary: #c0c0c0;
-            --color-background: #151515;
-            --color-content-bg: #222222;
-            --color-border: #454545;
-            --color-background-muted: #2b3647;
-            --shadow-color: oklch(0% 0 0 / 20%);
-            --shadow-standard: 0 0.125rem 0.25rem oklch(0% 0 0 / 20%);
-            --shadow-hover: 0 0.25rem 0.5rem oklch(0% 0 0 / 30%);
-            --shadow-sm: 0 0.0625rem 0.125rem oklch(0% 0 0 / 20%);
-            --shadow-card: 0 0.25rem 1rem oklch(0% 0 0 / 15%);
-            --shadow-card-hover: 0 0.5rem 1.5rem oklch(0% 0 0 / 20%);
-            --shadow-box: 0 0.25rem 0.75rem oklch(0% 0 0 / 12%);
-            --page-bg: var(--color-background);
-            --page-card: var(--color-content-bg);
-            --page-card-border: var(--color-border);
-            --page-text: var(--color-text);
-            --page-muted: var(--color-text-secondary);
-            --page-accent: var(--color-primary);
-            --page-accent2: var(--color-secondary);
-            --page-success: var(--color-primary);
-            --page-danger: #f87171;
-            --page-shadow: var(--shadow-card);
-          }
-        }
-      }
-
-      @layer layout {
-        body {
-          font-family: var(--font-family-base);
-          background: var(--page-bg);
-          color: var(--page-text);
-          line-height: var(--line-height-base);
-          padding: var(--spacing-6) var(--spacing-4);
-          transition: var(--transition-standard);
-          min-block-size: 100vh;
-        }
-
-        .container {
-          max-inline-size: min(60rem, 100% - 2rem);
-          margin-inline: auto;
-          container-type: inline-size;
-        }
-      }
-
-      @layer components {
-        header {
-          text-align: center;
-          margin-block-end: var(--spacing-7);
-          padding-block-end: var(--spacing-6);
-          border-block-end: var(--border-thin) solid var(--page-card-border);
-
-          h1 {
-            font-size: var(--font-size-h2);
-            background: linear-gradient(90deg, var(--page-accent), var(--page-accent2));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-block-end: var(--spacing-2);
-            line-height: var(--line-height-heading);
-          }
-
-          p {
-            color: var(--page-muted);
-            font-size: 1.05rem;
-            max-inline-size: 50ch;
-            margin-inline: auto;
-          }
-        }
-
-        .requirements {
-          background: var(--page-card);
-          border: var(--border-thin) solid var(--page-card-border);
-          border-radius: var(--border-radius);
-          padding: var(--spacing-5) var(--spacing-6);
-          margin-block-end: var(--spacing-7);
-          box-shadow: var(--page-shadow);
-          transition: var(--transition-standard);
-
-          h2 {
-            color: var(--page-accent2);
-            font-size: var(--font-size-h4);
-            margin-block-end: var(--spacing-4);
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-2);
-          }
-        }
-
-        .req-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
-          gap: var(--spacing-4);
-        }
-
-        .req-item {
-          background: var(--page-bg);
-          border-radius: var(--border-radius);
-          padding: var(--spacing-4);
-          border-inline-start: 4px solid var(--page-accent);
-          transition: var(--transition-standard);
-
-          strong {
-            color: var(--page-accent);
-            display: block;
-            margin-block-end: var(--spacing-1);
-          }
-
-          span {
-            color: var(--page-muted);
-            font-size: var(--font-size-sm);
-          }
-        }
-
-        .position-card {
-          background: var(--page-card);
-          border: var(--border-thin) solid var(--page-card-border);
-          border-radius: var(--border-radius);
-          padding: var(--spacing-6);
-          margin-block-end: var(--spacing-6);
-          box-shadow: var(--page-shadow);
-          transition: var(--transition-transform), var(--transition-standard);
-
-          &:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-card-hover);
-          }
-        }
-
-        .pos-header {
-          display: flex;
-          align-items: center;
-          gap: var(--spacing-4);
-          margin-block-end: var(--spacing-4);
-          padding-block-end: var(--spacing-4);
-          border-block-end: var(--border-thin) solid var(--page-card-border);
-        }
-
-        .pos-icon {
-          inline-size: 3.25rem;
-          block-size: 3.25rem;
-          border-radius: var(--border-radius);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 1.6rem;
-          flex-shrink: 0;
-        }
-
-        .pos-title {
-          h2 {
-            font-size: var(--font-size-h3);
-            color: var(--page-text);
-            line-height: var(--line-height-heading);
-          }
-        }
-
-        .pos-goals {
-          color: var(--page-muted);
-          font-size: var(--font-size-sm);
-          margin-block-start: var(--spacing-1);
-
-          span {
-            color: var(--page-accent2);
-            font-weight: 600;
-          }
-        }
-
-        .gk .pos-icon {
-          background: color-mix(in srgb, var(--color-secondary) 15%, transparent);
-          color: var(--color-secondary);
-        }
-        .cb .pos-icon {
-          background: color-mix(in srgb, var(--page-danger) 15%, transparent);
-          color: var(--page-danger);
-        }
-        .wb .pos-icon {
-          background: color-mix(in srgb, var(--color-secondary) 20%, transparent);
-          color: var(--color-secondary-dark);
-        }
-        .mf .pos-icon {
-          background: color-mix(in srgb, var(--page-accent) 15%, transparent);
-          color: var(--page-accent);
-        }
-        .wm .pos-icon {
-          background: color-mix(in srgb, #a78bfa 15%, transparent);
-          color: #a78bfa;
-        }
-        .wi .pos-icon {
-          background: color-mix(in srgb, var(--page-success) 15%, transparent);
-          color: var(--page-success);
-        }
-        .fw .pos-icon {
-          background: color-mix(in srgb, #f472b6 15%, transparent);
-          color: #f472b6;
-        }
-
-        .phase-table {
-          width: 100%;
-          border-collapse: separate;
-          border-spacing: 0;
-          margin-block-start: var(--spacing-4);
-          font-size: var(--font-size-base);
-
-          th {
-            background: var(--page-bg);
-            color: var(--page-accent);
-            text-align: start;
-            padding: var(--spacing-3) var(--spacing-4);
-            font-weight: var(--font-weight-bold);
-            border-block-end: 2px solid var(--page-card-border);
-            transition: var(--transition-standard);
-          }
-
-          td {
-            padding: var(--spacing-3) var(--spacing-4);
-            border-block-end: var(--border-thin) solid var(--page-card-border);
-            vertical-align: top;
-          }
-
-          tr:hover td {
-            background: var(--page-bg);
-          }
-        }
-
-        .phase-badge {
-          display: inline-block;
-          padding: var(--spacing-1) var(--spacing-3);
-          border-radius: var(--border-radius-full);
-          font-size: 0.7rem;
-          font-weight: var(--font-weight-bold);
-          text-transform: uppercase;
-          letter-spacing: 0.5px;
-          white-space: nowrap;
-        }
-
-        .badge-p1 {
-          background: color-mix(in srgb, var(--page-danger) 15%, transparent);
-          color: var(--page-danger);
-        }
-        .badge-p2 {
-          background: color-mix(in srgb, var(--page-accent2) 15%, transparent);
-          color: var(--page-accent2);
-        }
-        .badge-p3 {
-          background: color-mix(in srgb, var(--page-success) 15%, transparent);
-          color: var(--page-success);
-        }
-
-        .phase-table ul {
-          list-style: none;
-          padding: 0;
-          margin: 0;
-
-          li {
-            position: relative;
-            padding-inline-start: var(--spacing-4);
-            margin-block-end: var(--spacing-2);
-            line-height: 1.5;
-
-            &:last-child {
-              margin-block-end: 0;
+            /* =================================================
+               RESET
+               ================================================= */
+            @layer reset {
+                *,
+                *::before,
+                *::after {
+                    box-sizing: border-box;
+                    margin: 0;
+                    padding: 0;
+                }
             }
 
-            &::before {
-              content: "•";
-              position: absolute;
-              inset-inline-start: 0;
-              color: var(--page-accent2);
-              font-weight: bold;
-            }
-          }
-        }
+            /* =================================================
+               THEME — Con light-dark() nativo
+               ================================================= */
+            @layer theme {
+                :root {
+                    color-scheme: light dark;
 
-        .note-box {
-          background: var(--page-bg);
-          border-inline-start: 4px solid var(--page-accent2);
-          padding: var(--spacing-4) var(--spacing-5);
-          border-radius: 0 var(--border-radius) var(--border-radius) 0;
-          margin-block-start: var(--spacing-4);
-          font-size: var(--font-size-sm);
-          color: var(--page-muted);
-          transition: var(--transition-standard);
+                    /* Primaria (verde) */
+                    --color-primary-hue: 150;
+                    --color-primary: light-dark(
+                        hsl(150 40% 35%),
+                        hsl(150 40% 45%)
+                    );
+                    --color-primary-dark: light-dark(
+                        hsl(150 40% 25%),
+                        hsl(150 40% 35%)
+                    );
+                    --color-primary-light: light-dark(
+                        hsl(150 40% 55%),
+                        hsl(150 40% 60%)
+                    );
 
-          strong {
-            color: var(--page-accent2);
-          }
-        }
+                    /* Secundaria (naranja/dorado) */
+                    --color-secondary-hue: 20;
+                    --color-secondary: light-dark(
+                        hsl(20 65% 40%),
+                        hsl(20 65% 50%)
+                    );
+                    --color-secondary-dark: light-dark(
+                        hsl(20 65% 30%),
+                        hsl(20 65% 40%)
+                    );
+                    --color-secondary-light: light-dark(
+                        hsl(20 65% 60%),
+                        hsl(20 65% 70%)
+                    );
 
-        .summary-section {
-          margin-block-start: var(--spacing-8);
-          padding-block-start: var(--spacing-6);
-          border-block-start: 2px solid var(--page-card-border);
+                    /* Neutros con light-dark() */
+                    --color-text: light-dark(#1a1f24, #ecebe9);
+                    --color-text-secondary: light-dark(#364049, #c0c0c0);
+                    --color-background: light-dark(#f9f6f2, #151515);
+                    --color-content-bg: light-dark(#ffffff, #222222);
+                    --color-border: light-dark(#c7c2ba, #454545);
+                    --color-background-muted: light-dark(#eceef3, #2b3647);
 
-          h2 {
-            text-align: center;
-            font-size: var(--font-size-h2);
-            margin-block-end: var(--spacing-5);
-            color: var(--page-accent);
-            line-height: var(--line-height-heading);
-          }
-        }
+                    /* Sombras adaptativas */
+                    --shadow-color: light-dark(oklch(0% 0 0 / 10%), oklch(0% 0 0 / 20%));
+                    --shadow-standard: 0 0.125rem 0.25rem var(--shadow-color);
+                    --shadow-hover: 0 0.25rem 0.5rem light-dark(oklch(0% 0 0 / 15%), oklch(0% 0 0 / 30%));
+                    --shadow-sm: 0 0.0625rem 0.125rem var(--shadow-color);
+                    --shadow-card: 0 0.25rem 1rem light-dark(oklch(0% 0 0 / 8%), oklch(0% 0 0 / 15%));
+                    --shadow-card-hover: 0 0.5rem 1.5rem light-dark(oklch(0% 0 0 / 15%), oklch(0% 0 0 / 20%));
+                    --shadow-box: 0 0.25rem 0.75rem light-dark(oklch(0% 0 0 / 6%), oklch(0% 0 0 / 12%));
 
-        .summary-table {
-          width: 100%;
-          border-collapse: collapse;
-          background: var(--page-card);
-          border-radius: var(--border-radius);
-          overflow: hidden;
-          box-shadow: var(--page-shadow);
-          font-size: var(--font-size-base);
-          transition: var(--transition-standard);
+                    /* Radios */
+                    --border-radius: 0.5rem;
+                    --border-radius-small: 0.25rem;
+                    --border-radius-full: 9999px;
+                    --border-thin: 0.0625rem;
+                    --border-medium: 0.125rem;
 
-          th {
-            background: var(--page-bg);
-            color: var(--page-accent2);
-            padding: var(--spacing-4);
-            text-align: start;
-            transition: var(--transition-standard);
-          }
+                    /* Focus */
+                    --outline-width: 0.1875rem;
+                    --outline-offset: 0.125rem;
 
-          td {
-            padding: var(--spacing-4);
-            border-block-end: var(--border-thin) solid var(--page-card-border);
-          }
+                    /* Espaciado */
+                    --spacing-1: 0.25rem;
+                    --spacing-2: 0.5rem;
+                    --spacing-3: 0.75rem;
+                    --spacing-4: 1rem;
+                    --spacing-5: 1.5rem;
+                    --spacing-6: 2rem;
+                    --spacing-7: 3rem;
+                    --spacing-8: 4rem;
 
-          tr:last-child td {
-            border-block-end: none;
-          }
+                    /* Tipografía */
+                    --font-family-base: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+                    --font-size-base: clamp(0.875rem, 2vw, 1rem);
+                    --font-size-sm: clamp(0.8rem, 1.6vw, 0.9375rem);
+                    --font-size-xs: 0.75rem;
+                    --font-size-h1: clamp(2rem, 5vw, 2.5rem);
+                    --font-size-h2: clamp(1.5rem, 4vw, 2rem);
+                    --font-size-h3: clamp(1.25rem, 3vw, 1.5rem);
+                    --font-size-h4: clamp(1rem, 2.5vw, 1.125rem);
+                    --line-height-base: 1.6;
+                    --line-height-heading: 1.2;
+                    --font-weight-bold: 700;
 
-          tr:hover td {
-            background: var(--page-bg);
-          }
-        }
+                    /* Transiciones */
+                    --transition-duration: 0.2s;
+                    --transition-easing: ease;
+                    --transition-standard: background var(--transition-duration) var(--transition-easing), 
+                                           color var(--transition-duration) var(--transition-easing),
+                                           border-color var(--transition-duration) var(--transition-easing);
+                    --transition-transform: transform var(--transition-duration) var(--transition-easing);
+                    --transition-shadow: box-shadow var(--transition-duration) var(--transition-easing);
 
-        .tag {
-          display: inline-block;
-          padding: var(--spacing-1) var(--spacing-3);
-          border-radius: var(--border-radius-small);
-          font-size: var(--font-size-sm);
-          font-weight: var(--font-weight-bold);
-          margin-inline-end: var(--spacing-1);
-          margin-block-end: var(--spacing-1);
-        }
-
-        .tag-main {
-          background: color-mix(in srgb, var(--page-accent) 12%, transparent);
-          color: var(--page-accent);
-        }
-        .tag-sec {
-          background: color-mix(in srgb, var(--page-muted) 12%, transparent);
-          color: var(--page-muted);
-        }
-
-        .notes-footer {
-          margin-block-start: var(--spacing-7);
-          background: var(--page-card);
-          border-radius: var(--border-radius);
-          padding: var(--spacing-6);
-          box-shadow: var(--page-shadow);
-          transition: var(--transition-standard);
-
-          h2 {
-            color: var(--page-accent);
-            margin-block-end: var(--spacing-4);
-            font-size: var(--font-size-h3);
-            line-height: var(--line-height-heading);
-          }
-
-          ul {
-            list-style: none;
-          }
-
-          li {
-            position: relative;
-            padding-inline-start: var(--spacing-5);
-            margin-block-end: var(--spacing-4);
-            color: var(--page-muted);
-
-            &::before {
-              content: "▸";
-              position: absolute;
-              inset-inline-start: 0;
-              color: var(--page-accent2);
-              font-weight: bold;
-            }
-          }
-
-          strong {
-            color: var(--page-text);
-          }
-        }
-
-        .ht-term {
-          font-size: var(--font-size-xs);
-          color: var(--page-muted);
-          font-weight: 400;
-          white-space: nowrap;
-        }
-
-        .glossary {
-          background: var(--page-bg);
-          border: var(--border-thin) solid var(--page-card-border);
-          border-radius: var(--border-radius);
-          padding: var(--spacing-4) var(--spacing-5);
-          margin-block-end: var(--spacing-6);
-          font-size: var(--font-size-sm);
-          color: var(--page-muted);
-
-          h3 {
-            font-size: var(--font-size-h4);
-            color: var(--page-accent);
-            margin-block-end: var(--spacing-3);
-          }
-
-          dl {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: var(--spacing-2) var(--spacing-4);
-          }
-
-          dt {
-            font-weight: var(--font-weight-bold);
-            color: var(--page-text);
-            display: inline;
-          }
-
-          dd {
-            display: inline;
-            margin-inline-start: var(--spacing-1);
-          }
-
-          dd::after {
-            content: "";
-            display: block;
-          }
-        }
-      }
-
-      @layer overrides {
-        @media (max-width: 40rem) {
-          body {
-            padding: var(--spacing-4) var(--spacing-3);
-          }
-
-          .pos-header {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: var(--spacing-3);
-          }
-
-          .pos-icon {
-            inline-size: 2.75rem;
-            block-size: 2.75rem;
-            font-size: 1.3rem;
-          }
-
-          .pos-title h2 {
-            font-size: var(--font-size-h4);
-          }
-
-          .position-card {
-            padding: var(--spacing-4);
-          }
-
-          .phase-table,
-          .phase-table thead,
-          .phase-table tbody,
-          .phase-table th,
-          .phase-table td,
-          .phase-table tr {
-            display: block;
-            width: 100%;
-          }
-
-          .phase-table thead {
-            display: none;
-          }
-
-          .phase-table tr {
-            margin-block-end: var(--spacing-4);
-            background: var(--page-bg);
-            border-radius: var(--border-radius);
-            padding: var(--spacing-4);
-            border: var(--border-thin) solid var(--page-card-border);
-          }
-
-          .phase-table td {
-            border: none;
-            padding: var(--spacing-2) 0;
-            position: relative;
-
-            &:first-child {
-              padding-block-end: var(--spacing-3);
-              margin-block-end: var(--spacing-2);
-              border-block-end: var(--border-thin) solid var(--page-card-border);
+                    /* Variables de página — ahora con light-dark() */
+                    --page-bg: light-dark(#f9f6f2, #151515);
+                    --page-card: light-dark(#ffffff, #222222);
+                    --page-card-border: light-dark(#c7c2ba, #454545);
+                    --page-text: light-dark(#1a1f24, #ecebe9);
+                    --page-muted: light-dark(#364049, #c0c0c0);
+                    --page-accent: light-dark(hsl(150 40% 35%), hsl(150 40% 45%));
+                    --page-accent2: light-dark(hsl(20 65% 40%), hsl(20 65% 50%));
+                    --page-success: light-dark(hsl(150 40% 35%), hsl(150 40% 45%));
+                    --page-danger: light-dark(#dc2626, #ef4444);
+                    --page-shadow: light-dark(0 0.25rem 1rem oklch(0% 0 0 / 8%), 
+                                              0 0.25rem 1rem oklch(0% 0 0 / 15%));
+                }
             }
 
-            &:nth-child(2) {
-              font-size: var(--font-size-sm);
-              color: var(--page-muted);
-              margin-block-end: var(--spacing-2);
+            /* =================================================
+               LAYOUT
+               ================================================= */
+            @layer layout {
+                body {
+                    font-family: var(--font-family-base);
+                    background: var(--page-bg);
+                    color: var(--page-text);
+                    line-height: var(--line-height-base);
+                    padding: var(--spacing-6) var(--spacing-4);
+                    transition: var(--transition-standard);
+                    min-block-size: 100dvh;
+                    -webkit-font-smoothing: antialiased;
+                    -moz-osx-font-smoothing: grayscale;
+                }
 
-              &::before {
-                content: "Configuración: ";
-                font-weight: var(--font-weight-bold);
-                color: var(--page-text);
-              }
+                .container {
+                    max-inline-size: min(60rem, 100% - 2rem);
+                    margin-inline: auto;
+                }
             }
 
-            &:nth-child(3) {
-              font-size: var(--font-size-base);
+            /* =================================================
+               COMPONENTS
+               ================================================= */
+            @layer components {
+                header {
+                    text-align: center;
+                    margin-block-end: var(--spacing-7);
+                    padding-block-end: var(--spacing-6);
+                    border-block-end: var(--border-thin) solid var(--page-card-border);
 
-              &::before {
-                content: "Acción: ";
-                font-weight: var(--font-weight-bold);
-                color: var(--page-text);
-                display: block;
-                margin-block-end: var(--spacing-1);
-              }
+                    h1 {
+                        font-size: var(--font-size-h2);
+                        background: linear-gradient(90deg, var(--page-accent), var(--page-accent2));
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        margin-block-end: var(--spacing-2);
+                        line-height: var(--line-height-heading);
+                    }
+
+                    p {
+                        color: var(--page-muted);
+                        font-size: 1.05rem;
+                        max-inline-size: 50ch;
+                        margin-inline: auto;
+                    }
+                }
+
+                .requirements {
+                    background: var(--page-card);
+                    border: var(--border-thin) solid var(--page-card-border);
+                    border-radius: var(--border-radius);
+                    padding: var(--spacing-5) var(--spacing-6);
+                    margin-block-end: var(--spacing-7);
+                    box-shadow: var(--page-shadow);
+                    transition: var(--transition-standard);
+
+                    h2 {
+                        color: var(--page-accent2);
+                        font-size: var(--font-size-h4);
+                        margin-block-end: var(--spacing-4);
+                        display: flex;
+                        align-items: center;
+                        gap: var(--spacing-2);
+                    }
+                }
+
+                .req-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+                    gap: var(--spacing-4);
+                }
+
+                .req-item {
+                    background: var(--page-bg);
+                    border-radius: var(--border-radius);
+                    padding: var(--spacing-4);
+                    border-inline-start: 4px solid var(--page-accent);
+                    transition: var(--transition-standard);
+
+                    strong {
+                        color: var(--page-accent);
+                        display: block;
+                        margin-block-end: var(--spacing-1);
+                    }
+
+                    span {
+                        color: var(--page-muted);
+                        font-size: var(--font-size-sm);
+                    }
+                }
+
+                .position-card {
+                    background: var(--page-card);
+                    border: var(--border-thin) solid var(--page-card-border);
+                    border-radius: var(--border-radius);
+                    padding: var(--spacing-6);
+                    margin-block-end: var(--spacing-6);
+                    box-shadow: var(--page-shadow);
+                    transition: var(--transition-transform), var(--transition-standard);
+
+                    &:hover {
+                        transform: translateY(-3px);
+                        box-shadow: var(--shadow-card-hover);
+                    }
+                }
+
+                .pos-header {
+                    display: flex;
+                    align-items: center;
+                    gap: var(--spacing-4);
+                    margin-block-end: var(--spacing-4);
+                    padding-block-end: var(--spacing-4);
+                    border-block-end: var(--border-thin) solid var(--page-card-border);
+                }
+
+                .pos-icon {
+                    inline-size: 3.25rem;
+                    block-size: 3.25rem;
+                    border-radius: var(--border-radius);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 1.6rem;
+                    flex-shrink: 0;
+                }
+
+                .pos-title {
+                    h2 {
+                        font-size: var(--font-size-h3);
+                        color: var(--page-text);
+                        line-height: var(--line-height-heading);
+                    }
+                }
+
+                .pos-goals {
+                    color: var(--page-muted);
+                    font-size: var(--font-size-sm);
+                    margin-block-start: var(--spacing-1);
+
+                    span {
+                        color: var(--page-accent2);
+                        font-weight: 600;
+                    }
+                }
+
+                .gk .pos-icon {
+                    background: color-mix(in srgb, var(--color-secondary) 15%, transparent);
+                    color: var(--color-secondary);
+                }
+
+                .cb .pos-icon {
+                    background: color-mix(in srgb, var(--page-danger) 15%, transparent);
+                    color: var(--page-danger);
+                }
+
+                .wb .pos-icon {
+                    background: color-mix(in srgb, var(--color-secondary) 20%, transparent);
+                    color: var(--color-secondary-dark);
+                }
+
+                .mf .pos-icon {
+                    background: color-mix(in srgb, var(--page-accent) 15%, transparent);
+                    color: var(--page-accent);
+                }
+
+                .wm .pos-icon {
+                    background: color-mix(in srgb, #a78bfa 15%, transparent);
+                    color: #a78bfa;
+                }
+
+                .wi .pos-icon {
+                    background: color-mix(in srgb, var(--page-success) 15%, transparent);
+                    color: var(--page-success);
+                }
+
+                .fw .pos-icon {
+                    background: color-mix(in srgb, #f472b6 15%, transparent);
+                    color: #f472b6;
+                }
+
+                .phase-table {
+                    width: 100%;
+                    border-collapse: separate;
+                    border-spacing: 0;
+                    margin-block-start: var(--spacing-4);
+                    font-size: var(--font-size-base);
+
+                    th {
+                        background: var(--page-bg);
+                        color: var(--page-accent);
+                        text-align: start;
+                        padding: var(--spacing-3) var(--spacing-4);
+                        font-weight: var(--font-weight-bold);
+                        border-block-end: 2px solid var(--page-card-border);
+                        transition: var(--transition-standard);
+                    }
+
+                    td {
+                        padding: var(--spacing-3) var(--spacing-4);
+                        border-block-end: var(--border-thin) solid var(--page-card-border);
+                        vertical-align: top;
+                    }
+
+                    tr:hover td {
+                        background: var(--page-bg);
+                    }
+                }
+
+                .phase-badge {
+                    display: inline-block;
+                    padding: var(--spacing-1) var(--spacing-3);
+                    border-radius: var(--border-radius-full);
+                    font-size: 0.7rem;
+                    font-weight: var(--font-weight-bold);
+                    text-transform: uppercase;
+                    letter-spacing: 0.5px;
+                    white-space: nowrap;
+                }
+
+                .badge-p1 {
+                    background: color-mix(in srgb, var(--page-danger) 15%, transparent);
+                    color: var(--page-danger);
+                }
+
+                .badge-p2 {
+                    background: color-mix(in srgb, var(--page-accent2) 15%, transparent);
+                    color: var(--page-accent2);
+                }
+
+                .badge-p3 {
+                    background: color-mix(in srgb, var(--page-success) 15%, transparent);
+                    color: var(--page-success);
+                }
+
+                .phase-table ul {
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+
+                    li {
+                        position: relative;
+                        padding-inline-start: var(--spacing-4);
+                        margin-block-end: var(--spacing-2);
+                        line-height: 1.5;
+
+                        &:last-child {
+                            margin-block-end: 0;
+                        }
+
+                        &::before {
+                            content: "•";
+                            position: absolute;
+                            inset-inline-start: 0;
+                            color: var(--page-accent2);
+                            font-weight: bold;
+                        }
+                    }
+                }
+
+                .note-box {
+                    background: var(--page-bg);
+                    border-inline-start: 4px solid var(--page-accent2);
+                    padding: var(--spacing-4) var(--spacing-5);
+                    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+                    margin-block-start: var(--spacing-4);
+                    font-size: var(--font-size-sm);
+                    color: var(--page-muted);
+                    transition: var(--transition-standard);
+
+                    strong {
+                        color: var(--page-accent2);
+                    }
+                }
+
+                .summary-section {
+                    margin-block-start: var(--spacing-8);
+                    padding-block-start: var(--spacing-6);
+                    border-block-start: 2px solid var(--page-card-border);
+
+                    h2 {
+                        text-align: center;
+                        font-size: var(--font-size-h2);
+                        margin-block-end: var(--spacing-5);
+                        color: var(--page-accent);
+                        line-height: var(--line-height-heading);
+                    }
+                }
+
+                .summary-table {
+                    width: 100%;
+                    border-collapse: collapse;
+                    background: var(--page-card);
+                    border-radius: var(--border-radius);
+                    overflow: hidden;
+                    box-shadow: var(--page-shadow);
+                    font-size: var(--font-size-base);
+                    transition: var(--transition-standard);
+
+                    th {
+                        background: var(--page-bg);
+                        color: var(--page-accent2);
+                        padding: var(--spacing-4);
+                        text-align: start;
+                        transition: var(--transition-standard);
+                    }
+
+                    td {
+                        padding: var(--spacing-4);
+                        border-block-end: var(--border-thin) solid var(--page-card-border);
+                    }
+
+                    tr:last-child td {
+                        border-block-end: none;
+                    }
+
+                    tr:hover td {
+                        background: var(--page-bg);
+                    }
+                }
+
+                .tag {
+                    display: inline-block;
+                    padding: var(--spacing-1) var(--spacing-3);
+                    border-radius: var(--border-radius-small);
+                    font-size: var(--font-size-sm);
+                    font-weight: var(--font-weight-bold);
+                    margin-inline-end: var(--spacing-1);
+                    margin-block-end: var(--spacing-1);
+                }
+
+                .tag-main {
+                    background: color-mix(in srgb, var(--page-accent) 12%, transparent);
+                    color: var(--page-accent);
+                }
+
+                .tag-sec {
+                    background: color-mix(in srgb, var(--page-muted) 12%, transparent);
+                    color: var(--page-muted);
+                }
+
+                .notes-footer {
+                    margin-block-start: var(--spacing-7);
+                    background: var(--page-card);
+                    border-radius: var(--border-radius);
+                    padding: var(--spacing-6);
+                    box-shadow: var(--page-shadow);
+                    transition: var(--transition-standard);
+
+                    h2 {
+                        color: var(--page-accent);
+                        margin-block-end: var(--spacing-4);
+                        font-size: var(--font-size-h3);
+                        line-height: var(--line-height-heading);
+                    }
+
+                    ul {
+                        list-style: none;
+                    }
+
+                    li {
+                        position: relative;
+                        padding-inline-start: var(--spacing-5);
+                        margin-block-end: var(--spacing-4);
+                        color: var(--page-muted);
+
+                        &::before {
+                            content: "▸";
+                            position: absolute;
+                            inset-inline-start: 0;
+                            color: var(--page-accent2);
+                            font-weight: bold;
+                        }
+                    }
+
+                    strong {
+                        color: var(--page-text);
+                    }
+                }
+
+                .ht-term {
+                    font-size: var(--font-size-xs);
+                    color: var(--page-muted);
+                    font-weight: 400;
+                    white-space: nowrap;
+                }
+
+                .glossary {
+                    background: var(--page-bg);
+                    border: var(--border-thin) solid var(--page-card-border);
+                    border-radius: var(--border-radius);
+                    padding: var(--spacing-4) var(--spacing-5);
+                    margin-block-end: var(--spacing-6);
+                    font-size: var(--font-size-sm);
+                    color: var(--page-muted);
+
+                    h3 {
+                        font-size: var(--font-size-h4);
+                        color: var(--page-accent);
+                        margin-block-end: var(--spacing-3);
+                    }
+
+                    dl {
+                        display: grid;
+                        grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+                        gap: var(--spacing-2) var(--spacing-4);
+                    }
+
+                    dt {
+                        font-weight: var(--font-weight-bold);
+                        color: var(--page-text);
+                        display: inline;
+                    }
+
+                    dd {
+                        display: inline;
+                        margin-inline-start: var(--spacing-1);
+                    }
+
+                    dd::after {
+                        content: "";
+                        display: block;
+                    }
+                }
+
+                .footer-content {
+                    text-align: center;
+                    padding: var(--spacing-4);
+                    margin-block-start: var(--spacing-7);
+                    background: var(--page-card);
+                    border-top: var(--border-thin) solid var(--page-card-border);
+                    border-radius: var(--border-radius);
+                    font-size: var(--font-size-sm);
+                    color: var(--page-muted);
+
+                    a {
+                        color: var(--page-accent);
+                        text-decoration: none;
+                        transition: var(--transition-standard);
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
             }
-          }
 
-          .summary-table {
-            font-size: var(--font-size-sm);
+            /* =================================================
+               ACCESSIBILITY
+               ================================================= */
+            @layer accessibility {
+                @media (prefers-reduced-motion: reduce) {
+                    *,
+                    *::before,
+                    *::after {
+                        animation-duration: 0.01ms !important;
+                        animation-iteration-count: 1 !important;
+                        transition-duration: 0.01ms !important;
+                    }
+                }
 
-            th,
-            td {
-              padding: var(--spacing-3) var(--spacing-2);
+                @media (prefers-contrast: high) {
+                    :root {
+                        --page-text: #000;
+                        --page-bg: #fff;
+                        --page-card: #fff;
+                        --page-card-border: #000;
+                        --page-accent: #000;
+                        --page-accent2: #000;
+                    }
+
+                    .phase-badge {
+                        border: 1px solid currentColor;
+                    }
+
+                    .pos-icon {
+                        border: 2px solid currentColor;
+                    }
+                }
+
+                @media (forced-colors: active) {
+                    :root {
+                        --page-text: CanvasText;
+                        --page-bg: Canvas;
+                        --page-accent: LinkText;
+                    }
+
+                    .position-card,
+                    .requirements,
+                    .summary-table,
+                    .notes-footer,
+                    .glossary {
+                        border: 2px solid CanvasText;
+                    }
+
+                    .phase-badge {
+                        border: 1px solid ButtonBorder;
+                    }
+
+                    a {
+                        color: LinkText;
+                    }
+                }
             }
-          }
 
-          .tag {
-            font-size: var(--font-size-sm);
-            padding: var(--spacing-1) var(--spacing-2);
-          }
+            /* =================================================
+               RESPONSIVE OVERRIDES
+               ================================================= */
+            @media (max-width: 40rem) {
+                body {
+                    padding: var(--spacing-4) var(--spacing-3);
+                }
 
-          .requirements {
-            padding: var(--spacing-4);
-          }
+                .pos-header {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: var(--spacing-3);
+                }
 
-          .req-grid {
-            grid-template-columns: 1fr;
-          }
+                .pos-icon {
+                    inline-size: 2.75rem;
+                    block-size: 2.75rem;
+                    font-size: 1.3rem;
+                }
 
-          .notes-footer {
-            padding: var(--spacing-4);
-          }
+                .pos-title h2 {
+                    font-size: var(--font-size-h4);
+                }
 
-          .glossary dl {
-            grid-template-columns: repeat(2, 1fr);
-            gap: var(--spacing-2) var(--spacing-3);
-          }
-        }
+                .position-card {
+                    padding: var(--spacing-4);
+                }
 
-        @media (max-width: 20rem) {
-          header h1 {
-            font-size: var(--font-size-h3);
-          }
+                .phase-table,
+                .phase-table thead,
+                .phase-table tbody,
+                .phase-table th,
+                .phase-table td,
+                .phase-table tr {
+                    display: block;
+                    width: 100%;
+                }
 
-          .pos-goals {
-            font-size: var(--font-size-sm);
-          }
+                .phase-table thead {
+                    display: none;
+                }
 
-          .phase-table td:nth-child(3)::before {
-            content: "";
-            display: none;
-          }
+                .phase-table tr {
+                    margin-block-end: var(--spacing-4);
+                    background: var(--page-bg);
+                    border-radius: var(--border-radius);
+                    padding: var(--spacing-4);
+                    border: var(--border-thin) solid var(--page-card-border);
+                }
 
-          .glossary dl {
-            grid-template-columns: 1fr;
-          }
-        }
+                .phase-table td {
+                    border: none;
+                    padding: var(--spacing-2) 0;
+                    position: relative;
 
-        @media (prefers-reduced-motion: reduce) {
-          *,
-          *::before,
-          *::after {
-            animation-duration: 0.01ms !important;
-            animation-iteration-count: 1 !important;
-            transition-duration: 0.01ms !important;
-          }
-        }
-      }
-    </style>
-    <base target="_blank" />
-  </head>
-  <body>
-    <div class="container" id="main-content">
-      <header>
-        <h1>⚽ Plan de Entrenamiento — Selección Ecuador U21</h1>
-        <p>
-          Este plan está diseñado para optimizar el rendimiento de los jugadores convocados a la selección. Hemos estructurado los objetivos en fases sencillas para que coordinar
-          los cambios sea lo más cómodo posible tanto para tu club como para la selección.
-        </p>
-      </header>
+                    &:first-child {
+                        padding-block-end: var(--spacing-3);
+                        margin-block-end: var(--spacing-2);
+                        border-block-end: var(--border-thin) solid var(--page-card-border);
+                    }
 
-      <div class="glossary">
-        <h3>🌐 Glosario Hattrick</h3>
-        <dl>
-          <dt>Portería</dt>
-          <dd>Keeper</dd>
-          <dt>Defensa</dt>
-          <dd>Defending</dd>
-          <dt>Jugadas</dt>
-          <dd>Playmaking</dd>
-          <dt>Lateral</dt>
-          <dd>Winger</dd>
-          <dt>Pases</dt>
-          <dd>Passing</dd>
-          <dt>Anotación</dt>
-          <dd>Scoring</dd>
-          <dt>Balón parado</dt>
-          <dd>Set Pieces</dd>
-        </dl>
-      </div>
+                    &:nth-child(2) {
+                        font-size: var(--font-size-sm);
+                        color: var(--page-muted);
+                        margin-block-end: var(--spacing-2);
 
-      <div class="requirements">
-        <h2>🔧 Requisitos Recomendados</h2>
-        <div class="req-grid">
-          <div class="req-item">
-            <strong>Entrenador</strong>
-            <span>Bueno (nivel 7) o Excelente (nivel 8)</span>
-          </div>
-          <div class="req-item">
-            <strong>Asistentes</strong>
-            <span>Nivel 10 (ideal y perfecto)</span>
-          </div>
-          <div class="req-item">
-            <strong>Médico</strong>
-            <span>Nivel 5 (prevención de lesiones)</span>
-          </div>
-        </div>
-      </div>
+                        &::before {
+                            content: "Configuración: ";
+                            font-weight: var(--font-weight-bold);
+                            color: var(--page-text);
+                        }
+                    }
 
-      <!-- 1. PORTERO -->
-      <div class="position-card gk">
-        <div class="pos-header">
-          <div class="pos-icon" aria-hidden="true">🧤</div>
-          <div class="pos-title">
-            <h2>1. Portero</h2>
-            <div class="pos-goals">
-              Meta: <span>Portería 16 <span class="ht-term">(Keeper)</span></span> · <span>Balón Parado 16 <span class="ht-term">(Set Pieces)</span></span> ·
-              <span>Defensa 6 <span class="ht-term">(Defending)</span></span>
+                    &:nth-child(3) {
+                        font-size: var(--font-size-base);
+
+                        &::before {
+                            content: "Acción: ";
+                            font-weight: var(--font-weight-bold);
+                            color: var(--page-text);
+                            display: block;
+                            margin-block-end: var(--spacing-1);
+                        }
+                    }
+                }
+
+                .summary-table {
+                    font-size: var(--font-size-sm);
+
+                    th,
+                    td {
+                        padding: var(--spacing-3) var(--spacing-2);
+                    }
+                }
+
+                .tag {
+                    font-size: var(--font-size-sm);
+                    padding: var(--spacing-1) var(--spacing-2);
+                }
+
+                .requirements {
+                    padding: var(--spacing-4);
+                }
+
+                .req-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                .notes-footer {
+                    padding: var(--spacing-4);
+                }
+
+                .glossary dl {
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: var(--spacing-2) var(--spacing-3);
+                }
+            }
+
+            @media (max-width: 20rem) {
+                header h1 {
+                    font-size: var(--font-size-h3);
+                }
+
+                .pos-goals {
+                    font-size: var(--font-size-sm);
+                }
+
+                .phase-table td:nth-child(3)::before {
+                    content: "";
+                    display: none;
+                }
+
+                .glossary dl {
+                    grid-template-columns: 1fr;
+                }
+            }
+        </style>
+        <base target="_blank" />
+    </head>
+
+    <body>
+        <div class="container" id="main-content">
+            <header>
+                <h1>⚽ {{ page.title }}</h1>
+                <p>{{ page.description }}</p>
+            </header>
+
+            <div class="glossary">
+                <h3>🌐 Glosario Hattrick</h3>
+                <dl>
+                    <dt>Portería</dt>
+                    <dd>Keeper</dd>
+                    <dt>Defensa</dt>
+                    <dd>Defending</dd>
+                    <dt>Jugadas</dt>
+                    <dd>Playmaking</dd>
+                    <dt>Lateral</dt>
+                    <dd>Winger</dd>
+                    <dt>Pases</dt>
+                    <dd>Passing</dd>
+                    <dt>Anotación</dt>
+                    <dd>Scoring</dd>
+                    <dt>Balón parado</dt>
+                    <dd>Set Pieces</dd>
+                </dl>
             </div>
-          </div>
-        </div>
-        <table class="phase-table">
-          <thead>
-            <tr>
-              <th>Fase</th>
-              <th>Resistencia / Intensidad</th>
-              <th>Acción</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><span class="phase-badge badge-p1">Fase 1</span></td>
-              <td>Resistencia <strong>10%</strong> · Intensidad <strong>100%</strong></td>
-              <td>
-                Entrenar <strong>Portería <span class="ht-term">(Keeper)</span></strong> hasta nivel <strong>14</strong>
-              </td>
-            </tr>
-            <tr>
-              <td><span class="phase-badge badge-p2">Fase 2</span></td>
-              <td>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></td>
-              <td>
-                <ul>
-                  <li>
-                    Cambiar a <strong>Balón Parado <span class="ht-term">(Set Pieces)</span></strong> hasta nivel <strong>16</strong>
-                  </li>
-                  <li>
-                    Cambiar a <strong>Defensa <span class="ht-term">(Defending)</span></strong> hasta nivel <strong>6</strong>
-                  </li>
-                </ul>
-              </td>
-            </tr>
-            <tr>
-              <td><span class="phase-badge badge-p3">Fase 3</span></td>
-              <td>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></td>
-              <td>
-                Regresar a <strong>Portería <span class="ht-term">(Keeper)</span></strong> para pulir hasta nivel <strong>16</strong>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
 
-      <!-- 2. DEFENSA CENTRAL -->
-      <div class="position-card cb">
-        <div class="pos-header">
-          <div class="pos-icon" aria-hidden="true">🛡️</div>
-          <div class="pos-title">
-            <h2>2. Defensa Central</h2>
-            <div class="pos-goals">
-              Meta: <span>Defensa 15 <span class="ht-term">(Defending)</span></span> · <span>Jugadas 8 <span class="ht-term">(Playmaking)</span></span> ·
-              <span>Pases 6 <span class="ht-term">(Passing)</span></span>
+            <div class="requirements">
+                <h2>🔧 Requisitos Recomendados</h2>
+                <div class="req-grid">
+                    <div class="req-item">
+                        <strong>Entrenador</strong>
+                        <span>Bueno (nivel 7) o Excelente (nivel 8)</span>
+                    </div>
+                    <div class="req-item">
+                        <strong>Asistentes</strong>
+                        <span>Nivel 10 (ideal y perfecto)</span>
+                    </div>
+                    <div class="req-item">
+                        <strong>Médico</strong>
+                        <span>Nivel 5 (prevención de lesiones)</span>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-        <table class="phase-table">
-          <thead>
-            <tr>
-              <th>Fase</th>
-              <th>Resistencia / Intensidad</th>
-              <th>Acción</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><span class="phase-badge badge-p1">Fase 1</span></td>
-              <td>Resistencia <strong>10%</strong> · Intensidad <strong>100%</strong></td>
-              <td>
-                Entrenar <strong>Defensa <span class="ht-term">(Defending)</span></strong> hasta nivel <strong>13</strong>
-              </td>
-            </tr>
-            <tr>
-              <td><span class="phase-badge badge-p2">Fase 2</span></td>
-              <td><strong>100%</strong> · Resistencia <strong>13%</strong></td>
-              <td>
-                <ul>
-                  <li>
-                    Cambiar a <strong>Jugadas <span class="ht-term">(Playmaking)</span></strong> hasta nivel <strong>8</strong>
-                  </li>
-                  <li>
-                    Cambiar a <strong>Pases <span class="ht-term">(Passing)</span></strong> hasta nivel <strong>6</strong>
-                  </li>
-                </ul>
-              </td>
-            </tr>
-            <tr>
-              <td><span class="phase-badge badge-p3">Fase 3</span></td>
-              <td><strong>100%</strong> · Resistencia <strong>13%</strong></td>
-              <td>
-                Regresar a <strong>Defensa <span class="ht-term">(Defending)</span></strong> para pulir hasta nivel <strong>15</strong>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
 
-      <!-- 3. DEFENSA LATERAL -->
-      <div class="position-card wb">
-        <div class="pos-header">
-          <div class="pos-icon" aria-hidden="true">🛡️</div>
-          <div class="pos-title">
-            <h2>3. Defensa Lateral</h2>
-            <div class="pos-goals">
-              Meta: <span>Defensa 14 <span class="ht-term">(Defending)</span></span> · <span>Lateral 10 <span class="ht-term">(Winger)</span></span> ·
-              <span>Pases 8 <span class="ht-term">(Passing)</span></span>
+            <!-- 1. PORTERO -->
+            <div class="position-card gk">
+                <div class="pos-header">
+                    <div class="pos-icon" aria-hidden="true">🧤</div>
+                    <div class="pos-title">
+                        <h2>1. Portero</h2>
+                        <div class="pos-goals">
+                            Meta: <span>Portería 16 <span class="ht-term">(Keeper)</span></span> · <span>Balón Parado 16 <span class="ht-term">(Set Pieces)</span></span> ·
+                            <span>Defensa 6 <span class="ht-term">(Defending)</span></span>
+                        </div>
+                    </div>
+                </div>
+                <table class="phase-table">
+                    <thead>
+                        <tr>
+                            <th>Fase</th>
+                            <th>Resistencia / Intensidad</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="phase-badge badge-p1">Fase 1</span></td>
+                            <td>Resistencia <strong>10%</strong> · Intensidad <strong>100%</strong></td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        Entrenar <strong>Portería <span class="ht-term">(Keeper)</span></strong> hasta nivel
+                                        <strong>14</strong>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="phase-badge badge-p2">Fase 2</span></td>
+                            <td>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        Cambiar a <strong>Balón Parado <span class="ht-term">(Set Pieces)</span></strong> hasta nivel <strong>16</strong>
+                                    </li>
+                                    <li>
+                                        Cambiar a <strong>Defensa <span class="ht-term">(Defending)</span></strong> hasta nivel <strong>6</strong>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="phase-badge badge-p3">Fase 3</span></td>
+                            <td>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        Regresar a <strong>Portería <span class="ht-term">(Keeper)</span></strong> para pulir hasta nivel <strong>16</strong>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-          </div>
-        </div>
-        <table class="phase-table">
-          <thead>
-            <tr>
-              <th>Fase</th>
-              <th>Resistencia / Intensidad</th>
-              <th>Acción</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><span class="phase-badge badge-p1">Fase 1</span></td>
-              <td>Resistencia <strong>10%</strong> · Intensidad <strong>100%</strong></td>
-              <td>
-                Entrenar <strong>Defensa <span class="ht-term">(Defending)</span></strong> hasta nivel <strong>12</strong>
-              </td>
-            </tr>
-            <tr>
-              <td><span class="phase-badge badge-p2">Fase 2</span></td>
-              <td>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></td>
-              <td>
-                <ul>
-                  <li>
-                    Cambiar a <strong>Lateral <span class="ht-term">(Winger)</span></strong> hasta nivel <strong>10</strong>
-                  </li>
-                  <li>
-                    Cambiar a <strong>Pases <span class="ht-term">(Passing)</span></strong> hasta nivel <strong>8</strong>
-                  </li>
-                </ul>
-              </td>
-            </tr>
-            <tr>
-              <td><span class="phase-badge badge-p3">Fase 3</span></td>
-              <td>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></td>
-              <td>
-                Regresar a <strong>Defensa <span class="ht-term">(Defending)</span></strong> para pulir hasta nivel <strong>14</strong>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <div class="note-box">
-          <strong>Nota:</strong> Mínimo nivel 6 en Pases <span class="ht-term">(Passing)</span> si el plan lo exige. El orden de las secundarias en Fase 2 es flexible.
-        </div>
-      </div>
 
-      <!-- 4. MEDIOCENTRO -->
-      <div class="position-card mf">
-        <div class="pos-header">
-          <div class="pos-icon" aria-hidden="true">⚙️</div>
-          <div class="pos-title">
-            <h2>4. Mediocentro</h2>
-            <div class="pos-goals">
-              Meta: <span>Jugadas 15 <span class="ht-term">(Playmaking)</span></span> · <span>Defensa 6 <span class="ht-term">(Defending)</span></span> ·
-              <span>Pases 6 <span class="ht-term">(Passing)</span></span> ·
-              <span>Anotación 6 <span class="ht-term">(Scoring)</span></span>
+            <!-- 2. DEFENSA CENTRAL -->
+            <div class="position-card cb">
+                <div class="pos-header">
+                    <div class="pos-icon" aria-hidden="true">🛡️</div>
+                    <div class="pos-title">
+                        <h2>2. Defensa Central</h2>
+                        <div class="pos-goals">
+                            Meta: <span>Defensa 15 <span class="ht-term">(Defending)</span></span> · <span>Jugadas 8 <span class="ht-term">(Playmaking)</span></span> ·
+                            <span>Pases 6 <span class="ht-term">(Passing)</span></span>
+                        </div>
+                    </div>
+                </div>
+                <table class="phase-table">
+                    <thead>
+                        <tr>
+                            <th>Fase</th>
+                            <th>Resistencia / Intensidad</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="phase-badge badge-p1">Fase 1</span></td>
+                            <td>Resistencia <strong>10%</strong> · Intensidad <strong>100%</strong></td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        Entrenar <strong>Defensa <span class="ht-term">(Defending)</span></strong> hasta nivel <strong>13</strong>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="phase-badge badge-p2">Fase 2</span></td>
+                            <td><strong>100%</strong> · Resistencia <strong>13%</strong></td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        Cambiar a <strong>Jugadas <span class="ht-term">(Playmaking)</span></strong> hasta nivel <strong>8</strong>
+                                    </li>
+                                    <li>
+                                        Cambiar a <strong>Pases <span class="ht-term">(Passing)</span></strong> hasta nivel
+                                        <strong>6</strong>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="phase-badge badge-p3">Fase 3</span></td>
+                            <td><strong>100%</strong> · Resistencia <strong>13%</strong></td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        Regresar a <strong>Defensa <span class="ht-term">(Defending)</span></strong> para pulir hasta nivel <strong>15</strong>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-          </div>
-        </div>
-        <table class="phase-table">
-          <thead>
-            <tr>
-              <th>Fase</th>
-              <th>Resistencia / Intensidad</th>
-              <th>Acción</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><span class="phase-badge badge-p1">Fase 1</span></td>
-              <td>Resistencia <strong>10%</strong> · Intensidad <strong>100%</strong></td>
-              <td>
-                Entrenar <strong>Jugadas <span class="ht-term">(Playmaking)</span></strong> hasta nivel <strong>13</strong>
-              </td>
-            </tr>
-            <tr>
-              <td><span class="phase-badge badge-p2">Fase 2</span></td>
-              <td>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></td>
-              <td>
-                <ul>
-                  <li>
-                    Cambiar a <strong>Pases <span class="ht-term">(Passing)</span></strong> hasta nivel <strong>6</strong>
-                  </li>
-                  <li>
-                    Cambiar a <strong>Defensa <span class="ht-term">(Defending)</span></strong> hasta nivel <strong>6</strong>
-                  </li>
-                  <li>
-                    Cambiar a <strong>Anotación <span class="ht-term">(Scoring)</span></strong> hasta nivel <strong>6</strong>
-                  </li>
-                </ul>
-              </td>
-            </tr>
-            <tr>
-              <td><span class="phase-badge badge-p3">Fase 3</span></td>
-              <td>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></td>
-              <td>
-                Regresar a <strong>Jugadas <span class="ht-term">(Playmaking)</span></strong> para pulir hasta nivel <strong>15</strong>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
 
-      <!-- 5. MEDIOCENTRO HACIA LATERAL -->
-      <div class="position-card wm">
-        <div class="pos-header">
-          <div class="pos-icon" aria-hidden="true">⚙️</div>
-          <div class="pos-title">
-            <h2>5. Mediocentro Hacia Lateral</h2>
-            <div class="pos-goals">
-              Meta: <span>Jugadas 14 <span class="ht-term">(Playmaking)</span></span> · <span>Lateral 8 <span class="ht-term">(Winger)</span></span> ·
-              <span>Defensa 6 <span class="ht-term">(Defending)</span></span> ·
-              <span>Pases 6 <span class="ht-term">(Passing)</span></span>
+            <!-- 3. DEFENSA LATERAL -->
+            <div class="position-card wb">
+                <div class="pos-header">
+                    <div class="pos-icon" aria-hidden="true">🛡️</div>
+                    <div class="pos-title">
+                        <h2>3. Defensa Lateral</h2>
+                        <div class="pos-goals">
+                            Meta: <span>Defensa 14 <span class="ht-term">(Defending)</span></span> · <span>Lateral 10 <span class="ht-term">(Winger)</span></span> ·
+                            <span>Pases 8 <span class="ht-term">(Passing)</span></span>
+                        </div>
+                    </div>
+                </div>
+                <table class="phase-table">
+                    <thead>
+                        <tr>
+                            <th>Fase</th>
+                            <th>Resistencia / Intensidad</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="phase-badge badge-p1">Fase 1</span></td>
+                            <td>Resistencia <strong>10%</strong> · Intensidad <strong>100%</strong></td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        Entrenar <strong>Defensa <span class="ht-term">(Defending)</span></strong> hasta nivel <strong>12</strong>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="phase-badge badge-p2">Fase 2</span></td>
+                            <td>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        Cambiar a <strong>Lateral <span class="ht-term">(Winger)</span></strong> hasta nivel
+                                        <strong>10</strong>
+                                    </li>
+                                    <li>
+                                        Cambiar a <strong>Pases <span class="ht-term">(Passing)</span></strong> hasta nivel
+                                        <strong>8</strong>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="phase-badge badge-p3">Fase 3</span></td>
+                            <td>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        Regresar a <strong>Defensa <span class="ht-term">(Defending)</span></strong> para pulir hasta nivel <strong>14</strong>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="note-box">
+                    <strong>Nota:</strong> Mínimo nivel 6 en Pases <span class="ht-term">(Passing)</span> si el plan lo exige. El orden de las secundarias en Fase 2 es flexible.
+                </div>
             </div>
-          </div>
-        </div>
-        <table class="phase-table">
-          <thead>
-            <tr>
-              <th>Fase</th>
-              <th>Resistencia / Intensidad</th>
-              <th>Acción</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><span class="phase-badge badge-p1">Fase 1</span></td>
-              <td>Resistencia <strong>10%</strong> · Intensidad <strong>100%</strong></td>
-              <td>
-                Entrenar <strong>Jugadas <span class="ht-term">(Playmaking)</span></strong> hasta nivel <strong>12</strong>
-              </td>
-            </tr>
-            <tr>
-              <td><span class="phase-badge badge-p2">Fase 2</span></td>
-              <td>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></td>
-              <td>
-                <ul>
-                  <li>
-                    Cambiar a <strong>Lateral <span class="ht-term">(Winger)</span></strong> hasta nivel <strong>8</strong>
-                  </li>
-                  <li>
-                    Cambiar a <strong>Pases <span class="ht-term">(Passing)</span></strong> hasta nivel <strong>6</strong>
-                  </li>
-                  <li>
-                    Cambiar a <strong>Defensa <span class="ht-term">(Defending)</span></strong> hasta nivel <strong>6</strong>
-                  </li>
-                </ul>
-              </td>
-            </tr>
-            <tr>
-              <td><span class="phase-badge badge-p3">Fase 3</span></td>
-              <td>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></td>
-              <td>
-                Regresar a <strong>Jugadas <span class="ht-term">(Playmaking)</span></strong> para pulir hasta nivel <strong>14</strong>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
 
-      <!-- 6. EXTREMO HACIA MEDIO -->
-      <div class="position-card wi">
-        <div class="pos-header">
-          <div class="pos-icon" aria-hidden="true">🏃</div>
-          <div class="pos-title">
-            <h2>6. Extremo Hacia Medio</h2>
-            <div class="pos-goals">
-              Meta: <span>Lateral 13 <span class="ht-term">(Winger)</span></span> · <span>Jugadas 12 <span class="ht-term">(Playmaking)</span></span> ·
-              <span>Pases 8 <span class="ht-term">(Passing)</span></span> ·
-              <span>Defensa 6 <span class="ht-term">(Defending)</span></span>
+            <!-- 4. MEDIOCENTRO -->
+            <div class="position-card mf">
+                <div class="pos-header">
+                    <div class="pos-icon" aria-hidden="true">⚙️</div>
+                    <div class="pos-title">
+                        <h2>4. Mediocentro</h2>
+                        <div class="pos-goals">
+                            Meta: <span>Jugadas 15 <span class="ht-term">(Playmaking)</span></span> · <span>Defensa 6 <span class="ht-term">(Defending)</span></span> ·
+                            <span>Pases 6 <span class="ht-term">(Passing)</span></span> ·
+                            <span>Anotación 6 <span class="ht-term">(Scoring)</span></span>
+                        </div>
+                    </div>
+                </div>
+                <table class="phase-table">
+                    <thead>
+                        <tr>
+                            <th>Fase</th>
+                            <th>Resistencia / Intensidad</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="phase-badge badge-p1">Fase 1</span></td>
+                            <td>Resistencia <strong>10%</strong> · Intensidad <strong>100%</strong></td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        Entrenar <strong>Jugadas <span class="ht-term">(Playmaking)</span></strong> hasta nivel <strong>13</strong>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="phase-badge badge-p2">Fase 2</span></td>
+                            <td>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        Cambiar a <strong>Pases <span class="ht-term">(Passing)</span></strong> hasta nivel
+                                        <strong>6</strong>
+                                    </li>
+                                    <li>
+                                        Cambiar a <strong>Defensa <span class="ht-term">(Defending)</span></strong> hasta nivel <strong>6</strong>
+                                    </li>
+                                    <li>
+                                        Cambiar a <strong>Anotación <span class="ht-term">(Scoring)</span></strong> hasta nivel <strong>6</strong>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="phase-badge badge-p3">Fase 3</span></td>
+                            <td>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        Regresar a <strong>Jugadas <span class="ht-term">(Playmaking)</span></strong> para pulir hasta nivel <strong>15</strong>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-          </div>
-        </div>
-        <table class="phase-table">
-          <thead>
-            <tr>
-              <th>Fase</th>
-              <th>Resistencia / Intensidad</th>
-              <th>Acción</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><span class="phase-badge badge-p1">Fase 1</span></td>
-              <td>Resistencia <strong>10%</strong> · Intensidad <strong>100%</strong></td>
-              <td>
-                Entrenar <strong>Lateral <span class="ht-term">(Winger)</span></strong> hasta nivel <strong>11</strong>
-              </td>
-            </tr>
-            <tr>
-              <td><span class="phase-badge badge-p2">Fase 2</span></td>
-              <td>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></td>
-              <td>
-                <ul>
-                  <li>
-                    Cambiar a <strong>Jugadas <span class="ht-term">(Playmaking)</span></strong> hasta nivel <strong>12</strong>
-                  </li>
-                  <li>
-                    Cambiar a <strong>Pases <span class="ht-term">(Passing)</span></strong> hasta nivel <strong>8</strong>
-                  </li>
-                  <li>
-                    Cambiar a <strong>Defensa <span class="ht-term">(Defending)</span></strong> hasta nivel <strong>6</strong>
-                  </li>
-                </ul>
-              </td>
-            </tr>
-            <tr>
-              <td><span class="phase-badge badge-p3">Fase 3</span></td>
-              <td>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></td>
-              <td>
-                Regresar a <strong>Lateral <span class="ht-term">(Winger)</span></strong> para pulir hasta nivel <strong>13</strong>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
 
-      <!-- 7. EXTREMO -->
-      <div class="position-card wi">
-        <div class="pos-header">
-          <div class="pos-icon" aria-hidden="true">🏃</div>
-          <div class="pos-title">
-            <h2>7. Extremo</h2>
-            <div class="pos-goals">
-              Meta: <span>Lateral 15 <span class="ht-term">(Winger)</span></span> · <span>Jugadas 11 <span class="ht-term">(Playmaking)</span></span> ·
-              <span>Defensa 6 <span class="ht-term">(Defending)</span></span> ·
-              <span>Pases 6 <span class="ht-term">(Passing)</span></span>
+            <!-- 5. MEDIOCENTRO HACIA LATERAL -->
+            <div class="position-card wm">
+                <div class="pos-header">
+                    <div class="pos-icon" aria-hidden="true">⚙️</div>
+                    <div class="pos-title">
+                        <h2>5. Mediocentro Hacia Lateral</h2>
+                        <div class="pos-goals">
+                            Meta: <span>Jugadas 14 <span class="ht-term">(Playmaking)</span></span> · <span>Lateral 8 <span class="ht-term">(Winger)</span></span> ·
+                            <span>Defensa 6 <span class="ht-term">(Defending)</span></span> ·
+                            <span>Pases 6 <span class="ht-term">(Passing)</span></span>
+                        </div>
+                    </div>
+                </div>
+                <table class="phase-table">
+                    <thead>
+                        <tr>
+                            <th>Fase</th>
+                            <th>Resistencia / Intensidad</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="phase-badge badge-p1">Fase 1</span></td>
+                            <td>Resistencia <strong>10%</strong> · Intensidad <strong>100%</strong></td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        Entrenar <strong>Jugadas <span class="ht-term">(Playmaking)</span></strong> hasta nivel <strong>12</strong>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="phase-badge badge-p2">Fase 2</span></td>
+                            <td>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        Cambiar a <strong>Lateral <span class="ht-term">(Winger)</span></strong> hasta nivel
+                                        <strong>8</strong>
+                                    </li>
+                                    <li>
+                                        Cambiar a <strong>Pases <span class="ht-term">(Passing)</span></strong> hasta nivel
+                                        <strong>6</strong>
+                                    </li>
+                                    <li>
+                                        Cambiar a <strong>Defensa <span class="ht-term">(Defending)</span></strong> hasta nivel <strong>6</strong>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="phase-badge badge-p3">Fase 3</span></td>
+                            <td>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        Regresar a <strong>Jugadas <span class="ht-term">(Playmaking)</span></strong> para pulir hasta nivel <strong>14</strong>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-          </div>
-        </div>
-        <table class="phase-table">
-          <thead>
-            <tr>
-              <th>Fase</th>
-              <th>Resistencia / Intensidad</th>
-              <th>Acción</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><span class="phase-badge badge-p1">Fase 1</span></td>
-              <td>Resistencia <strong>10%</strong> · Intensidad <strong>100%</strong></td>
-              <td>
-                Entrenar <strong>Lateral <span class="ht-term">(Winger)</span></strong> hasta nivel <strong>13</strong>
-              </td>
-            </tr>
-            <tr>
-              <td><span class="phase-badge badge-p2">Fase 2</span></td>
-              <td>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></td>
-              <td>
-                <ul>
-                  <li>
-                    Cambiar a <strong>Jugadas <span class="ht-term">(Playmaking)</span></strong> hasta nivel <strong>11</strong>
-                  </li>
-                  <li>
-                    Cambiar a <strong>Pases <span class="ht-term">(Passing)</span></strong> hasta nivel <strong>6</strong>
-                  </li>
-                  <li>
-                    Cambiar a <strong>Defensa <span class="ht-term">(Defending)</span></strong> hasta nivel <strong>6</strong>
-                  </li>
-                </ul>
-              </td>
-            </tr>
-            <tr>
-              <td><span class="phase-badge badge-p3">Fase 3</span></td>
-              <td>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></td>
-              <td>
-                Regresar a <strong>Lateral <span class="ht-term">(Winger)</span></strong> para pulir hasta nivel <strong>15</strong>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
 
-      <!-- 8. DELANTERO -->
-      <div class="position-card fw">
-        <div class="pos-header">
-          <div class="pos-icon" aria-hidden="true">⚽</div>
-          <div class="pos-title">
-            <h2>8. Delantero</h2>
-            <div class="pos-goals">
-              Meta: <span>Anotación 15 <span class="ht-term">(Scoring)</span></span> · <span>Pases 8 <span class="ht-term">(Passing)</span></span> ·
-              <span>Jugadas 6 <span class="ht-term">(Playmaking)</span></span> ·
-              <span>Lateral 6 <span class="ht-term">(Winger)</span></span>
+            <!-- 6. EXTREMO HACIA MEDIO -->
+            <div class="position-card wi">
+                <div class="pos-header">
+                    <div class="pos-icon" aria-hidden="true">🏃</div>
+                    <div class="pos-title">
+                        <h2>6. Extremo Hacia Medio</h2>
+                        <div class="pos-goals">
+                            Meta: <span>Lateral 13 <span class="ht-term">(Winger)</span></span> · <span>Jugadas 12 <span class="ht-term">(Playmaking)</span></span> ·
+                            <span>Pases 8 <span class="ht-term">(Passing)</span></span> ·
+                            <span>Defensa 6 <span class="ht-term">(Defending)</span></span>
+                        </div>
+                    </div>
+                </div>
+                <table class="phase-table">
+                    <thead>
+                        <tr>
+                            <th>Fase</th>
+                            <th>Resistencia / Intensidad</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="phase-badge badge-p1">Fase 1</span></td>
+                            <td>Resistencia <strong>10%</strong> · Intensidad <strong>100%</strong></td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        Entrenar <strong>Lateral <span class="ht-term">(Winger)</span></strong> hasta nivel
+                                        <strong>11</strong>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="phase-badge badge-p2">Fase 2</span></td>
+                            <td>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        Cambiar a <strong>Jugadas <span class="ht-term">(Playmaking)</span></strong> hasta nivel <strong>12</strong>
+                                    </li>
+                                    <li>
+                                        Cambiar a <strong>Pases <span class="ht-term">(Passing)</span></strong> hasta nivel
+                                        <strong>8</strong>
+                                    </li>
+                                    <li>
+                                        Cambiar a <strong>Defensa <span class="ht-term">(Defending)</span></strong> hasta nivel <strong>6</strong>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="phase-badge badge-p3">Fase 3</span></td>
+                            <td>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        Regresar a <strong>Lateral <span class="ht-term">(Winger)</span></strong> para pulir hasta nivel <strong>13</strong>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-          </div>
-        </div>
-        <table class="phase-table">
-          <thead>
-            <tr>
-              <th>Fase</th>
-              <th>Resistencia / Intensidad</th>
-              <th>Acción</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><span class="phase-badge badge-p1">Fase 1</span></td>
-              <td>Resistencia <strong>10%</strong> · Intensidad <strong>100%</strong></td>
-              <td>
-                Entrenar <strong>Anotación <span class="ht-term">(Scoring)</span></strong> hasta nivel <strong>12 o 13</strong>
-              </td>
-            </tr>
-            <tr>
-              <td><span class="phase-badge badge-p2">Fase 2</span></td>
-              <td>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></td>
-              <td>
+
+            <!-- 7. EXTREMO -->
+            <div class="position-card wi">
+                <div class="pos-header">
+                    <div class="pos-icon" aria-hidden="true">🏃</div>
+                    <div class="pos-title">
+                        <h2>7. Extremo</h2>
+                        <div class="pos-goals">
+                            Meta: <span>Lateral 15 <span class="ht-term">(Winger)</span></span> · <span>Jugadas 11 <span class="ht-term">(Playmaking)</span></span> ·
+                            <span>Defensa 6 <span class="ht-term">(Defending)</span></span> ·
+                            <span>Pases 6 <span class="ht-term">(Passing)</span></span>
+                        </div>
+                    </div>
+                </div>
+                <table class="phase-table">
+                    <thead>
+                        <tr>
+                            <th>Fase</th>
+                            <th>Resistencia / Intensidad</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="phase-badge badge-p1">Fase 1</span></td>
+                            <td>Resistencia <strong>10%</strong> · Intensidad <strong>100%</strong></td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        Entrenar <strong>Lateral <span class="ht-term">(Winger)</span></strong> hasta nivel
+                                        <strong>13</strong>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="phase-badge badge-p2">Fase 2</span></td>
+                            <td>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        Cambiar a <strong>Jugadas <span class="ht-term">(Playmaking)</span></strong> hasta nivel <strong>11</strong>
+                                    </li>
+                                    <li>
+                                        Cambiar a <strong>Pases <span class="ht-term">(Passing)</span></strong> hasta nivel
+                                        <strong>6</strong>
+                                    </li>
+                                    <li>
+                                        Cambiar a <strong>Defensa <span class="ht-term">(Defending)</span></strong> hasta nivel <strong>6</strong>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="phase-badge badge-p3">Fase 3</span></td>
+                            <td>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        Regresar a <strong>Lateral <span class="ht-term">(Winger)</span></strong> para pulir hasta nivel <strong>15</strong>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- 8. DELANTERO -->
+            <div class="position-card fw">
+                <div class="pos-header">
+                    <div class="pos-icon" aria-hidden="true">⚽</div>
+                    <div class="pos-title">
+                        <h2>8. Delantero</h2>
+                        <div class="pos-goals">
+                            Meta: <span>Anotación 15 <span class="ht-term">(Scoring)</span></span> · <span>Pases 8 <span class="ht-term">(Passing)</span></span> ·
+                            <span>Jugadas 6 <span class="ht-term">(Playmaking)</span></span> ·
+                            <span>Lateral 6 <span class="ht-term">(Winger)</span></span>
+                        </div>
+                    </div>
+                </div>
+                <table class="phase-table">
+                    <thead>
+                        <tr>
+                            <th>Fase</th>
+                            <th>Resistencia / Intensidad</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="phase-badge badge-p1">Fase 1</span></td>
+                            <td>Resistencia <strong>10%</strong> · Intensidad <strong>100%</strong></td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        Entrenar <strong>Anotación <span class="ht-term">(Scoring)</span></strong> hasta nivel <strong>12 o 13</strong>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="phase-badge badge-p2">Fase 2</span></td>
+                            <td>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        Cambiar a <strong>Pases <span class="ht-term">(Passing)</span></strong> hasta nivel
+                                        <strong>8</strong>
+                                    </li>
+                                    <li>
+                                        Cambiar a <strong>Jugadas <span class="ht-term">(Playmaking)</span></strong> hasta nivel <strong>6</strong>
+                                    </li>
+                                    <li>
+                                        Cambiar a <strong>Lateral <span class="ht-term">(Winger)</span></strong> hasta nivel
+                                        <strong>6</strong>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="phase-badge badge-p3">Fase 3</span></td>
+                            <td>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        Regresar a <strong>Anotación <span class="ht-term">(Scoring)</span></strong> para pulir hasta nivel <strong>15</strong>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- RESUMEN -->
+            <div class="summary-section">
+                <h2>📋 Resumen de Metas por Posición</h2>
+                <table class="summary-table">
+                    <thead>
+                        <tr>
+                            <th>Posición</th>
+                            <th>Principal</th>
+                            <th>Secundarias</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>🧤 Portero</td>
+                            <td>
+                                <span class="tag tag-main">Portería 16 <span class="ht-term">(Keeper)</span></span>
+                            </td>
+                            <td>
+                                <span class="tag tag-sec">Balón Parado 16 <span class="ht-term">(Set Pieces)</span></span>
+                                <span class="tag tag-sec">Defensa 6 <span class="ht-term">(Defending)</span></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>🛡️ Defensa Central</td>
+                            <td>
+                                <span class="tag tag-main">Defensa 15 <span class="ht-term">(Defending)</span></span>
+                            </td>
+                            <td>
+                                <span class="tag tag-sec">Jugadas 8 <span class="ht-term">(Playmaking)</span></span> <span class="tag tag-sec">Pases 6 <span class="ht-term">(Passing)</span></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>🛡️ Defensa Lateral</td>
+                            <td>
+                                <span class="tag tag-main">Defensa 14 <span class="ht-term">(Defending)</span></span>
+                            </td>
+                            <td>
+                                <span class="tag tag-sec">Lateral 10 <span class="ht-term">(Winger)</span></span> <span class="tag tag-sec">Pases 8 <span class="ht-term">(Passing)</span></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>⚙️ Mediocentro</td>
+                            <td>
+                                <span class="tag tag-main">Jugadas 15 <span class="ht-term">(Playmaking)</span></span>
+                            </td>
+                            <td>
+                                <span class="tag tag-sec">Defensa 6 <span class="ht-term">(Defending)</span></span> <span class="tag tag-sec">Pases 6 <span class="ht-term">(Passing)</span></span>
+                                <span class="tag tag-sec">Anotación 6 <span class="ht-term">(Scoring)</span></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>⚙️ Mediocentro → Lateral</td>
+                            <td>
+                                <span class="tag tag-main">Jugadas 14 <span class="ht-term">(Playmaking)</span></span>
+                            </td>
+                            <td>
+                                <span class="tag tag-sec">Lateral 8 <span class="ht-term">(Winger)</span></span> <span class="tag tag-sec">Defensa 6 <span class="ht-term">(Defending)</span></span>
+                                <span class="tag tag-sec">Pases 6 <span class="ht-term">(Passing)</span></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>🏃 Extremo → Medio</td>
+                            <td>
+                                <span class="tag tag-main">Lateral 13 <span class="ht-term">(Winger)</span></span>
+                            </td>
+                            <td>
+                                <span class="tag tag-sec">Jugadas 12 <span class="ht-term">(Playmaking)</span></span>
+                                <span class="tag tag-sec">Pases 8 <span class="ht-term">(Passing)</span></span> <span class="tag tag-sec">Defensa 6 <span class="ht-term">(Defending)</span></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>🏃 Extremo</td>
+                            <td>
+                                <span class="tag tag-main">Lateral 15 <span class="ht-term">(Winger)</span></span>
+                            </td>
+                            <td>
+                                <span class="tag tag-sec">Jugadas 11 <span class="ht-term">(Playmaking)</span></span>
+                                <span class="tag tag-sec">Defensa 6 <span class="ht-term">(Defending)</span></span> <span class="tag tag-sec">Pases 6 <span class="ht-term">(Passing)</span></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>⚽ Delantero</td>
+                            <td>
+                                <span class="tag tag-main">Anotación 15 <span class="ht-term">(Scoring)</span></span>
+                            </td>
+                            <td>
+                                <span class="tag tag-sec">Pases 8 <span class="ht-term">(Passing)</span></span> <span class="tag tag-sec">Jugadas 6 <span class="ht-term">(Playmaking)</span></span>
+                                <span class="tag tag-sec">Lateral 6 <span class="ht-term">(Winger)</span></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- NOTAS FINALES -->
+            <div class="notes-footer">
+                <h2>📝 Notas Importantes</h2>
                 <ul>
-                  <li>
-                    Cambiar a <strong>Pases <span class="ht-term">(Passing)</span></strong> hasta nivel <strong>8</strong>
-                  </li>
-                  <li>
-                    Cambiar a <strong>Jugadas <span class="ht-term">(Playmaking)</span></strong> hasta nivel <strong>6</strong>
-                  </li>
-                  <li>
-                    Cambiar a <strong>Lateral <span class="ht-term">(Winger)</span></strong> hasta nivel <strong>6</strong>
-                  </li>
+                    <li>
+                        <strong>Flexibilidad en la Fase 2:</strong> El orden de las habilidades secundarias no es estricto. Puedes entrenarlas en el orden que mejor se adapte al calendario o a las
+                        necesidades de tu equipo. Lo importante es completar los niveles sugeridos antes de pasar a la Fase 3.
+                    </li>
+                    <li>
+                        <strong>¿Qué pasa si los niveles ya son diferentes?</strong> Si al revisar el Hattrick Portal notas que a tu jugador solo le falta 1 nivel (o un subnivel) para alcanzar la meta
+                        de alguna habilidad, eso se completará muy rápido. Si ya sobrepasó el nivel sugerido, puedes saltarte esa parte directamente.
+                    </li>
+                    <li>
+                        <strong>Abierto a sugerencias:</strong> Este plan está diseñado para optimizar al jugador para jugar con la selección. Si tienes dudas, comentarios o te gustaría adaptar el
+                        entrenamiento a otro estilo que te beneficie más en tu club, escríbeme con total confianza. Podemos revisarlo y organizarlo juntos para que ambos nos beneficiemos.
+                    </li>
                 </ul>
-              </td>
-            </tr>
-            <tr>
-              <td><span class="phase-badge badge-p3">Fase 3</span></td>
-              <td>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></td>
-              <td>
-                Regresar a <strong>Anotación <span class="ht-term">(Scoring)</span></strong> para pulir hasta nivel <strong>15</strong>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <!-- RESUMEN -->
-      <div class="summary-section">
-        <h2>📋 Resumen de Metas por Posición</h2>
-        <table class="summary-table">
-          <thead>
-            <tr>
-              <th>Posición</th>
-              <th>Principal</th>
-              <th>Secundarias</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>🧤 Portero</td>
-              <td>
-                <span class="tag tag-main">Portería 16 <span class="ht-term">(Keeper)</span></span>
-              </td>
-              <td>
-                <span class="tag tag-sec">Balón Parado 16 <span class="ht-term">(Set Pieces)</span></span>
-                <span class="tag tag-sec">Defensa 6 <span class="ht-term">(Defending)</span></span>
-              </td>
-            </tr>
-            <tr>
-              <td>🛡️ Defensa Central</td>
-              <td>
-                <span class="tag tag-main">Defensa 15 <span class="ht-term">(Defending)</span></span>
-              </td>
-              <td>
-                <span class="tag tag-sec">Jugadas 8 <span class="ht-term">(Playmaking)</span></span> <span class="tag tag-sec">Pases 6 <span class="ht-term">(Passing)</span></span>
-              </td>
-            </tr>
-            <tr>
-              <td>🛡️ Defensa Lateral</td>
-              <td>
-                <span class="tag tag-main">Defensa 14 <span class="ht-term">(Defending)</span></span>
-              </td>
-              <td>
-                <span class="tag tag-sec">Lateral 10 <span class="ht-term">(Winger)</span></span> <span class="tag tag-sec">Pases 8 <span class="ht-term">(Passing)</span></span>
-              </td>
-            </tr>
-            <tr>
-              <td>⚙️ Mediocentro</td>
-              <td>
-                <span class="tag tag-main">Jugadas 15 <span class="ht-term">(Playmaking)</span></span>
-              </td>
-              <td>
-                <span class="tag tag-sec">Defensa 6 <span class="ht-term">(Defending)</span></span> <span class="tag tag-sec">Pases 6 <span class="ht-term">(Passing)</span></span>
-                <span class="tag tag-sec">Anotación 6 <span class="ht-term">(Scoring)</span></span>
-              </td>
-            </tr>
-            <tr>
-              <td>⚙️ Mediocentro → Lateral</td>
-              <td>
-                <span class="tag tag-main">Jugadas 14 <span class="ht-term">(Playmaking)</span></span>
-              </td>
-              <td>
-                <span class="tag tag-sec">Lateral 8 <span class="ht-term">(Winger)</span></span> <span class="tag tag-sec">Defensa 6 <span class="ht-term">(Defending)</span></span>
-                <span class="tag tag-sec">Pases 6 <span class="ht-term">(Passing)</span></span>
-              </td>
-            </tr>
-            <tr>
-              <td>🏃 Extremo → Medio</td>
-              <td>
-                <span class="tag tag-main">Lateral 13 <span class="ht-term">(Winger)</span></span>
-              </td>
-              <td>
-                <span class="tag tag-sec">Jugadas 12 <span class="ht-term">(Playmaking)</span></span>
-                <span class="tag tag-sec">Pases 8 <span class="ht-term">(Passing)</span></span> <span class="tag tag-sec">Defensa 6 <span class="ht-term">(Defending)</span></span>
-              </td>
-            </tr>
-            <tr>
-              <td>🏃 Extremo</td>
-              <td>
-                <span class="tag tag-main">Lateral 15 <span class="ht-term">(Winger)</span></span>
-              </td>
-              <td>
-                <span class="tag tag-sec">Jugadas 11 <span class="ht-term">(Playmaking)</span></span>
-                <span class="tag tag-sec">Defensa 6 <span class="ht-term">(Defending)</span></span> <span class="tag tag-sec">Pases 6 <span class="ht-term">(Passing)</span></span>
-              </td>
-            </tr>
-            <tr>
-              <td>⚽ Delantero</td>
-              <td>
-                <span class="tag tag-main">Anotación 15 <span class="ht-term">(Scoring)</span></span>
-              </td>
-              <td>
-                <span class="tag tag-sec">Pases 8 <span class="ht-term">(Passing)</span></span> <span class="tag tag-sec">Jugadas 6 <span class="ht-term">(Playmaking)</span></span>
-                <span class="tag tag-sec">Lateral 6 <span class="ht-term">(Winger)</span></span>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <!-- NOTAS FINALES -->
-      <div class="notes-footer">
-        <h2>📝 Notas Importantes</h2>
-        <ul>
-          <li>
-            <strong>Flexibilidad en la Fase 2:</strong> El orden de las habilidades secundarias no es estricto. Puedes entrenarlas en el orden que mejor se adapte al calendario o a
-            las necesidades de tu equipo. Lo importante es completar los niveles sugeridos antes de pasar a la Fase 3.
-          </li>
-          <li>
-            <strong>¿Qué pasa si los niveles ya son diferentes?</strong> Si al revisar el Hattrick Portal notas que a tu jugador solo le falta 1 nivel (o un subnivel) para alcanzar
-            la meta de alguna habilidad, eso se completará muy rápido. Si ya sobrepasó el nivel sugerido, puedes saltarte esa parte directamente.
-          </li>
-          <li>
-            <strong>Abierto a sugerencias:</strong> Este plan está diseñado para optimizar al jugador para jugar con la selección. Si tienes dudas, comentarios o te gustaría
-            adaptar el entrenamiento a otro estilo que te beneficie más en tu club, escríbeme con total confianza. Podemos revisarlo y organizarlo juntos para que ambos nos
-            beneficiemos.
-          </li>
-        </ul>
-      </div>
-    </div>
-  </body>
+            </div>
+            <footer>
+                <div class="footer-content">
+                    <p>© {{ 'now' | date: '%Y' }} <a href="https://www.hattrick-hub.com" target="_blank">Hattrick Hub</a>. Todos los derechos reservados.</p>
+                </div>
+            </footer>
+        </div>
+    </body>
 </html>

@@ -2,7 +2,7 @@
 title: "Hattrick lanza eventos inteligentes y programa de apoyo a creadores de contenido"
 date: 2025-06-15
 lastUpdated: 2025-06-15
-author: "Redacción Hattrick"
+author: "elPatronHT"
 excerpt: "Nueva iniciativa HCC para streamers y creadores, eventos de partido más sofisticados y cambios en patrocinadores y reservas financieras."
 description: "Hattrick presenta eventos basados en probabilidades, programa HCC para creadores, ajustes en patrocinadores y nuevas ligas en su última actualización."
 tags: [Hattrick, HCC, creadores, eventos, patrocinadores, streaming, actualización]

@@ -13,11 +13,15 @@ hide_news_bar: true
     <svg class="icon is-small" aria-hidden="true">
         <use href="#email"></use>
     </svg>
-    Envíanos un correo </a>' %}
+    Envíanos un correo
+</a>
+' %}
 
 <section class="section section-1" role="region" aria-label="Contacto y Preguntas Frecuentes">
     <div class="container content">
-        <h1>Preguntas frecuentes</h1>
+        <header class="card-header">
+            <h1 class="title is-1">Preguntas frecuentes</h1>
+        </header>
         <details class="box" id="faq-1" aria-describedby="faq-1-content">
             <summary class="title is-3">
                 <svg class="icon is-small" aria-hidden="true">
@@ -25,9 +29,7 @@ hide_news_bar: true
                 </svg>
                 ¿En cuánto tiempo responden?
             </summary>
-            <p id="faq-1-content">
-                Respondemos en menos de 24 horas. Revisa tu carpeta de spam si no ves nuestra respuesta.
-            </p>
+            <p id="faq-1-content">Respondemos en menos de 24 horas. Revisa tu carpeta de spam si no ves nuestra respuesta.</p>
         </details>
         <details class="box" id="faq-2" aria-describedby="faq-2-content">
             <summary class="title is-3">
@@ -38,27 +40,22 @@ hide_news_bar: true
             </summary>
             <p id="faq-2-content">¡Sí! Ofrecemos ayuda con estrategias y tácticas. Escríbenos por correo o Telegram.</p>
         </details>
-
         <h2>Contáctanos</h2>
         <p>En Hattrick Hub, valoramos tus ideas y sugerencias. Conéctate con nosotros a través de:</p>
-
         <div class="buttons text-center">
-            <a href="mailto:tutorhattrick@hotmail.com" aria-label="Enviar correo a Hattrick Hub"
-                class="button is-outlined">
+            <a href="mailto:tutorhattrick@hotmail.com" aria-label="Enviar correo a Hattrick Hub" class="button is-outlined">
                 <svg class="icon is-medium" aria-hidden="true">
                     <use href="#email"></use>
                 </svg>
                 Correo: tutorhattrick@hotmail.com
             </a>
-            <a href="https://t.me/hattrickhub" target="_blank" rel="noopener noreferrer"
-                aria-label="Unirse al grupo de Telegram de Hattrick Hub" class="button is-outlined">
+            <a href="https://t.me/JuvenilesHT" target="_blank" rel="noopener noreferrer" aria-label="Unirse al grupo de Telegram de Hattrick Hub" class="button is-outlined">
                 <svg class="icon is-medium" aria-hidden="true">
                     <use href="#telegram"></use>
                 </svg>
                 Telegram
             </a>
-            <a href="{{ site.author_team_url }}" target="_blank" rel="noopener noreferrer"
-                aria-label="Visitar el equipo del autor en Hattrick" class="button is-outlined">
+            <a href="{{ site.author_team_url }}" target="_blank" rel="noopener noreferrer" aria-label="Visitar el equipo del autor en Hattrick" class="button is-outlined">
                 <svg class="icon is-small" aria-hidden="true">
                     <use href="#hattrick"></use>
                 </svg>

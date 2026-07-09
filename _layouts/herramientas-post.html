@@ -2,45 +2,82 @@
 layout: default
 ---
 
-<section class="section section-2" role="region" aria-label="Detalles de la herramienta">
+<section class="section section-2" aria-label="Detalles de la herramienta">
     <div class="container">
-        <article class="card-post" role="article" aria-labelledby="tool-title">
-            {% if page.hero_image %}
-            <div class="card-image">
-                <img src="{{ page.hero_image | relative_url }}" alt="{{ page.hero_alt | default: page.title | escape }}"
-                    loading="lazy" width="600" height="400" />
-            </div>
-            {% endif %}
-            <h1 class="title is-1" id="tool-title">{{ page.title }}</h1>
-            {% if page.rating %}
-            <span class="rating" aria-label="Calificación: {{ page.rating }} de 5">
-                {% for i in (1..page.rating) %}
-                <svg class="icon is-small" aria-hidden="true">
-                    <use href="#star"></use>
-                </svg>
-                {% endfor %} {% for i in (page.rating..4) %}
-                <svg class="icon is-small empty" aria-hidden="true">
-                    <use href="#star"></use>
-                </svg>
-                {% endfor %}
-            </span>
-            {% endif %} 
+        <article class="card-post" aria-labelledby="tool-title">
+
+            {% include card-image.html item=page %}
+            
+            <header class="card-header">
+                <h1 class="title is-1" id="tool-title">{{ page.title | escape }}</h1>
+                
+                {% if page.rating %}
+                <div class="rating" aria-label="Calificación: {{ page.rating }} de 5">
+                    {% assign full_stars = page.rating %}
+                    {% assign empty_stars = 5 | minus: full_stars %}
+                    
+                    {% for i in (1..full_stars) %}
+                    <svg class="icon is-small" aria-hidden="true" width="16" height="16">
+                        <use href="#star"></use>
+                    </svg>
+                    {% endfor %}
+                    
+                    {% for i in (1..empty_stars) %}
+                    <svg class="icon is-small empty" aria-hidden="true" width="16" height="16">
+                        <use href="#star"></use>
+                    </svg>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </header>
+            
             <div class="meta">
-                <span>Publicado: {{ page.date | date: "%d/%m/%Y" }}</span>
-                <span>Autor: {{ page.author | default: site.author }}</span>
+                <time datetime="{{ page.date | date_to_xmlschema }}">
+                    {{ page.date | date: "%d/%m/%Y" }}
+                </time>
+                <span>{{ page.author | default: site.author | escape }}</span>
                 {% assign minutes = content | number_of_words | divided_by: 200 | plus: 1 %}
-                <span>Tiempo de lectura: {{ minutes }} minuto{% if minutes != 1 %}s{% endif %}</span>
+                <span>Tiempo de lectura: {{ minutes }} min</span>
             </div>
-            <div class="content">{{ content }}</div>
+            
+            <div class="content">
+                {{ content }}
+            </div>
+            
             {% if page.tags %}
-            <div class="tags">
-                {% for tag in page.tags %}
-                <span class="tag">{{ tag }}</span>
-                {% endfor %}
-            </div>
-            {% endif %} {% if page.external_url %}
-            <a href="{{ page.external_url }}" target="_blank" rel="noopener noreferrer" class="button is-secondary"
-                aria-label="Visitar {{ page.title | escape }}">Visitar Sitio</a>
+            <footer class="card-footer">
+                <div class="tags">
+                    {% for tag in page.tags %}
+                    <span class="tag">{{ tag | escape }}</span>
+                    {% endfor %}
+                </div>
+                
+                {% if page.external_url %}
+                <a href="{{ page.external_url }}" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="button is-secondary"
+                   aria-label="Visitar {{ page.title | escape }} (abre en nueva pestaña)">
+                    <svg class="icon is-small" aria-hidden="true" width="16" height="16">
+                        <use href="#external"></use>
+                    </svg>
+                    <span>Visitar Sitio</span>
+                </a>
+                {% endif %}
+            </footer>
+            {% elsif page.external_url %}
+            <footer class="card-footer">
+                <a href="{{ page.external_url }}" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="button is-secondary"
+                   aria-label="Visitar {{ page.title | escape }} (abre en nueva pestaña)">
+                    <svg class="icon is-small" aria-hidden="true" width="16" height="16">
+                        <use href="#external"></use>
+                    </svg>
+                    <span>Visitar Sitio</span>
+                </a>
+            </footer>
             {% endif %}
         </article>
     </div>

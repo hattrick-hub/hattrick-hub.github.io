@@ -2,7 +2,7 @@
 title: "Hattrick presenta su mayor actualización de 2025 con sistema de asistencias y herramientas avanzadas"
 date: 2025-02-11
 lastUpdated: 2025-02-11
-author: "Redacción Hattrick"
+author: "elPatronHT"
 excerpt: "Nueva herramienta de ayuda rápida, sistema completo de asistencias, órdenes de sustitución y mejoras al Jugador del Partido."
 description: "La actualización de febrero de Hattrick revoluciona el juego con asistencias, cuadro de ayuda rápida, órdenes avanzadas y notas de calendario."
 tags: [Hattrick, actualización, asistencias, ayuda, sustituciones, febrero]

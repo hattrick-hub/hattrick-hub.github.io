@@ -2,33 +2,48 @@
 layout: default
 ---
 
-<section class="section section-2" role="region" aria-label="Detalles de la noticia">
+<section class="section" aria-label="Detalles de la noticia">
     <div class="container">
-        <article class="card-post" role="article" aria-labelledby="noticia-title">
-            {% if page.hero_image %}
-            <div class="card-image">
-                <img src="{{ page.hero_image | relative_url }}" alt="{{ page.hero_alt | default: page.title | escape }}"
-                    loading="lazy" width="600" height="400" />
-            </div>
-            {% endif %}
-            <h1 class="title is-1" id="noticia-title">{{ page.title }}</h1>
+        <article class="card-post" aria-labelledby="noticia-title">
+
+            {% include card-image.html item=page %}
+            
+            <header class="card-header">
+                <h1 class="title is-1" id="noticia-title">{{ page.title | escape }}</h1>
+            </header>
+            
             <div class="meta">
-                <span>Publicado: {{ page.date | date: "%d/%m/%Y" }}</span>
-                <span>Autor: {{ page.author | default: site.author }}</span>
+                <time datetime="{{ page.date | date_to_xmlschema }}">
+                    {{ page.date | date: "%d/%m/%Y" }}
+                </time>
+                <span>{{ page.author | default: site.author | escape }}</span>
                 {% assign minutes = content | number_of_words | divided_by: 200 | plus: 1 %}
-                <span>Tiempo de lectura: {{ minutes }} minuto{% if minutes != 1 %}s{% endif %}</span>
+                <span>Tiempo de lectura: {{ minutes }} min</span>
                 {% if page.source %}
-                <span>Fuente:
-                    <a href="{{ page.source }}" target="_blank" rel="noopener noreferrer">Hattrick.org</a></span>
+                <span class="source">
+                    <a href="{{ page.source }}" target="_blank" rel="noopener noreferrer"
+                       aria-label="Fuente original: Hattrick.org (abre en nueva pestaña)">
+                        <svg class="icon is-small" aria-hidden="true" width="16" height="16">
+                            <use href="#external"></use>
+                        </svg>
+                        Fuente
+                    </a>
+                </span>
                 {% endif %}
             </div>
-            <div class="content">{{ content }}</div>
-            {% if page.tags %}
-            <div class="tags">
-                {% for tag in page.tags %}
-                <span class="tag">{{ tag }}</span>
-                {% endfor %}
+            
+            <div class="content">
+                {{ content }}
             </div>
+            
+            {% if page.tags %}
+            <footer class="card-footer">
+                <div class="tags">
+                    {% for tag in page.tags %}
+                    <span class="tag">{{ tag | escape }}</span>
+                    {% endfor %}
+                </div>
+            </footer>
             {% endif %}
         </article>
     </div>

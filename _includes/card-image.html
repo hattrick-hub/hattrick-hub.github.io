@@ -1,0 +1,38 @@
+{% comment %}
+  card-image.html — Imagen con placeholder de gradiente como fallback
+{% endcomment %}
+
+{% assign item = include.item %}
+{% assign title_hash = item.title | size | modulo: 5 %}
+
+{% case title_hash %}
+  {% when 0 %}
+    {% assign gradient = "linear-gradient(135deg in oklab, #667eea, #764ba2)" %}
+  {% when 1 %}
+    {% assign gradient = "linear-gradient(135deg in oklab, #f093fb, #f55757)" %}
+  {% when 2 %}
+    {% assign gradient = "linear-gradient(135deg in oklab, #4facfe, #00f2fe)" %}
+  {% when 3 %}
+    {% assign gradient = "linear-gradient(135deg in oklab, #43e97b, #38f9d7)" %}
+  {% when 4 %}
+    {% assign gradient = "linear-gradient(135deg in oklab, #fa709a, #fee140)" %}
+{% endcase %}
+
+<div class="card-image-wrapper">
+  {% if item.hero_image %}
+    <img src="{{ item.hero_image | relative_url }}"
+         alt="{{ item.hero_alt | default: item.title | escape }}"
+         loading="lazy"
+         width="1536"
+         height="1024"
+         decoding="async"
+         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+    <div class="img-placeholder" style="background: {{ gradient }}; display: none;">
+      <span class="placeholder-text">{{ item.title | truncate: 60 }}</span>
+    </div>
+  {% else %}
+    <div class="img-placeholder" style="background: {{ gradient }};">
+      <span class="placeholder-text">{{ item.title | truncate: 60 }}</span>
+    </div>
+  {% endif %}
+</div>

@@ -2,13 +2,13 @@
 title: "Hattrick revoluciona el juego con nuevas estadísticas de asistencias y eventos dinámicos"
 date: 2025-05-15
 lastUpdated: 2025-05-15
-author: "Redacción Hattrick"
+author: "elPatronHT"
 excerpt: "La actualización de mayo trae reconocimiento completo a las asistencias, mejores comentarios y ajustes estratégicos importantes."
 description: "Hattrick presenta estadísticas de asistencias, nuevos eventos de partido, texto dinámico de ligas y ajustes en la mecánica de subestimación."
 tags: [Hattrick, actualización, asistencias, estadísticas, subestimación, mayo]
 hero_image: "/assets/img/hattrick-mayo-update-2025.webp"
 hero_alt: "Actualización de mayo de Hattrick con nuevas estadísticas de asistencias y eventos de partido"
-featured: true
+featured: false
 source: "https://www.hattrick.org"
 ---
 

@@ -5,39 +5,42 @@ permalink: /noticias/
 description: Mantente informado con las últimas noticias y actualizaciones de Hattrick.
 hero_image: /assets/img/hero-noticias.webp
 hero_alt: Banner de las Últimas Noticias de Hattrick
-aria_label: Últimas Noticias de Hattrick
 ---
 
-{% include hero.html image=page.hero_image alt=page.hero_alt aria_label=page.aria_label %}
+{% include hero.html 
+    image=page.hero_image 
+    alt=page.hero_alt 
+    aria_label=page.title 
+%}
 
-<hr class="section-divider">
-<section class="section" role="region" aria-label="Lista de noticias de Hattrick">
+<section class="section" aria-labelledby="news-heading">
     <div class="container">
-        <h1 class="title is-1">Lista de Ultimas Noticias</h1>
-        <div class="grid-base grid-fixed">
-            {% for noticia in site.noticias %}
-            <article class="card-base{% if noticia.featured %} featured{% endif %}" role="gridcell"
+        <header class="card-header">
+            <h1 class="title is-1" id="news-heading">Últimas Noticias</h1>
+        </header>
+        <div class="grid-base grid-fixed" role="list" aria-label="Noticias">
+            {% assign noticias_sorted = site.noticias | sort: 'date' | reverse %}
+            {% for noticia in noticias_sorted %}
+            <article class="card-base{% if noticia.featured %} featured{% endif %}" role="listitem"
                 aria-labelledby="noticia-{{ noticia.title | slugify }}">
-                <div class="card-image">
-                    {% if noticia.hero_image %}
-                    <img src="{{ noticia.hero_image | relative_url }}"
-                        alt="{{ noticia.hero_alt | default: noticia.title | escape }}" loading="lazy" width="600"
-                        height="400" />
-                    {% else %}
-                    <img src="/assets/img/placeholder.webp" alt="Sin imagen" aria-hidden="true" loading="lazy"
-                        width="600" height="400" />
-                    {% endif %}
-                </div>
-                <h3 class="title is-3" id="noticia-{{ noticia.title | slugify }}">
+                
+                {% include card-image.html item=noticia %}
+                
+                <h2 class="title is-3" id="noticia-{{ noticia.title | slugify }}">
                     <a href="{{ noticia.url | relative_url }}">{{ noticia.title }}</a>
-                </h3>
+                </h2>
+                
                 <div class="meta">
-                    <span>Publicado: {{ noticia.date | date: "%d/%m/%Y" }}</span>
+                    <time datetime="{{ noticia.date | date: '%Y-%m-%d' }}">
+                        {{ noticia.date | date: "%d/%m/%Y" }}
+                    </time>
                     <span aria-hidden="true">·</span>
                     {% assign minutes = noticia.content | number_of_words | divided_by: 200 | plus: 1 %}
-                    <span>Tiempo de lectura: {{ minutes }} minuto{% if minutes != 1 %}s{% endif %}</span>
+                    <span>Tiempo de lectura: {{ minutes }} min</span>
                 </div>
+                
                 <p>{{ noticia.excerpt | strip_html | truncatewords: 30 }}</p>
+                
                 {% if noticia.tags %}
                 <div class="tags">
                     {% for tag in noticia.tags %}
@@ -45,10 +48,11 @@ aria_label: Últimas Noticias de Hattrick
                     {% endfor %}
                 </div>
                 {% endif %}
-                <div class="buttons text-center">
-                    <a href="{{ noticia.url | relative_url }}" class="button is-primary"
-                        aria-label="Leer más sobre {{ noticia.title | escape }}">Leer más</a>
-                </div>
+                
+                <a href="{{ noticia.url | relative_url }}" class="button is-primary"
+                    aria-label="Leer {{ noticia.title | escape }}">
+                    Leer más
+                </a>
             </article>
             {% endfor %}
         </div>

@@ -1,74 +1,51 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: 'es' }}">
-
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#4B8A61" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#2d5a3d" media="(prefers-color-scheme: dark)" />
-    <meta name="color-scheme" content="light dark" />
-    <link rel="preconnect" href="https://hattrick.org" />
-    <link rel="dns-prefetch" href="https://hattrick.org" />
-    <link rel="icon" href="{{ '/assets/img/favicon.ico' | relative_url }}" sizes="any" />
-    <link rel="icon" href="{{ '/assets/img/favicon.svg' | relative_url }}" type="image/svg+xml" />
-    <link rel="apple-touch-icon" href="{{ '/assets/img/apple-touch-icon.png' | relative_url }}" />
-    <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#4B8A61" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#2d5a3d" media="(prefers-color-scheme: dark)">
+    <meta name="color-scheme" content="light dark">
+    
+    <link rel="preconnect" href="https://hattrick.org">
+    <link rel="dns-prefetch" href="https://hattrick.org">
+    <link rel="icon" href="{{ '/assets/img/favicon.ico' | relative_url }}" sizes="any">
+    <link rel="icon" href="{{ '/assets/img/favicon.svg' | relative_url }}" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="{{ '/assets/img/apple-touch-icon.png' | relative_url }}">
+    
+    <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
+    
     {% seo %}
-    <style>
-        :root {
-            --brand-color: {
-                    {
-                    site.color
-                }
-            }
-
-            ;
-            --color-bg: #f8faf9;
-            --color-text: #1a1a1a;
-            --font-base: system-ui,
-            -apple-system,
-            'Segoe UI',
-            Roboto,
-            sans-serif;
-        }
-
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --color-bg: #0f1f14;
-                --color-text: #e8f0eb;
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.01ms !important;
-                transition-duration: 0.01ms !important;
-            }
-        }
-    </style>
 </head>
-
 <body>
     <a href="#main-content" class="skip-link">
         <span class="visually-hidden">Saltar al contenido principal</span>
     </a>
-    <div class="site-wrapper" data-theme="auto">
+    
+    <div class="site-wrapper">
         {% include navbar.html %}
-        <main id="main-content" class="main-content" tabindex="-1">{{ content }}</main>
-        {% unless page.hide_news_bar %} {% include news-bar.html %} {% endunless%} {% include footer.html %}
+        
+        <main id="main-content" class="main-content" tabindex="-1">
+            {{ content }}
+        </main>
+        
+        {% unless page.hide_news_bar %}
+            {% include news-bar.html %}
+        {% endunless %}
+        
+        {% include footer.html %}
     </div>
+    
     {% include sprite.html %}
+    
     <button class="back-to-top" type="button" aria-label="Volver arriba" hidden>
         <svg class="icon" aria-hidden="true" width="24" height="24">
             <use href="#back-to-top"></use>
         </svg>
     </button>
+    
     {% include js-config.html %}
     <script type="module" src="{{ '/assets/js/script.js' | relative_url }}"></script>
 </body>
-
 </html>

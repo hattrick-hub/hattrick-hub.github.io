@@ -15,9 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // ANIMACIONES DE SCROLL (IntersectionObserver)
   // Tarjetas que entran suave al hacer scroll
   // =========================================================
-  const animatedElements = document.querySelectorAll(
-    ".feature-card, .animate-on-scroll",
-  );
+  const animatedElements = document.querySelectorAll(".feature-card, .animate-on-scroll");
 
   if (animatedElements.length > 0 && "IntersectionObserver" in window) {
     const animationObserver = new IntersectionObserver(
@@ -102,79 +100,6 @@ document.addEventListener("DOMContentLoaded", () => {
         menu.setAttribute("tabindex", "-1");
         burger.focus();
       }
-    });
-  }
-
-  // =========================================================
-  // Lazy Images
-  // =========================================================
-  if ("IntersectionObserver" in window) {
-    const placeholderImageSrc =
-      window.HattrickHub?.placeholderImage || "/assets/img/placeholder.webp";
-
-    const imageObserver = new IntersectionObserver(
-      (entries, observer) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const img = entry.target;
-            if (img.closest("summary")) return;
-
-            const srcToLoad = img.dataset.src || img.getAttribute("src");
-            if (!srcToLoad) {
-              img.src = placeholderImageSrc;
-              img.alt =
-                img.alt ||
-                `Imagen de ${
-                  img.dataset.context ||
-                  document.querySelector("h1")?.textContent ||
-                  "contenido"
-                } no disponible`;
-              img.classList.add("image-fallback", "loaded");
-            } else {
-              img.src = srcToLoad;
-              img.addEventListener("load", () => img.classList.add("loaded"), {
-                once: true,
-              });
-              img.addEventListener(
-                "error",
-                () => {
-                  console.warn(`Error loading image: ${srcToLoad}`);
-                  img.src = placeholderImageSrc;
-                  img.alt =
-                    img.alt ||
-                    `Imagen de ${
-                      img.dataset.context || "contenido"
-                    } no disponible`;
-                  img.classList.add("image-fallback", "loaded");
-                  img.dispatchEvent(
-                    new CustomEvent("imageError", {
-                      detail: { src: srcToLoad },
-                    }),
-                  );
-                },
-                { once: true },
-              );
-            }
-            observer.unobserve(img);
-          }
-        });
-      },
-      { rootMargin: "100px", threshold: 0.1 },
-    );
-
-    document
-      .querySelectorAll('img[loading="lazy"]:not(.loaded):not(summary img)')
-      .forEach((img) => {
-        imageObserver.observe(img);
-      });
-  } else {
-    document.querySelectorAll('img[loading="lazy"]').forEach((img) => {
-      img.src =
-        img.dataset.src ||
-        img.getAttribute("src") ||
-        window.HattrickHub?.placeholderImage ||
-        "/assets/img/placeholder.webp";
-      img.classList.add("loaded");
     });
   }
 

@@ -8,7 +8,7 @@ description: "Guía definitiva para interpretar los colores en habilidades juven
 tags: [juveniles, habilidades, colores, análisis, entrenamiento, ojeadores]
 hero_image: "/assets/img/hattrick-colores-juveniles.webp"
 hero_alt: "Interfaz de Hattrick mostrando diferentes colores en habilidades juveniles"
-featured: false
+featured: true
 ---
 
 ¿Alguna vez has mirado las habilidades de un juvenil y te has preguntado qué significa exactamente esa barra gris o verde? Los colores en Hattrick no son decorativos: son un **sistema de información codificada** que puede ser la diferencia entre descubrir el próximo Messi de tu cantera o desperdiciar meses entrenando a un jugador sin futuro.

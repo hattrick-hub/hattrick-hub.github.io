@@ -8,7 +8,7 @@ description: "Guía avanzada del entrenamiento escalonado en Hattrick: planes pr
 tags: [entrenamiento, juveniles, escalonado, desarrollo, estrategias-avanzadas]
 hero_image: /assets/img/entrenamiento-escalonado.webp
 hero_alt: "Diagram showing progressive youth training levels in Hattrick"
-featured: true
+featured: false
 ---
 
 ¿Alguna vez te has preguntado cómo los managers más exitosos de Hattrick logran crear jugadores extraordinarios de forma consistente? La respuesta está en el **entrenamiento escalonado**: una metodología avanzada que transforma juveniles promedio en estrellas del fútbol virtual mediante planes progresivos y sistemáticos.

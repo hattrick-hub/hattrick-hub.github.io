@@ -2,7 +2,7 @@
 title: "Hattrick celebra la Semana del Supporter 2025 con revolucionarias estadísticas históricas"
 date: 2025-06-23
 lastUpdated: 2025-06-23
-author: "Redacción Hattrick"
+author: "elPatronHT"
 excerpt: "Nuevo centro de estadísticas con datos históricos, editor de escudos mejorado y actualizaciones móviles para celebrar a los Supporters."
 description: "Hattrick lanza importantes mejoras en su Semana del Supporter 2025: estadísticas históricas de jugadores, nuevo editor de escudos y apps mejoradas."
 tags: [Hattrick, Supporter, estadísticas, actualización, móvil]
