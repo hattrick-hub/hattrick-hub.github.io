@@ -1,0 +1,411 @@
+# ============================================================
+# GLOSARIO HATTRICK
+# ============================================================
+glosario:
+  - emoji: "🧤"
+    term: "Portería"
+    sub: "Keeper"
+    filter: "portero"
+
+  - emoji: "🛡️"
+    term: "Defensa"
+    sub: "Defending"
+    filter: "defensa"
+
+  - emoji: "⚙️"
+    term: "Jugadas"
+    sub: "Playmaking"
+    filter: "jugadas"
+
+  - emoji: "🏃"
+    term: "Lateral"
+    sub: "Winger"
+    filter: "lateral"
+
+  - emoji: "🎯"
+    term: "Pases"
+    sub: "Passing"
+    filter: "pases"
+
+  - emoji: "⚽"
+    term: "Anotación"
+    sub: "Scoring"
+    filter: "anotación"
+
+  - emoji: "🚩"
+    term: "Balón Parado"
+    sub: "Set Pieces"
+    filter: "balón"
+
+# ============================================================
+# REQUISITOS RECOMENDADOS
+# ============================================================
+requisitos:
+  - term: "Entrenador"
+    sub: "Bueno (nivel 7) o Excelente (nivel 8)"
+
+  - term: "Asistentes"
+    sub: "Nivel 10 (ideal y perfecto)"
+
+  - term: "Médico"
+    sub: "Nivel 5 (prevención de lesiones)"
+
+# ============================================================
+# NOTAS IMPORTANTES
+# Cada nota es una tarjeta scrolleable dentro del acordeón
+# ============================================================
+notas:
+  - numero: 1
+    titulo: "Flexibilidad en la Fase 2"
+    contenido: "El orden de las habilidades secundarias no es estricto. Puedes entrenarlas en el orden que mejor se adapte al calendario o a las necesidades de tu equipo. Lo importante es completar los niveles sugeridos antes de pasar a la Fase 3."
+
+  - numero: 2
+    titulo: "¿Qué pasa si los niveles ya son diferentes?"
+    contenido: "Si al revisar el Hattrick Portal notas que a tu jugador solo le falta 1 nivel (o un subnivel) para alcanzar la meta de alguna habilidad, eso se completará muy rápido. Si ya sobrepasó el nivel sugerido, puedes saltarte esa parte directamente."
+
+  - numero: 3
+    titulo: "Abierto a sugerencias"
+    contenido: "Este plan está diseñado para optimizar al jugador para jugar con la selección. Si tienes dudas, comentarios o te gustaría adaptar el entrenamiento a otro estilo que te beneficie más en tu club, escríbeme con total confianza. Podemos revisarlo y organizarlo juntos para que ambos nos beneficiemos."
+
+# ============================================================
+# RESUMEN DE METAS
+# Cada posición con su habilidad principal y secundarias
+# ============================================================
+resumen:
+  - id: "gk"
+    icono: "🧤"
+    nombre: "Portero"
+    principal: "Portería 16"
+    secundarias:
+      - "Balón Parado 16"
+      - "Defensa 6"
+
+  - id: "cb"
+    icono: "🛡️"
+    nombre: "Defensa Central"
+    principal: "Defensa 15"
+    secundarias:
+      - "Jugadas 8"
+      - "Pases 6"
+
+  - id: "wb"
+    icono: "🏃"
+    nombre: "Defensa Lateral"
+    principal: "Defensa 14"
+    secundarias:
+      - "Lateral 10"
+      - "Pases 8"
+
+  - id: "mf"
+    icono: "⚙️"
+    nombre: "Mediocentro"
+    principal: "Jugadas 15"
+    secundarias:
+      - "Defensa 6"
+      - "Pases 6"
+      - "Anotación 6"
+
+  - id: "wm"
+    icono: "⚙️"
+    nombre: "Mediocentro hacia Lateral"
+    principal: "Jugadas 14"
+    secundarias:
+      - "Lateral 8"
+      - "Defensa 6"
+      - "Pases 6"
+
+  - id: "wi1"
+    icono: "🏃"
+    nombre: "Extremo hacia Medio"
+    principal: "Lateral 13"
+    secundarias:
+      - "Jugadas 12"
+      - "Pases 8"
+      - "Defensa 6"
+
+  - id: "wi2"
+    icono: "🏃"
+    nombre: "Extremo"
+    principal: "Lateral 15"
+    secundarias:
+      - "Jugadas 11"
+      - "Defensa 6"
+      - "Pases 6"
+
+  - id: "fw"
+    icono: "⚽"
+    nombre: "Delantero"
+    principal: "Anotación 15"
+    secundarias:
+      - "Pases 8"
+      - "Jugadas 6"
+      - "Lateral 6"
+
+# ============================================================
+# POSICIONES COMPLETAS
+# Cada una con sus 3 fases
+# ============================================================
+# _data/plan-entrenamiento.yml
+# ... glosario, requisitos, notas, resumen (igual que antes) ...
+
+posiciones:
+  - id: "gk"
+    nombre: "Portero"
+    icono: "🧤"
+    clase: "pos-gk"
+    meta: "Portería 16 · Balón Parado 16 · Defensa 6"
+    filter: "portero portería balón parado defensa keeper"
+    fases:
+      - id: "p1"
+        badge: "Fase 1 — Enfoque Principal"
+        badge_clase: "badge-p1"
+        popover: "Enfoca el 100% del entrenamiento en la habilidad principal. Resistencia baja para maximizar progreso."
+        items:
+          - "Resistencia **10%** · Intensidad **100%**"
+          - "Entrenar **Portería** (Keeper) hasta nivel **14**"
+
+      - id: "p2"
+        badge: "Fase 2 — Secundarias"
+        badge_clase: "badge-p2"
+        popover: "Desarrolla habilidades secundarias. Aumenta resistencia al 13% para mantener forma."
+        items:
+          - "Resistencia **13%** · Intensidad **100%**"
+          - "Cambiar a **Balón Parado** (Set Pieces) hasta nivel **16**"
+          - "Cambiar a **Defensa** (Defending) hasta nivel **6**"
+
+      - id: "p3"
+        badge: "Fase 3 — Cierre"
+        badge_clase: "badge-p3"
+        popover: "Regresa a la principal para pulir hasta la meta final. Sella la convocatoria."
+        items:
+          - "Resistencia **13%** · Intensidad **100%**"
+          - "Regresar a **Portería** (Keeper) para pulir hasta nivel **16**"
+
+  - id: "cb"
+    nombre: "Defensa Central"
+    icono: "🛡️"
+    clase: "pos-cb"
+    meta: "Defensa 15 · Jugadas 8 · Pases 6"
+    filter: "defensa central jugadas pases defending playmaking"
+    fases:
+      - id: "p1"
+        badge: "Fase 1 — Enfoque Principal"
+        badge_clase: "badge-p1"
+        popover: "Enfoca el 100% del entrenamiento en la habilidad principal."
+        items:
+          - "Resistencia **10%** · Intensidad **100%**"
+          - "Entrenar **Defensa** (Defending) hasta nivel **13**"
+
+      - id: "p2"
+        badge: "Fase 2 — Secundarias"
+        badge_clase: "badge-p2"
+        popover: "Desarrolla habilidades secundarias."
+        items:
+          - "Resistencia **13%** · Intensidad **100%**"
+          - "Cambiar a **Jugadas** (Playmaking) hasta nivel **8**"
+          - "Cambiar a **Pases** (Passing) hasta nivel **6**"
+
+      - id: "p3"
+        badge: "Fase 3 — Cierre"
+        badge_clase: "badge-p3"
+        popover: "Regresa a la principal para pulir hasta la meta final."
+        items:
+          - "Resistencia **13%** · Intensidad **100%**"
+          - "Regresar a **Defensa** (Defending) para pulir hasta nivel **15**"
+
+  - id: "wb"
+    nombre: "Defensa Lateral"
+    icono: "🏃"
+    clase: "pos-wb"
+    meta: "Defensa 14 · Lateral 10 · Pases 8"
+    filter: "defensa lateral pases winger defending"
+    fases:
+      - id: "p1"
+        badge: "Fase 1 — Enfoque Principal"
+        badge_clase: "badge-p1"
+        popover: "Enfoca el 100% del entrenamiento en la habilidad principal."
+        items:
+          - "Resistencia **10%** · Intensidad **100%**"
+          - "Entrenar **Defensa** (Defending) hasta nivel **12**"
+
+      - id: "p2"
+        badge: "Fase 2 — Secundarias"
+        badge_clase: "badge-p2"
+        popover: "Desarrolla habilidades secundarias."
+        items:
+          - "Resistencia **13%** · Intensidad **100%**"
+          - "Cambiar a **Lateral** (Winger) hasta nivel **10**"
+          - "Cambiar a **Pases** (Passing) hasta nivel **8**"
+
+      - id: "p3"
+        badge: "Fase 3 — Cierre"
+        badge_clase: "badge-p3"
+        popover: "Regresa a la principal para pulir hasta la meta final."
+        items:
+          - "Resistencia **13%** · Intensidad **100%**"
+          - "Regresar a **Defensa** (Defending) para pulir hasta nivel **14**"
+
+  - id: "mf"
+    nombre: "Mediocentro"
+    icono: "⚙️"
+    clase: "pos-mf"
+    meta: "Jugadas 15 · Defensa 6 · Pases 6 · Anotación 6"
+    filter: "mediocentro jugadas defensa pases anotación playmaking defending scoring"
+    fases:
+      - id: "p1"
+        badge: "Fase 1 — Enfoque Principal"
+        badge_clase: "badge-p1"
+        popover: "Enfoca el 100% del entrenamiento en la habilidad principal."
+        items:
+          - "Resistencia **10%** · Intensidad **100%**"
+          - "Entrenar **Jugadas** (Playmaking) hasta nivel **13**"
+
+      - id: "p2"
+        badge: "Fase 2 — Secundarias"
+        badge_clase: "badge-p2"
+        popover: "Desarrolla habilidades secundarias."
+        items:
+          - "Resistencia **13%** · Intensidad **100%**"
+          - "Cambiar a **Pases** (Passing) hasta nivel **6**"
+          - "Cambiar a **Defensa** (Defending) hasta nivel **6**"
+          - "Cambiar a **Anotación** (Scoring) hasta nivel **6**"
+
+      - id: "p3"
+        badge: "Fase 3 — Cierre"
+        badge_clase: "badge-p3"
+        popover: "Regresa a la principal para pulir hasta la meta final."
+        items:
+          - "Resistencia **13%** · Intensidad **100%**"
+          - "Regresar a **Jugadas** (Playmaking) para pulir hasta nivel **15**"
+
+  - id: "wm"
+    nombre: "Mediocentro Hacia Lateral"
+    icono: "⚙️"
+    clase: "pos-wm"
+    meta: "Jugadas 14 · Lateral 8 · Defensa 6 · Pases 6"
+    filter: "mediocentro lateral jugadas defensa pases winger playmaking"
+    fases:
+      - id: "p1"
+        badge: "Fase 1 — Enfoque Principal"
+        badge_clase: "badge-p1"
+        popover: "Enfoca el 100% del entrenamiento en la habilidad principal."
+        items:
+          - "Resistencia **10%** · Intensidad **100%**"
+          - "Entrenar **Jugadas** (Playmaking) hasta nivel **12**"
+
+      - id: "p2"
+        badge: "Fase 2 — Secundarias"
+        badge_clase: "badge-p2"
+        popover: "Desarrolla habilidades secundarias."
+        items:
+          - "Resistencia **13%** · Intensidad **100%**"
+          - "Cambiar a **Lateral** (Winger) hasta nivel **8**"
+          - "Cambiar a **Pases** (Passing) hasta nivel **6**"
+          - "Cambiar a **Defensa** (Defending) hasta nivel **6**"
+
+      - id: "p3"
+        badge: "Fase 3 — Cierre"
+        badge_clase: "badge-p3"
+        popover: "Regresa a la principal para pulir hasta la meta final."
+        items:
+          - "Resistencia **13%** · Intensidad **100%**"
+          - "Regresar a **Jugadas** (Playmaking) para pulir hasta nivel **14**"
+
+  - id: "wi1"
+    nombre: "Extremo Hacia Medio"
+    icono: "🏃"
+    clase: "pos-wi"
+    meta: "Lateral 13 · Jugadas 12 · Pases 8 · Defensa 6"
+    filter: "extremo medio lateral jugadas pases defensa winger playmaking"
+    fases:
+      - id: "p1"
+        badge: "Fase 1 — Enfoque Principal"
+        badge_clase: "badge-p1"
+        popover: "Enfoca el 100% del entrenamiento en la habilidad principal."
+        items:
+          - "Resistencia **10%** · Intensidad **100%**"
+          - "Entrenar **Lateral** (Winger) hasta nivel **11**"
+
+      - id: "p2"
+        badge: "Fase 2 — Secundarias"
+        badge_clase: "badge-p2"
+        popover: "Desarrolla habilidades secundarias."
+        items:
+          - "Resistencia **13%** · Intensidad **100%**"
+          - "Cambiar a **Jugadas** (Playmaking) hasta nivel **12**"
+          - "Cambiar a **Pases** (Passing) hasta nivel **8**"
+          - "Cambiar a **Defensa** (Defending) hasta nivel **6**"
+
+      - id: "p3"
+        badge: "Fase 3 — Cierre"
+        badge_clase: "badge-p3"
+        popover: "Regresa a la principal para pulir hasta la meta final."
+        items:
+          - "Resistencia **13%** · Intensidad **100%**"
+          - "Regresar a **Lateral** (Winger) para pulir hasta nivel **13**"
+
+  - id: "wi2"
+    nombre: "Extremo"
+    icono: "🏃"
+    clase: "pos-wi"
+    meta: "Lateral 15 · Jugadas 11 · Defensa 6 · Pases 6"
+    filter: "extremo lateral jugadas defensa pases winger playmaking"
+    fases:
+      - id: "p1"
+        badge: "Fase 1 — Enfoque Principal"
+        badge_clase: "badge-p1"
+        popover: "Enfoca el 100% del entrenamiento en la habilidad principal."
+        items:
+          - "Resistencia **10%** · Intensidad **100%**"
+          - "Entrenar **Lateral** (Winger) hasta nivel **13**"
+
+      - id: "p2"
+        badge: "Fase 2 — Secundarias"
+        badge_clase: "badge-p2"
+        popover: "Desarrolla habilidades secundarias."
+        items:
+          - "Resistencia **13%** · Intensidad **100%**"
+          - "Cambiar a **Jugadas** (Playmaking) hasta nivel **11**"
+          - "Cambiar a **Pases** (Passing) hasta nivel **6**"
+          - "Cambiar a **Defensa** (Defending) hasta nivel **6**"
+
+      - id: "p3"
+        badge: "Fase 3 — Cierre"
+        badge_clase: "badge-p3"
+        popover: "Regresa a la principal para pulir hasta la meta final."
+        items:
+          - "Resistencia **13%** · Intensidad **100%**"
+          - "Regresar a **Lateral** (Winger) para pulir hasta nivel **15**"
+
+  - id: "fw"
+    nombre: "Delantero"
+    icono: "⚽"
+    clase: "pos-fw"
+    meta: "Anotación 15 · Pases 8 · Jugadas 6 · Lateral 6"
+    filter: "delantero anotación pases jugadas lateral scoring playmaking winger"
+    fases:
+      - id: "p1"
+        badge: "Fase 1 — Enfoque Principal"
+        badge_clase: "badge-p1"
+        popover: "Enfoca el 100% del entrenamiento en la habilidad principal."
+        items:
+          - "Resistencia **10%** · Intensidad **100%**"
+          - "Entrenar **Anotación** (Scoring) hasta nivel **12 o 13**"
+
+      - id: "p2"
+        badge: "Fase 2 — Secundarias"
+        badge_clase: "badge-p2"
+        popover: "Desarrolla habilidades secundarias."
+        items:
+          - "Resistencia **13%** · Intensidad **100%**"
+          - "Cambiar a **Pases** (Passing) hasta nivel **8**"
+          - "Cambiar a **Jugadas** (Playmaking) hasta nivel **6**"
+          - "Cambiar a **Lateral** (Winger) hasta nivel **6**"
+
+      - id: "p3"
+        badge: "Fase 3 — Cierre"
+        badge_clase: "badge-p3"
+        popover: "Regresa a la principal para pulir hasta la meta final."
+        items:
+          - "Resistencia **13%** · Intensidad **100%**"
+          - "Regresar a **Anotación** (Scoring) para pulir hasta nivel **15**"
