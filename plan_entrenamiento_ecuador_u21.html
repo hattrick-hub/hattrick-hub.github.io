@@ -5,7 +5,7 @@ permalink: /plan-entrenamiento/
 description: "Este plan está diseñado para optimizar el rendimiento de los jugadores convocados a la selección. Hemos estructurado los objetivos en fases sencillas para que coordinar los cambios sea lo más cómodo posible tanto para tu club como para la selección."
 ---
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: 'es' }}">
     <head>
         <meta charset="utf-8" />
@@ -27,27 +27,35 @@ description: "Este plan está diseñado para optimizar el rendimiento de los jug
                     margin: 0;
                     padding: 0;
                 }
-                html {
-                    scroll-behavior: smooth;
+                html { scroll-behavior: smooth; }
+                body { min-height: 100dvh; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+                :is(body, h1, h2, h3, h4, p, ul, ol, dl, blockquote, pre, figure) {
+                    margin: 0;
+                    padding: 0;
                 }
-                body {
-                    min-height: 100dvh;
-                    line-height: 1.6;
-                    -webkit-font-smoothing: antialiased;
-                }
-                input,
-                button,
-                select,
-                summary {
-                    font: inherit;
-                }
-                ul {
+
+                :is(ul, ol) {
                     list-style: none;
                 }
-                img,
-                svg {
+
+                :is(img, picture, video, canvas, svg) {
                     display: block;
-                    max-width: 100%;
+                    max-inline-size: 100%;
+                    height: auto;
+                }
+
+                :is(input, button, textarea, select) {
+                    font: inherit;
+                    color: inherit;
+                }
+                a {
+                    text-decoration: none;
+                    color: inherit;
+                }
+
+                table {
+                    border-collapse: collapse;
+                    border-spacing: 0;
                 }
             }
 
@@ -608,7 +616,7 @@ description: "Este plan está diseñado para optimizar el rendimiento de los jug
                 }
                 .resumen-layout {
                     display: grid;
-                    grid-template-columns: 200px 1fr;
+                    grid-template-columns: minmax(220px, auto) 1fr;
                     gap: var(--space-4);
                     background: var(--color-card);
                     border: 1px solid var(--color-border);
@@ -624,7 +632,7 @@ description: "Este plan está diseñado para optimizar el rendimiento de los jug
                     border-right: 1px solid var(--color-border);
                 }
                 .resumen-tab {
-                    padding: 10px 12px;
+                    padding: 10px 14px;
                     border: none;
                     background: none;
                     cursor: pointer;
@@ -900,700 +908,116 @@ description: "Este plan está diseñado para optimizar el rendimiento de los jug
 
             <div class="section-title">📖 Glosario Hattrick</div>
             <div class="carousel" id="glosario" role="region" aria-label="Glosario de términos Hattrick">
-                <div class="carousel-item glosario-item" onclick="filterPos('portero')" tabindex="0" role="button">
-                    <span class="emoji">🧤</span>
-                    <span class="term">Portería</span>
-                    <span class="sub">Keeper</span>
+                {% for item in site.data.plan-entrenamiento.glosario %}
+                <div class="carousel-item glosario-item" onclick="filterPos('{{ item.filter }}')" tabindex="0" role="button">
+                    <span class="emoji">{{ item.emoji }}</span>
+                    <span class="term">{{ item.term }}</span>
+                    <span class="sub">{{ item.sub }}</span>
                 </div>
-                <div class="carousel-item glosario-item" onclick="filterPos('defensa')" tabindex="0" role="button">
-                    <span class="emoji">🛡️</span>
-                    <span class="term">Defensa</span>
-                    <span class="sub">Defending</span>
-                </div>
-                <div class="carousel-item glosario-item" onclick="filterPos('jugadas')" tabindex="0" role="button">
-                    <span class="emoji">⚙️</span>
-                    <span class="term">Jugadas</span>
-                    <span class="sub">Playmaking</span>
-                </div>
-                <div class="carousel-item glosario-item" onclick="filterPos('lateral')" tabindex="0" role="button">
-                    <span class="emoji">🏃</span>
-                    <span class="term">Lateral</span>
-                    <span class="sub">Winger</span>
-                </div>
-                <div class="carousel-item glosario-item" onclick="filterPos('pases')" tabindex="0" role="button">
-                    <span class="emoji">🎯</span>
-                    <span class="term">Pases</span>
-                    <span class="sub">Passing</span>
-                </div>
-                <div class="carousel-item glosario-item" onclick="filterPos('anotación')" tabindex="0" role="button">
-                    <span class="emoji">⚽</span>
-                    <span class="term">Anotación</span>
-                    <span class="sub">Scoring</span>
-                </div>
-                <div class="carousel-item glosario-item" onclick="filterPos('balón')" tabindex="0" role="button">
-                    <span class="emoji">🚩</span>
-                    <span class="term">Balón Parado</span>
-                    <span class="sub">Set Pieces</span>
-                </div>
+                {% endfor %}
             </div>
 
             <div class="section-title">🔧 Requisitos Recomendados</div>
             <div class="carousel" role="region" aria-label="Requisitos recomendados">
+                {% for item in site.data.plan-entrenamiento.requisitos %}
                 <div class="carousel-item req-item">
-                    <span class="term">Entrenador</span>
-                    <span class="sub">Bueno (nivel 7) o Excelente (nivel 8)</span>
+                    <span class="term">{{ item.term }}</span>
+                    <span class="sub">{{ item.sub }}</span>
                 </div>
-                <div class="carousel-item req-item">
-                    <span class="term">Asistentes</span>
-                    <span class="sub">Nivel 10 (ideal y perfecto)</span>
-                </div>
-                <div class="carousel-item req-item">
-                    <span class="term">Médico</span>
-                    <span class="sub">Nivel 5 (prevención de lesiones)</span>
-                </div>
+                {% endfor %}
             </div>
 
             <div class="section-title">📋 Planes por Posición</div>
 
-            <!-- 1. PORTERO -->
-            <details class="accordion pos-gk" data-pos="portero portería balón parado defensa keeper" open>
+            {% for pos in site.data.plan-entrenamiento.posiciones %}
+            <details class="accordion {{ pos.clase }}" data-pos="{{ pos.filter }}" {% if forloop.first %}open{% endif %}>
                 <summary>
-                    <div class="pos-icon" aria-hidden="true">🧤</div>
+                    <div class="pos-icon" aria-hidden="true">{{ pos.icono }}</div>
                     <div class="pos-title">
-                        <h2>Portero</h2>
-                        <div class="pos-goals">Meta: <span>Portería 16</span> · <span>Balón Parado 16</span> · <span>Defensa 6</span></div>
+                        <h2>{{ pos.nombre }}</h2>
+                        <div class="pos-goals">Meta: 
+                            {% assign metas = pos.meta | split: ' · ' %}
+                            {% for m in metas %}<span>{{ m }}</span>{% unless forloop.last %} · {% endunless %}{% endfor %}
+                        </div>
                     </div>
                     <span class="chevron" aria-hidden="true">▼</span>
                 </summary>
                 <div class="accordion-content">
-                    <div class="tabs" role="tablist" aria-label="Fases de entrenamiento - Portero">
-                        <button class="tab active" role="tab" aria-selected="true" aria-controls="gk-p1" id="gk-tab-1" onclick="switchTab(this, 'gk-p1')">Fase 1</button>
-                        <button class="tab" role="tab" aria-selected="false" aria-controls="gk-p2" id="gk-tab-2" tabindex="-1" onclick="switchTab(this, 'gk-p2')">Fase 2</button>
-                        <button class="tab" role="tab" aria-selected="false" aria-controls="gk-p3" id="gk-tab-3" tabindex="-1" onclick="switchTab(this, 'gk-p3')">Fase 3</button>
+                    <div class="tabs" role="tablist" aria-label="Fases de entrenamiento - {{ pos.nombre }}">
+                        {% for fase in pos.fases %}
+                        <button class="tab{% if forloop.first %} active{% endif %}" 
+                                role="tab" 
+                                aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+                                aria-controls="{{ pos.id }}-{{ fase.id }}"
+                                id="{{ pos.id }}-tab-{{ fase.id }}"
+                                {% unless forloop.first %}tabindex="-1"{% endunless %}
+                                onclick="switchTab(this, '{{ pos.id }}-{{ fase.id }}')">
+                            Fase {{ forloop.index }}
+                        </button>
+                        {% endfor %}
                     </div>
-                    <div id="gk-p1" class="tabpanel active" role="tabpanel" aria-labelledby="gk-tab-1">
-                        <button class="phase-badge badge-p1" popovertarget="pop-gk-p1" popovertargetaction="toggle">Fase 1 — Enfoque Principal</button>
-                        <div id="pop-gk-p1" popover>
-                            <div class="popover-header">ℹ️ Fase 1</div>
-                            <p>Enfoca el 100% del entrenamiento en la habilidad principal. Resistencia baja para maximizar progreso.</p>
+                    
+                    {% for fase in pos.fases %}
+                    <div id="{{ pos.id }}-{{ fase.id }}" 
+                         class="tabpanel{% if forloop.first %} active{% endif %}" 
+                         role="tabpanel" 
+                         aria-labelledby="{{ pos.id }}-tab-{{ fase.id }}"
+                         {% unless forloop.first %}aria-hidden="true"{% endunless %}>
+                        
+                        <button class="phase-badge {{ fase.badge_clase }}" 
+                                popovertarget="pop-{{ pos.id }}-{{ fase.id }}" 
+                                popovertargetaction="toggle">
+                            {{ fase.badge }}
+                        </button>
+                        <div id="pop-{{ pos.id }}-{{ fase.id }}" popover>
+                            <div class="popover-header">ℹ️ {{ fase.badge | split: ' — ' | first }}</div>
+                            <p>{{ fase.popover }}</p>
                         </div>
+                        
                         <ul>
-                            <li>Resistencia <strong>10%</strong> · Intensidad <strong>100%</strong></li>
-                            <li>
-                                Entrenar <strong>Portería <span class="tooltip-term" tabindex="0">(Keeper)</span><span class="tooltip-content">Habilidad de parada del portero</span></strong> hasta
-                                nivel <strong>14</strong>
-                            </li>
+                            {% for item in fase.items %}
+                            <li>{{ item | markdownify }}</li>
+                            {% endfor %}
                         </ul>
                     </div>
-                    <div id="gk-p2" class="tabpanel" role="tabpanel" aria-labelledby="gk-tab-2" aria-hidden="true">
-                        <button class="phase-badge badge-p2" popovertarget="pop-gk-p2" popovertargetaction="toggle">Fase 2 — Secundarias</button>
-                        <div id="pop-gk-p2" popover>
-                            <div class="popover-header">ℹ️ Fase 2</div>
-                            <p>Desarrolla habilidades secundarias. Aumenta resistencia al 13% para mantener forma.</p>
-                        </div>
-                        <ul>
-                            <li>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></li>
-                            <li>
-                                Cambiar a
-                                <strong>Balón Parado <span class="tooltip-term" tabindex="0">(Set Pieces)</span><span class="tooltip-content">Tiros libres, córners y penales</span></strong> hasta
-                                nivel <strong>16</strong>
-                            </li>
-                            <li>
-                                Cambiar a <strong>Defensa <span class="tooltip-term" tabindex="0">(Defending)</span><span class="tooltip-content">Capacidad defensiva general</span></strong> hasta
-                                nivel <strong>6</strong>
-                            </li>
-                        </ul>
-                    </div>
-                    <div id="gk-p3" class="tabpanel" role="tabpanel" aria-labelledby="gk-tab-3" aria-hidden="true">
-                        <button class="phase-badge badge-p3" popovertarget="pop-gk-p3" popovertargetaction="toggle">Fase 3 — Cierre</button>
-                        <div id="pop-gk-p3" popover>
-                            <div class="popover-header">ℹ️ Fase 3</div>
-                            <p>Regresa a la principal para pulir hasta la meta final. Sella la convocatoria.</p>
-                        </div>
-                        <ul>
-                            <li>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></li>
-                            <li>
-                                Regresar a <strong>Portería <span class="tooltip-term" tabindex="0">(Keeper)</span><span class="tooltip-content">Habilidad de parada del portero</span></strong> para
-                                pulir hasta nivel <strong>16</strong>
-                            </li>
-                        </ul>
-                    </div>
+                    {% endfor %}
                 </div>
             </details>
+            {% endfor %}
 
-            <!-- 2. DEFENSA CENTRAL -->
-            <details class="accordion pos-cb" data-pos="defensa central jugadas pases defending playmaking">
-                <summary>
-                    <div class="pos-icon" aria-hidden="true">🛡️</div>
-                    <div class="pos-title">
-                        <h2>Defensa Central</h2>
-                        <div class="pos-goals">Meta: <span>Defensa 15</span> · <span>Jugadas 8</span> · <span>Pases 6</span></div>
-                    </div>
-                    <span class="chevron" aria-hidden="true">▼</span>
-                </summary>
-                <div class="accordion-content">
-                    <div class="tabs" role="tablist" aria-label="Fases de entrenamiento - Defensa Central">
-                        <button class="tab active" role="tab" aria-selected="true" aria-controls="cb-p1" id="cb-tab-1" onclick="switchTab(this, 'cb-p1')">Fase 1</button>
-                        <button class="tab" role="tab" aria-selected="false" aria-controls="cb-p2" id="cb-tab-2" tabindex="-1" onclick="switchTab(this, 'cb-p2')">Fase 2</button>
-                        <button class="tab" role="tab" aria-selected="false" aria-controls="cb-p3" id="cb-tab-3" tabindex="-1" onclick="switchTab(this, 'cb-p3')">Fase 3</button>
-                    </div>
-                    <div id="cb-p1" class="tabpanel active" role="tabpanel" aria-labelledby="cb-tab-1">
-                        <button class="phase-badge badge-p1" popovertarget="pop-cb-p1" popovertargetaction="toggle">Fase 1 — Enfoque Principal</button>
-                        <div id="pop-cb-p1" popover>
-                            <div class="popover-header">ℹ️ Fase 1</div>
-                            <p>Enfoca el 100% del entrenamiento en la habilidad principal.</p>
-                        </div>
-                        <ul>
-                            <li>Resistencia <strong>10%</strong> · Intensidad <strong>100%</strong></li>
-                            <li>
-                                Entrenar <strong>Defensa <span class="tooltip-term" tabindex="0">(Defending)</span><span class="tooltip-content">Capacidad defensiva general</span></strong> hasta nivel
-                                <strong>13</strong>
-                            </li>
-                        </ul>
-                    </div>
-                    <div id="cb-p2" class="tabpanel" role="tabpanel" aria-labelledby="cb-tab-2" aria-hidden="true">
-                        <button class="phase-badge badge-p2" popovertarget="pop-cb-p2" popovertargetaction="toggle">Fase 2 — Secundarias</button>
-                        <div id="pop-cb-p2" popover>
-                            <div class="popover-header">ℹ️ Fase 2</div>
-                            <p>Desarrolla habilidades secundarias.</p>
-                        </div>
-                        <ul>
-                            <li>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></li>
-                            <li>
-                                Cambiar a
-                                <strong>Jugadas <span class="tooltip-term" tabindex="0">(Playmaking)</span><span class="tooltip-content">Creación de juego y organización</span></strong> hasta nivel
-                                <strong>8</strong>
-                            </li>
-                            <li>
-                                Cambiar a <strong>Pases <span class="tooltip-term" tabindex="0">(Passing)</span><span class="tooltip-content">Precisión en pases</span></strong> hasta nivel
-                                <strong>6</strong>
-                            </li>
-                        </ul>
-                    </div>
-                    <div id="cb-p3" class="tabpanel" role="tabpanel" aria-labelledby="cb-tab-3" aria-hidden="true">
-                        <button class="phase-badge badge-p3" popovertarget="pop-cb-p3" popovertargetaction="toggle">Fase 3 — Cierre</button>
-                        <div id="pop-cb-p3" popover>
-                            <div class="popover-header">ℹ️ Fase 3</div>
-                            <p>Regresa a la principal para pulir hasta la meta final.</p>
-                        </div>
-                        <ul>
-                            <li>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></li>
-                            <li>
-                                Regresar a <strong>Defensa <span class="tooltip-term" tabindex="0">(Defending)</span><span class="tooltip-content">Capacidad defensiva general</span></strong> para
-                                pulir hasta nivel <strong>15</strong>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </details>
-
-            <!-- 3. DEFENSA LATERAL -->
-            <details class="accordion pos-wb" data-pos="defensa lateral pases winger defending">
-                <summary>
-                    <div class="pos-icon" aria-hidden="true">🏃</div>
-                    <div class="pos-title">
-                        <h2>Defensa Lateral</h2>
-                        <div class="pos-goals">Meta: <span>Defensa 14</span> · <span>Lateral 10</span> · <span>Pases 8</span></div>
-                    </div>
-                    <span class="chevron" aria-hidden="true">▼</span>
-                </summary>
-                <div class="accordion-content">
-                    <div class="tabs" role="tablist" aria-label="Fases de entrenamiento - Defensa Lateral">
-                        <button class="tab active" role="tab" aria-selected="true" aria-controls="wb-p1" id="wb-tab-1" onclick="switchTab(this, 'wb-p1')">Fase 1</button>
-                        <button class="tab" role="tab" aria-selected="false" aria-controls="wb-p2" id="wb-tab-2" tabindex="-1" onclick="switchTab(this, 'wb-p2')">Fase 2</button>
-                        <button class="tab" role="tab" aria-selected="false" aria-controls="wb-p3" id="wb-tab-3" tabindex="-1" onclick="switchTab(this, 'wb-p3')">Fase 3</button>
-                    </div>
-                    <div id="wb-p1" class="tabpanel active" role="tabpanel" aria-labelledby="wb-tab-1">
-                        <button class="phase-badge badge-p1" popovertarget="pop-wb-p1" popovertargetaction="toggle">Fase 1 — Enfoque Principal</button>
-                        <div id="pop-wb-p1" popover>
-                            <div class="popover-header">ℹ️ Fase 1</div>
-                            <p>Enfoca el 100% del entrenamiento en la habilidad principal.</p>
-                        </div>
-                        <ul>
-                            <li>Resistencia <strong>10%</strong> · Intensidad <strong>100%</strong></li>
-                            <li>
-                                Entrenar <strong>Defensa <span class="tooltip-term" tabindex="0">(Defending)</span><span class="tooltip-content">Capacidad defensiva general</span></strong> hasta nivel
-                                <strong>12</strong>
-                            </li>
-                        </ul>
-                    </div>
-                    <div id="wb-p2" class="tabpanel" role="tabpanel" aria-labelledby="wb-tab-2" aria-hidden="true">
-                        <button class="phase-badge badge-p2" popovertarget="pop-wb-p2" popovertargetaction="toggle">Fase 2 — Secundarias</button>
-                        <div id="pop-wb-p2" popover>
-                            <div class="popover-header">ℹ️ Fase 2</div>
-                            <p>Desarrolla habilidades secundarias.</p>
-                        </div>
-                        <ul>
-                            <li>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></li>
-                            <li>
-                                Cambiar a <strong>Lateral <span class="tooltip-term" tabindex="0">(Winger)</span><span class="tooltip-content">Juego por las bandas</span></strong> hasta nivel
-                                <strong>10</strong>
-                            </li>
-                            <li>
-                                Cambiar a <strong>Pases <span class="tooltip-term" tabindex="0">(Passing)</span><span class="tooltip-content">Precisión en pases</span></strong> hasta nivel
-                                <strong>8</strong>
-                            </li>
-                        </ul>
-                    </div>
-                    <div id="wb-p3" class="tabpanel" role="tabpanel" aria-labelledby="wb-tab-3" aria-hidden="true">
-                        <button class="phase-badge badge-p3" popovertarget="pop-wb-p3" popovertargetaction="toggle">Fase 3 — Cierre</button>
-                        <div id="pop-wb-p3" popover>
-                            <div class="popover-header">ℹ️ Fase 3</div>
-                            <p>Regresa a la principal para pulir hasta la meta final.</p>
-                        </div>
-                        <ul>
-                            <li>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></li>
-                            <li>
-                                Regresar a <strong>Defensa <span class="tooltip-term" tabindex="0">(Defending)</span><span class="tooltip-content">Capacidad defensiva general</span></strong> para
-                                pulir hasta nivel <strong>14</strong>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </details>
-
-            <!-- 4. MEDIOCENTRO -->
-            <details class="accordion pos-mf" data-pos="mediocentro jugadas defensa pases anotación playmaking defending scoring">
-                <summary>
-                    <div class="pos-icon" aria-hidden="true">⚙️</div>
-                    <div class="pos-title">
-                        <h2>Mediocentro</h2>
-                        <div class="pos-goals">Meta: <span>Jugadas 15</span> · <span>Defensa 6</span> · <span>Pases 6</span> · <span>Anotación 6</span></div>
-                    </div>
-                    <span class="chevron" aria-hidden="true">▼</span>
-                </summary>
-                <div class="accordion-content">
-                    <div class="tabs" role="tablist" aria-label="Fases de entrenamiento - Mediocentro">
-                        <button class="tab active" role="tab" aria-selected="true" aria-controls="mf-p1" id="mf-tab-1" onclick="switchTab(this, 'mf-p1')">Fase 1</button>
-                        <button class="tab" role="tab" aria-selected="false" aria-controls="mf-p2" id="mf-tab-2" tabindex="-1" onclick="switchTab(this, 'mf-p2')">Fase 2</button>
-                        <button class="tab" role="tab" aria-selected="false" aria-controls="mf-p3" id="mf-tab-3" tabindex="-1" onclick="switchTab(this, 'mf-p3')">Fase 3</button>
-                    </div>
-                    <div id="mf-p1" class="tabpanel active" role="tabpanel" aria-labelledby="mf-tab-1">
-                        <button class="phase-badge badge-p1" popovertarget="pop-mf-p1" popovertargetaction="toggle">Fase 1 — Enfoque Principal</button>
-                        <div id="pop-mf-p1" popover>
-                            <div class="popover-header">ℹ️ Fase 1</div>
-                            <p>Enfoca el 100% del entrenamiento en la habilidad principal.</p>
-                        </div>
-                        <ul>
-                            <li>Resistencia <strong>10%</strong> · Intensidad <strong>100%</strong></li>
-                            <li>
-                                Entrenar <strong>Jugadas <span class="tooltip-term" tabindex="0">(Playmaking)</span><span class="tooltip-content">Creación de juego y organización</span></strong> hasta
-                                nivel <strong>13</strong>
-                            </li>
-                        </ul>
-                    </div>
-                    <div id="mf-p2" class="tabpanel" role="tabpanel" aria-labelledby="mf-tab-2" aria-hidden="true">
-                        <button class="phase-badge badge-p2" popovertarget="pop-mf-p2" popovertargetaction="toggle">Fase 2 — Secundarias</button>
-                        <div id="pop-mf-p2" popover>
-                            <div class="popover-header">ℹ️ Fase 2</div>
-                            <p>Desarrolla habilidades secundarias.</p>
-                        </div>
-                        <ul>
-                            <li>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></li>
-                            <li>
-                                Cambiar a <strong>Pases <span class="tooltip-term" tabindex="0">(Passing)</span><span class="tooltip-content">Precisión en pases</span></strong> hasta nivel
-                                <strong>6</strong>
-                            </li>
-                            <li>
-                                Cambiar a <strong>Defensa <span class="tooltip-term" tabindex="0">(Defending)</span><span class="tooltip-content">Capacidad defensiva general</span></strong> hasta
-                                nivel <strong>6</strong>
-                            </li>
-                            <li>
-                                Cambiar a <strong>Anotación <span class="tooltip-term" tabindex="0">(Scoring)</span><span class="tooltip-content">Finalización de jugadas</span></strong> hasta nivel
-                                <strong>6</strong>
-                            </li>
-                        </ul>
-                    </div>
-                    <div id="mf-p3" class="tabpanel" role="tabpanel" aria-labelledby="mf-tab-3" aria-hidden="true">
-                        <button class="phase-badge badge-p3" popovertarget="pop-mf-p3" popovertargetaction="toggle">Fase 3 — Cierre</button>
-                        <div id="pop-mf-p3" popover>
-                            <div class="popover-header">ℹ️ Fase 3</div>
-                            <p>Regresa a la principal para pulir hasta la meta final.</p>
-                        </div>
-                        <ul>
-                            <li>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></li>
-                            <li>
-                                Regresar a
-                                <strong>Jugadas <span class="tooltip-term" tabindex="0">(Playmaking)</span><span class="tooltip-content">Creación de juego y organización</span></strong> para pulir
-                                hasta nivel <strong>15</strong>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </details>
-
-            <!-- 5. MEDIOCENTRO HACIA LATERAL -->
-            <details class="accordion pos-wm" data-pos="mediocentro lateral jugadas defensa pases winger playmaking">
-                <summary>
-                    <div class="pos-icon" aria-hidden="true">⚙️</div>
-                    <div class="pos-title">
-                        <h2>Mediocentro Hacia Lateral</h2>
-                        <div class="pos-goals">Meta: <span>Jugadas 14</span> · <span>Lateral 8</span> · <span>Defensa 6</span> · <span>Pases 6</span></div>
-                    </div>
-                    <span class="chevron" aria-hidden="true">▼</span>
-                </summary>
-                <div class="accordion-content">
-                    <div class="tabs" role="tablist" aria-label="Fases de entrenamiento - Mediocentro Hacia Lateral">
-                        <button class="tab active" role="tab" aria-selected="true" aria-controls="wm-p1" id="wm-tab-1" onclick="switchTab(this, 'wm-p1')">Fase 1</button>
-                        <button class="tab" role="tab" aria-selected="false" aria-controls="wm-p2" id="wm-tab-2" tabindex="-1" onclick="switchTab(this, 'wm-p2')">Fase 2</button>
-                        <button class="tab" role="tab" aria-selected="false" aria-controls="wm-p3" id="wm-tab-3" tabindex="-1" onclick="switchTab(this, 'wm-p3')">Fase 3</button>
-                    </div>
-                    <div id="wm-p1" class="tabpanel active" role="tabpanel" aria-labelledby="wm-tab-1">
-                        <button class="phase-badge badge-p1" popovertarget="pop-wm-p1" popovertargetaction="toggle">Fase 1 — Enfoque Principal</button>
-                        <div id="pop-wm-p1" popover>
-                            <div class="popover-header">ℹ️ Fase 1</div>
-                            <p>Enfoca el 100% del entrenamiento en la habilidad principal.</p>
-                        </div>
-                        <ul>
-                            <li>Resistencia <strong>10%</strong> · Intensidad <strong>100%</strong></li>
-                            <li>
-                                Entrenar <strong>Jugadas <span class="tooltip-term" tabindex="0">(Playmaking)</span><span class="tooltip-content">Creación de juego y organización</span></strong> hasta
-                                nivel <strong>12</strong>
-                            </li>
-                        </ul>
-                    </div>
-                    <div id="wm-p2" class="tabpanel" role="tabpanel" aria-labelledby="wm-tab-2" aria-hidden="true">
-                        <button class="phase-badge badge-p2" popovertarget="pop-wm-p2" popovertargetaction="toggle">Fase 2 — Secundarias</button>
-                        <div id="pop-wm-p2" popover>
-                            <div class="popover-header">ℹ️ Fase 2</div>
-                            <p>Desarrolla habilidades secundarias.</p>
-                        </div>
-                        <ul>
-                            <li>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></li>
-                            <li>
-                                Cambiar a <strong>Lateral <span class="tooltip-term" tabindex="0">(Winger)</span><span class="tooltip-content">Juego por las bandas</span></strong> hasta nivel
-                                <strong>8</strong>
-                            </li>
-                            <li>
-                                Cambiar a <strong>Pases <span class="tooltip-term" tabindex="0">(Passing)</span><span class="tooltip-content">Precisión en pases</span></strong> hasta nivel
-                                <strong>6</strong>
-                            </li>
-                            <li>
-                                Cambiar a <strong>Defensa <span class="tooltip-term" tabindex="0">(Defending)</span><span class="tooltip-content">Capacidad defensiva general</span></strong> hasta
-                                nivel <strong>6</strong>
-                            </li>
-                        </ul>
-                    </div>
-                    <div id="wm-p3" class="tabpanel" role="tabpanel" aria-labelledby="wm-tab-3" aria-hidden="true">
-                        <button class="phase-badge badge-p3" popovertarget="pop-wm-p3" popovertargetaction="toggle">Fase 3 — Cierre</button>
-                        <div id="pop-wm-p3" popover>
-                            <div class="popover-header">ℹ️ Fase 3</div>
-                            <p>Regresa a la principal para pulir hasta la meta final.</p>
-                        </div>
-                        <ul>
-                            <li>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></li>
-                            <li>
-                                Regresar a
-                                <strong>Jugadas <span class="tooltip-term" tabindex="0">(Playmaking)</span><span class="tooltip-content">Creación de juego y organización</span></strong> para pulir
-                                hasta nivel <strong>14</strong>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </details>
-
-            <!-- 6. EXTREMO HACIA MEDIO -->
-            <details class="accordion pos-wi" data-pos="extremo medio lateral jugadas pases defensa winger playmaking">
-                <summary>
-                    <div class="pos-icon" aria-hidden="true">🏃</div>
-                    <div class="pos-title">
-                        <h2>Extremo Hacia Medio</h2>
-                        <div class="pos-goals">Meta: <span>Lateral 13</span> · <span>Jugadas 12</span> · <span>Pases 8</span> · <span>Defensa 6</span></div>
-                    </div>
-                    <span class="chevron" aria-hidden="true">▼</span>
-                </summary>
-                <div class="accordion-content">
-                    <div class="tabs" role="tablist" aria-label="Fases de entrenamiento - Extremo Hacia Medio">
-                        <button class="tab active" role="tab" aria-selected="true" aria-controls="wi1-p1" id="wi1-tab-1" onclick="switchTab(this, 'wi1-p1')">Fase 1</button>
-                        <button class="tab" role="tab" aria-selected="false" aria-controls="wi1-p2" id="wi1-tab-2" tabindex="-1" onclick="switchTab(this, 'wi1-p2')">Fase 2</button>
-                        <button class="tab" role="tab" aria-selected="false" aria-controls="wi1-p3" id="wi1-tab-3" tabindex="-1" onclick="switchTab(this, 'wi1-p3')">Fase 3</button>
-                    </div>
-                    <div id="wi1-p1" class="tabpanel active" role="tabpanel" aria-labelledby="wi1-tab-1">
-                        <button class="phase-badge badge-p1" popovertarget="pop-wi1-p1" popovertargetaction="toggle">Fase 1 — Enfoque Principal</button>
-                        <div id="pop-wi1-p1" popover>
-                            <div class="popover-header">ℹ️ Fase 1</div>
-                            <p>Enfoca el 100% del entrenamiento en la habilidad principal.</p>
-                        </div>
-                        <ul>
-                            <li>Resistencia <strong>10%</strong> · Intensidad <strong>100%</strong></li>
-                            <li>
-                                Entrenar <strong>Lateral <span class="tooltip-term" tabindex="0">(Winger)</span><span class="tooltip-content">Juego por las bandas</span></strong> hasta nivel
-                                <strong>11</strong>
-                            </li>
-                        </ul>
-                    </div>
-                    <div id="wi1-p2" class="tabpanel" role="tabpanel" aria-labelledby="wi1-tab-2" aria-hidden="true">
-                        <button class="phase-badge badge-p2" popovertarget="pop-wi1-p2" popovertargetaction="toggle">Fase 2 — Secundarias</button>
-                        <div id="pop-wi1-p2" popover>
-                            <div class="popover-header">ℹ️ Fase 2</div>
-                            <p>Desarrolla habilidades secundarias.</p>
-                        </div>
-                        <ul>
-                            <li>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></li>
-                            <li>
-                                Cambiar a
-                                <strong>Jugadas <span class="tooltip-term" tabindex="0">(Playmaking)</span><span class="tooltip-content">Creación de juego y organización</span></strong> hasta nivel
-                                <strong>12</strong>
-                            </li>
-                            <li>
-                                Cambiar a <strong>Pases <span class="tooltip-term" tabindex="0">(Passing)</span><span class="tooltip-content">Precisión en pases</span></strong> hasta nivel
-                                <strong>8</strong>
-                            </li>
-                            <li>
-                                Cambiar a <strong>Defensa <span class="tooltip-term" tabindex="0">(Defending)</span><span class="tooltip-content">Capacidad defensiva general</span></strong> hasta
-                                nivel <strong>6</strong>
-                            </li>
-                        </ul>
-                    </div>
-                    <div id="wi1-p3" class="tabpanel" role="tabpanel" aria-labelledby="wi1-tab-3" aria-hidden="true">
-                        <button class="phase-badge badge-p3" popovertarget="pop-wi1-p3" popovertargetaction="toggle">Fase 3 — Cierre</button>
-                        <div id="pop-wi1-p3" popover>
-                            <div class="popover-header">ℹ️ Fase 3</div>
-                            <p>Regresa a la principal para pulir hasta la meta final.</p>
-                        </div>
-                        <ul>
-                            <li>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></li>
-                            <li>
-                                Regresar a <strong>Lateral <span class="tooltip-term" tabindex="0">(Winger)</span><span class="tooltip-content">Juego por las bandas</span></strong> para pulir hasta
-                                nivel <strong>13</strong>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </details>
-
-            <!-- 7. EXTREMO -->
-            <details class="accordion pos-wi" data-pos="extremo lateral jugadas defensa pases winger playmaking">
-                <summary>
-                    <div class="pos-icon" aria-hidden="true">🏃</div>
-                    <div class="pos-title">
-                        <h2>Extremo</h2>
-                        <div class="pos-goals">Meta: <span>Lateral 15</span> · <span>Jugadas 11</span> · <span>Defensa 6</span> · <span>Pases 6</span></div>
-                    </div>
-                    <span class="chevron" aria-hidden="true">▼</span>
-                </summary>
-                <div class="accordion-content">
-                    <div class="tabs" role="tablist" aria-label="Fases de entrenamiento - Extremo">
-                        <button class="tab active" role="tab" aria-selected="true" aria-controls="wi2-p1" id="wi2-tab-1" onclick="switchTab(this, 'wi2-p1')">Fase 1</button>
-                        <button class="tab" role="tab" aria-selected="false" aria-controls="wi2-p2" id="wi2-tab-2" tabindex="-1" onclick="switchTab(this, 'wi2-p2')">Fase 2</button>
-                        <button class="tab" role="tab" aria-selected="false" aria-controls="wi2-p3" id="wi2-tab-3" tabindex="-1" onclick="switchTab(this, 'wi2-p3')">Fase 3</button>
-                    </div>
-                    <div id="wi2-p1" class="tabpanel active" role="tabpanel" aria-labelledby="wi2-tab-1">
-                        <button class="phase-badge badge-p1" popovertarget="pop-wi2-p1" popovertargetaction="toggle">Fase 1 — Enfoque Principal</button>
-                        <div id="pop-wi2-p1" popover>
-                            <div class="popover-header">ℹ️ Fase 1</div>
-                            <p>Enfoca el 100% del entrenamiento en la habilidad principal.</p>
-                        </div>
-                        <ul>
-                            <li>Resistencia <strong>10%</strong> · Intensidad <strong>100%</strong></li>
-                            <li>
-                                Entrenar <strong>Lateral <span class="tooltip-term" tabindex="0">(Winger)</span><span class="tooltip-content">Juego por las bandas</span></strong> hasta nivel
-                                <strong>13</strong>
-                            </li>
-                        </ul>
-                    </div>
-                    <div id="wi2-p2" class="tabpanel" role="tabpanel" aria-labelledby="wi2-tab-2" aria-hidden="true">
-                        <button class="phase-badge badge-p2" popovertarget="pop-wi2-p2" popovertargetaction="toggle">Fase 2 — Secundarias</button>
-                        <div id="pop-wi2-p2" popover>
-                            <div class="popover-header">ℹ️ Fase 2</div>
-                            <p>Desarrolla habilidades secundarias.</p>
-                        </div>
-                        <ul>
-                            <li>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></li>
-                            <li>
-                                Cambiar a
-                                <strong>Jugadas <span class="tooltip-term" tabindex="0">(Playmaking)</span><span class="tooltip-content">Creación de juego y organización</span></strong> hasta nivel
-                                <strong>11</strong>
-                            </li>
-                            <li>
-                                Cambiar a <strong>Pases <span class="tooltip-term" tabindex="0">(Passing)</span><span class="tooltip-content">Precisión en pases</span></strong> hasta nivel
-                                <strong>6</strong>
-                            </li>
-                            <li>
-                                Cambiar a <strong>Defensa <span class="tooltip-term" tabindex="0">(Defending)</span><span class="tooltip-content">Capacidad defensiva general</span></strong> hasta
-                                nivel <strong>6</strong>
-                            </li>
-                        </ul>
-                    </div>
-                    <div id="wi2-p3" class="tabpanel" role="tabpanel" aria-labelledby="wi2-tab-3" aria-hidden="true">
-                        <button class="phase-badge badge-p3" popovertarget="pop-wi2-p3" popovertargetaction="toggle">Fase 3 — Cierre</button>
-                        <div id="pop-wi2-p3" popover>
-                            <div class="popover-header">ℹ️ Fase 3</div>
-                            <p>Regresa a la principal para pulir hasta la meta final.</p>
-                        </div>
-                        <ul>
-                            <li>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></li>
-                            <li>
-                                Regresar a <strong>Lateral <span class="tooltip-term" tabindex="0">(Winger)</span><span class="tooltip-content">Juego por las bandas</span></strong> para pulir hasta
-                                nivel <strong>15</strong>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </details>
-
-            <!-- 8. DELANTERO -->
-            <details class="accordion pos-fw" data-pos="delantero anotación pases jugadas lateral scoring playmaking winger">
-                <summary>
-                    <div class="pos-icon" aria-hidden="true">⚽</div>
-                    <div class="pos-title">
-                        <h2>Delantero</h2>
-                        <div class="pos-goals">Meta: <span>Anotación 15</span> · <span>Pases 8</span> · <span>Jugadas 6</span> · <span>Lateral 6</span></div>
-                    </div>
-                    <span class="chevron" aria-hidden="true">▼</span>
-                </summary>
-                <div class="accordion-content">
-                    <div class="tabs" role="tablist" aria-label="Fases de entrenamiento - Delantero">
-                        <button class="tab active" role="tab" aria-selected="true" aria-controls="fw-p1" id="fw-tab-1" onclick="switchTab(this, 'fw-p1')">Fase 1</button>
-                        <button class="tab" role="tab" aria-selected="false" aria-controls="fw-p2" id="fw-tab-2" tabindex="-1" onclick="switchTab(this, 'fw-p2')">Fase 2</button>
-                        <button class="tab" role="tab" aria-selected="false" aria-controls="fw-p3" id="fw-tab-3" tabindex="-1" onclick="switchTab(this, 'fw-p3')">Fase 3</button>
-                    </div>
-                    <div id="fw-p1" class="tabpanel active" role="tabpanel" aria-labelledby="fw-tab-1">
-                        <button class="phase-badge badge-p1" popovertarget="pop-fw-p1" popovertargetaction="toggle">Fase 1 — Enfoque Principal</button>
-                        <div id="pop-fw-p1" popover>
-                            <div class="popover-header">ℹ️ Fase 1</div>
-                            <p>Enfoca el 100% del entrenamiento en la habilidad principal.</p>
-                        </div>
-                        <ul>
-                            <li>Resistencia <strong>10%</strong> · Intensidad <strong>100%</strong></li>
-                            <li>
-                                Entrenar <strong>Anotación <span class="tooltip-term" tabindex="0">(Scoring)</span><span class="tooltip-content">Finalización de jugadas</span></strong> hasta nivel
-                                <strong>12 o 13</strong>
-                            </li>
-                        </ul>
-                    </div>
-                    <div id="fw-p2" class="tabpanel" role="tabpanel" aria-labelledby="fw-tab-2" aria-hidden="true">
-                        <button class="phase-badge badge-p2" popovertarget="pop-fw-p2" popovertargetaction="toggle">Fase 2 — Secundarias</button>
-                        <div id="pop-fw-p2" popover>
-                            <div class="popover-header">ℹ️ Fase 2</div>
-                            <p>Desarrolla habilidades secundarias.</p>
-                        </div>
-                        <ul>
-                            <li>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></li>
-                            <li>
-                                Cambiar a <strong>Pases <span class="tooltip-term" tabindex="0">(Passing)</span><span class="tooltip-content">Precisión en pases</span></strong> hasta nivel
-                                <strong>8</strong>
-                            </li>
-                            <li>
-                                Cambiar a
-                                <strong>Jugadas <span class="tooltip-term" tabindex="0">(Playmaking)</span><span class="tooltip-content">Creación de juego y organización</span></strong> hasta nivel
-                                <strong>6</strong>
-                            </li>
-                            <li>
-                                Cambiar a <strong>Lateral <span class="tooltip-term" tabindex="0">(Winger)</span><span class="tooltip-content">Juego por las bandas</span></strong> hasta nivel
-                                <strong>6</strong>
-                            </li>
-                        </ul>
-                    </div>
-                    <div id="fw-p3" class="tabpanel" role="tabpanel" aria-labelledby="fw-tab-3" aria-hidden="true">
-                        <button class="phase-badge badge-p3" popovertarget="pop-fw-p3" popovertargetaction="toggle">Fase 3 — Cierre</button>
-                        <div id="pop-fw-p3" popover>
-                            <div class="popover-header">ℹ️ Fase 3</div>
-                            <p>Regresa a la principal para pulir hasta la meta final.</p>
-                        </div>
-                        <ul>
-                            <li>Resistencia <strong>13%</strong> · Intensidad <strong>100%</strong></li>
-                            <li>
-                                Regresar a <strong>Anotación <span class="tooltip-term" tabindex="0">(Scoring)</span><span class="tooltip-content">Finalización de jugadas</span></strong> para pulir
-                                hasta nivel <strong>15</strong>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </details>
 
             <!-- RESUMEN — Tabs Verticales -->
             <div class="section-title">📊 Resumen de Metas por Posición</div>
             <div class="resumen-wrapper">
                 <div class="resumen-layout">
                     <div class="resumen-tabs" role="tablist" aria-label="Resumen de metas por posición">
-                        <button class="resumen-tab active" role="tab" aria-selected="true" aria-controls="res-gk" id="res-tab-gk" onclick="switchResumenTab(this, 'res-gk')">
-                            <span class="emoji">🧤</span> Portero
+                        {% for pos in site.data.plan-entrenamiento.resumen %}
+                        <button class="resumen-tab{% if forloop.first %} active{% endif %}" 
+                                role="tab" 
+                                aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+                                aria-controls="res-{{ pos.id }}"
+                                id="res-tab-{{ pos.id }}"
+                                {% unless forloop.first %}tabindex="-1"{% endunless %}
+                                onclick="switchResumenTab(this, 'res-{{ pos.id }}')">
+                            <span class="emoji">{{ pos.icono }}</span> {{ pos.nombre }}
                         </button>
-                        <button class="resumen-tab" role="tab" aria-selected="false" aria-controls="res-cb" id="res-tab-cb" tabindex="-1" onclick="switchResumenTab(this, 'res-cb')">
-                            <span class="emoji">🛡️</span> Def. Central
-                        </button>
-                        <button class="resumen-tab" role="tab" aria-selected="false" aria-controls="res-wb" id="res-tab-wb" tabindex="-1" onclick="switchResumenTab(this, 'res-wb')">
-                            <span class="emoji">🏃</span> Def. Lateral
-                        </button>
-                        <button class="resumen-tab" role="tab" aria-selected="false" aria-controls="res-mf" id="res-tab-mf" tabindex="-1" onclick="switchResumenTab(this, 'res-mf')">
-                            <span class="emoji">⚙️</span> Mediocentro
-                        </button>
-                        <button class="resumen-tab" role="tab" aria-selected="false" aria-controls="res-wm" id="res-tab-wm" tabindex="-1" onclick="switchResumenTab(this, 'res-wm')">
-                            <span class="emoji">⚙️</span> MC → Lateral
-                        </button>
-                        <button class="resumen-tab" role="tab" aria-selected="false" aria-controls="res-wi1" id="res-tab-wi1" tabindex="-1" onclick="switchResumenTab(this, 'res-wi1')">
-                            <span class="emoji">🏃</span> Ext. → Medio
-                        </button>
-                        <button class="resumen-tab" role="tab" aria-selected="false" aria-controls="res-wi2" id="res-tab-wi2" tabindex="-1" onclick="switchResumenTab(this, 'res-wi2')">
-                            <span class="emoji">🏃</span> Extremo
-                        </button>
-                        <button class="resumen-tab" role="tab" aria-selected="false" aria-controls="res-fw" id="res-tab-fw" tabindex="-1" onclick="switchResumenTab(this, 'res-fw')">
-                            <span class="emoji">⚽</span> Delantero
-                        </button>
+                        {% endfor %}
                     </div>
                     <div class="resumen-panels">
-                        <div id="res-gk" class="resumen-panel active" role="tabpanel" aria-labelledby="res-tab-gk">
-                            <div class="pos-title">🧤 Portero</div>
-                            <div class="resumen-main">Portería 16</div>
+                        {% for pos in site.data.plan-entrenamiento.resumen %}
+                        <div id="res-{{ pos.id }}" 
+                             class="resumen-panel{% if forloop.first %} active{% endif %}" 
+                             role="tabpanel" 
+                             aria-labelledby="res-tab-{{ pos.id }}"
+                             {% unless forloop.first %}aria-hidden="true"{% endunless %}>
+                            <div class="pos-title">{{ pos.icono }} {{ pos.nombre }}</div>
+                            <div class="resumen-main">{{ pos.principal }}</div>
                             <div class="resumen-sec-label">Secundarias</div>
-                            <span class="tag-sec">Balón Parado 16</span>
-                            <span class="tag-sec">Defensa 6</span>
+                            {% for sec in pos.secundarias %}
+                            <span class="tag-sec">{{ sec }}</span>
+                            {% endfor %}
                         </div>
-                        <div id="res-cb" class="resumen-panel" role="tabpanel" aria-labelledby="res-tab-cb" aria-hidden="true">
-                            <div class="pos-title">🛡️ Defensa Central</div>
-                            <div class="resumen-main">Defensa 15</div>
-                            <div class="resumen-sec-label">Secundarias</div>
-                            <span class="tag-sec">Jugadas 8</span>
-                            <span class="tag-sec">Pases 6</span>
-                        </div>
-                        <div id="res-wb" class="resumen-panel" role="tabpanel" aria-labelledby="res-tab-wb" aria-hidden="true">
-                            <div class="pos-title">🏃 Defensa Lateral</div>
-                            <div class="resumen-main">Defensa 14</div>
-                            <div class="resumen-sec-label">Secundarias</div>
-                            <span class="tag-sec">Lateral 10</span>
-                            <span class="tag-sec">Pases 8</span>
-                        </div>
-                        <div id="res-mf" class="resumen-panel" role="tabpanel" aria-labelledby="res-tab-mf" aria-hidden="true">
-                            <div class="pos-title">⚙️ Mediocentro</div>
-                            <div class="resumen-main">Jugadas 15</div>
-                            <div class="resumen-sec-label">Secundarias</div>
-                            <span class="tag-sec">Defensa 6</span>
-                            <span class="tag-sec">Pases 6</span>
-                            <span class="tag-sec">Anotación 6</span>
-                        </div>
-                        <div id="res-wm" class="resumen-panel" role="tabpanel" aria-labelledby="res-tab-wm" aria-hidden="true">
-                            <div class="pos-title">⚙️ Mediocentro → Lateral</div>
-                            <div class="resumen-main">Jugadas 14</div>
-                            <div class="resumen-sec-label">Secundarias</div>
-                            <span class="tag-sec">Lateral 8</span>
-                            <span class="tag-sec">Defensa 6</span>
-                            <span class="tag-sec">Pases 6</span>
-                        </div>
-                        <div id="res-wi1" class="resumen-panel" role="tabpanel" aria-labelledby="res-tab-wi1" aria-hidden="true">
-                            <div class="pos-title">🏃 Extremo → Medio</div>
-                            <div class="resumen-main">Lateral 13</div>
-                            <div class="resumen-sec-label">Secundarias</div>
-                            <span class="tag-sec">Jugadas 12</span>
-                            <span class="tag-sec">Pases 8</span>
-                            <span class="tag-sec">Defensa 6</span>
-                        </div>
-                        <div id="res-wi2" class="resumen-panel" role="tabpanel" aria-labelledby="res-tab-wi2" aria-hidden="true">
-                            <div class="pos-title">🏃 Extremo</div>
-                            <div class="resumen-main">Lateral 15</div>
-                            <div class="resumen-sec-label">Secundarias</div>
-                            <span class="tag-sec">Jugadas 11</span>
-                            <span class="tag-sec">Defensa 6</span>
-                            <span class="tag-sec">Pases 6</span>
-                        </div>
-                        <div id="res-fw" class="resumen-panel" role="tabpanel" aria-labelledby="res-tab-fw" aria-hidden="true">
-                            <div class="pos-title">⚽ Delantero</div>
-                            <div class="resumen-main">Anotación 15</div>
-                            <div class="resumen-sec-label">Secundarias</div>
-                            <span class="tag-sec">Pases 8</span>
-                            <span class="tag-sec">Jugadas 6</span>
-                            <span class="tag-sec">Lateral 6</span>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
@@ -1632,27 +1056,18 @@ description: "Este plan está diseñado para optimizar el rendimiento de los jug
                 </summary>
                 <div class="accordion-content">
                     <div class="notes-scroll">
+                        {% for nota in site.data.plan-entrenamiento.notas %}
                         <div class="note-card">
-                            <strong><span class="note-number">1</span>Flexibilidad en la Fase 2</strong>
-                            El orden de las habilidades secundarias no es estricto. Puedes entrenarlas en el orden que mejor se adapte al calendario o a las necesidades de tu equipo. Lo importante es
-                            completar los niveles sugeridos antes de pasar a la Fase 3.
+                            <strong><span class="note-number">{{ nota.numero }}</span>{{ nota.titulo }}</strong>
+                            {{ nota.contenido }}
                         </div>
-                        <div class="note-card">
-                            <strong><span class="note-number">2</span>¿Qué pasa si los niveles ya son diferentes?</strong>
-                            Si al revisar el Hattrick Portal notas que a tu jugador solo le falta 1 nivel (o un subnivel) para alcanzar la meta de alguna habilidad, eso se completará muy rápido. Si ya
-                            sobrepasó el nivel sugerido, puedes saltarte esa parte directamente.
-                        </div>
-                        <div class="note-card">
-                            <strong><span class="note-number">3</span>Abierto a sugerencias</strong>
-                            Este plan está diseñado para optimizar al jugador para jugar con la selección. Si tienes dudas, comentarios o te gustaría adaptar el entrenamiento a otro estilo que te
-                            beneficie más en tu club, escríbeme con total confianza. Podemos revisarlo y organizarlo juntos para que ambos nos beneficiemos.
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
             </details>
 
             <footer class="footer">
-                <p>© {{ 'now' | date: '%Y' }} <a href="{{ '/' | relative_url }}"> {{ site.title | escape }} </a>. Todos los derechos reservados.</p>
+                <p>© {{ 'now' | date: '%Y' }} <a href="{{ '/' | relative_url }}">{{ site.title | default: 'Hattrick Hub' | escape }}</a>. Todos los derechos reservados.</p>
             </footer>
         </div>
 
