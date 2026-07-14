@@ -13,6 +13,8 @@ hero_alt: Lista de abreviaturas de Hattrick
     aria_label="Abreviaturas de Hattrick" 
 %}
 
+<div class="progress-bar" aria-hidden="true"></div>
+
 <section class="section" aria-labelledby="abbr-heading">
     <div class="container">
         <header class="card-header">
