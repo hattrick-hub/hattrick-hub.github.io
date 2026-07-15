@@ -7,21 +7,31 @@
     <meta name="theme-color" content="#4B8A61" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#2d5a3d" media="(prefers-color-scheme: dark)">
     <meta name="color-scheme" content="light dark">
-    
     <link rel="preconnect" href="https://hattrick.org">
     <link rel="dns-prefetch" href="https://hattrick.org">
     <link rel="icon" href="{{ '/assets/img/favicon.ico' | relative_url }}" sizes="any">
     <link rel="icon" href="{{ '/assets/img/favicon.svg' | relative_url }}" type="image/svg+xml">
     <link rel="apple-touch-icon" href="{{ '/assets/img/apple-touch-icon.png' | relative_url }}">
-    
-    <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
-    
+    <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}?v={{ site.time | date: '%s' }}">
     {% seo %}
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Inicio",
+            "item": "{{ site.url | absolute_url }}"
+    }]
+    }
+    </script>
 </head>
 <body>
     <a href="#main-content" class="skip-link">
         <span class="visually-hidden">Saltar al contenido principal</span>
     </a>
+
     
     <div class="site-wrapper">
         {% include navbar.html %}
@@ -46,6 +56,6 @@
     </button>
     
     {% include js-config.html %}
-    <script type="module" src="{{ '/assets/js/script.js' | relative_url }}"></script>
+    <script type="module" src="{{ '/assets/js/script.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
 </body>
 </html>
