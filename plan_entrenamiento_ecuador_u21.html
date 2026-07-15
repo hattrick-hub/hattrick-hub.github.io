@@ -69,8 +69,8 @@ description: "Este plan está diseñado para optimizar el rendimiento de los jug
                     --color-secondary-dark: light-dark(hsl(20 65% 30%), hsl(20 65% 40%));
                     --color-secondary-light: light-dark(hsl(20 65% 60%), hsl(20 65% 70%));
                     --color-text: light-dark(#1a1f24, #ecebe9);
-                    --color-text-secondary: light-dark(#364049, #c0c0c0);
-                    --color-text-muted: light-dark(#6b7280, #9ca3af);
+                    --color-text-secondary: light-dark(#374151, #d1d5db);
+                    --color-text-muted: light-dark(#4b5563, #d1d5db);
                     --color-background: light-dark(#f9f6f2, #151515);
                     --color-card: light-dark(#ffffff, #222222);
                     --color-card-hover: light-dark(#f5f5f5, #2a2a2a);
@@ -792,11 +792,24 @@ description: "Este plan está diseñado para optimizar el rendimiento de los jug
                 }
                 .footer a {
                     color: var(--color-primary);
-                    text-decoration: none;
+                    text-decoration: underline;
+                    text-underline-offset: 2px;
                     transition: var(--transition-standard);
                 }
                 .footer a:hover {
-                    text-decoration: underline;
+                    text-decoration-thickness: 2px;
+                }     
+
+               /* Focus visible para navegación por teclado */
+                a:focus-visible,
+                button:focus-visible,
+                .tab:focus-visible,
+                .resumen-tab:focus-visible,
+                .carousel-item:focus-visible,
+                summary:focus-visible {
+                    outline: var(--outline-width) solid var(--color-primary);
+                    outline-offset: var(--outline-offset);
+                    border-radius: var(--radius-sm);
                 }
             }
 
@@ -892,7 +905,7 @@ description: "Este plan está diseñado para optimizar el rendimiento de los jug
     <body>
         <div class="progress-bar" aria-hidden="true"></div>
 
-        <div class="container" id="main-content">
+        <main class="container" id="main-content" role="main">
             <header class="page-header">
                 <h1>⚽ {{ page.title }}</h1>
                 <p>{{ page.description }}</p>
@@ -1069,7 +1082,7 @@ description: "Este plan está diseñado para optimizar el rendimiento de los jug
             <footer class="footer">
                 <p>© {{ 'now' | date: '%Y' }} <a href="{{ '/' | relative_url }}">{{ site.title | default: 'Hattrick Hub' | escape }}</a>. Todos los derechos reservados.</p>
             </footer>
-        </div>
+        </main>
 
         <script type="module">
             // Tab switching inside accordions

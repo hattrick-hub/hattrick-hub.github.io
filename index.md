@@ -31,7 +31,7 @@ hide_news_bar: true
     
     <div class="container text-center">
         <div class="content">
-            <h1 id="features-heading">Todo lo que necesitas para dominar Hattrick</h1>
+            <h2 id="features-heading">Todo lo que necesitas para dominar Hattrick</h2>
             <p>
                 Hattrick Hub es el lugar ideal para jugadores de Hattrick que buscan mejorar su estrategia y experiencia
                 de juego. Descubre:
@@ -54,7 +54,7 @@ hide_news_bar: true
                 <a href="/manual/" class="feature-link">
                     Ver manual
                     <svg class="icon is-small" aria-hidden="true" width="16" height="16">
-                        <use href="#arrow-right"></use>
+                        <use href="#chevron-right"></use>
                     </svg>
                 </a>
             </article>
@@ -74,7 +74,7 @@ hide_news_bar: true
                 <a href="/noticias/" class="feature-link">
                     Ver noticias
                     <svg class="icon is-small" aria-hidden="true" width="16" height="16">
-                        <use href="#arrow-right"></use>
+                        <use href="#chevron-right"></use>
                     </svg>
                 </a>
             </article>
@@ -94,7 +94,7 @@ hide_news_bar: true
                 <a href="/blog/" class="feature-link">
                     Ver blog
                     <svg class="icon is-small" aria-hidden="true" width="16" height="16">
-                        <use href="#arrow-right"></use>
+                        <use href="#chevron-right"></use>
                     </svg>
                 </a>
             </article>
@@ -114,7 +114,7 @@ hide_news_bar: true
                 <a href="/herramientas/" class="feature-link">
                     Ver herramientas
                     <svg class="icon is-small" aria-hidden="true" width="16" height="16">
-                        <use href="#arrow-right"></use>
+                        <use href="#chevron-right"></use>
                     </svg>
                 </a>
             </article>
@@ -134,7 +134,7 @@ hide_news_bar: true
                 <a href="/abreviaturas/" class="feature-link">
                     Ver abreviaturas
                     <svg class="icon is-small" aria-hidden="true" width="16" height="16">
-                        <use href="#arrow-right"></use>
+                        <use href="#chevron-right"></use>
                     </svg>
                 </a>
             </article>
