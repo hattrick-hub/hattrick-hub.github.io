@@ -5,48 +5,20 @@ layout: default
 <div class="progress-bar" aria-hidden="true"></div>
 
 <section class="section" aria-label="Detalles de la noticia">
-    <div class="container">
-        <article class="card-post" aria-labelledby="noticia-title">
+  <div class="container">
+    <article class="card-post" aria-labelledby="noticia-title" itemscope itemtype="https://schema.org/NewsArticle">
+      {% include card-image.html item=page loading="eager" %}
+      <header class="card-header">
+        <h1 class="title is-1" id="noticia-title" itemprop="headline">{{ page.title | escape }}</h1>
+      </header>
 
-            {% include card-image.html item=page %}
-            
-            <header class="card-header">
-                <h1 class="title is-1" id="noticia-title">{{ page.title | escape }}</h1>
-            </header>
-            
-            <div class="meta">
-                <time datetime="{{ page.date | date_to_xmlschema }}">
-                    {{ page.date | date: "%d/%m/%Y" }}
-                </time>
-                <span>{{ page.author | default: site.author | escape }}</span>
-                {% assign minutes = content | number_of_words | divided_by: 200 | plus: 1 %}
-                <span>Tiempo de lectura: {{ minutes }} min</span>
-                {% if page.source %}
-                <span class="source">
-                    <a href="{{ page.source }}" target="_blank" rel="noopener noreferrer"
-                       aria-label="Fuente original: Hattrick.org (abre en nueva pestaña)">
-                        <svg class="icon is-small" aria-hidden="true" width="16" height="16">
-                            <use href="#external"></use>
-                        </svg>
-                        Fuente
-                    </a>
-                </span>
-                {% endif %}
-            </div>
-            
-            <div class="content">
-                {{ content }}
-            </div>
-            
-            {% if page.tags %}
-            <footer class="card-footer">
-                <div class="tags">
-                    {% for tag in page.tags %}
-                    <span class="tag">{{ tag | escape }}</span>
-                    {% endfor %}
-                </div>
-            </footer>
-            {% endif %}
-        </article>
-    </div>
+      {% include post-meta.html post=page show_author=true show_source=true %}
+
+      <div class="content">
+        {{ content }}
+      </div>
+
+      {% include post-tags.html tags=page.tags %}
+    </article>
+  </div>
 </section>

@@ -1,54 +1,45 @@
+{% assign featured_tools = site.herramientas | where: "featured", true %}
+
 {% unless page.hide_news_bar %}
-<aside class="news-bar" aria-label="Herramientas destacadas">
-    <div class="carousel" role="region" aria-roledescription="carrusel" aria-label="Herramientas destacadas">
-        <div class="carousel-inner">
-            {% assign featured_tools = site.herramientas | where: "featured", true %}
-            {% for tool in featured_tools %}
-            <article class="carousel-item{% if forloop.first %} active{% endif %}" 
-                     role="group" 
-                     aria-roledescription="diapositiva"
-                     aria-label="{{ forloop.index }} de {{ forloop.length }}"
-                     data-slide="{{ forloop.index0 }}">
-                <h3>{{ tool.title }}</h3>
-                <p>{{ tool.excerpt | strip_html | truncatewords: 20 }}</p>
-                <a href="{{ tool.url | relative_url }}" class="button is-primary">Explorar</a>
-            </article>
-            {% endfor %}
-        </div>
-        
-        {% if featured_tools.size > 1 %}
-        <button type="button" class="carousel-control prev" aria-label="Herramienta anterior">
-            <svg class="icon is-small" aria-hidden="true">
-                <use href="#chevron-left"></use>
-            </svg>
-            <span class="visually-hidden">Anterior</span>
-        </button>
-        
-        <button type="button" class="carousel-control next" aria-label="Siguiente herramienta">
-            <svg class="icon is-small" aria-hidden="true">
-                <use href="#chevron-right"></use>
-            </svg>
-            <span class="visually-hidden">Siguiente</span>
-        </button>
-        
-        <button type="button" class="carousel-pause" aria-label="Pausar el carrusel">
-            <svg class="icon is-small" aria-hidden="true">
-                <use href="#pause"></use>
-            </svg>
-            <span class="visually-hidden">Pausar</span>
-        </button>
-        
-        <div class="carousel-indicators" role="tablist" aria-label="Controles de diapositivas">
-            {% for tool in featured_tools %}
-            <button type="button" 
-                    class="indicator{% if forloop.first %} active{% endif %}" 
-                    {% if forloop.first %}aria-current="true"{% endif %}
-                    aria-label="Ir a {{ tool.title | escape }}"
-                    aria-controls="carousel-slide-{{ forloop.index0 }}">
-            </button>
-            {% endfor %}
-        </div>
-        {% endif %}
+{% if featured_tools.size > 0 %}
+<aside class="news-bar">
+  <div class="carousel" role="region" aria-roledescription="carrusel" aria-label="Herramientas destacadas"
+    tabindex="0">
+    <div class="carousel-inner">
+      {% for tool in featured_tools %}
+        <article class="carousel-item{% if forloop.first %} active{% endif %}" role="group"
+          aria-roledescription="diapositiva" aria-label="{{ forloop.index }} de {{ forloop.length }}"
+          id="carousel-slide-{{ forloop.index0 }}" data-slide="{{ forloop.index0 }}">
+          <h3>{{ tool.title | strip_html | escape }}</h3>
+          <p>{{ tool.excerpt | strip_html | truncatewords: 20 }}</p>
+          <a href="{{ tool.url | relative_url }}" class="button is-primary">Explorar</a>
+        </article>
+      {% endfor %}
     </div>
+
+    {% if featured_tools.size > 1 %}
+      <button type="button" class="carousel-control prev" aria-label="Herramienta anterior">
+        {% include icon.html name="chevron-left" size="medium" %}
+        <span class="visually-hidden">Anterior</span>
+      </button>
+      <button type="button" class="carousel-control next" aria-label="Siguiente herramienta">
+        {% include icon.html name="chevron-right" size="medium" %}
+        <span class="visually-hidden">Siguiente</span>
+      </button>
+      <button type="button" class="carousel-pause" aria-label="Pausar el carrusel" aria-pressed="false">
+        {% include icon.html name="pause" size="medium" %}
+        <span class="visually-hidden">Pausar</span>
+      </button>
+      <div class="carousel-indicators">
+        {% for tool in featured_tools %}
+          <button type="button" class="indicator{% if forloop.first %} active{% endif %}"
+            {% if forloop.first %}aria-current="true"{% endif %}
+            aria-label="Ir a {{ tool.title | strip_html | escape }}"
+            aria-controls="carousel-slide-{{ forloop.index0 }}"></button>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
 </aside>
+{% endif %}
 {% endunless %}

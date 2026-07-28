@@ -1,21 +1,38 @@
-<script>
-    window.HattrickHub = {
-        placeholderImage: "{{ '/assets/img/placeholder.webp' | relative_url | escape }}",
-        baseUrl: "{{ site.url | absolute_url | escape }}",
-    };
+<div id="js-config" data-base-url="{{ site.url | default: '' | escape }}" hidden>
+</div>
 
-    // Solo links dentro del contenido markdown
-    document.querySelectorAll('.content a[href^="http"]').forEach((link) => {
-        const baseUrl = window.HattrickHub.baseUrl.replace(/\/$/, '');
-        const href = link.getAttribute('href') || '';
-        if (!href.startsWith(baseUrl)) {
+<script>
+  (function () {
+    const config = document.getElementById('js-config');
+    if (!config) return;
+
+    const baseUrl = config.dataset.baseUrl;
+    let base;
+
+    try {
+      base = baseUrl ? new URL(baseUrl) : null;
+    } catch (e) {
+      base = null;
+    }
+
+    // Links externos en contenido markdown
+    if (base) {
+      document.querySelectorAll('.content a[href^="http"]').forEach(function (link) {
+        try {
+          const linkUrl = new URL(link.href);
+          if (linkUrl.hostname !== base.hostname) {
             link.setAttribute('target', '_blank');
             link.setAttribute('rel', 'noopener noreferrer');
+          }
+        } catch (err) {
+          // Ignora URLs malformadas
         }
-    });
+      });
+    }
 
-    // Solo imágenes dentro del contenido markdown
-    document.querySelectorAll('.content img:not([loading]):not(summary img)').forEach((img) => {
-        img.setAttribute('loading', 'lazy');
+    // Lazy loading para imágenes sin atributo
+    document.querySelectorAll('.content img:not([loading])').forEach(function (img) {
+      img.setAttribute('loading', 'lazy');
     });
+  })();
 </script>

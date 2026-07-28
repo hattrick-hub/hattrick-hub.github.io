@@ -5,37 +5,20 @@ layout: default
 <div class="progress-bar" aria-hidden="true"></div>
 
 <section class="section" aria-label="Contenido del artículo">
-    <div class="container">
-        <article class="card-post" aria-labelledby="post-title">
+  <div class="container">
+    <article class="card-post" aria-labelledby="post-title" itemscope itemtype="https://schema.org/BlogPosting">
+      {% include card-image.html item=page loading="eager" %}
+      <header class="card-header">
+        <h1 class="title is-1" id="post-title" itemprop="headline">{{ page.title | escape }}</h1>
+      </header>
 
-            {% include card-image.html item=page %}
-            
-            <header class="card-header">
-                <h1 class="title is-1" id="post-title">{{ page.title | escape }}</h1>
-            </header>
-            
-            <div class="meta">
-                <time datetime="{{ page.date | date_to_xmlschema }}">
-                    {{ page.date | date: "%d/%m/%Y" }}
-                </time>
-                <span>{{ page.author | default: site.author | escape }}</span>
-                {% assign minutes = content | number_of_words | divided_by: 200 | plus: 1 %}
-                <span>Tiempo de lectura: {{ minutes }} min</span>
-            </div>
-            
-            <div class="content">
-                {{ content }}
-            </div>
-            
-            {% if page.tags %}
-            <footer class="card-footer">
-                <div class="tags">
-                    {% for tag in page.tags %}
-                    <span class="tag">{{ tag | escape }}</span>
-                    {% endfor %}
-                </div>
-            </footer>
-            {% endif %}
-        </article>
-    </div>
+      {% include post-meta.html post=page show_author=true %}
+
+      <div class="content">
+        {{ content }}
+      </div>
+
+      {% include post-tags.html tags=page.tags %}
+    </article>
+  </div>
 </section>

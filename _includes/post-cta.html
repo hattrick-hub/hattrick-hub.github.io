@@ -1,0 +1,24 @@
+{% comment %}
+post-cta.html — Botón de llamada a la acción según colección.
+  Parámetros: post (obligatorio)
+  Mapea: blog → "Leer más", noticias → "Leer noticia", manual → "Ver manual", herramientas → "Explorar"
+{% endcomment %}
+
+{% assign item = include.post %}
+{% assign collection = item.collection | default: 'blog' %}
+
+{% case collection %}
+  {% when 'noticias' %}
+    {% assign cta_text = 'Leer noticia' %}
+  {% when 'manual' %}
+    {% assign cta_text = 'Ver manual' %}
+  {% when 'herramientas' %}
+    {% assign cta_text = 'Explorar' %}
+  {% else %}
+    {% assign cta_text = 'Leer más' %}
+{% endcase %}
+
+<a href="{{ item.url | relative_url }}" class="button is-primary"
+  aria-label="{{ cta_text }}: {{ item.title | strip_html | escape }}">
+  {{ cta_text }}
+</a>

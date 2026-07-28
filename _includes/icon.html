@@ -1,0 +1,35 @@
+{% comment %}
+icon.html — SVG sprite reutilizable.
+Parámetros:
+  name       (obligatorio) — ID del símbolo en el sprite
+  size       (opcional)    — small | medium. Default: small
+  class      (opcional)    — clases CSS adicionales
+  decorative (opcional)    — true | false. Default: true (aria-hidden)
+  label      (opcional)    — texto accesible si no es decorativo
+{% endcomment %}
+
+{% assign icon_name = include.name %}
+{% assign icon_size = include.size | default: 'small' %}
+{% assign extra_class = include.class | default: '' %}
+{% assign decorative = include.decorative | default: true %}
+
+{% comment %} Determinar clase de tamaño {% endcomment %}
+{% case icon_size %}
+  {% when 'small' %}
+    {% assign size_class = 'is-small' %}
+  {% when 'medium' %}
+    {% assign size_class = 'is-medium' %}
+  {% else %}
+    {% assign size_class = 'is-small' %}
+{% endcase %}
+
+<svg class="icon {{ size_class }}{% if extra_class %} {{ extra_class }}{% endif %}"
+     {% if decorative %}
+     aria-hidden="true"
+     focusable="false"
+     {% else %}
+     aria-label="{{ include.label | default: icon_name | escape }}"
+     role="img"
+     {% endif %}>
+  <use href="#{{ icon_name }}"></use>
+</svg>

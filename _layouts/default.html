@@ -1,61 +1,123 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: 'es' }}">
+<html lang="{{ page.lang | default: site.lang | default: 'es' }}" class="no-js">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#4B8A61" media="(prefers-color-scheme: light)">
-    <meta name="theme-color" content="#2d5a3d" media="(prefers-color-scheme: dark)">
-    <meta name="color-scheme" content="light dark">
-    <link rel="preconnect" href="https://hattrick.org">
-    <link rel="dns-prefetch" href="https://hattrick.org">
-    <link rel="icon" href="{{ '/assets/img/favicon.ico' | relative_url }}" sizes="any">
-    <link rel="icon" href="{{ '/assets/img/favicon.svg' | relative_url }}" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="{{ '/assets/img/apple-touch-icon.png' | relative_url }}">
-    <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}?v={{ site.time | date: '%s' }}">
-    {% seo %}
-    <script type="application/ld+json">
-    {
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  {% if page.robots %}
+    <meta name="robots" content="{{ page.robots }}" />
+  {% elsif page.draft or page.url contains '/404' %}
+    <meta name="robots" content="noindex, nofollow" />
+  {% else %}
+    <meta name="robots" content="index, follow" />
+  {% endif %}
+
+  <meta name="theme-color" content="#4B8A61" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#2d5a3d" media="(prefers-color-scheme: dark)" />
+  <meta name="color-scheme" content="light dark" />
+
+  <link rel="preconnect" href="https://hattrick.org" />
+  <link rel="dns-prefetch" href="https://hattrick.org" />
+  <link rel="icon" href="{{ '/assets/img/favicon.ico' | relative_url }}" sizes="any" />
+  <link rel="icon" href="{{ '/assets/img/favicon.svg' | relative_url }}" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="{{ '/assets/img/apple-touch-icon.png' | relative_url }}" />
+
+  {% if page.hero_image %}
+    <link rel="preload" as="image" href="{{ page.hero_image | relative_url }}" type="image/webp" />
+  {% endif %}
+
+  <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}?v={{ site.time | date: '%s' }}" />
+
+  {% if page.hero_image %}
+    {% assign page.image = page.hero_image %}
+  {% endif %}
+
+  {% seo %}
+
+  {% comment %} BreadcrumbList Schema.org (JSON-LD) {% endcomment %}
+  <script type="application/ld+json">
+      {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
-        "itemListElement": [{
+        "itemListElement": [
+          {
             "@type": "ListItem",
             "position": 1,
             "name": "Inicio",
-            "item": "{{ site.url | absolute_url }}"
-    }]
-    }
+            "item": "{{ '/' | absolute_url }}"
+          }
+          {%- assign crumbs = page.url | remove_first: '/' | split: '/' -%}
+          {%- assign crumb_path = '' -%}
+          {%- for crumb in crumbs -%}
+            {%- if crumb == '' -%}{%- continue -%}{%- endif -%}
+            {%- assign crumb_path = crumb_path | append: '/' | append: crumb -%}
+            {%- assign position = forloop.index | plus: 1 -%}
+            {%- assign crumb_name = crumb | replace: '-', ' ' | replace: '_', ' ' | capitalize -%}
+            {%- if forloop.last -%}
+              {%- assign crumb_name = page.title | strip_html | escape -%}
+            {%- endif -%}
+            ,{
+              "@type": "ListItem",
+              "position": {{ position }},
+              "name": "{{ crumb_name }}",
+              "item": "{{ crumb_path | append: '/' | absolute_url }}"
+            }
+          {%- endfor -%}
+        ]
+      }
     </script>
 </head>
-<body>
-    <a href="#main-content" class="skip-link">
-        <span class="visually-hidden">Saltar al contenido principal</span>
-    </a>
 
-    
-    <div class="site-wrapper">
-        {% include navbar.html %}
-        
-        <main id="main-content" class="main-content" tabindex="-1">
-            {{ content }}
-        </main>
-        
-        {% unless page.hide_news_bar %}
-            {% include news-bar.html %}
-        {% endunless %}
-        
-        {% include footer.html %}
-    </div>
-    
-    {% include sprite.html %}
-    
-    <button class="back-to-top" type="button" aria-label="Volver arriba" hidden>
-        <svg class="icon" aria-hidden="true" width="24" height="24">
-            <use href="#back-to-top"></use>
-        </svg>
-    </button>
-    
-    {% include js-config.html %}
-    <script type="module" src="{{ '/assets/js/script.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
+<body>
+  <a href="#main-content" class="skip-link">
+    <span class="visually-hidden">Saltar al contenido principal</span>
+  </a>
+
+  <div class="site-wrapper">
+    {% include navbar.html %}
+
+    <main id="main-content" class="main-content" tabindex="-1">
+      {% unless page.url == '/' %}
+      <nav aria-label="Breadcrumb">
+        <ol class="breadcrumb">
+          <li><a href="{{ '/' | relative_url }}">Inicio</a></li>
+          {% assign crumbs = page.url | remove_first: '/' | split: '/' %}
+          {% assign crumb_path = '' %}
+          {% for crumb in crumbs %}
+            {% if crumb == '' %}{% continue %}{% endif %}
+            {% assign crumb_path = crumb_path | append: '/' | append: crumb %}
+            <li>
+              {% if forloop.last %}
+                <span aria-current="page">{{ page.title | strip_html | escape }}</span>
+              {% else %}
+                <a href="{{ crumb_path | append: '/' | relative_url }}">{{ crumb | replace: '-', ' ' | capitalize }}</a>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ol>
+      </nav>
+      {% endunless %}
+
+      {{ content }}
+
+    </main>
+
+    {% unless page.hide_news_bar %}
+      {% include news-bar.html %}
+    {% endunless %}
+
+    {% include footer.html %}
+  </div>
+
+  {% include sprite.html %}
+
+  <button class="back-to-top" type="button" aria-label="Volver arriba">
+    {% include icon.html name="back-to-top" size="medium" %}
+  </button>
+
+  {% include js-config.html %}
+  <script type="module" src="{{ '/assets/js/script.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
 </body>
+
 </html>

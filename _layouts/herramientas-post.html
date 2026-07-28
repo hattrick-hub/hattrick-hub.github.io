@@ -4,83 +4,37 @@ layout: default
 
 <div class="progress-bar" aria-hidden="true"></div>
 
-<section class="section section-2" aria-label="Detalles de la herramienta">
-    <div class="container">
-        <article class="card-post" aria-labelledby="tool-title">
+<section class="section" aria-label="Detalles de la herramienta">
+  <div class="container">
+    <article class="card-post" aria-labelledby="tool-title" itemscope itemtype="https://schema.org/BlogPosting">
+      {% include card-image.html item=page loading="eager" %}
+      <header class="card-header">
+        <h1 class="title is-1" id="tool-title" itemprop="headline">{{ page.title | escape }}</h1>
+        {% comment %}
+        🔴 CORREGIDO: Eliminada la lógica de rating duplicada.
+        El rating ahora se muestra ÚNICAMENTE a través de post-meta.html con show_rating=true.
+        Esto evita que aparezcan estrellas dos veces en la misma página.
+        {% endcomment %}
+      </header>
 
-            {% include card-image.html item=page %}
-            
-            <header class="card-header">
-                <h1 class="title is-1" id="tool-title">{{ page.title | escape }}</h1>
-                
-                {% if page.rating %}
-                <div class="rating" aria-label="Calificación: {{ page.rating }} de 5">
-                    {% assign full_stars = page.rating %}
-                    {% assign empty_stars = 5 | minus: full_stars %}
-                    
-                    {% for i in (1..full_stars) %}
-                    <svg class="icon is-small" aria-hidden="true" width="16" height="16">
-                        <use href="#star"></use>
-                    </svg>
-                    {% endfor %}
-                    
-                    {% for i in (1..empty_stars) %}
-                    <svg class="icon is-small empty" aria-hidden="true" width="16" height="16">
-                        <use href="#star"></use>
-                    </svg>
-                    {% endfor %}
-                </div>
-                {% endif %}
-            </header>
-            
-            <div class="meta">
-                <time datetime="{{ page.date | date_to_xmlschema }}">
-                    {{ page.date | date: "%d/%m/%Y" }}
-                </time>
-                <span>{{ page.author | default: site.author | escape }}</span>
-                {% assign minutes = content | number_of_words | divided_by: 200 | plus: 1 %}
-                <span>Tiempo de lectura: {{ minutes }} min</span>
-            </div>
-            
-            <div class="content">
-                {{ content }}
-            </div>
-            
-            {% if page.tags %}
-            <footer class="card-footer">
-                <div class="tags">
-                    {% for tag in page.tags %}
-                    <span class="tag">{{ tag | escape }}</span>
-                    {% endfor %}
-                </div>
-                
-                {% if page.external_url %}
-                <a href="{{ page.external_url }}" 
-                   target="_blank" 
-                   rel="noopener noreferrer" 
-                   class="button is-secondary"
-                   aria-label="Visitar {{ page.title | escape }} (abre en nueva pestaña)">
-                    <svg class="icon is-small" aria-hidden="true" width="16" height="16">
-                        <use href="#external"></use>
-                    </svg>
-                    <span>Visitar Sitio</span>
-                </a>
-                {% endif %}
-            </footer>
-            {% elsif page.external_url %}
-            <footer class="card-footer">
-                <a href="{{ page.external_url }}" 
-                   target="_blank" 
-                   rel="noopener noreferrer" 
-                   class="button is-secondary"
-                   aria-label="Visitar {{ page.title | escape }} (abre en nueva pestaña)">
-                    <svg class="icon is-small" aria-hidden="true" width="16" height="16">
-                        <use href="#external"></use>
-                    </svg>
-                    <span>Visitar Sitio</span>
-                </a>
-            </footer>
-            {% endif %}
-        </article>
-    </div>
+      {% include post-meta.html post=page show_author=true show_rating=true %}
+
+      <div class="content">
+        {{ content }}
+      </div>
+
+      <footer class="card-footer">
+        {% include post-tags.html tags=page.tags %}
+
+        {% if page.external_url %}
+          <a href="{{ page.external_url }}" target="_blank" rel="noopener noreferrer" class="button is-secondary"
+            aria-label="Visitar {{ page.title | strip_html | escape }} (abre en una pestaña nueva)">
+            {% include icon.html name="external" %}
+            <span>Visitar Sitio</span>
+            <span class="visually-hidden">(abre en una pestaña nueva)</span>
+          </a>
+        {% endif %}
+      </footer>
+    </article>
+  </div>
 </section>
