@@ -452,12 +452,11 @@
     }
 
     .grid-base { display: grid; gap: var(--spacing-4); inline-size: 100%; min-inline-size: 0; }
-    .grid-fixed {
-        grid-template-columns: 1fr;
-        @media (min-width: 36rem) { grid-template-columns: repeat(2, 1fr); }
-        @media (min-width: 62rem) { grid-template-columns: repeat(3, 1fr); }
-    }
-
+.grid-fixed {
+    grid-template-columns: 1fr !important;
+    @media (min-width: 36rem) { grid-template-columns: repeat(2, 1fr) !important; }
+    @media (min-width: 62rem) { grid-template-columns: repeat(3, 1fr) !important; }
+}
     .grid-fluid {
         grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--grid-min-width)), 1fr));
     }
@@ -1262,6 +1261,19 @@
     @supports (animation-timeline: scroll()) {
         .progress-bar { display: block; animation: grow-progress linear; animation-timeline: scroll(root); }
     }
+
+
+.grid-base,
+.grid-fixed,
+.grid-fluid {
+    max-inline-size: 100%;
+    min-inline-size: 0;
+}
+
+.card-base {
+    min-inline-size: 0;
+    max-inline-size: 100%;
+}
 
     @media (min-width: 30rem) {
         .section { padding: var(--spacing-6) var(--spacing-4); }
