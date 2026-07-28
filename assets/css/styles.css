@@ -147,6 +147,7 @@
         background-color: var(--color-background);
         color: var(--color-text);
         min-block-size: 100dvh;
+overflow-x: hidden;
     }
 
     :focus-visible {
