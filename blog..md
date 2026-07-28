@@ -11,8 +11,6 @@ image: /assets/img/hero-blog.webp
 {% include hero.html
   image=page.hero_image
   alt=page.hero_alt
-  title=page.title
-  subtitle=page.description
   aria_label=page.title
 %}
 
