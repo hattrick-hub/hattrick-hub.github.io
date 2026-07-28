@@ -207,9 +207,12 @@
     }
 
     .main-content {
-        grid-area: content;
-        outline: none;
-    }
+    grid-area: content;
+    outline: none;
+    min-inline-size: 0;
+    max-inline-size: 100%;
+    overflow-x: hidden;
+}
 }
 
 @layer components {
@@ -374,7 +377,7 @@
         margin-block-start: var(--spacing-2);
     }
 
-    .section { padding: var(--spacing-5) var(--spacing-4); inline-size: 100%; max-inline-size: 100%; overflow-x: hidden; }
+    .section { padding: var(--spacing-5) var(--spacing-4); inline-size: 100%; max-inline-size: 100%; overflow-x: hidden; box-sizing: border-box;}
 
     .section-2 {
         display: flex;
