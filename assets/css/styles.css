@@ -1342,7 +1342,7 @@
 
     .flow > * + * { margin-block-start: var(--spacing-4); }
 
-    .container { inline-size: 100%; max-inline-size: var(--container-max-width); margin-inline: auto; padding-inline: 0; }
+    .container { inline-size: 100%; max-inline-size: var(--container-max-width); margin-inline: auto; padding-inline: var(--spacing-4); }
 
     .container-medium { max-inline-size: var(--container-medium); }
 
