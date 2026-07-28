@@ -1,17 +1,20 @@
+# =========================================================
 # CONFIGURACIÓN GENERAL
+# =========================================================
 title: "Hattrick Hub"
-description: "El centro de acceso a todas las herramientas y recursos de Hattrick."
+description: "Guías, herramientas y noticias para dominar Hattrick."
 url: "https://hattrick-hub.github.io"
 baseurl: ""
 lang: es
 timezone: America/Bogota
-image: /assets/img/placeholder.webp
-permalink: /:title/
+image: /assets/img/hero-home.webp
 author: elPatronHT
 author_team_url: "https://hattrick.org/goto.ashx?path=/Club/?TeamID=538167"
 color: "#4B8A61"
 
+# =========================================================
 # MARKDOWN
+# =========================================================
 kramdown:
   input: GFM
   hard_wrap: false
@@ -24,7 +27,9 @@ kramdown:
       line_numbers: true
       start_line: 1
 
+# =========================================================
 # PLUGINS
+# =========================================================
 plugins:
   - jekyll-feed
   - jekyll-sitemap
@@ -32,19 +37,32 @@ plugins:
   - jekyll-relative-links
   - jekyll-redirect-from
 
+# =========================================================
+# FEEDS POR COLECCIÓN (jekyll-feed >= 0.15)
+# =========================================================
+feed:
+  posts_limit: 20
+  excerpt_only: true
+  collections:
+    - blog
+    - noticias
+    - manual
+
+# =========================================================
 # ENLACES RELATIVOS
+# =========================================================
 relative_links:
   enabled: true
   collections: true
 
-# FEED 
-feed:
-  posts_limit: 20
-  excerpt_only: true
-
+# =========================================================
+# VALIDACIÓN
+# =========================================================
 strict_front_matter: true
 
+# =========================================================
 # EXCLUSIONES
+# =========================================================
 exclude:
   - .DS_Store
   - .git/
@@ -61,12 +79,15 @@ exclude:
   - scripts/
   - assets/img/raw/
   - .jekyll-cache/
+  - .sass-cache/
 
+# =========================================================
 # COLECCIONES
+# =========================================================
 collections:
   blog:
     output: true
-    permalink: /blog/:year/:month/:day/:title/
+    permalink: /blog/:title/
   manual:
     output: true
     permalink: /manual/:title/
@@ -76,43 +97,47 @@ collections:
   herramientas:
     output: true
     permalink: /herramientas/:title/
-  pages:
-    output: true
-    permalink: /:name/
 
+# =========================================================
 # VALORES POR DEFECTO
+# =========================================================
 defaults:
+  # Global: fallback para todo el sitio
   - scope:
       path: ""
     values:
       layout: default
       author: elPatronHT
       lang: es
-      image: /assets/img/placeholder.webp
+      image: /assets/img/hero-home.webp
       twitter:
         card: summary_large_image
+
+  # Colecciones: layout + imagen de sección como fallback
   - scope:
       path: ""
       type: blog
     values:
       layout: blog-post
+      image: /assets/img/hero-blog.webp
+
   - scope:
       path: ""
       type: manual
     values:
       layout: manual-post
+      image: /assets/img/hero-manual.webp
+
   - scope:
       path: ""
       type: noticias
     values:
       layout: noticias-post
+      image: /assets/img/hero-noticias.webp
+
   - scope:
       path: ""
       type: herramientas
     values:
       layout: herramientas-post
-  - scope:
-      path: ""
-      type: pages
-    values:
-      layout: default
+      image: /assets/img/hero-herramientas.webp

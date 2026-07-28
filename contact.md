@@ -1,66 +1,101 @@
 ---
 layout: default
 title: "Contacto"
-permalink: /contacto/
-description: "Contacta con Hattrick Hub o únete a nuestra comunidad en Telegram y por Correo."
+description: "Contacta con Hattrick Hub o únete a nuestra comunidad en Telegram y por correo."
 hero_image: /assets/img/hero-contact.webp
 hero_alt: "Imagen de contacto de Hattrick Hub"
 hide_news_bar: true
+permalink: /contacto/
 ---
 
-{% include hero.html image=page.hero_image alt=page.hero_alt aria_label="Página de Contacto de Hattrick Hub" buttons='
-<a href="mailto:tutorhattrick@hotmail.com" class="button is-primary" aria-label="Enviar un correo a Hattrick Hub">
-    <svg class="icon is-small" aria-hidden="true">
-        <use href="#email"></use>
-    </svg>
-    Envíanos un correo
+{% capture hero_buttons %}
+<a href="#canales-contacto" class="button is-primary">
+  {% include icon.html name="email" %}
+  Escríbenos
 </a>
-' %}
+{% endcapture %}
 
-<section class="section section-1" role="region" aria-label="Contacto y Preguntas Frecuentes">
-    <div class="container content">
-        <header class="card-header">
-            <h1 class="title is-1">Preguntas frecuentes</h1>
-        </header>
-        <details class="box" id="faq-1" aria-describedby="faq-1-content">
-            <summary class="title is-3">
-                <svg class="icon is-small" aria-hidden="true">
-                    <use href="#chevron-right"></use>
-                </svg>
-                ¿En cuánto tiempo responden?
-            </summary>
-            <p id="faq-1-content">Respondemos en menos de 24 horas. Revisa tu carpeta de spam si no ves nuestra respuesta.</p>
-        </details>
-        <details class="box" id="faq-2" aria-describedby="faq-2-content">
-            <summary class="title is-3">
-                <svg class="icon is-small" aria-hidden="true">
-                    <use href="#chevron-right"></use>
-                </svg>
-                ¿Puedo pedir asesoramiento sobre Hattrick?
-            </summary>
-            <p id="faq-2-content">¡Sí! Ofrecemos ayuda con estrategias y tácticas. Escríbenos por correo o Telegram.</p>
-        </details>
-        <h2>Contáctanos</h2>
-        <p>En Hattrick Hub, valoramos tus ideas y sugerencias. Conéctate con nosotros a través de:</p>
-        <div class="buttons text-center">
-            <a href="mailto:tutorhattrick@hotmail.com" aria-label="Enviar correo a Hattrick Hub" class="button is-outlined">
-                <svg class="icon is-medium" aria-hidden="true">
-                    <use href="#email"></use>
-                </svg>
-                Correo: tutorhattrick@hotmail.com
-            </a>
-            <a href="https://t.me/JuvenilesHT" target="_blank" rel="noopener noreferrer" aria-label="Unirse al grupo de Telegram de Hattrick Hub" class="button is-outlined">
-                <svg class="icon is-medium" aria-hidden="true">
-                    <use href="#telegram"></use>
-                </svg>
-                Telegram
-            </a>
-            <a href="{{ site.author_team_url }}" target="_blank" rel="noopener noreferrer" aria-label="Visitar el equipo del autor en Hattrick" class="button is-outlined">
-                <svg class="icon is-small" aria-hidden="true">
-                    <use href="#hattrick"></use>
-                </svg>
-                Mi equipo en Hattrick
-            </a>
-        </div>
+{% include hero.html
+  image=page.hero_image
+  alt=page.hero_alt
+  aria-label="Contacto y comunidad"
+  buttons=hero_buttons
+%}
+
+<section id="canales-contacto" class="section" aria-labelledby="contacto-heading">
+  <div class="container">
+    <div class="content text-center">
+      <h2 class="title is-2" id="contacto-heading">¿Necesitas hablar con el cuerpo técnico?</h2>
+      <p>
+        Estamos aquí para ayudarte. Ya sea que tengas una duda táctica,
+        una sugerencia para el sitio o simplemente quieras charlar de Hattrick,
+        <strong>tu mensaje es bienvenido</strong>.
+      </p>
     </div>
+
+    <ul class="feature-grid" aria-label="Canales de contacto">
+      <li>
+        <article class="feature-card">
+          <div class="feature-icon">
+            {% include icon.html name="email" size="medium" %}
+          </div>
+          <h3 class="feature-title">Correo electrónico</h3>
+          <p class="feature-text">Respuesta en menos de 24 horas. Ideal para consultas detalladas y estrategias.</p>
+          <a href="mailto:tutorhattrick@hotmail.com" class="feature-link">
+            Enviar email
+            {% include icon.html name="chevron-right" %}
+          </a>
+        </article>
+      </li>
+      <li>
+        <article class="feature-card">
+          <div class="feature-icon">
+            {% include icon.html name="telegram" size="medium" %}
+          </div>
+          <h3 class="feature-title">Telegram</h3>
+          <p class="feature-text">Únete a la comunidad. Consejos, debates y ayuda en tiempo real de otros managers.</p>
+          <a href="https://t.me/JuvenilesHT" target="_blank" rel="noopener noreferrer" class="feature-link">
+            Unirme al grupo
+            {% include icon.html name="external" %}
+          </a>
+        </article>
+      </li>
+      <li>
+        <article class="feature-card">
+          <div class="feature-icon">
+            {% include icon.html name="hattrick" size="medium" %}
+          </div>
+          <h3 class="feature-title">Hattrick</h3>
+          <p class="feature-text">Visita nuestro equipo en el juego. ¡Tal vez nos enfrentemos algún día!</p>
+          <a href="{{ site.author_team_url }}" target="_blank" rel="noopener noreferrer" class="feature-link">
+            Ver perfil
+            {% include icon.html name="external" %}
+          </a>
+        </article>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="faq-heading">
+  <div class="container content">
+    <h2 class="title is-2" id="faq-heading">Preguntas frecuentes</h2>
+    <p>Antes de escribir, quizás tu duda ya está resuelta aquí:</p>
+
+    <details class="box">
+      <summary>
+        {% include icon.html name="chevron-right" %}
+        ¿En cuánto tiempo responden?
+      </summary>
+      <p>Respondemos en menos de 24 horas. Revisa tu carpeta de spam si no ves nuestra respuesta.</p>
+    </details>
+
+    <details class="box">
+      <summary>
+        {% include icon.html name="chevron-right" %}
+        ¿Puedo pedir asesoramiento sobre Hattrick?
+      </summary>
+      <p>¡Sí! Ofrecemos ayuda con estrategias, tácticas y juveniles. Escríbenos por correo o únete al grupo de Telegram.</p>
+    </details>
+  </div>
 </section>
