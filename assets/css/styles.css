@@ -510,6 +510,7 @@
             background: var(--color-background-muted);
             inline-size: 100%;
             min-block-size: 12rem;
+contain: layout paint;
 
             & img { position: absolute; inset: 0; inline-size: 100%; block-size: 100%; object-fit: cover; z-index: 1; transition: var(--transition-transform); }
             &:is(:hover, :focus-within) img { transform: scale(1.05); }
