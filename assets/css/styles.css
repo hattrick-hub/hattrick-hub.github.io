@@ -1308,6 +1308,12 @@
         &:nth-child(5).is-visible { animation-delay: 0.4s; }
     }
 
+    .card-base,
+    .feature-card {
+        content-visibility: auto;
+        contain-intrinsic-size: 0 300px;
+    }
+
     html.no-js .feature-card,
     html.no-js .card-base {
         opacity: 1;
