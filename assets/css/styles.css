@@ -1311,7 +1311,7 @@
     .card-base,
     .feature-card {
         content-visibility: auto;
-        contain-intrinsic-size: 0 300px;
+        contain-intrinsic-size: auto 300px;
     }
 
     html.no-js .feature-card,
