@@ -1,6 +1,11 @@
 {% comment %}
 card-image.html — Imagen con placeholder de gradiente como fallback.
-  Parámetros: item (obligatorio), loading (opcional, default: lazy)
+  Parámetros:
+    item (obligatorio)
+    loading (opcional, default: lazy)
+    width (opcional, default: 1536)
+    height (opcional, default: 1024)
+    fetchpriority (opcional)
 {% endcomment %}
 
 {% assign item = include.item %}
@@ -10,8 +15,14 @@ card-image.html — Imagen con placeholder de gradiente como fallback.
 
 <div class="card-image-wrapper">
   {% if item.hero_image %}
-    <img src="{{ item.hero_image | relative_url }}" alt="{{ item.hero_alt | default: item.title | strip_html | escape }}"
-      class="card-img" loading="{{ loading }}" decoding="async" width="1536" height="1024" />
+    <img src="{{ item.hero_image | relative_url }}"
+      alt="{{ item.hero_alt | default: item.title | strip_html | escape }}"
+      class="card-img"
+      loading="{{ loading }}"
+      {% if include.fetchpriority %}fetchpriority="{{ include.fetchpriority }}"{% endif %}
+      decoding="async"
+      width="{{ include.width | default: 1536 }}"
+      height="{{ include.height | default: 1024 }}" />
     <div class="img-placeholder {{ gradient_class }}" hidden aria-hidden="true">
       <span class="placeholder-text">{{ item.title | strip_html | truncate: 60 }}</span>
     </div>

@@ -15,7 +15,6 @@
       base = null;
     }
 
-    // Links externos en contenido markdown
     if (base) {
       document.querySelectorAll('.content a[href^="http"]').forEach(function (link) {
         try {
@@ -25,12 +24,10 @@
             link.setAttribute('rel', 'noopener noreferrer');
           }
         } catch (err) {
-          // Ignora URLs malformadas
         }
       });
     }
 
-    // Lazy loading para imágenes sin atributo
     document.querySelectorAll('.content img:not([loading])').forEach(function (img) {
       img.setAttribute('loading', 'lazy');
     });

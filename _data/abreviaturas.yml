@@ -15,6 +15,7 @@
     - name: CA
       description: Táctica de Contraataques.
       tags: [tactica, defensa]
+      notes: De las mas usadas en Hattrick.
     - name: CAEX
       description: Estrategia de Contraataques Extremos (rara).
       tags: [estrategia, defensa]

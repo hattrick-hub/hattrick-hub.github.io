@@ -5,6 +5,7 @@ description: "Contacta con Hattrick Hub o únete a nuestra comunidad en Telegram
 hero_image: /assets/img/hero-contact.webp
 hero_alt: "Imagen de contacto de Hattrick Hub"
 hide_news_bar: true
+contact_email: "tutorhattrick@hotmail.com"
 permalink: /contacto/
 ---
 
@@ -18,7 +19,9 @@ permalink: /contacto/
 {% include hero.html
   image=page.hero_image
   alt=page.hero_alt
-  aria-label="Contacto y comunidad"
+  title=page.title
+  subtitle=page.description
+  aria_label=page.title
   buttons=hero_buttons
 %}
 
@@ -41,7 +44,7 @@ permalink: /contacto/
           </div>
           <h3 class="feature-title">Correo electrónico</h3>
           <p class="feature-text">Respuesta en menos de 24 horas. Ideal para consultas detalladas y estrategias.</p>
-          <a href="mailto:tutorhattrick@hotmail.com" class="feature-link">
+          <a href="mailto:{{ site.contact_email }}" class="feature-link">
             Enviar email
             {% include icon.html name="chevron-right" %}
           </a>

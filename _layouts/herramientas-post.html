@@ -6,15 +6,10 @@ layout: default
 
 <section class="section" aria-label="Detalles de la herramienta">
   <div class="container">
-    <article class="card-post" aria-labelledby="tool-title" itemscope itemtype="https://schema.org/BlogPosting">
+    <article class="card-post" aria-labelledby="tool-title">
       {% include card-image.html item=page loading="eager" %}
       <header class="card-header">
-        <h1 class="title is-1" id="tool-title" itemprop="headline">{{ page.title | escape }}</h1>
-        {% comment %}
-        🔴 CORREGIDO: Eliminada la lógica de rating duplicada.
-        El rating ahora se muestra ÚNICAMENTE a través de post-meta.html con show_rating=true.
-        Esto evita que aparezcan estrellas dos veces en la misma página.
-        {% endcomment %}
+        <h1 class="title is-1" id="tool-title">{{ page.title | escape }}</h1>
       </header>
 
       {% include post-meta.html post=page show_author=true show_rating=true %}

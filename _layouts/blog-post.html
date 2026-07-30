@@ -6,10 +6,10 @@ layout: default
 
 <section class="section" aria-label="Contenido del artículo">
   <div class="container">
-    <article class="card-post" aria-labelledby="post-title" itemscope itemtype="https://schema.org/BlogPosting">
+    <article class="card-post" aria-labelledby="post-title">
       {% include card-image.html item=page loading="eager" %}
       <header class="card-header">
-        <h1 class="title is-1" id="post-title" itemprop="headline">{{ page.title | escape }}</h1>
+        <h1 class="title is-1" id="post-title">{{ page.title | escape }}</h1>
       </header>
 
       {% include post-meta.html post=page show_author=true %}

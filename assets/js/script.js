@@ -1,7 +1,7 @@
 // Debounce utility
 const debounce = (func, wait) => {
   let timeout;
-  const debounced = (...args) => {
+  const debounced = function(...args) {
     clearTimeout(timeout);
     timeout = setTimeout(() => func.apply(this, args), wait);
   };
@@ -10,13 +10,11 @@ const debounce = (func, wait) => {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Activar animaciones SOLO si JS carga correctamente
+
   document.documentElement.classList.add("js-animations");
   document.documentElement.classList.remove("no-js");
 
-  // =========================================================
   // TABLE WRAPPER (overflow: hidden + border-radius en Safari)
-  // =========================================================
   document.querySelectorAll(".content table").forEach((table) => {
     if (table.parentElement?.classList.contains("table-wrapper")) return;
     const wrapper = document.createElement("div");
@@ -25,9 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     wrapper.appendChild(table);
   });
 
-  // =========================================================
   // ANIMACIONES DE SCROLL (IntersectionObserver)
-  // =========================================================
   const animatedElements = document.querySelectorAll(".feature-card, .animate-on-scroll");
 
   if (animatedElements.length > 0 && "IntersectionObserver" in window) {
@@ -47,9 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
     animatedElements.forEach((el) => el.classList.add("is-visible"));
   }
 
-  // =========================================================
   // Back to Top Button
-  // =========================================================
   const backToTop = document.querySelector(".back-to-top");
   if (backToTop) {
     backToTop.hidden = false;
@@ -63,15 +57,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // =========================================================
   // Navbar Menu Toggle
-  // =========================================================
   const burger = document.querySelector(".navbar-burger");
   const menu = document.querySelector("#navbarMenu");
   if (burger && menu) {
     burger.setAttribute("aria-controls", "navbarMenu");
 
-    const isMobile = () => window.innerWidth < 768;
+    const isMobile = () => !window.matchMedia("(min-width: 48rem)").matches;
 
     const updateInert = () => {
       if (isMobile()) {
@@ -123,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    const desktopQuery = window.matchMedia("(min-width: 768px)");
+    const desktopQuery = window.matchMedia("(min-width: 48rem)");
     desktopQuery.addEventListener("change", (e) => {
       if (e.matches && menu.classList.contains("is-active")) {
         closeMenu(null);
@@ -139,9 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("scroll", handleMenuScroll, { passive: true });
   }
 
-  // =========================================================
   // Carousel
-  // =========================================================
   const carousel = document.querySelector(".carousel");
 
   if (carousel) {
@@ -160,7 +150,6 @@ document.addEventListener("DOMContentLoaded", () => {
       let interval;
       let isPaused = false;
 
-      // ⚠️ AJUSTA ESTO si tu CSS no soporta 2 slides visibles
       function getVisibleSlides() {
         return window.innerWidth >= 992 ? 2 : 1;
       }
@@ -175,8 +164,8 @@ document.addEventListener("DOMContentLoaded", () => {
             item.removeAttribute("tabindex");
           } else {
             item.setAttribute("aria-hidden", "true");
-            item.setAttribute("inert", "");      // Bloquea foco y lectura
-            item.setAttribute("tabindex", "-1"); // Fallback para navegadores sin inert
+            item.setAttribute("inert", "");
+            item.setAttribute("tabindex", "-1");
           }
         });
       }
@@ -270,7 +259,7 @@ document.addEventListener("DOMContentLoaded", () => {
             stopAutoPlay();
             showSlide(i);
             startAutoPlay();
-            items[i]?.focus(); // Mueve foco al slide seleccionado
+            items[i]?.focus();
           });
         });
 
@@ -330,9 +319,7 @@ document.addEventListener("DOMContentLoaded", () => {
       showSlide(0);
     }
   }
-  // =========================================================
   // Fallback de imágenes en cards
-  // =========================================================
   document.querySelectorAll(".card-image-wrapper img").forEach((img) => {
     const activatePlaceholder = () => {
       img.hidden = true;

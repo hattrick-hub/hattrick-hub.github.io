@@ -554,6 +554,13 @@
         & > p { color: var(--surface-text-muted); font-size: var(--font-size-sm); margin-block-end: var(--spacing-3); flex-grow: 1; }
         & .buttons { inline-size: 100%; }
         & .button { align-self: flex-start; margin-block-start: auto; inline-size: 100%; }
+
+        & .notes {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+            font-style: italic;
+            margin-block-start: var(--spacing-2);
+        }
     }
 
     .card-header { margin-block-end: var(--spacing-3); }
@@ -584,7 +591,7 @@
             margin: calc(-1 * var(--spacing-5));
             margin-block-end: var(--spacing-5);
             border-radius: var(--border-radius) var(--border-radius) 0 0;
-            inline-size: 100%;
+            inline-size: calc(100% + 2 * var(--spacing-5));
             max-inline-size: none;
             min-block-size: 15rem;
             position: relative;
@@ -1154,11 +1161,11 @@
             & .icon { inline-size: var(--icon-size-sm); block-size: var(--icon-size-sm); filter: drop-shadow(0 1px 2px rgb(0 0 0 / 30%)); }
         }
 
-        & .carousel-indicators { display: flex; justify-content: center; gap: var(--spacing-2); padding-block: var(--spacing-3); }
+        & .carousel-indicators { display: flex; justify-content: center; gap: var(--spacing-3); padding-block: var(--spacing-3); }
 
         & .indicator {
-            inline-size: var(--spacing-3);
-            block-size: var(--spacing-3);
+            inline-size: var(--spacing-5);
+            block-size: var(--spacing-5);
             border-radius: var(--border-radius-full);
             background: var(--color-border);
             border: none;

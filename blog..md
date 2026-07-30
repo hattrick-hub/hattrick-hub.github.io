@@ -11,6 +11,8 @@ image: /assets/img/hero-blog.webp
 {% include hero.html
   image=page.hero_image
   alt=page.hero_alt
+  title=page.title
+  subtitle=page.description
   aria_label=page.title
 %}
 
@@ -33,7 +35,7 @@ image: /assets/img/hero-blog.webp
               <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
             </h3>
 
-            {% include post-meta.html post=post %}
+            {% include post-meta.html post=post show_updated=false %}
 
             <p>{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
 

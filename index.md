@@ -39,75 +39,64 @@ hide_news_bar: true
 
   <ul class="feature-grid" aria-label="Características principales de Hattrick Hub">
     <li>
-      <article class="feature-card">
+      <article class="feature-card" aria-labelledby="feature-1-title">
         <div class="feature-icon">
           {% include icon.html name="guide" size="medium" %}
         </div>
-        <h3 class="feature-title">
+        <h3 class="feature-title" id="feature-1-title">
           <a href="{{ '/manual/' | relative_url }}">Guías detalladas</a>
         </h3>
         <p class="feature-text">Estrategias paso a paso que puedes aplicar desde hoy. De principiante a avanzado, sin dar rodeos.</p>
-        <a href="{{ '/manual/' | relative_url }}" class="feature-link">
-          Ver manual
-        </a>
+        <a href="{{ '/manual/' | relative_url }}" class="feature-link">Ver manual</a>
       </article>
     </li>
     <li>
-      <article class="feature-card">
+      <article class="feature-card" aria-labelledby="feature-2-title">
         <div class="feature-icon">
           {% include icon.html name="news" size="medium" %}
         </div>
-        <h3 class="feature-title">
+        <h3 class="feature-title" id="feature-2-title">
           <a href="{{ '/noticias/' | relative_url }}">Noticias que importan</a>
         </h3>
         <p class="feature-text">Actualizaciones del juego, cambios de mecánicas y eventos. Enterate antes que el resto y adaptá tu estrategia a tiempo.</p>
-        <a href="{{ '/noticias/' | relative_url }}" class="feature-link">
-          Ver noticias
-        </a>
+        <a href="{{ '/noticias/' | relative_url }}" class="feature-link">Ver noticias</a>
       </article>
     </li>
     <li>
-      <article class="feature-card">
+      <article class="feature-card" aria-labelledby="feature-3-title">
         <div class="feature-icon">
           {% include icon.html name="blog" size="medium" %}
         </div>
-        <h3 class="feature-title">
+        <h3 class="feature-title" id="feature-3-title">
           <a href="{{ '/blog/' | relative_url }}">Análisis tácticos</a>
         </h3>
         <p class="feature-text">Juveniles, entrenamiento, formaciones y economía. Artículos con datos reales, no opiniones al aire.</p>
-        <a href="{{ '/blog/' | relative_url }}" class="feature-link">
-          Ver blog
-        </a>
+        <a href="{{ '/blog/' | relative_url }}" class="feature-link">Ver blog</a>
       </article>
     </li>
     <li>
-      <article class="feature-card">
+      <article class="feature-card" aria-labelledby="feature-4-title">
         <div class="feature-icon">
           {% include icon.html name="tools" size="medium" %}
         </div>
-        <h3 class="feature-title">
+        <h3 class="feature-title" id="feature-4-title">
           <a href="{{ '/herramientas/' | relative_url }}">Herramientas útiles</a>
         </h3>
         <p class="feature-text">Calculadoras, trackers y recursos externos curados. Lo que te ahorra horas de trabajo manual.</p>
-        <a href="{{ '/herramientas/' | relative_url }}" class="feature-link">
-          Ver herramientas
-        </a>
+        <a href="{{ '/herramientas/' | relative_url }}" class="feature-link">Ver herramientas</a>
       </article>
     </li>
     <li>
-      <article class="feature-card">
+      <article class="feature-card" aria-labelledby="feature-5-title">
         <div class="feature-icon">
           {% include icon.html name="abbr" size="medium" %}
         </div>
-        <h3 class="feature-title">
+        <h3 class="feature-title" id="feature-5-title">
           <a href="{{ '/abreviaturas/' | relative_url }}">Glosario de términos</a>
         </h3>
         <p class="feature-text">PIC, espíritu, entrenamiento escalonado... si no sabés qué significa, lo tenés explicado en cristiano.</p>
-        <a href="{{ '/abreviaturas/' | relative_url }}" class="feature-link">
-          Ver abreviaturas
-        </a>
+        <a href="{{ '/abreviaturas/' | relative_url }}" class="feature-link">Ver abreviaturas</a>
       </article>
     </li>
   </ul>
 </section>
-

@@ -79,7 +79,7 @@
 
     <main id="main-content" class="main-content" tabindex="-1">
       {% unless page.url == '/' %}
-      <nav aria-label="Breadcrumb">
+      <nav aria-label="Ruta de navegación">
         <ol class="breadcrumb">
           <li><a href="{{ '/' | relative_url }}">Inicio</a></li>
           {% assign crumbs = page.url | remove_first: '/' | split: '/' %}
