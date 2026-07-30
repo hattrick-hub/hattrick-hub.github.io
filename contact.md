@@ -5,7 +5,6 @@ description: "Contacta con Hattrick Hub o únete a nuestra comunidad en Telegram
 hero_image: /assets/img/hero-contact.webp
 hero_alt: "Imagen de contacto de Hattrick Hub"
 hide_news_bar: true
-contact_email: "tutorhattrick@hotmail.com"
 permalink: /contacto/
 ---
 
@@ -57,7 +56,7 @@ permalink: /contacto/
           </div>
           <h3 class="feature-title">Telegram</h3>
           <p class="feature-text">Únete a la comunidad. Consejos, debates y ayuda en tiempo real de otros managers.</p>
-          <a href="https://t.me/JuvenilesHT" target="_blank" rel="noopener noreferrer" class="feature-link">
+          <a href="{{ site.telegram_group }}" target="_blank" rel="noopener noreferrer" class="feature-link">
             Unirme al grupo
             {% include icon.html name="external" %}
           </a>
