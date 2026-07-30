@@ -3,12 +3,18 @@
 {% unless page.hide_news_bar %}
 {% if featured_tools.size > 0 %}
 <aside class="news-bar">
+  {% if featured_tools.size > 1 %}
   <div class="carousel" role="region" aria-roledescription="carrusel" aria-label="Herramientas destacadas"
-    tabindex="0">
+    aria-live="polite" tabindex="0">
+  {% else %}
+  <div class="carousel" aria-label="Herramienta destacada">
+  {% endif %}
     <div class="carousel-inner">
       {% for tool in featured_tools %}
-        <article class="carousel-item{% if forloop.first %} active{% endif %}" role="group"
+        <article class="carousel-item{% if forloop.first %} active{% endif %}"
+          {% if featured_tools.size > 1 %}
           aria-roledescription="diapositiva" aria-label="{{ forloop.index }} de {{ forloop.length }}"
+          {% endif %}
           id="carousel-slide-{{ forloop.index0 }}" data-slide="{{ forloop.index0 }}">
           <h3>{{ tool.title | strip_html | escape }}</h3>
           <p>{{ tool.excerpt | strip_html | truncatewords: 20 }}</p>
