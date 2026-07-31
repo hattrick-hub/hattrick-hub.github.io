@@ -1,0 +1,24 @@
+{% comment %}
+load-more.html — Botón "Ver más" con JavaScript progresivo.
+  Sin JS, todos los artículos son visibles (fallback accesible).
+  Parámetros:
+    items_per_load (opcional) — cuántos mostrar por clic. Default: 8
+    container (opcional) — selector del contenedor de items. Default: .grid-base
+{% endcomment %}
+
+{% assign per_load = include.items_per_load | default: 8 %}
+{% assign container_selector = include.container | default: '.grid-base' %}
+
+<noscript>
+  <style>
+    .load-more-btn { display: none !important; }
+    .card-base.hidden-card { display: flex !important; }
+  </style>
+</noscript>
+
+<button type="button" class="button is-outlined load-more-btn" hidden
+  data-per-load="{{ per_load }}"
+  data-container="{{ container_selector }}"
+  aria-label="Cargar más artículos">
+  Ver más
+</button>

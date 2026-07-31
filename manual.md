@@ -52,5 +52,8 @@ image: /assets/img/hero-manual.webp
         </li>
       {% endfor %}
     </ul>
+
+  {% include load-more.html items_per_load=8 %}
+
   </div>
 </section>

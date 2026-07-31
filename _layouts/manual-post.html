@@ -20,6 +20,8 @@ layout: default
 
       {% include post-meta.html post=page show_author=true %}
 
+      {% include toc.html %}
+
       <div class="content">
         {{ content }}
       </div>
@@ -28,3 +30,5 @@ layout: default
     </article>
   </div>
 </section>
+
+{% include post-navigation.html %}

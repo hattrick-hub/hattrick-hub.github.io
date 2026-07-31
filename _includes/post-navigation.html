@@ -1,0 +1,58 @@
+{% comment %}
+post-navigation.html — Navegación entre artículos consecutivos dentro de una colección.
+  Parámetros:
+    collection (opcional) — nombre de la colección. Default: page.collection
+    date_sort  (opcional) — true | false. Default: true (ordenar por fecha)
+    title_sort (opcional) — true | false. Default: false (ordenar por título)
+{% endcomment %}
+
+{% assign nav_collection = include.collection | default: page.collection %}
+{% assign nav_items = site[nav_collection] %}
+
+{% if include.title_sort %}
+  {% assign nav_items = nav_items | sort: 'title' %}
+{% else %}
+  {% assign nav_items = nav_items | sort: 'date' | reverse %}
+{% endif %}
+
+{% assign prev_item = nil %}
+{% assign next_item = nil %}
+{% assign found = false %}
+
+{% for item in nav_items %}
+  {% if found %}
+    {% assign next_item = item %}
+    {% break %}
+  {% endif %}
+  {% if item.url == page.url %}
+    {% assign found = true %}
+  {% else %}
+    {% assign prev_item = item %}
+  {% endif %}
+{% endfor %}
+
+{% if prev_item or next_item %}
+<nav class="post-navigation" aria-label="Navegación entre artículos">
+  <div class="post-navigation-inner">
+    {% if prev_item %}
+    <a href="{{ prev_item.url | relative_url }}" class="post-nav-link prev" rel="prev">
+      <span class="post-nav-direction">
+        {% include icon.html name="chevron-left" %}
+        {{ prev_item.collection | default: 'Anterior' | capitalize | replace: 'Blog', 'Anterior' | replace: 'Noticias', 'Anterior' | replace: 'Manual', 'Anterior' | replace: 'Herramientas', 'Anterior' }}
+      </span>
+      <span class="post-nav-title">{{ prev_item.title | escape }}</span>
+    </a>
+    {% endif %}
+
+    {% if next_item %}
+    <a href="{{ next_item.url | relative_url }}" class="post-nav-link next" rel="next">
+      <span class="post-nav-direction">
+        {{ next_item.collection | default: 'Siguiente' | capitalize | replace: 'Blog', 'Siguiente' | replace: 'Noticias', 'Siguiente' | replace: 'Manual', 'Siguiente' | replace: 'Herramientas', 'Siguiente' }}
+        {% include icon.html name="chevron-right" %}
+      </span>
+      <span class="post-nav-title">{{ next_item.title | escape }}</span>
+    </a>
+    {% endif %}
+  </div>
+</nav>
+{% endif %}

@@ -1,0 +1,30 @@
+{% comment %}
+toc.html — Genera una tabla de contenidos a partir de los h2 del contenido.
+  Parámetros:
+    content (obligatorio) — el contenido markdown procesado
+    title (opcional) — título del índice. Default: "Índice"
+{% endcomment %}
+
+{% assign toc_content = include.content | default: content %}
+{% assign toc_title = include.title | default: 'Índice' %}
+
+{% comment %} Extraer todos los h2 con su id {% endcomment %}
+{% assign headings = toc_content | split: '<h2 id="' %}
+
+{% if headings.size > 1 %}
+<nav class="toc" aria-labelledby="toc-heading">
+  <h2 id="toc-heading">{{ toc_title }}</h2>
+  <ol>
+    {% for heading in headings %}
+      {% if forloop.first %}{% continue %}{% endif %}
+      {% assign id = heading | split: '"' | first %}
+      {% assign text = heading | split: '</h2>' | first | split: '>' | last | strip_html | strip_newlines %}
+      {% if text != '' %}
+      <li>
+        <a href="#{{ id }}">{{ text }}</a>
+      </li>
+      {% endif %}
+    {% endfor %}
+  </ol>
+</nav>
+{% endif %}

@@ -337,4 +337,123 @@ document.addEventListener("DOMContentLoaded", () => {
       img.addEventListener("error", activatePlaceholder);
     }
   });
+  // =========================================================
+  // LOAD MORE BUTTON
+  // =========================================================
+  const loadMoreBtn = document.querySelector('.load-more-btn');
+
+  if (loadMoreBtn) {
+    const perLoad = parseInt(loadMoreBtn.dataset.perLoad) || 8;
+    const containerSelector = loadMoreBtn.dataset.container || '.grid-base';
+    const container = document.querySelector(containerSelector);
+
+    if (container) {
+      const allItems = container.querySelectorAll('li');
+      let visibleCount = perLoad;
+
+      // Mostrar el botón solo si hay más items que el límite inicial
+      if (allItems.length > perLoad) {
+        loadMoreBtn.hidden = false;
+
+        // Ocultar items más allá del límite inicial
+        allItems.forEach((item, index) => {
+          if (index >= perLoad) {
+            item.classList.add('hidden-card');
+          }
+        });
+
+        loadMoreBtn.addEventListener('click', () => {
+          const nextLimit = visibleCount + perLoad;
+          let newlyVisible = 0;
+
+          allItems.forEach((item, index) => {
+            if (index >= visibleCount && index < nextLimit) {
+              item.classList.remove('hidden-card');
+              newlyVisible++;
+            }
+          });
+
+          visibleCount = nextLimit;
+
+          // Deshabilitar botón si no hay más items
+          if (visibleCount >= allItems.length) {
+            loadMoreBtn.setAttribute('disabled', '');
+            loadMoreBtn.setAttribute('aria-label', 'No hay más artículos');
+            loadMoreBtn.textContent = 'No hay más';
+          }
+
+          // Mover foco al primer item nuevo
+          const firstNew = container.querySelector(`li:nth-child(${visibleCount - newlyVisible + 1})`);
+          if (firstNew) {
+            firstNew.querySelector('a, button, [tabindex]')?.focus();
+          }
+        });
+      }
+    }
+  }
+
+  // =========================================================
+  // SEARCH ABREVIATURAS
+  // =========================================================
+  const searchInput = document.getElementById('abbr-search');
+
+  if (searchInput) {
+    const searchClear = document.querySelector('.search-clear');
+    const searchCount = document.querySelector('.search-count');
+    const noResults = document.querySelector('.no-results');
+    const searchTerm = document.querySelector('.search-term');
+    const allItems = document.querySelectorAll('#abbr-results li[data-search-text]');
+    const allCategories = document.querySelectorAll('.category-section');
+
+    let totalItems = allItems.length;
+
+    const updateSearch = debounce(() => {
+      const query = searchInput.value.trim().toLowerCase();
+      let visibleCount = 0;
+
+      // Mostrar/ocultar botón limpiar
+      if (searchClear) {
+        searchClear.hidden = query.length === 0;
+      }
+
+      allItems.forEach((item) => {
+        const searchText = item.dataset.searchText.toLowerCase();
+        const isVisible = query === '' || searchText.includes(query);
+        item.classList.toggle('search-hidden', !isVisible);
+        if (isVisible) visibleCount++;
+      });
+
+      // Actualizar contador
+      if (searchCount) {
+        if (query === '') {
+          searchCount.textContent = `${allCategories.length} categorías · ${totalItems} términos`;
+        } else {
+          searchCount.textContent = `${visibleCount} de ${totalItems} resultados`;
+        }
+      }
+
+      // Mostrar/ocultar mensaje sin resultados
+      if (noResults && searchTerm) {
+        if (visibleCount === 0 && query !== '') {
+          searchTerm.textContent = `"${searchInput.value.trim()}"`;
+          noResults.hidden = false;
+        } else {
+          noResults.hidden = true;
+        }
+      }
+
+      // Ocultar categorías vacías (manejado por CSS :has)
+    }, 150);
+
+    searchInput.addEventListener('input', updateSearch);
+
+    // Botón limpiar
+    if (searchClear) {
+      searchClear.addEventListener('click', () => {
+        searchInput.value = '';
+        updateSearch();
+        searchInput.focus();
+      });
+    }
+  }
 });

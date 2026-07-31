@@ -18,8 +18,13 @@ Parámetros:
 {% assign date_modified_str = item.lastUpdated | date: '%Y-%m-%d' %}
 
 <div class="meta">
+<!--
   <time datetime="{{ item.date | date: '%Y-%m-%d' }}">
     {{ item.date | date: "%d %b %Y" }}
+  </time>
+-->
+  <time datetime="{{ item.date | date: '%Y-%m-%d' }}">
+    {% include relative-date.html date=item.date %}
   </time>
 
   {% if show_updated and item.lastUpdated and date_modified_str != date_published_str %}

@@ -6,6 +6,7 @@ hero_image: /assets/img/hero-about.webp
 hero_alt: "Imagen representativa de Hattrick Hub"
 hide_news_bar: true
 permalink: /acerca-de/
+image: /assets/img/hero-about.webp
 ---
 
 {% capture hero_buttons %}

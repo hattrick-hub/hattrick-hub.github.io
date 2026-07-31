@@ -1,0 +1,28 @@
+{% comment %}
+relative-date.html — Muestra la fecha en formato relativo si es reciente.
+  Parámetros:
+    date (obligatorio) — fecha a mostrar
+    absolute_fallback (opcional) — true | false. Default: true
+{% endcomment %}
+
+{% assign rel_date = include.date | date: '%s' | plus: 0 %}
+{% assign now_seconds = 'now' | date: '%s' | plus: 0 %}
+{% assign diff_seconds = now_seconds | minus: rel_date %}
+{% assign diff_days = diff_seconds | divided_by: 86400 %}
+
+{% if diff_days < 0 %}
+  {% comment %} Fecha futura — mostrar absoluta {% endcomment %}
+  {{ include.date | date: "%d %b %Y" }}
+{% elsif diff_days < 1 %}
+  Hoy
+{% elsif diff_days < 2 %}
+  Ayer
+{% elsif diff_days < 7 %}
+  Hace {{ diff_days }} días
+{% elsif diff_days < 30 %}
+  Hace {{ diff_days | divided_by: 7 | round }} semanas
+{% elsif diff_days < 365 %}
+  Hace {{ diff_days | divided_by: 30 | round }} meses
+{% else %}
+  {{ include.date | date: "%d %b %Y" }}
+{% endif %}

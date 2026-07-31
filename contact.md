@@ -6,6 +6,7 @@ hero_image: /assets/img/hero-contact.webp
 hero_alt: "Imagen de contacto de Hattrick Hub"
 hide_news_bar: true
 permalink: /contacto/
+image: /assets/img/hero-contact.webp
 ---
 
 {% capture hero_buttons %}
