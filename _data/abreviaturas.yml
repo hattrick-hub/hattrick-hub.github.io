@@ -219,10 +219,10 @@
     - name: NT
       description: Selección Nacional Absoluta.
       tags: [seleccion, nacional]
-    - name: U20
-      description: Selección Nacional Sub-20.
+    - name: U21
+      description: Selección Nacional Sub-21.
       tags: [seleccion, juvenil]
-      notes: Antes llamada U21, ahora es U20.
+      notes: Antes llamada U20, ahora es U21.
     - name: YA
       description: Academia Juvenil / Cantera.
       tags: [juvenil, academia]
@@ -240,6 +240,7 @@
       description: Proveedor Certificado de Productos Hattrick.
       tags: [organizacion, desarrollo]
       notes: Certificación oficial para apps externas autorizadas.
+      featured: true
     - name: GM
       description: GameMaster, representante oficial por país.
       tags: [funcionario, administrador]
@@ -282,6 +283,7 @@
       description: Hattrick (el juego o el staff oficial).
       tags: [general, juego]
       notes: Abreviatura universal del juego.
+      featured: true
     - name: RL
       description: Vida Real (fuera del juego).
       tags: [general, realidad]
