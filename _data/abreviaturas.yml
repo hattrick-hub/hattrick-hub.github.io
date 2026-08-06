@@ -18,6 +18,7 @@
       description: Táctica de Contraataques.
       tags: [tactica, defensa]
       notes: De las más usadas en Hattrick.
+      featured: true
     - name: LS
       description: Táctica de Tiros Lejanos.
       tags: [tactica, ataque]
@@ -35,6 +36,7 @@
       description: Estrategia de cambiar órdenes en vivo para defender ventaja.
       tags: [estrategia, partido]
       notes: Concepto táctico clave, no es abreviatura.
+      featured: true
 
 - category: Posiciones y Roles
   list:
@@ -157,12 +159,15 @@
       description: Orden especial Partido de la Temporada.
       tags: [orden, especial]
       notes: Solo disponible en un partido específico por temporada.
+      featured: true
     - name: PIC
       description: Orden de equipo Jugar Tranquilo / Relajado.
       tags: [orden, partido]
+      featured: true
     - name: PIN
       description: Orden de equipo Jugar Normal.
       tags: [orden, partido]
+      featured: true
     - name: SE
       description: Evento Especial (jugada predefinida en partido).
       tags: [evento, partido]
@@ -180,6 +185,7 @@
     - name: EXP
       description: Experiencia del jugador.
       tags: [medicion, jugador]
+      featured: true
     - name: TA
       description: Herramienta de Análisis de Equipo.
       tags: [herramienta, analisis]
@@ -187,6 +193,7 @@
       description: Índice Total de Habilidades.
       tags: [medicion, jugador]
       notes: La métrica principal de valor de un jugador.
+      featured: true
     - name: WC
       description: Nivel Clase Mundial (~18-19) o Copa del Mundo.
       tags: [nivel, torneo]
@@ -198,6 +205,7 @@
       description: Estrategia de compraventa escalonada para generar plusvalía.
       tags: [mercado, estrategia]
       notes: Término económico clave, no es abreviatura.
+      featured: true
     - name: TC
       description: Herramienta para Comparar Transferencias.
       tags: [transferencia, herramienta]
@@ -219,10 +227,12 @@
     - name: NT
       description: Selección Nacional Absoluta.
       tags: [seleccion, nacional]
+      featured: true
     - name: U21
       description: Selección Nacional Sub-21.
       tags: [seleccion, juvenil]
       notes: Antes llamada U20, ahora es U21.
+      featured: true
     - name: YA
       description: Academia Juvenil / Cantera.
       tags: [juvenil, academia]
