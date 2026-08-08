@@ -122,27 +122,40 @@ image: /assets/img/placeholder.webp
     @layer theme {
       :root {
         color-scheme: light dark;
-        --color-primary: light-dark(hsl(150 40% 35%), hsl(150 40% 45%));
-        --color-primary-dark: light-dark(hsl(150 40% 25%), hsl(150 40% 35%));
-        --color-primary-light: light-dark(hsl(150 40% 55%), hsl(150 40% 60%));
-        --color-secondary: light-dark(hsl(20 65% 40%), hsl(20 65% 50%));
-        --color-secondary-dark: light-dark(hsl(20 65% 30%), hsl(20 65% 40%));
-        --color-secondary-light: light-dark(hsl(20 65% 60%), hsl(20 65% 70%));
+
+        /* 🎨 Colores principales Ecuador */
+        --color-primary: light-dark(hsl(210 80% 35%), hsl(210 80% 45%)); /* Azul */
+        --color-primary-dark: light-dark(hsl(210 80% 25%), hsl(210 80% 35%));
+        --color-primary-light: light-dark(hsl(210 80% 55%), hsl(210 80% 65%));
+
+        --color-secondary: light-dark(hsl(50 90% 50%), hsl(50 90% 60%)); /* Amarillo */
+        --color-secondary-dark: light-dark(hsl(50 90% 40%), hsl(50 90% 50%));
+        --color-secondary-light: light-dark(hsl(50 90% 70%), hsl(50 90% 80%));
+
+        --color-accent: light-dark(hsl(0 75% 45%), hsl(0 75% 55%)); /* Rojo */
+
+        /* 📝 Texto y fondo */
         --color-text: light-dark(#1a1f24, #ecebe9);
         --color-text-secondary: light-dark(#374151, #d1d5db);
         --color-text-muted: light-dark(#4b5563, #d1d5db);
         --color-background: light-dark(#f9f6f2, #151515);
         --color-card: light-dark(#ffffff, #222222);
         --color-card-hover: light-dark(#f5f5f5, #2a2a2a);
+
+        /* 🔲 Bordes y sombras */
         --color-border: light-dark(#c7c2ba, #454545);
         --color-border-subtle: light-dark(#e5e5e5, #333333);
         --shadow-color: light-dark(oklch(0% 0 0 / 8%), oklch(0% 0 0 / 20%));
         --shadow-card: 0 0.25rem 1rem light-dark(oklch(0% 0 0 / 6%), oklch(0% 0 0 / 12%));
         --shadow-card-hover: 0 0.5rem 1.5rem light-dark(oklch(0% 0 0 / 10%), oklch(0% 0 0 / 18%));
         --shadow-sm: 0 0.0625rem 0.125rem var(--shadow-color);
+
+    /* 🔘 Radios */
         --radius: 0.5rem;
         --radius-sm: 0.25rem;
         --radius-full: 9999px;
+
+      /* 📏 Espaciado */
         --space-1: 0.25rem;
         --space-2: 0.5rem;
         --space-3: 0.75rem;
@@ -151,6 +164,8 @@ image: /assets/img/placeholder.webp
         --space-6: 2rem;
         --space-7: 3rem;
         --space-8: 4rem;
+
+      /* 🔤 Tipografía */
         --font-base: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         --font-mono: "SF Mono", Monaco, Consolas, monospace;
         --font-size-xs: 0.75rem;
@@ -160,11 +175,16 @@ image: /assets/img/placeholder.webp
         --font-size-h2: clamp(1.5rem, 4vw, 2rem);
         --font-size-h3: clamp(1.25rem, 3vw, 1.5rem);
         --font-size-h4: clamp(1rem, 2.5vw, 1.125rem);
+
+    /* 📐 Line-height y peso */
         --line-height-base: 1.6;
         --line-height-heading: 1.2;
         --font-weight-bold: 700;
+    /* ⚡ Transiciones */
         --transition: 0.2s ease;
         --transition-standard: background var(--transition), color var(--transition), border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+
+    /* 🔲 Outline */
         --outline-width: 0.1875rem;
         --outline-offset: 0.125rem;
       }
@@ -240,7 +260,7 @@ image: /assets/img/placeholder.webp
 
       .page-header h1 {
         font-size: var(--font-size-h2);
-        background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+        background: linear-gradient(90deg, var(--color-primary), var(--color-secondary), var(--color-accent));
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         margin-block-end: var(--space-2);

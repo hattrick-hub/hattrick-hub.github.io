@@ -302,3 +302,30 @@
       description: Jerga "Lee el Maldito Manual".
       tags: [jerga, humor]
       notes: Respuesta clásica a preguntas básicas en foros.
+
+- category: Posiciones en el Campo
+  list:
+    - name: PO
+      description: Portero
+      tags: [hattrick, alineación]
+    - name: DLI
+      description: Defensor lateral izquierdo
+      tags: [hattrick, alineación]
+    - name: DC
+      description: Defensor central
+      tags: [hattrick, alineación]
+    - name: DLD
+      description: Defensor lateral derecho
+      tags: [hattrick, alineación]
+    - name: LI
+      description: Lateral izquierdo
+      tags: [hattrick, alineación]
+    - name: MC
+      description: Mediocampista
+      tags: [hattrick, alineación]
+    - name: LD
+      description: Lateral derecho
+      tags: [hattrick, alineación]
+    - name: DEL
+      description: Delantero
+      tags: [hattrick, alineación]
