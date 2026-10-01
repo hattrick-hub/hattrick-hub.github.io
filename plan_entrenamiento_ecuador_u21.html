@@ -69,7 +69,6 @@ image: /assets/img/placeholder.webp
     @layer reset, theme, layout, components, utilities, accessibility;
 
     @layer reset {
-
       *,
       *::before,
       *::after {
@@ -124,15 +123,15 @@ image: /assets/img/placeholder.webp
         color-scheme: light dark;
 
         /* 🎨 Colores principales Ecuador */
-        --color-primary: light-dark(hsl(210 80% 35%), hsl(210 80% 45%)); /* Azul */
+        --color-primary: light-dark(hsl(210 80% 35%), hsl(210 80% 45%));
         --color-primary-dark: light-dark(hsl(210 80% 25%), hsl(210 80% 35%));
         --color-primary-light: light-dark(hsl(210 80% 55%), hsl(210 80% 65%));
 
-        --color-secondary: light-dark(hsl(50 90% 50%), hsl(50 90% 60%)); /* Amarillo */
+        --color-secondary: light-dark(hsl(50 90% 50%), hsl(50 90% 60%));
         --color-secondary-dark: light-dark(hsl(50 90% 40%), hsl(50 90% 50%));
         --color-secondary-light: light-dark(hsl(50 90% 70%), hsl(50 90% 80%));
 
-        --color-accent: light-dark(hsl(0 75% 45%), hsl(0 75% 55%)); /* Rojo */
+        --color-accent: light-dark(hsl(0 75% 45%), hsl(0 75% 55%));
 
         /* 📝 Texto y fondo */
         --color-text: light-dark(#1a1f24, #ecebe9);
@@ -150,12 +149,12 @@ image: /assets/img/placeholder.webp
         --shadow-card-hover: 0 0.5rem 1.5rem light-dark(oklch(0% 0 0 / 10%), oklch(0% 0 0 / 18%));
         --shadow-sm: 0 0.0625rem 0.125rem var(--shadow-color);
 
-    /* 🔘 Radios */
+        /* 🔘 Radios */
         --radius: 0.5rem;
         --radius-sm: 0.25rem;
         --radius-full: 9999px;
 
-      /* 📏 Espaciado */
+        /* 📏 Espaciado */
         --space-1: 0.25rem;
         --space-2: 0.5rem;
         --space-3: 0.75rem;
@@ -165,7 +164,7 @@ image: /assets/img/placeholder.webp
         --space-7: 3rem;
         --space-8: 4rem;
 
-      /* 🔤 Tipografía */
+        /* 🔤 Tipografía */
         --font-base: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         --font-mono: "SF Mono", Monaco, Consolas, monospace;
         --font-size-xs: 0.75rem;
@@ -176,15 +175,16 @@ image: /assets/img/placeholder.webp
         --font-size-h3: clamp(1.25rem, 3vw, 1.5rem);
         --font-size-h4: clamp(1rem, 2.5vw, 1.125rem);
 
-    /* 📐 Line-height y peso */
+        /* 📐 Line-height y peso */
         --line-height-base: 1.6;
         --line-height-heading: 1.2;
         --font-weight-bold: 700;
-    /* ⚡ Transiciones */
+
+        /* ⚡ Transiciones */
         --transition: 0.2s ease;
         --transition-standard: background var(--transition), color var(--transition), border-color var(--transition), transform var(--transition), box-shadow var(--transition);
 
-    /* 🔲 Outline */
+        /* 🔲 Outline */
         --outline-width: 0.1875rem;
         --outline-offset: 0.125rem;
       }
@@ -394,10 +394,15 @@ image: /assets/img/placeholder.webp
         font-weight: 700;
       }
 
-      /* Carruseles con flechas */
+      /* ================================================================
+         CARRUSELES CON FLECHAS
+         - Ahora con padding-inline en el wrapper para que las flechas
+           no se superpongan al contenido
+         ================================================================ */
       .carousel-wrapper,
       .notes-wrapper {
         position: relative;
+        padding-inline: var(--space-7);
       }
 
       .carousel-arrow {
@@ -431,11 +436,11 @@ image: /assets/img/placeholder.webp
       }
 
       .carousel-arrow.prev {
-        inset-inline-start: var(--space-2);
+        inset-inline-start: 0;
       }
 
       .carousel-arrow.next {
-        inset-inline-end: var(--space-2);
+        inset-inline-end: 0;
       }
 
       .carousel-arrow .icon {
@@ -1059,7 +1064,6 @@ image: /assets/img/placeholder.webp
 
     @layer accessibility {
       @media (prefers-reduced-motion: reduce) {
-
         *,
         *::before,
         *::after {
@@ -1109,6 +1113,11 @@ image: /assets/img/placeholder.webp
       }
     }
 
+    /* ================================================================
+       MOBILE: Ajustes específicos para pantallas pequeñas
+       - Flechas de carrusel quedan en los márgenes laterales,
+         fuera del contenido, gracias al padding-inline del wrapper
+       ================================================================ */
     @media (max-width: 40rem) {
       body {
         padding: var(--space-4) var(--space-3);
@@ -1147,7 +1156,13 @@ image: /assets/img/placeholder.webp
       }
 
       .note-card {
-        flex: 0 0 90%;
+        flex: 0 0 85%;
+      }
+
+      /* Flechas visibles en móvil, tamaño reducido, dentro del padding del wrapper */
+      .carousel-wrapper,
+      .notes-wrapper {
+        padding-inline: var(--space-6);
       }
 
       .carousel-arrow {
@@ -1157,11 +1172,16 @@ image: /assets/img/placeholder.webp
       }
 
       .carousel-arrow.prev {
-        inset-inline-start: var(--space-1);
+        inset-inline-start: 0;
       }
 
       .carousel-arrow.next {
-        inset-inline-end: var(--space-1);
+        inset-inline-end: 0;
+      }
+
+      .carousel-arrow .icon {
+        inline-size: 0.75rem;
+        block-size: 0.75rem;
       }
     }
   </style>
@@ -1216,7 +1236,7 @@ image: /assets/img/placeholder.webp
     </h2>
     <div class="carousel-wrapper">
       <button class="carousel-arrow prev" aria-label="Anterior término" onclick="scrollCarousel('glosario', -1)">
-        {% include icon.html name="chevron-left" size="medium" %}
+        {% include icon.html name="chevron-left" %}
       </button>
       <div class="carousel" id="glosario" role="region" aria-label="Glosario de términos Hattrick">
         {% for item in site.data.plan-entrenamiento.glosario %}
@@ -1229,7 +1249,7 @@ image: /assets/img/placeholder.webp
         {% endfor %}
       </div>
       <button class="carousel-arrow next" aria-label="Siguiente término" onclick="scrollCarousel('glosario', 1)">
-        {% include icon.html name="chevron-right" size="medium" %}
+        {% include icon.html name="chevron-right" %}
       </button>
     </div>
 
@@ -1241,7 +1261,7 @@ image: /assets/img/placeholder.webp
     </h2>
     <div class="carousel-wrapper">
       <button class="carousel-arrow prev" aria-label="Anterior requisito" onclick="scrollCarousel('requisitos', -1)">
-        {% include icon.html name="chevron-left" size="medium" %}
+        {% include icon.html name="chevron-left" %}
       </button>
       <div class="carousel" id="requisitos" role="region" aria-label="Requisitos recomendados">
         {% for item in site.data.plan-entrenamiento.requisitos %}
@@ -1252,7 +1272,7 @@ image: /assets/img/placeholder.webp
         {% endfor %}
       </div>
       <button class="carousel-arrow next" aria-label="Siguiente requisito" onclick="scrollCarousel('requisitos', 1)">
-        {% include icon.html name="chevron-right" size="medium" %}
+        {% include icon.html name="chevron-right" %}
       </button>
     </div>
 
@@ -1387,7 +1407,7 @@ image: /assets/img/placeholder.webp
       <div class="accordion-content">
         <div class="notes-wrapper">
           <button class="carousel-arrow prev" aria-label="Nota anterior" onclick="scrollCarousel('notes-scroll', -1)">
-            {% include icon.html name="chevron-left" size="medium" %}
+            {% include icon.html name="chevron-left" %}
           </button>
           <div class="notes-scroll" id="notes-scroll">
             {% for nota in site.data.plan-entrenamiento.notas %}
@@ -1398,7 +1418,7 @@ image: /assets/img/placeholder.webp
             {% endfor %}
           </div>
           <button class="carousel-arrow next" aria-label="Nota siguiente" onclick="scrollCarousel('notes-scroll', 1)">
-            {% include icon.html name="chevron-right" size="medium" %}
+            {% include icon.html name="chevron-right" %}
           </button>
         </div>
       </div>
